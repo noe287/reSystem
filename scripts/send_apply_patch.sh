@@ -1,0 +1,75 @@
+if [ ! $1 ];then
+ exit
+fi
+
+IN=$PWD
+array=(${IN//// })
+
+#arr_len=`echo ${#array[@]}`
+#echo $arr_len
+
+for i in "${!array[@]}"
+do
+echo $i
+#       echo "$i=>${array[$i]}"
+        test=${array[$i]}
+        if [ "$flag" = 1 ]
+        then
+                if echo $test | grep "Air"; then
+                        continue
+                fi
+
+                remote_path+="$test/"
+        fi
+
+        if [ "$test" = "projects" ]
+        then
+                flag=1
+        fi
+done
+
+echo $remote_path
+
+remote_cmd="/home/noe287/Development/projects/$1/$remote_path"
+prj_name=$1
+ssh_login="noe287@10.20.0.114"
+
+svn diff > patch_to_send.diff
+
+echo "Sending the file at location $ssh_login:/home/noe287/Development/projects/$1/$remote_path"
+scp patch_to_send $ssh_login:$remote_cmd
+
+#ssh noe287@10.20.0.114 'svn diff' /home/noe287/Development/projects/$prj_name/$remote_path
+
+ssh $ssh_login 'cd' "$remote_cmd" ';patch -p0 --dry-run < patch_to_send.diff'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

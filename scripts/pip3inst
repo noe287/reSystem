@@ -1,0 +1,1 @@
+sudo -E pip3 install $1

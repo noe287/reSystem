@@ -1,0 +1,3 @@
+
+
+sudo tcpdump -v -n -i $1 'ip and ip[1] & 0xfc == '$2

@@ -1,0 +1,9 @@
+if [ $1 = 'd' ]
+then
+    echo "Hi"
+    curl -O http://buildbot.corp.airties.com/images/DailyBuilds/Air4920FR-OR/336/$2
+else
+    echo "hello"
+    curl -O http://buildbot.corp.airties.com/images/InstantBuilds/Air4920FR-OR/$2
+fi
+

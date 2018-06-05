@@ -1,0 +1,3 @@
+service tftpd-hpa start
+systemctl status tftpd-hpa.service
+

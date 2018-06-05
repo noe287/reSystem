@@ -1,0 +1,26 @@
+Version=2
+
+[AutoCompletion]
+Delay=500
+Enabled=true
+MaxEntries=100
+MinChars=3
+
+[Project]
+AutoRebuildTime=10
+CtagsCommand=
+FileTypes=*.c *.h *.l *.y *.S *.cc *.cpp *.cxx *.C *.hh *.hpp *.hxx *.H
+InvIndex=true
+Kernel=true
+Name=/usr/bin/scripts/
+NoCompress=false
+RootPath=/usr/bin/scripts/
+SlowPathDef=false
+TabWidth=0
+
+[Session]
+Bookmarks=
+CallTreeFiles=
+LastOpenFile=
+OpenFiles=
+QueryFiles=

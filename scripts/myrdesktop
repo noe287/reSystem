@@ -1,0 +1,2 @@
+rdesktop -g 1280x1024 -r disk:share=/home/clkbkr/tmpECO -r clipboard:CLIPBOARD -u nejatonay.erkose -d AIRTIES terminal2.corp.airties.com
+

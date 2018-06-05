@@ -1,0 +1,11 @@
+[user]
+	name = \"Nejat Onay Erköse\"
+	email = nejatonay.erkose@airties.com
+[core]
+	editor = vim
+[commit]
+	template = /home/systems/.git_log_template
+[references]
+	path = /opt/GIT_REFERENCE_REPOSITORIES
+[alias]
+         pub = "!f() { git push -u ${1:-origin} --no-thin HEAD:`git config branch.$(git name-rev --name-only HEAD).merge | sed -e 's@refs/heads/@refs/for/@'`;  }; f"

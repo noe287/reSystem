@@ -1,0 +1,3 @@
+rm /tftpboot/{agent, param.xml} ; rm tr069/tr069-ws-1.3.0_devel/src/agent ;  mca tr069 && cp tr069/tr069-ws-1.3.0_devel/src/agent /tftpboot/ && cp manager/manager-1.27_Air4920/src/tr-069-impl/tr-069/generated-param.xml /tftpboot/param.xml && ls -al /tftpboot
+
+# tftp -g 192.168.2.77 -r agent && tftp -g 192.168.2.77 -r param.xml && chmod 777 agent && ./agent -L 200 -F /var/

@@ -1,0 +1,687 @@
+#!/bin/bash
+#
+# Author memre < emre.atasever ~ airties.com >
+#
+# This script covers some operations for AirTies firmwares
+#    - Fetches firmwares
+#    - Lets you compare two different firmwares and lists diffs
+#        to a directory
+#
+# TODO:
+#    - first screen will be operations
+#        1. List firmwares
+#        2. Compare firmwares
+#        3. Settings
+#
+#    - Firmware comparison enhancement
+#        . fwlist cannot compare two different profile's firmwares, do it via checkbox
+#        . package by package comparison
+#        
+
+DIALOG=dialog
+FW_SVN_URL=http://svn.corp.airties.com/svn/atlantis/release/development
+FW_BUILDBOT_URL="http://buildbot.corp.airties.com/images/InstantBuilds"
+#FW_BUILDBOT_URL="http://buildbot.corp.airties.com/images/DailyBuilds"
+FW_DIR=$HOME/firmware
+DIFF_DIR=$FW_DIR/diffs
+
+out=$(mktemp)
+tmp=$(mktemp)
+
+# Dialog colors
+NoColor="\Zn"
+Reverse="\Zr"
+NoReverse="\ZR"
+Bold="\Zb"
+NoBold="\ZB"
+Underline="\Zu"
+NoUnderline="\ZU"
+Black="\Z0"
+Red="\Z1"
+Green="\Z2"
+Yellow="\Z3"
+Blue="\Z4"
+Magenta="\Z5"
+Cyan="\Z6"
+White="\Z7"
+
+dialog_params="--extra-button --extra-label Fetch --help-button --help-label Compare --cancel-label Back --ok-label Select"
+product_list=( )
+product=
+file_list=()
+
+_h=
+_w=
+
+__stack=( )
+stack()
+{
+    local op=$1
+    local ret=
+
+    case $op in
+        is_empty)
+            [ "$(stack size)" -eq 0 ] && return 0 || return 1
+            ;;
+
+        print_path)
+            for ((i=0; i<${#__stack[*]}; i++)); do
+                echo -n "${__stack[$i]}"
+                [ $i -eq $((${#__stack[*]}-1)) ] || echo -n "/"
+            done
+            echo
+            ;;
+
+        size)
+            echo ${#__stack[@]}
+            ;;
+
+        clear)
+            __stack=( )            
+            ;;
+
+        push)
+            __stack=( "${__stack[@]}" $2 )
+            ;;
+
+        remove_last)
+            size=$(stack size)
+            [ ${size} -gt 0 ] && unset __stack[${size}-1]
+            ;;
+
+        pop)
+            stack get_last
+            stack remove_last
+            ;;
+
+        get_last)
+            size=$(stack size)
+            [ ${size} -gt 0 ] && echo "${__stack[${size} - 1]}"
+            ;;
+    esac
+}
+
+test_stack()
+{
+        stack push 2
+        stack push 3
+        stack push 4
+        stack push 5
+        stack push 6
+        stack print_path
+        stack pop
+        stack is_empty
+        echo " ==> $?"
+        stack pop
+        stack is_empty
+        echo " ==> $?"
+        stack remove_last
+        stack is_empty
+        echo " ==> $?"
+        stack get_last
+        stack clear
+        stack is_empty
+        echo " ==> $?"
+        stack pop
+        exit 0
+}
+
+check_env()
+{
+    local app=
+
+    while [ $# -ne 0 ]; do
+        app=$1
+        shift
+
+        which ${app} >/dev/null 2>&1
+        [ $? -ne 0 ] && { echo "Error! \`${app}' not found. You must install \`${app}' package to use fwlist."; exit 1; }
+    done
+}
+
+check_settings()
+{
+    [ -f $HOME/.fwlist ] && . $HOME/.fwlist
+
+    while [[ ! -f $HOME/.fwlist || -z "${FW_SVN_URL}" || -z "${FW_DIR}" || -z "${DIFF_DIR}" ]]; do
+        settings || exit 0
+        [ -f $HOME/.fwlist ] && . $HOME/.fwlist
+    done
+}
+
+prep_env()
+{
+    check_env svn dialog diff
+
+    # get terminal info
+    local __ttysize=$(stty size)
+    _h=$((`echo $__ttysize | cut -d' ' -f1` - 10))
+    _w=$((`echo $__ttysize | cut -d' ' -f2` - 10))
+
+    check_settings
+}
+
+settings()
+{
+    local setting=
+    local __FW_SVN_URL=${FW_SVN_URL}
+    local __FW_DIR=${FW_DIR}
+    local __DIFF_DIR=${DIFF_DIR}
+
+    while true; do
+        __check_settings() {
+            [[ -z "${__FW_SVN_URL}" ]] && { \ 
+                dialog --timeout 10 --title "Error\!" --msgbox "svn did not set" 8 27 2>/dev/null
+                __FW_SVN_URL=$FW_SVN_URL
+                continue
+            }
+            [[ -z "${__FW_DIR}" || -f "${__FW_DIR}" ]] && { \ 
+                dialog --title "Error!" --msgbox "firmware directory must be set correctly.\n\n1. Be sure that there is not a file called \"$__FW_DIR\"\n2. Value cannot be empty." 12 40 2>/dev/null
+                __FW_DIR=$FW_DIR
+                continue
+            }
+            [[ -z "${__DIFF_DIR}" || -f "${__DIFF_DIR}" ]] && { \ 
+                dialog --title "Error!" --msgbox "firmware directory must be set correctly.\n\n1. Be sure that there is not a file called \"$__DIFF_DIR\"\n2. Value cannot be empty." 12 40 2>/dev/null
+                __DIFF_URL=$DIFF_URL
+                continue
+            }
+        }
+
+        ${DIALOG} --inputmenu "Settings" \
+            $_h $_w $((_h - 10)) \
+            "SVN_Url" "$__FW_SVN_URL" \
+            "Firmware_Directories" "$__FW_DIR" \
+            "Firmware_Diffs" "$__DIFF_DIR" \
+            2>$out
+
+        __ret=$?
+        if [ $__ret -eq 1 ]; then
+            clear
+            return 1
+        elif [ $__ret -eq 3 ]; then
+            setting=$(cat $out | cut -d' ' -f2)
+            case $setting in
+                SVN_Url)
+                    __FW_SVN_URL=$(cat $out | cut -d' ' -f3-)
+                    ;;
+
+                Firmware_Directories)
+                    __FW_DIR=$(cat $out | cut -d' ' -f3-)
+                    ;;
+ 
+                Firmware_Diffs)
+                    __DIFF_DIR=$(cat $out | cut -d' ' -f3-)
+                    ;;
+            esac
+            __check_settings
+
+        elif [ $__ret -eq 0 ]; then
+            __check_settings
+            :> $HOME/.fwlist
+            echo "FW_SVN_URL=${__FW_SVN_URL}" >> $HOME/.fwlist
+            echo "FW_DIR=${__FW_DIR}" >> $HOME/.fwlist
+            echo "DIFF_DIR=${__DIFF_DIR}" >> $HOME/.fwlist
+            . $HOME/.fwlist
+            break
+        else
+            echo "Unhandled return value for dialog: $__ret"
+            exit 1
+        fi
+    done
+
+    return 0
+}
+
+list()
+{
+    svn ls ${FW_SVN_URL} | tr -d / > ${tmp}
+    [ $? -ne 0 ] && { echo "Error! Couldn't fetch firmwares"; exit 1; }
+
+    _i=0; for p in $(cat $tmp); do \
+        product_list=( "${product_list[@]}" "$p" )
+        _i=$((_i+1))
+    done
+
+    while true; do
+        stack clear
+        ${DIALOG} --backtitle "/$(stack print_path)" \
+            --cancel-label "Main menu" --ok-label "Select" \
+            --menu "Select Product" \
+            $_h $_w $((_h - 10)) \
+            $( for ((_i=0; _i<${#product_list[*]}; _i++)); do \
+                     echo " ${_i} ${product_list[$_i]}"; \
+                 done ) 2>$out
+
+        [ $? -ne 0 ] && break
+        product=${product_list[$(cat $out)]}
+        stack push $product
+
+        __cont=true
+        while ${__cont}; do
+            __list=( )
+
+            svn ls ${FW_SVN_URL}/$(stack print_path) | tr -d / > $tmp
+            [ $? -ne 0 ] && { echo "Error! Couldn't fetch"; exit 1; }
+
+            _i=0; for f in $(cat $tmp); do \
+                __list=( "${__list[@]}" "$f" )
+                _i=$((_i+1))
+            done
+
+            ${DIALOG} --backtitle "/$(stack print_path)" \
+                ${dialog_params} \
+                --menu "Select Firmware" \
+                $_h $_w $((_h - 10)) \
+                $( for ((_i=0; _i<${#__list[*]}; _i++)); do \
+                         echo " ${_i} ${__list[$_i]} "; \
+                     done ) 2>$out
+
+            __ret=$?
+            if [ $__ret -eq 0 ]; then
+                # if a single file selected, then fetch it.
+                if [ x"$(svn ls ${FW_SVN_URL}/$(stack print_path)/${__list[$(cat $out)]} 2>/dev/null)" == \
+                         x"${__list[$(cat $out)]}" ]; then
+                    svn_co ${__list[$(cat $out)]}
+                else                
+                    stack push ${__list[$(cat $out)]}
+                fi
+            elif [ $__ret -eq 2 ]; then
+                compare_profiles ${__list[$(cat $out | cut -d' ' -f2-)]}
+                continue
+            elif [ $__ret -eq 3 ]; then
+                svn_co ${__list[$(cat $out)]}
+                continue
+            else
+                stack print_path
+                stack remove_last
+            fi
+
+            stack is_empty
+            [ $? -eq 0 ] && __cont=false || __cont=true
+        done
+    done
+}
+
+list_buildbot()
+{
+	wget -q --no-proxy --spider "http://buildbot.corp.airties.com/images/InstantBuilds/" > ${tmp}
+	#wget -q --no-proxy --spider "http://buildbot.corp.airties.com/images/DailyBuilds/" > ${tmp}
+	[ $? -ne 0 ] && { echo "Error! Couldn't connect to buildbot!"; exit 1; }
+
+	if [ -f index.html ]; then
+		rm index.html
+	fi
+
+	echo "Fetching Product List..."
+
+	wget --no-proxy ${FW_BUILDBOT_URL}/ 2>/dev/null
+	cat index.html 1>/dev/null; \
+	grep -o '\/">.\+\/<\/a>' index.html | sed "s/\/\">\(.*\)\/<\/a>/\1/g" | sort > ${tmp}
+
+	_i=0; for p in $(cat $tmp); do \
+		product_list=( "${product_list[@]}" "$p" )
+		_i=$((_i+1))
+	done
+
+	while true; do
+		stack clear
+		${DIALOG} --backtitle "/$(stack print_path)" \
+		    --cancel-label "Main menu" --ok-label "Select" \
+		    --menu "Select Product" \
+		    $_h $_w $((_h - 10)) \
+		    $( for ((_i=0; _i<${#product_list[*]}; _i++)); do \
+			     echo " ${_i} ${product_list[$_i]}"; \
+			 done ) 2>$out
+
+		[ $? -ne 0 ] && break
+		product=${product_list[$(cat $out)]}
+		stack push $product
+
+		__cont=true
+		while ${__cont}; do
+			__list=( )
+
+			if [ -f index.html ]; then
+				rm index.html
+			fi
+
+			echo "Fetching build list..."
+
+			wget --no-proxy ${FW_BUILDBOT_URL}/$(stack print_path)/ 2>/dev/null
+			cat index.html 1>/dev/null; \
+			grep -o '\/">.\+\/<\/a>' index.html | sed "s/\/\">\(.*\)\/<\/a>/\1/g" | sort -nr > $tmp
+
+			_i=0; for f in $(cat $tmp); do \
+				__list=( "${__list[@]}" "$f" )
+				_i=$((_i+1))
+			done
+
+			${DIALOG} --backtitle "/$(stack print_path)" \
+			${dialog_params} \
+			--menu "Select Build Number" \
+			$_h $_w $((_h - 10)) \
+			$( for ((_i=0; _i<${#__list[*]}; _i++)); do \
+				 echo " ${_i} ${__list[$_i]} "; \
+			done ) 2>$out
+
+			__ret=$?
+			if [ $__ret -eq 0 ]; then
+			# if a single file selected, then fetch it.
+				if [ x"$tmp" == x"${__list[$(cat $out)]}" ]; then
+					wget "--no-proxy" "-r" "--directory-prefix=${FW_DIR}/$product/${__list[$(cat $out)]}" ${FW_BUILDBOT_URL}/$(stack print_path)/${__list[$(cat $out)]} -np -nd -l 1
+					wget "--no-proxy" "-r" "--directory-prefix=${FW_DIR}/$product/${__list[$(cat $out)]}/foss" "${FW_BUILDBOT_URL}/$(stack print_path)/${__list[$(cat $out)]}/foss" -np -nd -l 1 
+					find ${FW_DIR}/$product/${__list[$(cat $out)]}/ -name robots.txt | xargs rm
+					find ${FW_DIR}/$product/${__list[$(cat $out)]}/ -name "index.html*" | xargs rm
+					find ${FW_DIR}/$product/${__list[$(cat $out)]}/ -name "${__list[$(cat $out)]}" | xargs rm
+				else
+					stack push ${__list[$(cat $out)]}
+
+					if [ -f index.html.1 ]; then
+						rm ${FW_DIR}/index.html.1
+					fi
+
+					echo "Fetching file list..."
+
+					wget --no-proxy ${FW_BUILDBOT_URL}/$(stack print_path)/ 2>/dev/null
+					cat index.html.1 1>/dev/null; \
+					grep -o '<a href=".*">[^\(Parent Directory\)*]\(.\+\)<\/a><\/td>' index.html.1 | sed "s/<a href=\".*\">\(.\+\)<\/a><\/td>/\1/g" | sort -n > $tmp
+
+					_i=0; for f in $(cat $tmp); do \
+						file_list=( "${file_list[@]}" "$f" )
+						_i=$((_i+1))
+					done
+					${DIALOG} --backtitle "/$(stack print_path)" \
+					${dialog_params} \
+					--menu "Select a File" \
+					$_h $_w $((_h - 10)) \
+					$( for ((_i=0; _i<${#file_list[*]}; _i++)); do \
+						 echo " ${_i} ${file_list[$_i]} "; \
+					done ) 2>$out
+
+					__ret=$?
+					if [ $__ret -eq 0 ] || [ $__ret -eq 3 ]; then
+						wget "--no-proxy" "-r" "--directory-prefix=${FW_DIR}/$product/${__list[$(cat $out)]}" ${FW_BUILDBOT_URL}/$(stack print_path)/${file_list[$(cat $out)]} -np -nd -l 1
+						find -name robots.txt | xargs rm
+						find -name "index.html*" | xargs rm
+					fi
+
+				fi
+			elif [ $__ret -eq 2 ]; then
+				compare_profiles ${__list[$(cat $out | cut -d' ' -f2-)]}
+				continue
+			elif [ $__ret -eq 3 ]; then
+				wget "--no-proxy" "-r" "--directory-prefix=${FW_DIR}/$product/${__list[$(cat $out)]}" ${FW_BUILDBOT_URL}/$(stack print_path)/${__list[$(cat $out)]} -np -nd -l 1
+				wget "--no-proxy" "-r" "--directory-prefix=${FW_DIR}/$product/${__list[$(cat $out)]}/foss" "${FW_BUILDBOT_URL}/$(stack print_path)/${__list[$(cat $out)]}/foss" -np -nd -l 1 
+				find ${FW_DIR}/$product/${__list[$(cat $out)]}/ -name robots.txt | xargs rm
+				find ${FW_DIR}/$product/${__list[$(cat $out)]}/ -name "index.html*" | xargs rm
+				find ${FW_DIR}/$product/${__list[$(cat $out)]}/ -name "${__list[$(cat $out)]}" | xargs rm
+				continue
+			else
+				stack print_path
+				stack remove_last
+			fi
+
+			stack is_empty
+			[ $? -eq 0 ] && __cont=false || __cont=true
+		done
+	done
+
+	if [ -f index.html ]; then
+		rm index.html
+	fi
+}
+
+__do_compare()
+{
+    #clear
+    #echo "sunlar karsilastirilacak aha:"
+    #echo " -> $(stack print_path) :: ${product}"
+    #echo "        . $1"
+    #echo "        . $2"
+    #return 0
+
+    local fwver1=$1
+    local fwver2=$2
+
+    [ x"$fwver1" = x"$fwver2" ] && { \
+        ${DIALOG} --colors --timeout 5 --backtitle "${product} Firmware Comparison" \
+            --msgbox "${Bold}${product}${NoColor} product firmware versions are identical:\n\n${Red}${fwver1}${NoColor} <> ${Green}${fwver2}${NoColor}" \
+            10 40 2>/dev/null || true
+
+        return 1
+    }
+
+    local fwtmpdir1=$(mktemp -d -u)
+    local fwtmpdir2=$(mktemp -d -u)
+
+    local profile_config1=
+    local asp_config1=
+    local kernel_config1=
+    local busybox_config1=
+
+    local profile_config2=
+    local asp_config2=
+    local kernel_config2=
+    local busybox_config2=
+
+        # partially fetch firmware's configurations
+        svn co ${FW_SVN_URL}/$(stack print_path)/${fwver1} ${fwtmpdir1} --depth empty
+        pushd ${fwtmpdir1}
+            svn ls | tr -d / > $tmp
+            [ $? -ne 0 ] && { echo "Error! Couldn't fetch"; return 1; }
+
+            profile_config1=$(cat $tmp | grep ${fwver1}.config$)
+            asp_config1=$(cat $tmp | grep ${fwver1}.config.xml$)
+            kernel_config1=$(cat $tmp | grep ${fwver1}-kernel.config$)
+            busybox_config1=$(cat $tmp | grep ${fwver1}-busybox.config$)
+
+            svn up ${profile_config1}
+            svn up ${asp_config1}
+            svn up ${kernel_config1}
+            svn up ${busybox_config1}
+        popd
+
+        # partially fetch firmware's configurations
+        svn co ${FW_SVN_URL}/$(stack print_path)/${fwver2} ${fwtmpdir2} --depth empty
+        pushd ${fwtmpdir2}
+            svn ls | tr -d / > $tmp
+            [ $? -ne 0 ] && { echo "Error! Couldn't fetch"; return 1; }
+
+            profile_config2=$(cat $tmp | grep ${fwver2}.config$)
+            asp_config2=$(cat $tmp | grep ${fwver2}.config.xml$)
+            kernel_config2=$(cat $tmp | grep ${fwver2}-kernel.config$)
+            busybox_config2=$(cat $tmp | grep ${fwver2}-busybox.config$)
+
+            svn up ${profile_config2}
+            svn up ${asp_config2}
+            svn up ${kernel_config2}
+            svn up ${busybox_config2}
+        popd
+
+    while true; do
+        ${DIALOG} --backtitle "/$(stack print_path)" \
+            --menu "Firmware comparison ${product} ${fwver1}<>${fwver2}" \
+            $_h $_w $((_h - 10)) \
+            1 "Profile Config Changes" \
+            2 "Asp Xml Config Changes" \
+            3 "Busybox Config Changes" \
+            4 "Kernel Config Changes" \
+            2>$out
+
+        __ret=$?
+        if [ $__ret -ne 0 ]; then
+            #remove temporary files
+            rm -rf ${fwtempdir1} ${fwtempdir2} ${tmpview}
+            return 1
+        else
+            local __tmp_diff_nocolor=$(mktemp)
+            local __tmp_diff=$(mktemp)
+            local -i __s=$(cat $out)
+
+            case $__s in
+                1)
+                    diff -Naur ${fwtmpdir1}/${profile_config1} ${fwtmpdir2}/${profile_config2} > ${__tmp_diff_nocolor}
+                    ;;
+                2)
+                    diff -Naur ${fwtmpdir1}/${asp_config1} ${fwtmpdir2}/${asp_config2} > ${__tmp_diff_nocolor}
+                    ;;
+                3)
+                    diff -Naur ${fwtmpdir1}/${kernel_config1} ${fwtmpdir2}/${kernel_config2} > ${__tmp_diff_nocolor}
+                    ;;
+                4)
+                    diff -Naur ${fwtmpdir1}/${busybox_config1} ${fwtmpdir2}/${busybox_config2} > ${__tmp_diff_nocolor}
+                    ;;
+                esac
+
+            # colorize diff
+            while IFS='\n' read l; do
+                echo "$l" | sed -e 's/^---\(.*\)/\\Zb\\Z1---\1\\Zn/g' \
+                                                -e 's/^+++\(.*\)/\\Zb\\Z4+++\1\\Zn/g' \
+                                                -e 's/^-\(.*\)/\\Z1\\Zb-\1\\Zn/g' \
+                                                -e 's/^+\(.*\)/\\Z4\\Zb+\1\\Zn/g' \
+                                                -e 's/^ \(.*\)/\\Z0 \1\\Zn/g' \
+                                                -e 's/^@\(.*\)/\\Zr@\1\\Zn/g' >> ${__tmp_diff}
+            done < ${__tmp_diff_nocolor}
+
+            ${DIALOG} --clear --colors --backtitle "/$(stack print_path)" \
+                --title "Here is the diff: ${Red}-${fwver1}${NoColor} ${Green}+${fwver2}${NoColor}" \
+                --msgbox "$(cat ${__tmp_diff})" $_h $_w
+
+            rm -f ${__tmp_diff} ${__tmp_diff_nocolor}
+        fi
+    done
+}
+
+compare_profiles()
+{
+    local fwver1=$1
+    local fwver2=
+
+    __list=( )
+
+    svn ls ${FW_SVN_URL}/$(stack print_path) | tr -d / > $tmp
+    [ $? -ne 0 ] && { echo "Error! Couldn't fetch"; exit 1; }
+
+    _i=0; for f in $(cat $tmp); do \
+        __list=( "${__list[@]}" "$f" )
+        _i=$((_i+1))
+    done
+
+    ${DIALOG} --backtitle "/$(stack print_path)" \
+        --menu "Select Firmware to compare with ${product} ${fwver1}" \
+        $_h $_w $((_h - 10)) \
+        $( for ((_i=0; _i<${#__list[*]}; _i++)); do \
+                 echo " ${_i} ${__list[$_i]} "; \
+             done ) 2>$out
+
+    __ret=$?
+    if [ $__ret -eq 0 ]; then
+        # do compare
+        fwver2=${__list[$(cat $out)]}
+
+        if [ ! -z "$(svn ls ${FW_SVN_URL}/$(stack print_path)/${fwver2} 2>/dev/null | \
+                             grep AirTies_${product}_FW_${fwver2}.bin)" ]; then
+            __do_compare ${fwver1} ${fwver2}
+        else                
+            echo "yok la bu!!!" # TODO: yok diye yazdiriver
+            return 0
+        fi
+    fi
+}
+
+svn_co()
+{
+    local __fetch_dir=$1
+    local __tailbox_file=$(mktemp)
+    local svn_url=${FW_SVN_URL}/$(stack print_path)/$__fetch_dir
+    local path=${FW_DIR}/$(stack print_path)
+    local -i svn_ret=
+
+    [ -d "${path}" ] || mkdir -p ${path}
+    (
+        echo "Fetching $(stack print_path) in ${path}/${__fetch_dir}"
+        echo "---"
+        echo
+        svn co ${svn_url} ${path}/${__fetch_dir} --depth immediates 2>$out
+        svn_ret=$?
+
+
+        # user tries to checkout a file, which is illegal actually, let workaround begin!!
+        if [ $svn_ret -ne 0 -a x"$(cat $out | cut -d' ' -f2)" == x"E200007:" ]; then
+            __files=
+            if [ ! -e "${path}/.svn" ]; then
+                svn co ${FW_SVN_URL}/$(stack print_path) ${path} --depth empty
+            else
+                __files=$(ls ${path})
+            fi
+
+            pushd ${path} >/dev/null
+                svn up ${__fetch_dir}
+                #for f in $(echo $__files); do svn up $f; done
+            popd >/dev/null
+            echo
+            echo "---"
+        elif [ ! -z "`ls -l ${path}/${__fetch_dir} | grep ^d`" ]; then
+            echo
+            echo "---"
+            echo "These subdirectories was not fetched:"
+            for d in ${path}/${__fetch_dir}/*; do [ -d $d ] && echo " * $(basename $d)"; done
+            echo
+            echo "if you want to fetch these subdirectories go to ${path}/${__fetch_dir}"
+            echo "and write \`svn update --set-depth infinity <dir>'"
+        fi
+
+        echo
+        echo "---"
+        echo "Press return to continue"
+    ) >> ${__tailbox_file} 2>&1 &
+
+    ${DIALOG} --backtitle "Fetching /$(stack print_path)/${__fetch_dir}" \
+        --tailbox ${__tailbox_file} $_h $_w
+
+    rm -f ${__tailbox_file}
+}
+
+main()
+{
+    local op=
+    while true; do
+        ${DIALOG} --backtitle "AirTies Wireless Networks" \
+            --cancel-label "Quit" --ok-label "Select" \
+            --menu "Select Operation" \
+            12 75 20 \
+            "List" "List firmwares and fetch them" \
+	    "List-Buildbot" "List builds in buildbot and fetch them" \
+            "Compare" "Compare firmwares" \
+            "Settings" "Set svn url and some directories" \
+            2>$out
+
+        [ $? -ne 0 ] && break
+
+        op=$(cat $out)
+        case $op in
+            Settings)
+                settings || true
+                ;;
+
+            List)
+                list
+                ;;
+
+            List-Buildbot)
+                list_buildbot
+                ;;
+
+            Compare)
+                dialog --timeout 3 --msgbox "O da olacak insallah, cok guzel olacak cok da iyi guzel olacak." 20 15 2>/dev/null
+                ;;
+        esac
+    done
+
+}
+
+prep_env
+
+main
+rm $out $tmp
+clear

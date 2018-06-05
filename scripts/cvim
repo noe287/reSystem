@@ -1,0 +1,11 @@
+if [ ! -e "tags" ]
+then
+sudo ctags -R
+fi
+
+if [ ! -e "cscope.out" ]
+then
+sudo cscope -R
+fi
+
+vim
