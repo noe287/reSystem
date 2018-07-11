@@ -1,0 +1,1018 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ErrorCodes</title>
+</head><body><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">The Gnu C library - Error Codes </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">The error code macros are defined in the header file errno.h. All of them expand into integer constant values. Some of these error codes can’t occur on GNU systems, but they can occur using the GNU C Library on other systems. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EPERM </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Operation not permitted; only the owner of the file (or other resource) or processes with special privileges can perform the operation.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOENT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    No such file or directory. This is a “file doesn’t exist” error for ordinary files that are referenced in contexts where they are expected to already exist.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ESRCH </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    No process matches the specified process ID.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EINTR </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Interrupted function call; an asynchronous signal occurred and prevented completion of the call. When this happens, you should try the call again. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    You can choose to have functions resume after a signal that is handled, rather than failing with EINTR; see Interrupted Primitives.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EIO </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Input/output error; usually used for physical read or write errors.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENXIO </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    No such device or address. The system tried to use the device represented by a file you specified, and it couldn’t find the device. This can mean that the device file was installed incorrectly, or that the physical device is missing or not correctly attached to the computer.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int E2BIG </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Argument list too long; used when the arguments passed to a new program being executed with one of the exec functions (see Executing a File) occupy too much memory space. This condition never arises on GNU/Hurd systems.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOEXEC </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Invalid executable file format. This condition is detected by the exec functions; see Executing a File.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EBADF </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Bad file descriptor; for example, I/O on a descriptor that has been closed or reading from a descriptor open only for writing (or vice versa).  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ECHILD </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    There are no child processes. This error happens on operations that are supposed to manipulate child processes, when there aren’t any processes to manipulate.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EDEADLK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Deadlock avoided; allocating a system resource would have resulted in a deadlock situation. The system does not guarantee that it will notice all such situations. This error means you got lucky and the system noticed; it might just hang. See File Locks, for an example.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOMEM </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    No memory available. The system cannot allocate more virtual memory because its capacity is full.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EACCES </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Permission denied; the file permissions do not allow the attempted operation.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EFAULT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Bad address; an invalid pointer was detected. On GNU/Hurd systems, this error never happens; you get a signal instead.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOTBLK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    A file that isn’t a block special file was given in a situation that requires one. For example, trying to mount an ordinary file as a file system in Unix gives this error.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EBUSY </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Resource busy; a system resource that can’t be shared is already in use. For example, if you try to delete a file that is the root of a currently mounted filesystem, you get this error.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EEXIST </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    File exists; an existing file was specified in a context where it only makes sense to specify a new file.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EXDEV </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    An attempt to make an improper link across file systems was detected. This happens not only when you use link (see Hard Links) but also when you rename a file with rename (see Renaming Files).  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENODEV </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The wrong type of device was given to a function that expects a particular sort of device.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOTDIR </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    A file that isn’t a directory was specified when a directory is required.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EISDIR </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    File is a directory; you cannot open a directory for writing, or create or remove hard links to it.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EINVAL </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Invalid argument. This is used to indicate various kinds of problems with passing the wrong argument to a library function.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EMFILE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The current process has too many files open and can’t open any more. Duplicate descriptors do count toward this limit. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    In BSD and GNU, the number of open files is controlled by a resource limit that can usually be increased. If you get this error, you might want to increase the RLIMIT_NOFILE limit or make it unlimited; see Limits on Resources.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENFILE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    There are too many distinct file openings in the entire system. Note that any number of linked channels count as just one file opening; see Linked Channels. This error never occurs on GNU/Hurd systems.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOTTY </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Inappropriate I/O control operation, such as trying to set terminal modes on an ordinary file.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ETXTBSY </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    An attempt to execute a file that is currently open for writing, or write to a file that is currently being executed. Often using a debugger to run a program is considered having it open for writing and will cause this error. (The name stands for “text file busy”.) This is not an error on GNU/Hurd systems; the text is copied as necessary.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EFBIG </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    File too big; the size of a file would be larger than allowed by the system.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOSPC </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    No space left on device; write operation on a file failed because the disk is full.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ESPIPE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Invalid seek operation (such as on a pipe).  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EROFS </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    An attempt was made to modify something on a read-only file system.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EMLINK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Too many links; the link count of a single file would become too large. rename can cause this error if the file being renamed already has as many links as it can take (see Renaming Files).  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EPIPE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Broken pipe; there is no process reading from the other end of a pipe. Every library function that returns this error code also generates a SIGPIPE signal; this signal terminates the program if not handled or blocked. Thus, your program will never actually see EPIPE unless it has handled or blocked SIGPIPE.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EDOM </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Domain error; used by mathematical functions when an argument value does not fall into the domain over which the function is defined.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ERANGE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Range error; used by mathematical functions when the result value is not representable because of overflow or underflow.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EAGAIN </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Resource temporarily unavailable; the call might work if you try again later. The macro EWOULDBLOCK is another name for EAGAIN; they are always the same in the GNU C Library. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    This error can happen in a few different situations: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">        An operation that would block was attempted on an object that has non-blocking mode selected. Trying the same operation again will block until some external condition makes it possible to read, write, or connect (whatever the operation). You can use select to find out when the operation will be possible; see Waiting for I/O. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">        Portability Note: In many older Unix systems, this condition was indicated by EWOULDBLOCK, which was a distinct error code different from EAGAIN. To make your program portable, you should check for both codes and treat them the same. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">        A temporary resource shortage made an operation impossible. fork can return this error. It indicates that the shortage is expected to pass, so your program can try the call again later and it may succeed. It is probably a good idea to delay for a few seconds before trying it again, to allow time for other processes to release scarce resources. Such shortages are usually fairly serious and affect the whole system, so usually an interactive program should report the error to the user and return to its command loop.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EWOULDBLOCK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    In the GNU C Library, this is another name for EAGAIN (above). The values are always the same, on every operating system. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    C libraries in many older Unix systems have EWOULDBLOCK as a separate error code.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EINPROGRESS </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    An operation that cannot complete immediately was initiated on an object that has non-blocking mode selected. Some functions that must always block (such as connect; see Connecting) never return EAGAIN. Instead, they return EINPROGRESS to indicate that the operation has begun and will take some time. Attempts to manipulate the object before the call completes return EALREADY. You can use the select function to find out when the pending operation has completed; see Waiting for I/O.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EALREADY </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    An operation is already in progress on an object that has non-blocking mode selected.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOTSOCK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    A file that isn’t a socket was specified when a socket is required.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EMSGSIZE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The size of a message sent on a socket was larger than the supported maximum size.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EPROTOTYPE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The socket type does not support the requested communications protocol.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOPROTOOPT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    You specified a socket option that doesn’t make sense for the particular protocol being used by the socket. See Socket Options.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EPROTONOSUPPORT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The socket domain does not support the requested communications protocol (perhaps because the requested protocol is completely invalid). See Creating a Socket.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ESOCKTNOSUPPORT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The socket type is not supported.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EOPNOTSUPP </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The operation you requested is not supported. Some socket functions don’t make sense for all types of sockets, and others may not be implemented for all communications protocols. On GNU/Hurd systems, this error can happen for many calls when the object does not support the particular operation; it is a generic indication that the server knows nothing to do for that call.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EPFNOSUPPORT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The socket communications protocol family you requested is not supported.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EAFNOSUPPORT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The address family specified for a socket is not supported; it is inconsistent with the protocol being used on the socket. See Sockets.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EADDRINUSE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The requested socket address is already in use. See Socket Addresses.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EADDRNOTAVAIL </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The requested socket address is not available; for example, you tried to give a socket a name that doesn’t match the local host name. See Socket Addresses.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENETDOWN </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    A socket operation failed because the network was down.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENETUNREACH </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    A socket operation failed because the subnet containing the remote host was unreachable.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENETRESET </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    A network connection was reset because the remote host crashed.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ECONNABORTED </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    A network connection was aborted locally.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ECONNRESET </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    A network connection was closed for reasons outside the control of the local host, such as by the remote machine rebooting or an unrecoverable protocol violation.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOBUFS </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The kernel’s buffers for I/O operations are all in use. In GNU, this error is always synonymous with ENOMEM; you may get one or the other from network operations.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EISCONN </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    You tried to connect a socket that is already connected. See Connecting.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOTCONN </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The socket is not connected to anything. You get this error when you try to transmit data over a socket, without first specifying a destination for the data. For a connectionless socket (for datagram protocols, such as UDP), you get EDESTADDRREQ instead.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EDESTADDRREQ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    No default destination address was set for the socket. You get this error when you try to transmit data over a connectionless socket, without first specifying a destination for the data with connect.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ESHUTDOWN </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The socket has already been shut down.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ETOOMANYREFS </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    ???  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ETIMEDOUT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    A socket operation with a specified timeout received no response during the timeout period.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ECONNREFUSED </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    A remote host refused to allow the network connection (typically because it is not running the requested service).  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ELOOP </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Too many levels of symbolic links were encountered in looking up a file name. This often indicates a cycle of symbolic links.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENAMETOOLONG </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Filename too long (longer than PATH_MAX; see Limits for Files) or host name too long (in gethostname or sethostname; see Host Identification).  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EHOSTDOWN </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The remote host for a requested network connection is down.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EHOSTUNREACH </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The remote host for a requested network connection is not reachable.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOTEMPTY </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Directory not empty, where an empty directory was expected. Typically, this error occurs when you are trying to delete a directory.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EPROCLIM </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    This means that the per-user limit on new process would be exceeded by an attempted fork. See Limits on Resources, for details on the RLIMIT_NPROC limit.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EUSERS </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The file quota system is confused because there are too many users.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EDQUOT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The user’s disk quota was exceeded.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ESTALE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Stale file handle. This indicates an internal confusion in the file system which is due to file system rearrangements on the server host for NFS file systems or corruption in other file systems. Repairing this condition usually requires unmounting, possibly repairing and remounting the file system.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EREMOTE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    An attempt was made to NFS-mount a remote file system with a file name that already specifies an NFS-mounted file. (This is an error on some operating systems, but we expect it to work properly on GNU/Hurd systems, making this error code impossible.)  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EBADRPC </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    ???  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ERPCMISMATCH </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    ???  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EPROGUNAVAIL </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    ???  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EPROGMISMATCH </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    ???  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EPROCUNAVAIL </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    ???  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOLCK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    No locks available. This is used by the file locking facilities; see File Locks. This error is never generated by GNU/Hurd systems, but it can result from an operation to an NFS server running another operating system.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EFTYPE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Inappropriate file type or format. The file was the wrong type for the operation, or a data file had the wrong format. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    On some systems chmod returns this error if you try to set the sticky bit on a non-directory file; see Setting Permissions.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EAUTH </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    ???  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENEEDAUTH </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    ???  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOSYS </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Function not implemented. This indicates that the function called is not implemented at all, either in the C library itself or in the operating system. When you get this error, you can be sure that this particular function will always fail with ENOSYS unless you install a new version of the C library or the operating system.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOTSUP </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Not supported. A function returns this error when certain parameter values are valid, but the functionality they request is not available. This can mean that the function does not implement a particular command or option value or flag bit at all. For functions that operate on some object given in a parameter, such as a file descriptor or a port, it might instead mean that only that specific object (file descriptor, port, etc.) is unable to support the other parameters given; different file descriptors might support different ranges of parameter values. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    If the entire function is not available at all in the implementation, it returns ENOSYS instead.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EILSEQ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    While decoding a multibyte character the function came along an invalid or an incomplete sequence of bytes or the given wide character is invalid.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EBACKGROUND </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    On GNU/Hurd systems, servers supporting the term protocol return this error for certain operations when the caller is not in the foreground process group of the terminal. Users do not usually see this error because functions such as read and write translate it into a SIGTTIN or SIGTTOU signal. See Job Control, for information on process groups and these signals.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EDIED </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    On GNU/Hurd systems, opening a file returns this error when the file is translated by a program and the translator program dies while starting up, before it has connected to the file.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ED </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    The experienced user will know what is wrong.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EGREGIOUS </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    You did what?  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EIEIO </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Go home and have a glass of warm, dairy-fresh milk.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EGRATUITOUS </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    This error code has no purpose.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EBADMSG </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EIDRM </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EMULTIHOP </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENODATA </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOLINK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOMSG </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOSR </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOSTR </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EOVERFLOW </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EPROTO </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ETIME </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ECANCELED </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    Operation canceled; an asynchronous operation was canceled before it completed. See Asynchronous I/O. When you call aio_cancel, the normal result is for the operations affected to complete with this error; see Cancel AIO Operations.  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">The following error codes are defined by the Linux/i386 kernel. They are not yet documented. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ERESTART </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ECHRNG </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EL2NSYNC </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EL3HLT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EL3RST </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ELNRNG </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EUNATCH </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOCSI </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EL2HLT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EBADE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EBADR </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EXFULL </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOANO </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EBADRQC </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EBADSLT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EDEADLOCK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EBFONT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENONET </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOPKG </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EADV </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ESRMNT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ECOMM </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EDOTDOT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOTUNIQ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EBADFD </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EREMCHG </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ELIBACC </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ELIBBAD </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ELIBSCN </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ELIBMAX </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ELIBEXEC </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ESTRPIPE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EUCLEAN </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOTNAM </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENAVAIL </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EISNAM </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EREMOTEIO </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOMEDIUM </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EMEDIUMTYPE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOKEY </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EKEYEXPIRED </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EKEYREVOKED </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EKEYREJECTED </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EOWNERDEAD </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ENOTRECOVERABLE </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int ERFKILL </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Macro: int EHWPOISON </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Next: Error Messages, Previous: Checking for Errors, Up: orting   [Contents][Index] </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">New...&gt;&gt;&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"> </span></span><br/>
+</div></body></html>

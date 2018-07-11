@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>New Page</title>
+</head><body><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Programming Tips </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">---------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">If desired, it’s actually possible to prevent the compiler from padding a struct us- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ing either __attribute__((packed)) after a struct definition, #pragma pack (1) </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">in front of a struct definition or -fpack-struct as a compiler parameter. It’s </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">important to note that using either of these will generate an incompatible ABI. We </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">can use the sizeof operator to check the effective size of a struct and output it </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">during runtime using printf. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">The GFP_ATOMIC flag </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">The GFP_ATOMIC flag instructs the memory allocator never to block. Use this flag in situations where it cannot sleep—where it must remain atomic—such as interrupt handlers, bottom halves and process context code that is holding a lock. Because the kernel cannot block the allocation and try to free up sufficient memory to satisfy the request, an allocation specifying GFP_ATOMIC has a lesser chance of succeeding than one that does not. Nonetheless, if your current context is incapable of sleeping, it is your only choice. Using GFP_ATOMIC is simple: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">struct wolf *p; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">p = kmalloc(sizeof (struct wolf), GFP_ATOMIC); </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">if (!p) </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    /* error */ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Conversely, the GFP_KERNEL flag specifies a normal kernel allocation. Use this flag in code executing in process context without any locks. A call to kmalloc() with this flag can sleep; thus, you must use this flag only when it is safe to do so. The kernel utilizes the ability to sleep in order to free memory, if needed. Therefore, allocations that specify this flag have a greater chance of succeeding. If insufficient memory is available, for example, the kernel can block the requesting code and swap some inactive pages to disk, shrink the in-memory caches, write out buffers and so on. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Sometimes, as when writing an ISA device driver, you need to ensure that the memory allocated is capable of undergoing DMA. For ISA devices, this is memory in the first 16MB of physical memory. To ensure that the kernel allocates from this specific memory, use the GFP_DMA flag. Generally, you would use this flag in conjunction with either GFP_ATOMIC or GFP_KERNEL; you can combine flags with a binary OR operation. For example, to instruct the kernel to allocate DMA-capable memory and to sleep if needed, do: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">char *buf; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">/* we want DMA-capable memory, </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">* and we can sleep if needed */ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">buf = kmalloc(BUF_LEN, GFP_DMA | GFP_KERNEL); </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">if (!buf) </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    /* error */ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">typedef unsigned char u_int8_t; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"> </span></span><br/>
+</div></body></html>

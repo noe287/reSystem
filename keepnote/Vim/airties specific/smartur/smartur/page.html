@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SmartUR</title>
+</head><body><div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">SMARTUR corner cases: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">1) Previously repeated router device had a hidden ssid and we  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">changed our repeater's sta_ssid while keeping the hidden-ssid router awake. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Assume that the new sta_ssid is a dummy one and there is no such device in the air or else it is not ON yet. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">The node will try to scan through bcm_get_target_ap_rssi() function. It will not find that ssid in the air so the first part of the </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">if clause will fail. As the while loop iterates over a scannNode-&gt; structure will all type of ssids in it, the second part of the if clause </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">that tests whether the ssid is a hidden ssid will be executed. As we have the old sta_mac  in the config.xml it will pass and will measure </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">RSSI levels for the older router.  </span></span><br/>
+</div></body></html>

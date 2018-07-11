@@ -1,0 +1,11 @@
+DIFF_NAME="$1.patch"
+
+git diff > $DIFF_NAME
+
+cp $DIFF_NAME $patches/
+
+cd $patches/
+svn add $DIFF_NAME
+
+svn ci -m $'Issue #1000001 \n\n--Uploading patch file.\n\n'
+

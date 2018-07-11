@@ -1,0 +1,61 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Integration</title>
+</head><body><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri"><div style="text-align: left">cloud stuff <br/>
+------------------------------------------------------------------------<br/>
+revision.c makefile içerisinde comment out edilmeli yoksa imaj build edilemiyor.<br/>
+</div></span></span><div style="text-align: left"><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">packets integrated: </span></span><br/>
+</div>-----------------------------------------------------------------------------------------------------------------------<br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">{air-rm, air-bus, expat, openssl, libstrophe, statistics-collector, cloud-agent} </span></span><br/>
+</div><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri"><div style="text-align: left">  </div></span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">topology and route are removed... </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri">40                 JSON_C_INC_DIR=${BSPROOT}/json-c/${CONFIG_json-c_PATH}/build/${CONFIG_BOARD_HOST}/install/include \ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">41                 JSON_C_LIB_DIR=${BSPROOT}/json-c/${CONFIG_json-c_PATH}/build/${CONFIG_BOARD_HOST}/install/lib \                                                                                                                           </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">CERTIFICATES </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">--------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$"><span style="font-size: 11pt"><span style="font-family: Calibri">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</span></span></a><span style="font-size: 11pt"><span style="font-family: Calibri">seek.sh certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./image-brcm-ap-arm-linux--release-2.48.1.0-Air4920/brcm-ap-arm-linux--Air4920-2.48.1.0-filesystem/airties/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs.tmp/airties/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs.tmp/etc/cloud/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs.tmp/etc/ssl/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs-brcm-ap-arm-linux--Air4920/airties/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs-brcm-ap-arm-linux--Air4920/etc/cloud/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs-brcm-ap-arm-linux--Air4920/etc/ssl/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$"><span style="font-size: 11pt"><span style="font-family: Calibri">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</span></span></a><span style="font-size: 11pt"><span style="font-family: Calibri">ls ./rootfs.tmp/airties/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">AirTiesRootCA.pem </span></span><br/>
+</div><br/>
+<div style="text-align: left"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$"><span style="font-size: 11pt"><span style="font-family: Calibri">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</span></span></a><span style="font-size: 11pt"><span style="font-family: Calibri">ls ./rootfs.tmp/etc/cloud/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">12d55845.0  2e5ac55d.0  8f52f8ab.0  91921417.0  AirTiesRootCA.pem  DST-Root-CA-X3.pem </span></span><br/>
+</div><br/>
+<div style="text-align: left"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$"><span style="font-size: 11pt"><span style="font-family: Calibri">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</span></span></a><span style="font-size: 11pt"><span style="font-family: Calibri">ls ./rootfs.tmp/etc/ssl/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">test.pem </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+</body></html>

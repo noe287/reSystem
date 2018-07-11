@@ -1,0 +1,68 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Integration</title>
+</head><body><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cloud stuff <br/>
+------------------------------------------------------------------------<br/>
+revision.c makefile içerisinde comment out edilmeli yoksa imaj build edilemiyor.<br/>
+</span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">packets integrated: </span></span><br/>
+</div>-----------------------------------------------------------------------------------------------------------------------<br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">{air-rm, air-bus, expat, openssl, libstrophe, statistics-collector, cloud-agent} </span></span><br/>
+</div><br/>
+<br/>
+to be integrated:<br/>
+{cdf(for app configuration), dhcpcap(for friendly info),}<br/>
+<br/>
+- libcdfclient'ın manager'a linklenmesi<br/>
+- aci-cli ya da cli'ın libaca'ya linklenmesi<br/>
+<br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </div></span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">topology and route are removed... </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt">40                 JSON_C_INC_DIR=${BSPROOT}/json-c/${CONFIG_json-c_PATH}/build/${CONFIG_BOARD_HOST}/install/include \ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">41                 JSON_C_LIB_DIR=${BSPROOT}/json-c/${CONFIG_json-c_PATH}/build/${CONFIG_BOARD_HOST}/install/lib \                                                                                                                           </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">CERTIFICATES </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</a>seek.sh certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./image-brcm-ap-arm-linux--release-2.48.1.0-Air4920/brcm-ap-arm-linux--Air4920-2.48.1.0-filesystem/airties/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./rootfs.tmp/airties/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./rootfs.tmp/etc/cloud/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./rootfs.tmp/etc/ssl/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./rootfs-brcm-ap-arm-linux--Air4920/airties/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./rootfs-brcm-ap-arm-linux--Air4920/etc/cloud/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./rootfs-brcm-ap-arm-linux--Air4920/etc/ssl/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</a>ls ./rootfs.tmp/airties/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">AirTiesRootCA.pem </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</a>ls ./rootfs.tmp/etc/cloud/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">12d55845.0  2e5ac55d.0  8f52f8ab.0  91921417.0  AirTiesRootCA.pem  DST-Root-CA-X3.pem </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</a>ls ./rootfs.tmp/etc/ssl/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">test.pem </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></span><br/>
+</div><br/>
+</body></html>

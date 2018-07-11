@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Integration</title>
+</head><body><br/>
+<span style="font-family: Calibri"><div style="text-align: left"><b><span style="font-size: 24pt">Cloud Integration Steps:</span></b><span style="font-size: 11pt"><br/>
+</span><span style="font-size: 11pt">------------------------------------------------------------------------<ul><li style="list-style-type: none"><b>release folder'ında:</b></li>
+<li>release/makefile içerisinde &nbsp;revision.c comment out edilmeli yoksa imaj build edilemiyor.</li>
+</ul>
+  <br/>
+<br/>
+</span></div></span><div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"><b>air-cloud-agent paketi içerisinde</b></span></span><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <br/>
+Ana Makefile'a sky platformu eklenmeli<br/>
+licensing) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+LIBACA_CFLAGS += -DPRIMARY_INTERFACE_NAME=\"${CONFIG_air-rm_DEFAULT_BRIDGE_NAME}\"<br/>
+LIBACA_LIBDIRS += ${BSPROOT}/json-c/${CONFIG_json-c_PATH}/build/${CONFIG_BOARD_HOST}/install/lib<br/>
+LIBACA_LIBDIRS += ${BSPROOT}/zlib/${CONFIG_zlib_PATH}<br/>
+endif<br/>
+#<br/>
+# LIBACA_LDDIRS is for secondary dependencies.<br/>
+#<br/>
+LIBACA_LDDIRS := ${BSPROOT}/release/rootfs/lib<br/>
+ifeq (${LIBACA_PLATFORM}, airties)<br/>
+endif<br/>
+ifeq (${LIBACA_PLATFORM}, licensing)<br/>
+LIBACA_LINK_DIR-${CONFIG_air-wall_PLATFORM_QTN_REF} +=${BSPROOT}/bsp/${CONFIG_bsp_PATH}/buildroot/build_arc/root/lib/<br/>
+LIBACA_LINK_DIR-${CONFIG_air-wall_PLATFORM_QSR10G_REF} +=${BSPROOT}/bsp/${CONFIG_bsp_PATH}/buildroot/build_arc/root/lib/<br/>
+LIBACA_LINK_DIR-${CONFIG_air-wall_PLATFORM_BRCMAP_REF} +=${BSPROOT}/bsp/${CONFIG_bsp_PATH}/${CONFIG_bsp_WIRELESS_PATH}/src/router/arm-uclibc/target/usr/lib<br/>
+LIBACA_LINK_DIR-${CONFIG_air-wall_PLATFORM_BRCMGW_REF} +=${BSPROOT}/bsp/${CONFIG_bsp_PATH}/bcm963xx/targets/${CONFIG_bsp_PROFILE_NAME}/fs.install/lib<br/>
+LIBACA_LDDIRS += ${LIBACA_LINK_DIR-y} <br/>
+endif<br/>
+<br/>
+<b>platformlara sky folder'ı kopyalanacak...</b><br/>
+json, libstrophe'ye patchler dağıtılıp patchlenmeli<br/>
+<b>jsondaki gibi Makefile içerisine libstrophe'ye de patchleme opsiyonu eklenebilir.</b><br/>
+<br/>
+--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <ul><li>l<b>ibaca/makefile i</b>çerisinden tests, examples derlenmiyor kapattım.</li>
+<li><b>js0n</b>&nbsp;ve <b>libstropheye</b>&nbsp;air-cloud içerisinde bulunan patchleri aktarıp patchlemek gerekiyor. Farklı buildsys kullanıdgımız için bunu elle yapmam gerekti.</li>
+</ul>
+--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <ul><li><b>libxml2 </b>library enabled to use aircdf-libxml2. Formerly used<b>&nbsp;aircdf-master.</b></li>
+</ul>
+</span></span></div><span style="font-family: Calibri"><div style="text-align: left"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></div><ul><li><span style="font-size: 12pt"><b>openssl</b>&nbsp;(sertifikalar var, cloud-agent onları /usr/ altında arıyor...)</span></li>
+<span style="font-size: 12pt"><li>Bu dogru degil. Onlari AirTies platform'unda <b>/etc/cloud/certs ve /etc/cloud/client_certs</b>&nbsp;altinda ariyor.</li>
+</span></ul>
+<span style="font-size: 11pt"><div style="text-align: left">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <ul><li><b>asp_xmls/bskyb-viper</b>'a data.xml i koydum. ./airties_user/etc/data.xml klasörüne giriyor.</li>
+<li>Bu <b>data.xml </b>daha sonra değiştirilebilir bir yere alınmalı</li>
+<li><b>xmmpp password</b>&nbsp;ve domain değerleri register olunduktan sonra korunmalı fakat daha sonra yapılan değişiklikler difflerde saklanacak ve defaults ile uçmalı bunlar.</li>
+</ul>
+--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <ul><li><b>cdf-daemon</b>&nbsp;config dosyasının nerede oldugunu bilerek başlıyor. bir script içerisinde baslamalı rc.x</li>
+<li>-rw-r--r-- air-builder/air-builder 5551 2018-06-27 15:15 ./airties_user/etc/defaults.xml</li>
+<li>-rw-r--r-- air-builder/air-builder 2182 2018-06-27 15:15 <b>./airties_user/etc/data.xml</b></li>
+<li>-rw-r--r-- air-builder/air-builder 11601 2018-06-27 15:15 ./airties_user/etc/config.xml</li>
+</ul>
+<ul><li>buraya başlatan scripti koydum <b>fs_platform</b>: </li>
+<li style="list-style-type: none">/home/noe/DataDrive/DEVEL/PROFILES/cloud_stuff/cloud_Haz-19-17_47_15_Sal/airties-bskyb-viper-debug/filesystem_platform/filesystem_platform-1.2/<b>filesystem-SkyHybridRouting</b>/etc/rc.d</li>
+<li style="list-style-type: none">echo -e "----\n\nStarting cdf-daemon\n\n----"</li>
+<li style="list-style-type: none">/usr/sbin/aircdf-daemon --parser.path_ro /data/data.xml --parser.path_wr $THIRD_PARTY_DIR/wr-data.xml &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </li>
+<li style="list-style-type: none">#sudo LD_LIBRARY_PATH="$LD_LIBRARY_PATH" third_party/cdf/daemon/cdf-daemon --parser.path_ro $PROFILE_DIR/cdf/data.xml --parser.path_wr $THIRD_PARTY_DIR/wr-data.xml --pars</li>
+<li style="list-style-type: none"></li>
+<li>data.xml asp.xml içerisinde saklanacak</li>
+<li style="list-style-type: none"><ul><li style="list-style-type: none">-rw-r--r-- air-builder/air-builder 2182 2018-06-27 15:15 ./<b>airties_user/etc/data.xml</b></li>
+</ul>
+</li>
+</ul>
+--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <ul><li><b>manager</b>: dhccap de yine aynı şekilde bir script tarafından başlatılmalı.</li>
+</ul>
+--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <ul><li><b>cloud-agent</b>: xmmpp ile ilgili persisten environment değerleri ??</li>
+</ul>
+--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <ul><li><b>cloud agent</b>: stuct ether_addr'yi manuel eklemek zorunda kaldım bunun tanımını görmüyor?</li>
+<li>PRIMARY_INTERFACE name bende air-rmden almaya çalışşıyor confiden. benim</li>
+</ul>
+--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <ul><li><b>manager</b>: libcdf-client, airbus, json linklendi. </li>
+<li><b>Source/Makefile:</b></li>
+</ul>
+&nbsp;70 ifeq (${CONFIG_MANAGER_MODULE_CLOUD_AGENT},y)<br/>
+&nbsp;71 LDFLAGS-y += -lcdf-client -lpthread -lairbus-user -ljson-c<br/>
+&nbsp;72 LIBDIR-y += ${BSPPATH}/air-cdf/export/include/client<br/>
+&nbsp;73 LIBDIR-y += ${BSPPATH}/air-cdf/export/lib &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp;74 LIBDIR-y += ${BSPPATH}/air-bus/${CONFIG_air-bus_PATH}/user<br/>
+&nbsp;75 LIBDIR-y += ${BSPPATH}/json-c/${CONFIG_json-c_PATH}/build/mips-linux/install/lib<br/>
+&nbsp;76 endif<ul><li style="list-style-type: none">Headerlar için /air-cdf/client gösterildi. manager/source/Makefile ve cloud_agen'in Makefile'ı</li>
+<li style="list-style-type: none">manager code'u entegre edildi...</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none"><b>cloud-agent Makefile:</b></li>
+<li style="list-style-type: none">INCDIR-y&gt;-------+=.${BSPPATH}/air-cdf/export/include/client</li>
+<li style="list-style-type: none">INCDIR-y&gt;-------+=.${BSPPATH}/air-cdf/export/lib</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">Fonksiyyonları gerçeklendi:</li>
+<li style="list-style-type: none">"sfree</li>
+<li style="list-style-type: none">cdf_client_get</li>
+<li style="list-style-type: none">cdf_client_set"</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">clooud_agent_mngr: client.h eklendi. air-cdf header'i</li>
+</ul>
+--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <ul><li><b>dhcpcap_mesh2.0 is enabled</b></li>
+<li>cat /proc/air_dhcpcap_clients/ac\:37\:43\:47\:03\:a6 </li>
+<li>rtime: 562</li>
+<li>timestamp: 262306</li>
+<li>interface: wl1</li>
+<li>ip: 192.168.1.2</li>
+<li>mac: ac:37:43:47:03:a6</li>
+<li>opt12: </li>
+<li></li>
+<li></li>
+</ul>
+--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <br/>
+<b>Trick needed to cdf-daemon to start. </b><br/>
+</div></span></span><span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">Symbolic link is given through makeDevs file under SPK/bcmxxx/targets</div></span></span>. But cannot commit this to SPK to be on the safe side.<br/>
+"<ul><li>ln -s /var/airbus-command $ROOTFS/dev/airbus-command"</li>
+</ul>
+<ul><span style="font-size: 11pt"><div style="text-align: left"><span style="font-family: Calibri"><li># ls -al /dev/airbus-command </li>
+<li>lrwxrwxrwx &nbsp; &nbsp;1 admin &nbsp; &nbsp;root &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;19 Jul &nbsp;6 &nbsp;2018 /dev/airbus-command -&gt; /var/airbus-command</li>
+<li># ls -al /var/airbus-command </li>
+<li>crw-r--r-- &nbsp; &nbsp;1 admin &nbsp; &nbsp;root &nbsp; &nbsp; &nbsp;254, &nbsp; 0 Jan &nbsp;1 00:00 /var/airbus-command</li>
+</span></div></span><li><span style="font-size: 11pt"><div style="text-align: left"><span style="font-family: Calibri">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></div></span></li>
+</ul>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></span></div><br/>
+<b>request.c request.h 'ı dahil etmeli manager için</b><ul><li>INCDIR-y += ${BSPROOT}/manager/${CONFIG_manager_PATH}/src/lib/ui_mngr/include &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</li>
+<li></li>
+</ul>
+<br/>
+<br/>
+<b>nvram.txt </b><br/>
+echo "WPS_PIN_0=04362906 <ul><li>WPS_PIN_1=04362906</li>
+<li>MAC_PLC_0=C0:3E:0F:06:A8:40</li>
+<li>MAC_PLC_1=C0:3E:0F:06:A8:43</li>
+<li>MAC_ETH_0=C0:3E:0F:06:A8:40</li>
+<li>MAC_WLAN_0=C0:3E:0F:06:A8:41</li>
+<li>MAC_WLAN_1=C0:3E:0F:06:A8:42</li>
+<li>MAC_BR_0=C0:3E:0F:06:A8:44</li>
+<li>WLAN_SSID_0=Viper-8-24g</li>
+<li>WLAN_SSID_1=Viper-8-5g</li>
+<li>WLAN_SEC_0=wpa2</li>
+<li>WLAN_SEC_1=wpa2</li>
+<li>WLAN_KEY_0=1234567890</li>
+<li>WLAN_KEY_1=1234567890</li>
+<li>PLC_MODULE_TYPE=Qualcomm</li>
+<li>LOGGER_OPTIONS=-e -o /dev/console</li>
+<li>DEFAULT_IP=192.168.2.201" &gt;&gt; nvram.txt</li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<span style="font-size: 11pt"><span style="font-family: Calibri"><div style="text-align: left">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </div></span></span><br/>
+<br/>
+"<br/>
+<br/>
+AT17415120000239 - 4920 -Bison serinosu<ul><li></li>
+</ul>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri"><b>CERTIFICATES </b></span></span><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- </span></span><br/>
+</div><b><span style="font-size: 12pt">System zamanı eski olursa (&gt;25 sene) sertifikalar geçersiz olacağı için prereg domain sertifkayı verify etmiyor.<br/>
+STBler video geçerse güncelleniyor. Viper ?<br/>
+</span></b><b><span style="font-size: 12pt">date komutuyla sistem zamanı güncellenmeli ya da ntp sync ile cihaz otomatik bunu yapmalı.</span></b><br/>
+date -s '2018-07-11 10:34:56'<br/>
+<br/>
+<div style="text-align: left"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$"><span style="font-size: 11pt"><span style="font-family: Calibri">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</span></span></a><span style="font-size: 11pt"><span style="font-family: Calibri">&nbsp;seek.sh certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./image-brcm-ap-arm-linux--release-2.48.1.0-Air4920/brcm-ap-arm-linux--Air4920-2.48.1.0-filesystem/airties/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs.tmp/airties/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs.tmp/etc/cloud/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs.tmp/etc/ssl/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs-brcm-ap-arm-linux--Air4920/airties/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs-brcm-ap-arm-linux--Air4920/etc/cloud/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs-brcm-ap-arm-linux--Air4920/etc/ssl/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$"><span style="font-size: 11pt"><span style="font-family: Calibri">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</span></span></a><span style="font-size: 11pt"><span style="font-family: Calibri">&nbsp;ls ./rootfs.tmp/airties/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">AirTiesRootCA.pem </span></span><br/>
+</div><br/>
+<div style="text-align: left"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$"><span style="font-size: 11pt"><span style="font-family: Calibri">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</span></span></a><span style="font-size: 11pt"><span style="font-family: Calibri">&nbsp;ls ./rootfs.tmp/etc/cloud/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">12d55845.0  2e5ac55d.0  8f52f8ab.0  91921417.0  AirTiesRootCA.pem  DST-Root-CA-X3.pem </span></span><br/>
+</div><br/>
+<div style="text-align: left"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$"><span style="font-size: 11pt"><span style="font-family: Calibri">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</span></span></a><span style="font-size: 11pt"><span style="font-family: Calibri">&nbsp;ls ./rootfs.tmp/etc/ssl/certs </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">test.pem </span></span><br/>
+<br/>
+1970-01-01 00:49:48-[00002989]-AIRTIES: DEBUG error:14090086:lib(20):func(144):reason(134)<br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></span><br/>
+</div><br/>
+</body></html>

@@ -1,0 +1,314 @@
+diff --git a/keepnote/Vim/__NOTEBOOK__/index.sqlite b/keepnote/Vim/__NOTEBOOK__/index.sqlite
+index 72ff3b0..b8ec6a2 100644
+Binary files a/keepnote/Vim/__NOTEBOOK__/index.sqlite and b/keepnote/Vim/__NOTEBOOK__/index.sqlite differ
+diff --git a/keepnote/Vim/node.xml b/keepnote/Vim/node.xml
+index f51326c..e2bfe4f 100644
+--- a/keepnote/Vim/node.xml
++++ b/keepnote/Vim/node.xml
+@@ -22,8 +22,8 @@
+   <key>title</key><string>Keep</string>
+   <key>column_widths</key><dict>
+     <key>created_time</key><integer>150</integer>
+-    <key>modified_time</key><integer>1166</integer>
+-    <key>title</key><integer>150</integer>
++    <key>modified_time</key><integer>1168</integer>
++    <key>title</key><integer>380</integer>
+   </dict>
+   <key>attr_defs</key><array>
+     <dict>
+diff --git a/keepnote/Vim/notebook.nbk b/keepnote/Vim/notebook.nbk
+index 89801cd..09d4000 100644
+--- a/keepnote/Vim/notebook.nbk
++++ b/keepnote/Vim/notebook.nbk
+@@ -73,10 +73,10 @@
+             <key>ids</key><dict>
+                 <key>80644bae-e676-4aaa-bd4c-edc038610d63</key><dict>
+                     <key>selected_treeview_nodes</key><array>
+-                        <string>2e15e32e-c17c-47cb-a51b-223f4bc6de17</string>
++                        <string>afec67b8-1133-4c84-877a-2a04b9d108bd</string>
+                     </array>
+                     <key>selected_listview_nodes</key><array>
+-                        <string>2e15e32e-c17c-47cb-a51b-223f4bc6de17</string>
++                        <string>afec67b8-1133-4c84-877a-2a04b9d108bd</string>
+                     </array>
+                 </dict>
+                 <key>768388e7-5f14-4ea7-bad0-2362027bb575</key><dict>
+diff --git a/keepnote/Vim/trash/node.xml b/keepnote/Vim/trash/node.xml
+index b8d1a81..b1e7fd9 100644
+--- a/keepnote/Vim/trash/node.xml
++++ b/keepnote/Vim/trash/node.xml
+@@ -9,7 +9,7 @@
+   <key>content_type</key><string>application/x-notebook-trash</string>
+   <key>created_time</key><integer>1528123620</integer>
+   <key>info_sort_dir</key><integer>1</integer>
+-  <key>order</key><integer>3</integer>
++  <key>order</key><integer>10</integer>
+   <key>info_sort</key><string>order</string>
+ </dict>
+ </node>
+diff --git a/scripts/.geff.un~ b/scripts/.geff.un~
+index 6f206ad..3354cdc 100644
+Binary files a/scripts/.geff.un~ and b/scripts/.geff.un~ differ
+diff --git a/scripts/.sky.sh.un~ b/scripts/.sky.sh.un~
+old mode 100755
+new mode 100644
+index f9f340d..e6a732e
+Binary files a/scripts/.sky.sh.un~ and b/scripts/.sky.sh.un~ differ
+diff --git a/scripts/.system_re_build.sh.un~ b/scripts/.system_re_build.sh.un~
+index ab72fc7..a96469d 100644
+Binary files a/scripts/.system_re_build.sh.un~ and b/scripts/.system_re_build.sh.un~ differ
+diff --git a/scripts/cvim b/scripts/cvim
+index d98cfcc..fc2050c 100755
+--- a/scripts/cvim
++++ b/scripts/cvim
+@@ -1,11 +1,11 @@
+ if [ ! -e "tags" ]
+ then
+-sudo ctags -R
++ctags -R
+ fi
+ 
+ if [ ! -e "cscope.out" ]
+ then
+-sudo cscope -R
++cscope -R
+ fi
+ 
+ vim
+diff --git a/scripts/geff b/scripts/geff
+index 483ae19..196d8b5 100755
+--- a/scripts/geff
++++ b/scripts/geff
+@@ -1 +1,2 @@
+- cp ~/DataDrive/Downloads/Patches/$1.patch .
++ cp $HOME/DataDrive/DEVEL/Patches/$1 .
++ patch -p1 < $1
+diff --git a/scripts/sky.sh b/scripts/sky.sh
+index 6b1c7fd..0572900 100755
+--- a/scripts/sky.sh
++++ b/scripts/sky.sh
+@@ -1,4 +1,3 @@
+-DATE=`date +%d_%m_%y-%H.%M.%S`
+ release=0
+ 
+ CMD="tools/bake"
+@@ -7,15 +6,7 @@ CMD2="USE_LOCAL_TOOLCHAINS=y tools/bake"
+ targets=(gemini-419.config booster2.config gemini-419-release.config booster2-release.config mrbox-412.config copperhead.config mrbox-412-release.config copperhead-release.config viper.config falcon-d1.config viper-release.config falcon-d1-release.config xwing-412.config falcon-d1-uhd.config xwing-412-release.config falcon-d1-uhd-release.config)
+ config=(mrbox-412.config booster2.config falcon-d1.config xwing-412.config viper.config)
+ 
+-if [ "$1" == "skybuilder" ]
+-then
+-	git clone ssh://nejatonay.erkose@git.corp.airties.com:29418/bskyb-shr-builder ${DATE}_${1}_${2}
+-	exit
+-elif [ "$1" == "release" ]
+-then
+-	config=(booster2-release.config mrbox-412-release.config viper-release.config falcon-d1-release.config xwing-412-release.config xwing-hip-release.config gemini-419-release.config falcon-d1-uhd-release.config)
+-	release=1
+-elif [ "$1" == "list" ]
++if [ "$1" == "list" ]
+ then
+ 	echo ""
+ 	echo "usage: sky.sh profile_name or sky.sh release release_profile_name"
+@@ -28,6 +19,17 @@ then
+ 	exit
+ fi
+ 
++if [ "$1" == "skybuilder" ]
++then
++	git clone ssh://nejatonay.erkose@git.corp.airties.com:29418/bskyb-shr-builder ${DATE}_${1}_${2}
++	exit
++fi
++
++if [ $1 ]
++then
++	config=(booster2-release.config mrbox-412-release.config viper-cloud-release.config viper-release.config falcon-d1-release.config xwing-412-release.config xwing-hip-release.config gemini-419-release.config falcon-d1-uhd-release.config)
++fi
++
+ function choose_config() {
+ 	echo "choose config"
+ 	for i in ${config[*]}
+@@ -42,17 +44,17 @@ function choose_config() {
+ 	done
+ }
+ 
+-if [ $1 ]
++if [ $1 ] 
+ then
+-	if [ "$release" == "1" ]
+-	then
+-		choose_config $2
+-		BUILD_DIR=${DATE}_${2}_"release"
+-		if [ "$3" == "conf" ] #configure the profile
++DATE=$1_`date +%h-%e-%H_%M_%S_%a`
++
++		choose_config $1
++		BUILD_DIR=${DATE}
++		if [ "$2" == "conf" ] #configure the profile
+ 		then
+ 			echo "Will configure the profile only"
+ 			type="config"
+-		elif [ "$3" == "co" ] # checkout only
++		elif [ "$2" == "co" ] # checkout only
+ 		then
+ 			echo "Will Checkout but won't build"
+ 			type="checkout"
+@@ -60,21 +62,24 @@ then
+ 			type="build"  #build the profile
+ 		fi
+ 
+-	else
+-		choose_config $1
+-		BUILD_DIR=${DATE}_${1}
+-	fi
+ 	# git clone ssh://git.corp.airties.com/bskyb-shr-builder 	
+ 	git clone ssh://nejatonay.erkose@git.corp.airties.com:29418/bskyb-shr-builder ${BUILD_DIR}
+ 
+ 	cd ${BUILD_DIR}
+ 	echo "----->>>> BUILDING ${Profile}"
+ 
+-	# below line uses the config indicated
+-	# if [[]] || [[  ]]
+-	# then
+-	# 	CMD=$CMD2
+-	# fi
++	echo ${Profile} | grep cloud
++	if [ $? -eq 0 ]
++	then
++		git checkout bskyb-shr-builder-cloud
++	fi
++
++	echo ${Profile} | grep viper
++	if [ $? -eq 0 ]
++	then
++	 	CMD=$CMD2
++	fi
++	
+ 	eval "$CMD ${Profile}"
+ 	BUILD_TYPE=debug 
+ 	export BUILD_TYPE
+diff --git a/scripts/sky_scripts b/scripts/sky_scripts
+--- a/scripts/sky_scripts
++++ b/scripts/sky_scripts
+@@ -1 +1 @@
+-Subproject commit bb0c6a9892ca77180d58f44c2fc3f28b1f2ff090
++Subproject commit bb0c6a9892ca77180d58f44c2fc3f28b1f2ff090-dirty
+diff --git a/scripts/system_re_build.sh b/scripts/system_re_build.sh
+deleted file mode 100755
+index 90267c8..0000000
+--- a/scripts/system_re_build.sh
++++ /dev/null
+@@ -1,99 +0,0 @@
+-sudo -E apt-get upgrade
+-sudo -E apt-get update
+-
+-#How to install GIT ?
+-
+-#Install via apt-get repository
+-sudo apt-get install git gitk
+-
+-#Customize GIT
+-
+-#Edit global GIT configuration
+-git config --global user.name "nejatonay.erkose"
+-git config --global user.email nejatonay.erkose@airties.com
+-git config --global references.path /opt/GIT_REFERENCE_REPOSITORIES
+-#Make sure you have read and write permissions for the GIT_REFERENCE_REPOSITORIES directory
+-sudo chown $USER:$USER /opt/GIT_REFERENCE_REPOSITORIES && cd /opt/GIT_REFERENCE_REPOSITORIES
+-git clone --mirror git://git.corp.airties.com/buildsys.git
+-git clone --mirror git://git.corp.airties.com/profiles.git
+-
+-
+-#Developer System
+-sudo -E apt-get -y install yakuake vim subversion meld guake indicator-multiload goldendict aptitude shutter unity-tweak-tool minicom wireshark cscope
+-ssh openssl clang tftpd-hpa silversearcher-ag apt-transport-https ca-certificates exuberant-ctags
+-
+-sudo -E apt install -y libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev
+-
+-#For 32bit binaries to be able to run on 64bit system.
+-sudo dpkg --add-architecture i386
+-sudo -E apt-get -y install  libc6:i386 libncurses5:i386 libstdc++6:i386
+-
+-
+-
+-#For keepnote
+-sudo -E apt-get install python python-gtk2 python-glade2 libgtk2.0-dev libsqlite3-0 -y
+-#Spell checking is enabled with an optional package:
+-sudo -E apt-get install python-gnome2-extras aspell aspell-en aspell-XX -y
+-
+-#kscope
+-sudo add-apt-repository ppa:fbirlik/kscope
+-sudo apt-get update
+-sudo apt-get install kscope-trinity
+-
+-
+-#fzf
+-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+-~/.fzf/install
+-
+-
+-#sudo vim /etc/rc.local
+-#/home/noe/conface.sh 3
+-
+-
+-#For docker
+-# sudo -E apt-get -y install ccache
+-#
+-# sudo -E apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+-# sudo -E apt-get purge lxc-docker
+-# sudo -E apt-cache policy docker-engine
+-# sudo -E apt-get -y install linux-image-extra-$(uname -r)
+-# sudo -E apt-get -y install apparmor
+-# sudo -E apt-get update
+-# sudo -E apt-get -y install docker-engine
+-# sudo -E service docker start
+-# #sudo -E docker run hello-world
+-# sudo -E groupadd docker
+-# sudo -E usermod -aG docker nejat
+-#docker run hello-world
+-
+-#apt-get proxy settings in addition to system proxy configuration...
+-#if [ ! -f /etc/apt/apt.conf ]; then
+-#sudo -E echo "Acquire::http::proxy "http://proxy.corp.airties.com:3128";" > /etc/apt/apt.conf
+-#sudo -E echo "Acquire::https::proxy "http://proxy.corp.airties.com:3128";" >> /etc/apt/apt.conf
+-#sudo -E echo "Acquire::ftp::proxy "http://proxy.corp.airties.com:3128";"  >> /etc/apt/apt.conf
+-#fi
+-
+-# Acquire::http::proxy "http://nejatonay.erkose:Shoemaker287@proxyws.corp.airties.com:3128";                                                                                                    
+-# Acquire::https::proxy "http://nejatonay.erkose:Shoemaker287@proxyws.corp.airties.com:3128";
+-# Acquire::ftp::proxy "http://nejatonay.erkose:Shoemaker287@proxyws.corp.airties.com:3128";
+-
+-# [user]                                                                                                                                                                                        
+-#         name = \"Nejat Onay Erköse\"
+-#         email = nejatonay.erkose@airties.com
+-# [core]
+-#         editor = vim 
+-# [commit]
+-#         template = /home/systems/.git_log_template
+-# [references]
+-#         path = /opt/GIT_REFERENCE_REPOSITORIES
+-# [alias]
+-#          pub = "!f() { git push -u ${1:-origin} --no-thin HEAD:`git config branch.$(git name-rev --name-only HEAD).merge | sed -e 's@refs/heads/@refs/for/@'`;  }; f"
+-# [http]
+-#         proxy = http://nejatonay.erkose:Shoemaker287@proxyws.corp.airties.com:3128
+-#         sslVerify = false
+-# [https]
+-#         proxy = http://nejatonay.erkose:Shoemaker287@proxyws.corp.airties.com:3128
+-#         sslVerify = false
+-
+-#Create your public key
+-ssh-keygen -t rsa
+diff --git a/scripts/vimscript.sh b/scripts/vimscript.sh
+index cf3c0d8..bde3f36 100755
+--- a/scripts/vimscript.sh
++++ b/scripts/vimscript.sh
+@@ -1,8 +1,3 @@
+-#vim /home/noe287/MY_DEVEL/SCRIPTS/generalScripts/standalone_scripts/mine/$1
+-#chmod 777 /home/noe287/MY_DEVEL/SCRIPTS/generalScripts/standalone_scripts/mine/$1
+-
+-#vim /home/noe287/MY_DEVEL/SCRIPTS/generalScripts/standalone_scripts/mine/$1
+-vim $SCRIPTS_DIR/$1
+-#chmod 777 /home/noe287/MY_DEVEL/SCRIPTS/generalScripts/standalone_scripts/mine/$1
+-sudo chmod 777 $SCRIPTS_DIR/$1
++vim $scr/$1
++chmod 777 $scr/$1
+ 

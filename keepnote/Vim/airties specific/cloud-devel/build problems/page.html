@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Build Problems</title>
+</head><body><div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Statistics Collector derlenirken jsapn buildinde sorun var.<br/>
+Error veriyor ama build kırılmıyor.<br/>
+<br/>
+----------------------------------------------------------------------------------- <br/>
+<br/>
+<br/>
+</span></span><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt">kefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== wireless_tools_install-END ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_config-START ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make statistics-collector_config </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_config-END ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_build-START ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make statistics-collector_build </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make -C statistics-collector-sky all \ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                CROSS_COMPILE_PREFIX="mips-unknown-linux-uclibc-" \ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                AIR_BUS_DIR=/project/airties-bskyb-viper-debug/air-bus/"air-bus-master" \ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                AIR_CDF_DIR=/project/airties-bskyb-viper-debug/air-cdf/ \ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                AIR_WALL_DIR=/project/airties-bskyb-viper-debug/air-wall/ \ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                JSON_C_INC_DIR=/project/airties-bskyb-viper-debug/json-c/"json-c-0.12-20140410"/build/"mips-linux"/install/include \ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                JSON_C_LIB_DIR=/project/airties-bskyb-viper-debug/json-c/"json-c-0.12-20140410"/build/"mips-linux"/install/lib \ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                MESH_NG_DIR=/project/airties-bskyb-viper-debug/mesh-ng/ \ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                RPATH_LINK_DIR="" \ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                BOARD_TYPE= \ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/filter.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/utils.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/main.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/friendly/friendly.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/steer/steer.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/stats/stats.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/ethtool/ethtool.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/stats/sysfs.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/stats/dummy.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/cca/cca.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/process/process.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/clock.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/debug.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/src/platform/.libplatform.o/platform.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/src/platform/.libplatform.o/platform.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  LD         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/src/platform/.libplatform.o/libplatform.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CP         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/src/platform/libplatform.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/debug.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/clock.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/process/process.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/cca/cca.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/stats/dummy.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/stats/sysfs.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/ethtool/ethtool.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/stats/stats.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/steer/steer.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/friendly/friendly.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/main.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/utils.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CC         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/filter.c.o </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  LINK       /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/statistics-collector </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CP         /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/statistics-collector </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_build-END ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_package-START ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">rm -rf package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky.tar.bz2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">mkdir -p package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make statistics-collector_package </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">INSTALL_DIR=/project/airties-bskyb-viper-debug/statistics-collector/package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky make -C statistics-collector-sky install </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/filter.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">src/filter.c:13:25: fatal error: json-c/json.h: No such file or directory </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#include &lt;json-c/json.h&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                         ^ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">compilation terminated. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/utils.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/main.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">src/main.c:14:25: fatal error: json-c/json.h: No such file or directory </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#include &lt;json-c/json.h&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                         ^ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">compilation terminated. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/friendly/friendly.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">src/friendly/friendly.c:11:25: fatal error: json-c/json.h: No such file or directory </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#include &lt;json-c/json.h&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                         ^ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">compilation terminated. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/steer/steer.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">src/steer/steer.c:11:25: fatal error: json-c/json.h: No such file or directory </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#include &lt;json-c/json.h&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                         ^ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">compilation terminated. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/stats/stats.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">src/stats/stats.c:12:25: fatal error: json-c/json.h: No such file or directory </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#include &lt;json-c/json.h&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                         ^ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">compilation terminated. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/ethtool/ethtool.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">src/ethtool/ethtool.c:16:25: fatal error: json-c/json.h: No such file or directory </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#include &lt;json-c/json.h&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                         ^ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">compilation terminated. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/stats/sysfs.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">src/stats/sysfs.c:9:25: fatal error: json-c/json.h: No such file or directory </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#include &lt;json-c/json.h&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                         ^ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">compilation terminated. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/stats/dummy.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">src/stats/dummy.c:6:25: fatal error: json-c/json.h: No such file or directory </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#include &lt;json-c/json.h&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                         ^ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">compilation terminated. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/cca/cca.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">src/cca/cca.c:7:25: fatal error: json-c/json.h: No such file or directory </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#include &lt;json-c/json.h&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                         ^ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">compilation terminated. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/process/process.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">src/process/process.c:11:25: fatal error: json-c/json.h: No such file or directory </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#include &lt;json-c/json.h&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">                         ^ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">compilation terminated. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/clock.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  CPP        /project/airties-bskyb-viper-debug/statistics-collector/statistics-collector-sky/.statistics-collector/src/debug.c.d </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">mkdir -p  /project/airties-bskyb-viper-debug/statistics-collector/package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky/usr/sbin/ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cp -af statistics-collector /project/airties-bskyb-viper-debug/statistics-collector/package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky/usr/sbin/ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">find package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky/ -name ".svn" -type d | xargs rm -rf </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">find package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky/ -name ".gitkeep" -type f | xargs rm -rf </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">find package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky/ -name ".gitignore" -type f | xargs rm -rf </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tar -C package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky -cjpf package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky.tar.bz2 . </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">rm -rf package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_package-END ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_api-START ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_api-END ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_data-START ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_data-END ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_image-START ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_image-END ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_install-START ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cp package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky.tar.bz2 /project/airties-bskyb-viper-debug/release/package/ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tar -C /project/airties-bskyb-viper-debug/release/rootfs -xjpf package-BCMBSP-mips-unknown-linux-uclibc--bskyb-viper-statistics-collector-sky.tar.bz2 . </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== statistics-collector_install-END ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Makefile:3: disabling ccache </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== airlibs_config-START ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">===== libairc_config-START ===== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make libairc_config </span></span><br/>
+</div><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left"> --------------------------------------------------------------------<br/>
+<br/>
+[1970-01-01 00:00:42] [console] [aca] config.c,show_config-450: air-cloud-agent config BEGIN.<br/>
+&nbsp; air-cloud-agent params/paths in config store:<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; enable =&gt; true<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; config_directory =&gt; /etc/cloud<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; server_certs_dir =&gt; /etc/cloud/certs<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; client_certs_dir =&gt; /etc/cloud/client_certs<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_prereg_domain =&gt; prereg.xmpp.stg.airtiescloud.com<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_domain =&gt; <br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_username =&gt; sn_onur<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_password =&gt; <br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_policy =&gt; AlwaysOn<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_clientauth =&gt; true<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; json_rpc_version =&gt; 2.0.0<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; data_model_version =&gt; 1.0<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_livemode =&gt; disabled<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_connreq =&gt; false<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_retry_min_wait_time =&gt; 15 secs<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_retry_max_wait_time =&gt; 900 secs<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_prereg_id_retry_period =&gt; 30 mins (1800 secs)<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_prereg_id_retry_interval =&gt; 30 secs<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_prereg_auth_retry_period =&gt; 30 mins (1800 secs)<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_prereg_auth_retry_interval =&gt; 30 secs<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_lib_log_level =&gt; warn<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; daemon_log_level =&gt; error<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; total_nr_reqpr =&gt; 1<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; cloud_nr_reqpr =&gt; 1<br/>
+&nbsp; air-cloud-agent other params:<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; serial_number =&gt; onur<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; primary_mac_address =&gt; 8841fc393940<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; firmware_version =&gt; 3.52.1.0<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_prereg_jid =&gt; sn_onur@prereg.xmpp.stg.airtiescloud.com/3.52.1.0<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_prereg_password =&gt; 32d4b57beab0896dd7fac78c33ca0c5e2704f390eab1fea9107704c35759f57a<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_prereg_id_retry_count =&gt; 60 times<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_prereg_auth_retry_count =&gt; 60 times<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_jid =&gt; (null)<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; xmpp_normal_conn =&gt; no<br/>
+[1970-01-01 00:00:42] [console] [aca] config.c,show_config-452: air-cloud-agent config END.<br/>
+<br/>
+</div></span></span><div style="text-align: left"><br/>
+</div></body></html>

@@ -1,1 +1,2 @@
- cp ~/DataDrive/Downloads/Patches/$1.patch .
+ cp $HOME/DataDrive/DEVEL/Patches/$1 .
+ patch -p1 < $1

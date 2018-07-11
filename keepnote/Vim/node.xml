@@ -22,8 +22,8 @@
   <key>title</key><string>Keep</string>
   <key>column_widths</key><dict>
     <key>created_time</key><integer>150</integer>
-    <key>modified_time</key><integer>1166</integer>
-    <key>title</key><integer>150</integer>
+    <key>modified_time</key><integer>1168</integer>
+    <key>title</key><integer>380</integer>
   </dict>
   <key>attr_defs</key><array>
     <dict>

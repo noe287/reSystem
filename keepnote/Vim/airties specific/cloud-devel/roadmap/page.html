@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>RoadMap</title>
+</head><body><div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
+Cloud çalışması için gerekli &nbsp;paketler ve akış:<br/>
+</span></span></div><ul><li><b><span style="font-size: 12pt">air-cloud-agent</span></b></li>
+<li style="list-style-type: none"><ul><li>get_topology (ana method- full topology)</li>
+<li style="list-style-type: none"><ul><li>sub methods</li>
+<li style="list-style-type: none"><ul><li>routes(), topology(), friendlyinfo(), steer(), default() &nbsp; -----&gt;&gt; Bunlar jason formatında output üretecek.</li>
+<li>LiveView için "default" çağrııyor. &nbsp;default = routes + topology + &nbsp;friendly + steer(boş dönecek)</li>
+<li>friendlyname vs yani friendly için manager içerisinde dhcpcap'in açılması ve bağlı olan her client için bir dosya oluşturması bekleniyor. Cloud agent bunu sorgulayacak daha sonra.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul><li style="list-style-type: none"><ul><li>Minimim 15-20 parametre aynen lisencingde olduğu gibi GETlenebilir olacak. CDF daemon'ı ve küçük bir CDF dosyasını da kullanıcaz. CDF daemon'ı kullanmamız durumunda uyygulamaya dair değişen bazı config değerlerinden cloud agent otomatik olarak haberdar olacak. Ayrıca bu 15-20 parametrenin GETlenmesi için extra bir işlem yapmayıp lincensing'de olduğu gibi değerleri alabilicez.</li>
+<li>Getlenmesi gereken bu başlangıç 15-20 değer ve topology datası &nbsp;için bir JSON dosyası oluşturucaz. Bunu lisencingdeki uzunca dosyanın minimal bir seti olarak düşünebiliriz.</li>
+<li style="list-style-type: none"><ul><li>Bu json dosaysını hali hazırda licensingin kullandığı bir python scripti bir C dosyasına dönüştürecek. Burada gelen her GET requesti için çağrılması gereken fonksiyon isimleri bulunacak.</li>
+<li style="list-style-type: none"><ul><li>Gelen requestler uygulama config'ine dair ise CDF file'indan Cihaz configine dair se config.xml'den dönüş olacak. Cihaz datasını sorgulamak için manager üzerinden config.xml sorguları yapabilmemiz gerekiyor. Bunun için de cli librarysini air-cloud-agent'a linlkleyeceğiz.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul><li><span style="font-size: 12pt"><b>Cloud-Agent Manager Module</b></span></li>
+<li style="list-style-type: none"><ul><li>Starts cloud-agent daemon. </li>
+<li>Reads cloud-agent config over CDF daemon. Linking libclientcdf.so to be linked here.</li>
+<li style="list-style-type: none"><ul><li>Bu sayede manager module CDF dosyasında gerekli değeri okuyabilecek. Aslında burada okunması gereken bir tek değer var. Eğer agent enabled değeri TRUE ise manager module'ü agent-daemon'ı başlatacak. O kadar. Geri kalan uygulama config datasını CDF daemon kendisi okuyarak uygulamayı configure edecek ve sistem çalışmaya başlayacak.</li>
+</ul>
+</li>
+<li style="list-style-type: none"></li>
+</ul>
+</li>
+</ul>
+<ul><li><b><span style="font-size: 12pt">stats-collector (automesh topology)</span></b></li>
+<li style="list-style-type: none"><ul><li>cloud-agent'ın yaptığı get_topology çağrısını mesh-ng vs. gibi componentlere sorup döndürüyor. Cloud-agent içerisinde de yapılabilir bu döndürme işlemi.</li>
+<li>automesh için gerekli işlemleri burad yapıp json formatında cloud-agent'a gönderiyor olucaz</li>
+</ul>
+</li>
+</ul>
+<ul><li><b><span style="font-size: 12pt">dhcpcap (friendly info için)</span></b></li>
+<li style="list-style-type: none"><ul><li>manager paketinde bulunuyor. /proc/air_dhcp_clients/ altında her client için dosyalar oluşturuyor. (ip, mac, friendly name) şeklinde.</li>
+</ul>
+</li>
+</ul>
+<ul><li><b><span style="font-size: 12pt">CDF</span></b></li>
+<li style="list-style-type: none"><ul><li>cdf daemon (uygulama configleri için, kolaylaştırıcı ve ileriye dönük integrasyon için)</li>
+<li>Cihaz configleri config.xml'de olacak eskisi gibi</li>
+<li>cloud-agent'a dair configler ise küçük bir CDF file'i içerisinde tutucaz. Bu cloud-agent'ın smooth bir şekilde başlamasını kolaylaştıracak.</li>
+</ul>
+</li>
+</ul>
+<br/>
+Açılan diğer paketler:<ul><li>air-bus (CDF, stats-collector, cloud-agent arası haberleşme için. Cloud-agent ile manager haberleşmesi içinde belki bunu kullanabiliriz.)</li>
+<li>expat</li>
+<li>openssl (sertifikalar var, cloud-agent onları /usr/ altında arıyor...)</li>
+<li>libstrophe</li>
+<li>zlib</li>
+</ul>
+<br/>
+<br/>
+<br/>
+cloud-agent headden kullanılmalı.<br/>
+<br/>
+CDF kullanıldıgında her bir set için diffler oluşturulur bunları factor defaults ile silinmeleri gerekir.<br/>
+<br/>
+air-rm-daemon ?<br/>
+cca konusu?<br/>
+channel, ssid vs...<br/>
+<br/>
+<div style="text-align: left"><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">packets integrated: </span></span><br/>
+</div><div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span></span></div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">{air-rm, air-bus, expat, openssl, libstrophe, statistics-collector, cloud-agent} </span></span><br/>
+</div><br/>
+<br/>
+to be integrated:<br/>
+{cdf(for app configuration), dhcpcap(for friendly info),}<br/>
+<br/>
+- libcdfclient'ın manager'a linklenmesi<br/>
+- aci-cli ya da cli'ın libaca'ya linklenmesi<br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span></span></div></body></html>

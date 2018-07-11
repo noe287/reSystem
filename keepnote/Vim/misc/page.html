@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Misc</title>
+</head><body>static int __get_mac_by_ifname(const char *ifname, char **mac_addr)<br/>
+&nbsp; {<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int error = 0 , ret = 0;<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; char* line;<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; char searchText[16];<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; char buf[128];<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; FILE* fds = NULL;<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; static char mac_str[ETHER_ADDR_STR_LEN + 1] = {0};<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int len = 0;<br/>
+&nbsp; <br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (void) ifname;<br/>
+&nbsp; <br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fds = fopen(NVRAM_FILE, "r"); //for viper and booster that is in NVRAM, what about STBs?<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (fds == NULL) {<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; libairlog_errorf("Cannot open nvram.txt file error: %s", strerror(error));<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ret = -1;<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; goto out;<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br/>
+&nbsp; <br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (strcmp(PRIMARY_INTERFACE_NAME, "br0") == 0) {<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; strcpy(searchText, "MAC_BR_0");<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else if (strcmp(PRIMARY_INTERFACE_NAME, "eth0") == 0) {<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; strcpy(searchText, "MAC_ETH_0");<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else if (strcmp(PRIMARY_INTERFACE_NAME, "wl0") == 0) {<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; strcpy(searchText, "MAC_WLAN_0");<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else if (strcmp(PRIMARY_INTERFACE_NAME, "wl1") == 0) {<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; strcpy(searchText, "MAC_WLAN_1");<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; libairlog_errorf("Unknown interface name error:%s - %s", PRIMARY_INTERFACE_NAME, strerror(error));<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ret = -1;<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; goto out;<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br/>
+&nbsp; <br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; while ((line = fgets(buf, sizeof(buf), fds)) != NULL) {<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (strstr(line, searchText) == NULL) {<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; continue;<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; len = strlen(line) - 1;<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (line[len] == '\n')<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; line[len] = '\0';<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; strncpy(mac_str, line + strlen(searchText) + 1, ETHER_ADDR_STR_LEN);<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br/>
+&nbsp; <br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *mac_addr = strlwr(mac_str);<br/>
+&nbsp; out:<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (fds != NULL) {<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fclose(fds);<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br/>
+&nbsp; <br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; errno = error;<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return ret;<br/>
+&nbsp; }<br/>
+<br/>
+&nbsp; #undef PRIMARY_INTERFACE_NAME<br/>
+&nbsp; #define PRIMARY_INTERFACE_NAME &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;("br0")<br/>
+</body></html>
