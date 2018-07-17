@@ -5,9 +5,6 @@ allDIRS=`ls`
 FILTER="filter.txt"
 CSCOPEFILES=cscope.files
 
-rm $FILTER
-rm cscope*
-rm tags
 
 if [ "$FOLDERCNT" -ge 50 ];then
 
@@ -47,6 +44,10 @@ if [ "$FOLDERCNT" -ge 50 ];then
 		ctags -R
 	fi
 else
+	rm $FILTER
+	rm cscope*
+	rm tags
+
 	if [ ! -e "cscope.out" ]
 	then
 		#/* cscope -b -q  */

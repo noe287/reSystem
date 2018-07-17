@@ -18,7 +18,7 @@ git clone --mirror git://git.corp.airties.com/buildsys.git
 git clone --mirror git://git.corp.airties.com/profiles.git
 
 #Developer System
-sudo -E apt-get -y install yakuake vim subversion meld guake indicator-multiload goldendict aptitude shutter unity-tweak-tool minicom wireshark cscope vifm
+sudo -E apt-get -y install yakuake vim subversion meld guake indicator-multiload goldendict aptitude shutter unity-tweak-tool minicom wireshark cscope vifm rdesktop
 ssh openssl clang tftpd-hpa silversearcher-ag apt-transport-https ca-certificates exuberant-ctags
 
 sudo -E apt install -y libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev

@@ -147,8 +147,20 @@ echo "WPS_PIN_0=04362906 <ul><li>WPS_PIN_1=04362906</li>
 <br/>
 "<br/>
 <br/>
-AT17415120000239 - 4920 -Bison serinosu<ul><li></li>
-</ul>
+AT17415120000239 - 4920 -Bison serinosu<br/>
+<br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- </span></span></div><br/>
+<br/>
+<b>Ip address:</b>&nbsp;AirTies-Stack viper's don't have dhcp client you need to assign an ip address manually. Get a valid Ip address on an other device and then configure your device in a similar way indicated below <br/>
+<br/>
+ifconfig br0 172.16.9.155<br/>
+route add default gw 172.16.0.1<br/>
+echo "nameserver 172.16.6.200" &gt; /etc/resolv.conf<br/>
+date -s '2018-07-11 10:34:56'<br/>
+<br/>
+<br/>
+<b>Date:</b>&nbsp;Cloud Server is expecting to receive certificates less than 25 years old. This is most taken from the Viper's current date. As we don't use an NTP sync feature on SKY devices you will need to set date to a valid date manually. Use the below command for that: date -s '2018-07-11 10:34:56'   Don't forget to kill dhcpd daemon in viper devices as it will distribute ip address inside the network it operates. &nbsp; &nbsp; &nbsp;<br/>
+<br/>
 <div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri"><b>CERTIFICATES </b></span></span><br/>
 <span style="font-size: 11pt"><span style="font-family: Calibri">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- </span></span><br/>
 </div><b><span style="font-size: 12pt">System zamanı eski olursa (&gt;25 sene) sertifikalar geçersiz olacağı için prereg domain sertifkayı verify etmiyor.<br/>
