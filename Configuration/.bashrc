@@ -130,14 +130,17 @@ export http_proxy
 ftp_proxy=ftp://proxy.corp.airties.com:3128
 export ftp_proxy
 
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/noe/.vimpkg/bin:/home/noe/scripts:/home/noe/systemscr/:/usr/local/bin/:.
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/noe/.vimpkg/bin:/home/noe/scripts/:/home/noe/systemscr/:/usr/local/bin/:.
 
-export difs="~/DataDrive/DEVEL/Patches"
+export patches="$HOME/DataDrive/DEVEL/Patches"
+alias cdp="cd $HOME/DataDrive/DEVEL/Patches"
+
 export SVN_EDITOR=vim
-export SCRIPTS_DIR="/home/noe/scripts"
+export scr="$HOME/scripts/"
 
-alias lscr='ls -CF /home/noe/scripts/'
-alias lsp='ls -CF ~/DataDrive/DEVEL/Patches'
+alias lscr='ls -CF $HOME/scripts/'
+alias lsp='ls -CF $HOME/DataDrive/DEVEL/Patches'
+alias scr="cd $HOME/scripts/"
 
 alias gdbmips='mips-linux-gdb'
 
@@ -151,20 +154,22 @@ alias bam='bake menuconfig'
 alias mac='bake all -C'
 
 alias op='gnome-open .&'
-alias sbash='source /home/noe/.bashrc'
+alias sbash='source $HOME/.bashrc'
 alias dalek='ssh nejatonay.erkose@dalek'
 alias _dalek='nejatsonay.erkose@dalek:~/'
 
-alias scr='cd /usr/bin/scripts'
 alias prf='cd  ~/DataDrive/DEVEL/PROFILES'
 alias tftpb='cd /srv/tftpboot/'
 alias ..='cd ..'
 alias .='cd -'
 alias ~='cd ~'
-alias d='cd /home/noe/Downloads'
+alias d='cd $HOME/Downloads'
 
-alias net='cd /home/noe/DataDrive/DEVEL/PROFILES/mrbox-May-16_12.10.55-2018-Çrş_release/2.1.382/Obj/debug/project_build_arm/bskyb-mr412/linux-3.10.27/net'
-
+alias net='cd $HOME/DataDrive/DEVEL/PROFILES/mrbox-May-16_12.10.55-2018-Çrş_release/2.1.382/Obj/debug/project_build_arm/bskyb-mr412/linux-3.10.27/net'
+alias cloud='cd $HOME/DataDrive/DEVEL/PROFILES/cloud_stuff'
+# alias cdev='cd $HOME/DataDrive/DEVEL/PROFILES/cloud_stuf/cloud_Haz-19-17_47_15_Sal'
+# alias cdev='cd /home/noe/DataDrive/DEVEL/PROFILES/cloud_stuff/cloud_Haz-19-17_47_15_Sal'
+alias cdev='cd /home/noe/DataDrive/DEVEL/PROFILES/cloud_stuff/cloud_Haz-19-17_47_15_Sal/airties-bskyb-viper-debug'
 alias co="checkout"
 alias chp="cherry-pick"
 alias gitc='git-cola dag &'
@@ -177,6 +182,8 @@ alias bs='./tools/bake shell'
 alias ball='./tools/bake all'
 alias bak='./tools/bake'
 alias bakv='USE_LOCAL_TOOLCHAINS=y BUILD_TYPE=debug ./tools/bake'
+alias bsv='USE_LOCAL_TOOLCHAINS=y BUILD_TYPE=debug ./tools/bake shell'
+alias bs='./tools/bake shell'
 
 alias cext='cp 4.14L.04-SkyHybridRouting/bcm963xx/targets/EXTENDER/bcmEXTENDER_fs_kernel /tftpboot/'
 alias cvip='cp 4.14L.04-SkyHybridRouting/bcm963xx/targets/BSKYB_VIPER/bcmBSKYB_VIPER_fs_kernel /tftpboot/'

@@ -1,0 +1,1119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Commands</title>
+</head><body><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Manager and wireless commands </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ssh <a href="mailto:dvt@10.20.1.88">dvt@10.20.1.88</a> </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Show running mngr instances </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">-------------------------------------------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli query devmgr-0:mngr_list </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli query devmgr-0:inst_list wireless  (how many instance for this mngr runs) </span></span><br/>
+</div># cli query devmgr-0:inst_list wireless<br/>
+<br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">-------------------------------------------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">meshest_cli -i 1 <br/>
+</span></span><span style="font-family: Calibri"><span style="font-size: 11pt">meshest_cli -v1</span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config meshest-0 enabled 1 &amp;&amp; meshest_cli -v 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">USE_LOCAL_TOOLCHAINS=y bak all </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">while [ 0 ]; do for i in  12 5 13 4 10 6 11 8 2 9 1;do wl down;wl chanspec $i; wl up; sleep 60;done;done &amp; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">----------------------------------------------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ifconfig br0 192.168.2.100 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ifconfig br0 192.168.2.101 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ping 192.168.2.101 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">setmetrics -s plc0.1=2500 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">setmetrics -s wds1.1=700 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cd `cat /tmp/diag`; cat MESSAGES.LOG </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">EXEC_CMD: wl -i wl0 only_airties 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl0.1 status </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_get_access_points_available </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cat /etc/build* </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_access_points_available </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 sta_ssid Aristotales </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 sta_ssid Demoklithos </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli query wireless-0:sta_state </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">WPA2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_ssid 1 Samet </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_security_mode 0 ACI_WL_STA_SEC_WPA2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_wpa_password 0 123412345 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_ssid 0 Aristotales </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_security_mode 0 ACI_WL_STA_SEC_WPA2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_wpa_password 0 rabbithole </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_access_points_available 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_soft_command_pbc     </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Setting STA_CONNECT value on config.xml to:0  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_access_points_available 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_get_access_points_available 0  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_ssid 0 Aristotales </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_security_mode 0 ACI_WL_STA_SEC_WPA2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_wpa_password 0 rabbithole </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">get_config wireless-0 sta_connect </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli query wireless-0:sta_state </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">while true; do get_config wireless-0 sta_connect; sleep 1;done &amp; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 &amp;&amp; aci-cli aci_wifi_set_access_points_available </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-1:debug 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#wireless 5 disable </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_enabled 1 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#PLC Enable </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_plc_set_enabled 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_plc_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_wps_role 1 ACI_WL_WPS_ROLE_REGISTRAR </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_soft_command_pbc </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">echo "debug 0x0" &gt; /proc/air_mesh_rt </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">meshest_cli -i 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config meshest-0 enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 enabled 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 enabled 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config meshest-0 enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-1:debug 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config meshest-0 enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">echo "debug 0x0" &gt; /proc/air_mesh_rt </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./tools/bake shell (then build modules) </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Below enables one to build the fimware and creating a tarball </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">[all: all_start build all_end print_build_times                                                                                                                                                               ] </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">bake booster2-release.config (release config) </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make airties-rebuild </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make airties-release </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make foss-disable </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">WPA2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_ssid 0 Aristotales </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_security_mode 0 ACI_WL_STA_SEC_WPA2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_wpa_password 0 rabbithole  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_mac 0 00:1C:A9:F7:EF:00 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_soft_command_pbc     </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_wps_role 1 ACI_WL_WPS_ROLE_REGISTRAR </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_get_wps_role 1  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_soft_command_pbc     </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">while [ 0 ]; do for i in 1 12 3 8 5 10 7 4 11 6 13 9;do wl down;wl chanspec $i; wl up; sleep 45;done;done </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">for i in 1 2 3 4 5 6 7 8 9 10 12 13;do wl down;wl chanspec $i; wl up; sleep 60;done </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">service tftpd-hpa start </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Write Falcon Image: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ifconfig eth0 -addr=192.168.2.6 -mask=255.255.255.0 -gw=192.168.2.1 -dns=192.168.2.1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">flash 192.168.2.77:zImage emmcflash0.kernel </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">setenv -p STARTUP "boot emmcflash0.kernel:zImage 'console=ttyS0,115200 ip=udhcp vmalloc=300M brcm_cma_kern_rsv=450M'" </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">MRBOX image: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#set device IP Address </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set ipaddr &lt;your DUT ip address&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set serverip &lt;your PC ip address&gt; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">saveenv </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp 40000000 uImage </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">mmc write 40000000 0 14000 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">reset </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cd /tmp </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp -g -r iperf-mrbox 192.168.2.100 &amp;&amp; chmod 777 iperf-mrbox; ./iperf-mrbox </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Falcon ve MRBox'ta iptables kurallarini silme </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">iptables --flush </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">WIRESHARK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wlan.addr==MAC ADRESS </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">TFTPBOOT  NVRAM DÜZENLEME </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">bilgisayarın tftpboot kısmında dosyayı oluştur </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo touch nvram.txt </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sonra içini düzenle </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo nano nvram.txt </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo chmod 777 nvram.txt </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cihazda cd tmp yap, aşağıdaki komutu çalıştır </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp -g 192.168.2.100 -r nvram.txt </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cp nvram.txt /data/ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cp AirTies_WiFi_Cert.zip /bin/ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#------------------------------------------------------# </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tar -cvf airties.log.tar.gz /airties/log </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tar -cvf var.log.tar.gz /var/log </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">/etc/rc.d/rc.mesh stop </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">/etc/rc.d/rc.mesh start </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">/etc/rc.d/rc.mesh restart </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">```sh </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tools/bake all </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make install </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">``` </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl0 phycal_tempdelta 50 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 phycal_tempdelta 60 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">PBL (version 2014.1) </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Running slave ARM core(s): </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">======================================= </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">eth interface değiştirmek için :  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo gedit /etc/network/interfaces </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">LİNUX UPDATE İÇİN </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ubuntu source list genarator sitesine gir işaretlemeleri yap oluşan listeyi </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">/etc/apt/sources.list içine at sonra aşağıdaki komutu çalıştır </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo apt-get update </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">AP BAĞLANMA İZNİ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_access_points_available </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_get_access_points_available </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_soft_command_pbc </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_wps_state 1 ACI_WL_WPS_ST_UNCONFIGURED </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_wps_state 0 ACI_WL_WPS_ST_UNCONFIGURED </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">RUNTIME DEFAULT </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_set_factory_default </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">SCAN RESULTS </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_scan_start 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_query_scan_status 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_query_scan_results 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 txpwr 100 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">2*2 set etme </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 rxchain 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 txchain 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cat /proc/loadavg </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">mpstat -P 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">mpstat -P 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">mpstat -P 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">mpstat -P 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">iperf -c 224.0.22.2 -u -b20M -S 0x88 -t999999 -i 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">iperf -s -u -B 224.0.22.2 -i 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp server folder : /tftpboot </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cp bcmBSKYB_VIPER_fs_kernel /tftpboot </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cp zImage /tftpboot </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">dhcp açma kapama </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo /etc/init.d/isc-dhcp-server restart </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo /etc/init.d/isc-dhcp-server stop </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cat /proc/air_mesh_rt  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo ip link set mtu 1480 eth0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">4920 ap mode alma </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">env_test setenv WLAN_OPMODE apsta </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">env_test saveenv </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"># env_test setenv WDS_ENABLED </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">setenv: WDS_ENABLED success. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"># env_test setenv WDS_MAC0    </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">setenv: WDS_MAC0 success. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"># env_test setenv WDS_MAC1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">setenv: WDS_MAC1 success. </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-1:debug 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 wps_role enrollee </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 wps_role registrar </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl0 wds </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl0 status </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cat var/hostapd.conf.wl0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">-d  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 enabled 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#161. KANAL İÇİN </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 country US0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_channel 1 161 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fwrecover -d eth0 -f AirTies_RT-206v1TT_FW_1.1.5.bin </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 wps_role enrollee      :wps rolü enrol yapma </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 wps_role enrollee  :wps rolü enrol yapma </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">: wps rolü çıktısı alma </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli query wireless-0:wps_role    </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli query wireless-1:wps_role </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 wps_role registrar </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 wps_role registrar </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">pwd,grep,ls,ps,free,cat,cd,cp,ifconfig,iwconfig,scp </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"><a href="https://app.chartblocks.com/chart/edit/546614cec9a61da76cc1e549">https://app.chartblocks.com/chart/edit/546614cec9a61da76cc1e549</a> </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ağda dosya transferi için </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">scp "komutlar" <a href="mailto:sadik@192.168.2.145">sadik@192.168.2.145</a>: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">scp "AP 2,4" <a href="mailto:sadik@192.168.2.145">sadik@192.168.2.145</a>: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">scp "plc_komut.txt" <a href="mailto:sadik@192.168.2.145">sadik@192.168.2.145</a>: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">scp "iperf.txt" <a href="mailto:sadik@192.168.2.145">sadik@192.168.2.145</a>: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">scp "reboot.sh" <a href="mailto:tolga@10.20.5.188">tolga@10.20.5.188</a>: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">scp "bcmBSKYB_VIPER_fs_kernel" <a href="mailto:sadik@192.168.2.15">sadik@192.168.2.15</a>: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ls -la : detaylı liste ( dır ) </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">vncviewer 10.20.5.27 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 ampdu </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 wds  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl0 wds  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl msglevel +ampdu </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ampdu kapatma </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 down </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 ampdu 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 up </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">echo "" &gt; /airties/awf-engine.log </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">c : konfigirasyon ayarları yapılır, yaptıktan sonra "reset" komutu verilir </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ps : çalışan servisler aplikeyşınlar </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli query wireless-1:wps_status  : wps durumunu verir </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cat /proc/version  : fw version kontrol </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cat /etc/buildversion: buildversion control </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cat /data/nvram.txt : mac, ssid, şifre tipi, şifreler </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">4920 için </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">setenv REPEATER_SSID_SUFFIX _sado </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">saveenv </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">reboot </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Sky ve Falcon için </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">echo REPEATER_SSID_SUFFIX=_UR11 &gt;&gt; /data/nvram.txt </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl0 mac |grep mac -c : eklenen mac sayısı </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl0 mac |grep mac : eklenen mac ler </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set MAC_ETH_0 78:3E:53:FF:58:F0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set MAC_WLAN_0 78:3E:53:FF:58:F1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set MAC_WLAN_1 78:3E:53:FF:58:F2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set WPS_PIN_0 25568165 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set DEFAULT_IP 192.168.2.102 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set ENABLE_NC 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set MAC_PLC_0 78:3E:53:FF:58:F0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set MAC_PLC_1 78:3E:53:FF:58:F3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set WLAN_SSID_0 FCQ-D1-37-2.4ghz </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set WLAN_SEC_0 wpa2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set WLAN_KEY_0 managers </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set WLAN_SSID_1 ER110T-C-2-5ghz </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set WLAN_SEC_1 wpa2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">fakenvram /data/nvram.txt set WLAN_KEY_1 managers </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">19:3d:f5:8b:2e:12 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">MULTISSID VIPER </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 ap1_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 ap2_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 ap3_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 ap1_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 ap2_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 ap3_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">HIDDEN SSID </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#5 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_ap_hiddenssid 1 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#2.4 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_ap_hiddenssid 0 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">MAC FILTER </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#5 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_add 1 A0:88:B4:84:59:80 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_add 1 80:1F:02:DD:B8:98 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_mode 1 ACI_WL_ACL_MODE_BLOCK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_mode 1 ACI_WL_ACL_MODE_ALLOW </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#2,4 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_add 0 A0:88:B4:84:59:80 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_add 0 80:1F:02:DD:B8:98 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_mode 0 ACI_WL_ACL_MODE_BLOCK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_mode 0 ACI_WL_ACL_MODE_ALLOW </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Broadcom interface komutları :  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl0 status  2.4 ghz (STA) </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 status   5 Ghz </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl0.1 status 2.4 ghz ( AP ) </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 txchain 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 rxchain 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 up </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ASUS </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">5GHz 3x3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i eth2 txchain 7 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i eth2 rxchain 7 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">5GHz 2x2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i eth2 txchain 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i eth2 rxchain 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">5GHz 1x1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i eth2 txchain 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i eth2 rxchain 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">2.4GHz 2x2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i eth1 txchain 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i eth1 rxchain 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">2.4GHz 1x1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i eth1 txchain 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i eth1 rxchain 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Sta moduna gecirmek icin: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 down </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 ap 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 up </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Eger wpa2 sifreliyse AP: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 wsec 4 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 sup_wpa 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 set_pmk "kavfnnikv9" </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 roam_off 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 spect 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 join "Linksys10318" imode bss amode wpa2psk </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 wet 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Eger sifresizse AP: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 wsec 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 wpa_auth </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 roam_off 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 spect 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 join "AirTies_Air4920_4EK3" imode bss </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 wet 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">=============================== </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"> </span></span><br/>
+</div></body></html>

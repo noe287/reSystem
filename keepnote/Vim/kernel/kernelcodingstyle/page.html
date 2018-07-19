@@ -1,0 +1,830 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KernelCodingStyle</title>
+</head><body><span style="font-size: 15pt"><br/>
+&#09;&#09;Linux kernel coding style<br/>
+<br/>
+This is a short document describing the preferred coding style for the<br/>
+linux kernel. &nbsp;Coding style is very personal, and I won't _force_ my<br/>
+views on anybody, but this is what goes for anything that I have to be<br/>
+able to maintain, and I'd prefer it for most other things too. &nbsp;Please<br/>
+at least consider the points made here.<br/>
+<br/>
+First off, I'd suggest printing out a copy of the GNU coding standards,<br/>
+and NOT read it. &nbsp;Burn them, it's a great symbolic gesture.<br/>
+<br/>
+Anyway, here goes:<br/>
+<br/>
+<br/>
+&#09; &#09;Chapter 1: Indentation<br/>
+<br/>
+Tabs are 8 characters, and thus indentations are also 8 characters.<br/>
+There are heretic movements that try to make indentations 4 (or even 2!)<br/>
+characters deep, and that is akin to trying to define the value of PI to<br/>
+be 3.<br/>
+<br/>
+Rationale: The whole idea behind indentation is to clearly define where<br/>
+a block of control starts and ends. &nbsp;Especially when you've been looking<br/>
+at your screen for 20 straight hours, you'll find it a lot easier to see<br/>
+how the indentation works if you have large indentations.<br/>
+<br/>
+Now, some people will claim that having 8-character indentations makes<br/>
+the code move too far to the right, and makes it hard to read on a<br/>
+80-character terminal screen. &nbsp;The answer to that is that if you need<br/>
+more than 3 levels of indentation, you're screwed anyway, and should fix<br/>
+your program.<br/>
+<br/>
+In short, 8-char indents make things easier to read, and have the added<br/>
+benefit of warning you when you're nesting your functions too deep.<br/>
+Heed that warning.<br/>
+<br/>
+The preferred way to ease multiple indentation levels in a switch statement is<br/>
+to align the "switch" and its subordinate "case" labels in the same column<br/>
+instead of "double-indenting" the "case" labels. &nbsp;E.g.:<br/>
+<br/>
+&#09;switch (suffix) {<br/>
+&#09;case 'G':<br/>
+&#09;case 'g':<br/>
+&#09;&#09;mem &lt;&lt;= 30;<br/>
+&#09;&#09;break;<br/>
+&#09;case 'M':<br/>
+&#09;case 'm':<br/>
+&#09;&#09;mem &lt;&lt;= 20;<br/>
+&#09;&#09;break;<br/>
+&#09;case 'K':<br/>
+&#09;case 'k':<br/>
+&#09;&#09;mem &lt;&lt;= 10;<br/>
+&#09;&#09;/* fall through */<br/>
+&#09;default:<br/>
+&#09;&#09;break;<br/>
+&#09;}<br/>
+<br/>
+<br/>
+Don't put multiple statements on a single line unless you have<br/>
+something to hide:<br/>
+<br/>
+&#09;if (condition) do_this;<br/>
+&#09; &nbsp;do_something_everytime;<br/>
+<br/>
+Don't put multiple assignments on a single line either. &nbsp;Kernel coding style<br/>
+is super simple. &nbsp;Avoid tricky expressions.<br/>
+<br/>
+Outside of comments, documentation and except in Kconfig, spaces are never<br/>
+used for indentation, and the above example is deliberately broken.<br/>
+<br/>
+Get a decent editor and don't leave whitespace at the end of lines.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 2: Breaking long lines and strings<br/>
+<br/>
+Coding style is all about readability and maintainability using commonly<br/>
+available tools.<br/>
+<br/>
+The limit on the length of lines is 80 columns and this is a strongly<br/>
+preferred limit.<br/>
+<br/>
+Statements longer than 80 columns will be broken into sensible chunks.<br/>
+Descendants are always substantially shorter than the parent and are placed<br/>
+substantially to the right. The same applies to function headers with a long<br/>
+argument list. Long strings are as well broken into shorter strings. The<br/>
+only exception to this is where exceeding 80 columns significantly increases<br/>
+readability and does not hide information.<br/>
+<br/>
+void fun(int a, int b, int c)<br/>
+{<br/>
+&#09;if (condition)<br/>
+&#09;&#09;printk(KERN_WARNING "Warning this is a long printk with "<br/>
+&#09;&#09;&#09;&#09;&#09;&#09;"3 parameters a: %u b: %u "<br/>
+&#09;&#09;&#09;&#09;&#09;&#09;"c: %u \n", a, b, c);<br/>
+&#09;else<br/>
+&#09;&#09;next_statement;<br/>
+}<br/>
+<br/>
+&#09;&#09;Chapter 3: Placing Braces and Spaces<br/>
+<br/>
+The other issue that always comes up in C styling is the placement of<br/>
+braces. &nbsp;Unlike the indent size, there are few technical reasons to<br/>
+choose one placement strategy over the other, but the preferred way, as<br/>
+shown to us by the prophets Kernighan and Ritchie, is to put the opening<br/>
+brace last on the line, and put the closing brace first, thusly:<br/>
+<br/>
+&#09;if (x is true) {<br/>
+&#09;&#09;we do y<br/>
+&#09;}<br/>
+<br/>
+This applies to all non-function statement blocks (if, switch, for,<br/>
+while, do). &nbsp;E.g.:<br/>
+<br/>
+&#09;switch (action) {<br/>
+&#09;case KOBJ_ADD:<br/>
+&#09;&#09;return "add";<br/>
+&#09;case KOBJ_REMOVE:<br/>
+&#09;&#09;return "remove";<br/>
+&#09;case KOBJ_CHANGE:<br/>
+&#09;&#09;return "change";<br/>
+&#09;default:<br/>
+&#09;&#09;return NULL;<br/>
+&#09;}<br/>
+<br/>
+However, there is one special case, namely functions: they have the<br/>
+opening brace at the beginning of the next line, thus:<br/>
+<br/>
+&#09;int function(int x)<br/>
+&#09;{<br/>
+&#09;&#09;body of function<br/>
+&#09;}<br/>
+<br/>
+Heretic people all over the world have claimed that this inconsistency<br/>
+is ... &nbsp;well ... &nbsp;inconsistent, but all right-thinking people know that<br/>
+(a) K&amp;R are _right_ and (b) K&amp;R are right. &nbsp;Besides, functions are<br/>
+special anyway (you can't nest them in C).<br/>
+<br/>
+Note that the closing brace is empty on a line of its own, _except_ in<br/>
+the cases where it is followed by a continuation of the same statement,<br/>
+ie a "while" in a do-statement or an "else" in an if-statement, like<br/>
+this:<br/>
+<br/>
+&#09;do {<br/>
+&#09;&#09;body of do-loop<br/>
+&#09;} while (condition);<br/>
+<br/>
+and<br/>
+<br/>
+&#09;if (x == y) {<br/>
+&#09;&#09;..<br/>
+&#09;} else if (x &gt; y) {<br/>
+&#09;&#09;...<br/>
+&#09;} else {<br/>
+&#09;&#09;....<br/>
+&#09;}<br/>
+<br/>
+Rationale: K&amp;R.<br/>
+<br/>
+Also, note that this brace-placement also minimizes the number of empty<br/>
+(or almost empty) lines, without any loss of readability. &nbsp;Thus, as the<br/>
+supply of new-lines on your screen is not a renewable resource (think<br/>
+25-line terminal screens here), you have more empty lines to put<br/>
+comments on.<br/>
+<br/>
+Do not unnecessarily use braces where a single statement will do.<br/>
+<br/>
+if (condition)<br/>
+&#09;action();<br/>
+<br/>
+This does not apply if one branch of a conditional statement is a single<br/>
+statement. Use braces in both branches.<br/>
+<br/>
+if (condition) {<br/>
+&#09;do_this();<br/>
+&#09;do_that();<br/>
+} else {<br/>
+&#09;otherwise();<br/>
+}<br/>
+<br/>
+&#09;&#09;3.1: &nbsp;Spaces<br/>
+<br/>
+Linux kernel style for use of spaces depends (mostly) on<br/>
+function-versus-keyword usage. &nbsp;Use a space after (most) keywords. &nbsp;The<br/>
+notable exceptions are sizeof, typeof, alignof, and __attribute__, which look<br/>
+somewhat like functions (and are usually used with parentheses in Linux,<br/>
+although they are not required in the language, as in: "sizeof info" after<br/>
+"struct fileinfo info;" is declared).<br/>
+<br/>
+So use a space after these keywords:<br/>
+&#09;if, switch, case, for, do, while<br/>
+but not with sizeof, typeof, alignof, or __attribute__. &nbsp;E.g.,<br/>
+&#09;s = sizeof(struct file);<br/>
+<br/>
+Do not add spaces around (inside) parenthesized expressions. &nbsp;This example is<br/>
+*bad*:<br/>
+<br/>
+&#09;s = sizeof( struct file );<br/>
+<br/>
+When declaring pointer data or a function that returns a pointer type, the<br/>
+preferred use of '*' is adjacent to the data name or function name and not<br/>
+adjacent to the type name. &nbsp;Examples:<br/>
+<br/>
+&#09;char *linux_banner;<br/>
+&#09;unsigned long long memparse(char *ptr, char **retptr);<br/>
+&#09;char *match_strdup(substring_t *s);<br/>
+<br/>
+Use one space around (on each side of) most binary and ternary operators,<br/>
+such as any of these:<br/>
+<br/>
+&#09;= &nbsp;+ &nbsp;- &nbsp;&lt; &nbsp;&gt; &nbsp;* &nbsp;/ &nbsp;% &nbsp;| &nbsp;&amp; &nbsp;^ &nbsp;&lt;= &nbsp;&gt;= &nbsp;== &nbsp;!= &nbsp;? &nbsp;:<br/>
+<br/>
+but no space after unary operators:<br/>
+&#09;&amp; &nbsp;* &nbsp;+ &nbsp;- &nbsp;~ &nbsp;! &nbsp;sizeof &nbsp;typeof &nbsp;alignof &nbsp;__attribute__ &nbsp;defined<br/>
+<br/>
+no space before the postfix increment &amp; decrement unary operators:<br/>
+&#09;++ &nbsp;--<br/>
+<br/>
+no space after the prefix increment &amp; decrement unary operators:<br/>
+&#09;++ &nbsp;--<br/>
+<br/>
+and no space around the '.' and "-&gt;" structure member operators.<br/>
+<br/>
+Do not leave trailing whitespace at the ends of lines. &nbsp;Some editors with<br/>
+"smart" indentation will insert whitespace at the beginning of new lines as<br/>
+appropriate, so you can start typing the next line of code right away.<br/>
+However, some such editors do not remove the whitespace if you end up not<br/>
+putting a line of code there, such as if you leave a blank line. &nbsp;As a result,<br/>
+you end up with lines containing trailing whitespace.<br/>
+<br/>
+Git will warn you about patches that introduce trailing whitespace, and can<br/>
+optionally strip the trailing whitespace for you; however, if applying a series<br/>
+of patches, this may make later patches in the series fail by changing their<br/>
+context lines.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 4: Naming<br/>
+<br/>
+C is a Spartan language, and so should your naming be. &nbsp;Unlike Modula-2<br/>
+and Pascal programmers, C programmers do not use cute names like<br/>
+ThisVariableIsATemporaryCounter. &nbsp;A C programmer would call that<br/>
+variable "tmp", which is much easier to write, and not the least more<br/>
+difficult to understand.<br/>
+<br/>
+HOWEVER, while mixed-case names are frowned upon, descriptive names for<br/>
+global variables are a must. &nbsp;To call a global function "foo" is a<br/>
+shooting offense.<br/>
+<br/>
+GLOBAL variables (to be used only if you _really_ need them) need to<br/>
+have descriptive names, as do global functions. &nbsp;If you have a function<br/>
+that counts the number of active users, you should call that<br/>
+"count_active_users()" or similar, you should _not_ call it "cntusr()".<br/>
+<br/>
+Encoding the type of a function into the name (so-called Hungarian<br/>
+notation) is brain damaged - the compiler knows the types anyway and can<br/>
+check those, and it only confuses the programmer. &nbsp;No wonder MicroSoft<br/>
+makes buggy programs.<br/>
+<br/>
+LOCAL variable names should be short, and to the point. &nbsp;If you have<br/>
+some random integer loop counter, it should probably be called "i".<br/>
+Calling it "loop_counter" is non-productive, if there is no chance of it<br/>
+being mis-understood. &nbsp;Similarly, "tmp" can be just about any type of<br/>
+variable that is used to hold a temporary value.<br/>
+<br/>
+If you are afraid to mix up your local variable names, you have another<br/>
+problem, which is called the function-growth-hormone-imbalance syndrome.<br/>
+See chapter 6 (Functions).<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 5: Typedefs<br/>
+<br/>
+Please don't use things like "vps_t".<br/>
+<br/>
+It's a _mistake_ to use typedef for structures and pointers. When you see a<br/>
+<br/>
+&#09;vps_t a;<br/>
+<br/>
+in the source, what does it mean?<br/>
+<br/>
+In contrast, if it says<br/>
+<br/>
+&#09;struct virtual_container *a;<br/>
+<br/>
+you can actually tell what "a" is.<br/>
+<br/>
+Lots of people think that typedefs "help readability". Not so. They are<br/>
+useful only for:<br/>
+<br/>
+&nbsp;(a) totally opaque objects (where the typedef is actively used to _hide_<br/>
+&nbsp; &nbsp; &nbsp;what the object is).<br/>
+<br/>
+&nbsp; &nbsp; &nbsp;Example: "pte_t" etc. opaque objects that you can only access using<br/>
+&nbsp; &nbsp; &nbsp;the proper accessor functions.<br/>
+<br/>
+&nbsp; &nbsp; &nbsp;NOTE! Opaqueness and "accessor functions" are not good in themselves.<br/>
+&nbsp; &nbsp; &nbsp;The reason we have them for things like pte_t etc. is that there<br/>
+&nbsp; &nbsp; &nbsp;really is absolutely _zero_ portably accessible information there.<br/>
+<br/>
+&nbsp;(b) Clear integer types, where the abstraction _helps_ avoid confusion<br/>
+&nbsp; &nbsp; &nbsp;whether it is "int" or "long".<br/>
+<br/>
+&nbsp; &nbsp; &nbsp;u8/u16/u32 are perfectly fine typedefs, although they fit into<br/>
+&nbsp; &nbsp; &nbsp;category (d) better than here.<br/>
+<br/>
+&nbsp; &nbsp; &nbsp;NOTE! Again - there needs to be a _reason_ for this. If something is<br/>
+&nbsp; &nbsp; &nbsp;"unsigned long", then there's no reason to do<br/>
+<br/>
+&#09;typedef unsigned long myflags_t;<br/>
+<br/>
+&nbsp; &nbsp; &nbsp;but if there is a clear reason for why it under certain circumstances<br/>
+&nbsp; &nbsp; &nbsp;might be an "unsigned int" and under other configurations might be<br/>
+&nbsp; &nbsp; &nbsp;"unsigned long", then by all means go ahead and use a typedef.<br/>
+<br/>
+&nbsp;(c) when you use sparse to literally create a _new_ type for<br/>
+&nbsp; &nbsp; &nbsp;type-checking.<br/>
+<br/>
+&nbsp;(d) New types which are identical to standard C99 types, in certain<br/>
+&nbsp; &nbsp; &nbsp;exceptional circumstances.<br/>
+<br/>
+&nbsp; &nbsp; &nbsp;Although it would only take a short amount of time for the eyes and<br/>
+&nbsp; &nbsp; &nbsp;brain to become accustomed to the standard types like 'uint32_t',<br/>
+&nbsp; &nbsp; &nbsp;some people object to their use anyway.<br/>
+<br/>
+&nbsp; &nbsp; &nbsp;Therefore, the Linux-specific 'u8/u16/u32/u64' types and their<br/>
+&nbsp; &nbsp; &nbsp;signed equivalents which are identical to standard types are<br/>
+&nbsp; &nbsp; &nbsp;permitted -- although they are not mandatory in new code of your<br/>
+&nbsp; &nbsp; &nbsp;own.<br/>
+<br/>
+&nbsp; &nbsp; &nbsp;When editing existing code which already uses one or the other set<br/>
+&nbsp; &nbsp; &nbsp;of types, you should conform to the existing choices in that code.<br/>
+<br/>
+&nbsp;(e) Types safe for use in userspace.<br/>
+<br/>
+&nbsp; &nbsp; &nbsp;In certain structures which are visible to userspace, we cannot<br/>
+&nbsp; &nbsp; &nbsp;require C99 types and cannot use the 'u32' form above. Thus, we<br/>
+&nbsp; &nbsp; &nbsp;use __u32 and similar types in all structures which are shared<br/>
+&nbsp; &nbsp; &nbsp;with userspace.<br/>
+<br/>
+Maybe there are other cases too, but the rule should basically be to NEVER<br/>
+EVER use a typedef unless you can clearly match one of those rules.<br/>
+<br/>
+In general, a pointer, or a struct that has elements that can reasonably<br/>
+be directly accessed should _never_ be a typedef.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 6: Functions<br/>
+<br/>
+Functions should be short and sweet, and do just one thing. &nbsp;They should<br/>
+fit on one or two screenfuls of text (the ISO/ANSI screen size is 80x24,<br/>
+as we all know), and do one thing and do that well.<br/>
+<br/>
+The maximum length of a function is inversely proportional to the<br/>
+complexity and indentation level of that function. &nbsp;So, if you have a<br/>
+conceptually simple function that is just one long (but simple)<br/>
+case-statement, where you have to do lots of small things for a lot of<br/>
+different cases, it's OK to have a longer function.<br/>
+<br/>
+However, if you have a complex function, and you suspect that a<br/>
+less-than-gifted first-year high-school student might not even<br/>
+understand what the function is all about, you should adhere to the<br/>
+maximum limits all the more closely. &nbsp;Use helper functions with<br/>
+descriptive names (you can ask the compiler to in-line them if you think<br/>
+it's performance-critical, and it will probably do a better job of it<br/>
+than you would have done).<br/>
+<br/>
+Another measure of the function is the number of local variables. &nbsp;They<br/>
+shouldn't exceed 5-10, or you're doing something wrong. &nbsp;Re-think the<br/>
+function, and split it into smaller pieces. &nbsp;A human brain can<br/>
+generally easily keep track of about 7 different things, anything more<br/>
+and it gets confused. &nbsp;You know you're brilliant, but maybe you'd like<br/>
+to understand what you did 2 weeks from now.<br/>
+<br/>
+In source files, separate functions with one blank line. &nbsp;If the function is<br/>
+exported, the EXPORT* macro for it should follow immediately after the closing<br/>
+function brace line. &nbsp;E.g.:<br/>
+<br/>
+int system_is_up(void)<br/>
+{<br/>
+&#09;return system_state == SYSTEM_RUNNING;<br/>
+}<br/>
+EXPORT_SYMBOL(system_is_up);<br/>
+<br/>
+In function prototypes, include parameter names with their data types.<br/>
+Although this is not required by the C language, it is preferred in Linux<br/>
+because it is a simple way to add valuable information for the reader.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 7: Centralized exiting of functions<br/>
+<br/>
+Albeit deprecated by some people, the equivalent of the goto statement is<br/>
+used frequently by compilers in form of the unconditional jump instruction.<br/>
+<br/>
+The goto statement comes in handy when a function exits from multiple<br/>
+locations and some common work such as cleanup has to be done.<br/>
+<br/>
+The rationale is:<br/>
+<br/>
+- unconditional statements are easier to understand and follow<br/>
+- nesting is reduced<br/>
+- errors by not updating individual exit points when making<br/>
+&nbsp; &nbsp; modifications are prevented<br/>
+- saves the compiler work to optimize redundant code away ;)<br/>
+<br/>
+int fun(int a)<br/>
+{<br/>
+&#09;int result = 0;<br/>
+&#09;char *buffer = kmalloc(SIZE);<br/>
+<br/>
+&#09;if (buffer == NULL)<br/>
+&#09;&#09;return -ENOMEM;<br/>
+<br/>
+&#09;if (condition1) {<br/>
+&#09;&#09;while (loop1) {<br/>
+&#09;&#09;&#09;...<br/>
+&#09;&#09;}<br/>
+&#09;&#09;result = 1;<br/>
+&#09;&#09;goto out;<br/>
+&#09;}<br/>
+&#09;...<br/>
+out:<br/>
+&#09;kfree(buffer);<br/>
+&#09;return result;<br/>
+}<br/>
+<br/>
+&#09;&#09;Chapter 8: Commenting<br/>
+<br/>
+Comments are good, but there is also a danger of over-commenting. &nbsp;NEVER<br/>
+try to explain HOW your code works in a comment: it's much better to<br/>
+write the code so that the _working_ is obvious, and it's a waste of<br/>
+time to explain badly written code.<br/>
+<br/>
+Generally, you want your comments to tell WHAT your code does, not HOW.<br/>
+Also, try to avoid putting comments inside a function body: if the<br/>
+function is so complex that you need to separately comment parts of it,<br/>
+you should probably go back to chapter 6 for a while. &nbsp;You can make<br/>
+small comments to note or warn about something particularly clever (or<br/>
+ugly), but try to avoid excess. &nbsp;Instead, put the comments at the head<br/>
+of the function, telling people what it does, and possibly WHY it does<br/>
+it.<br/>
+<br/>
+When commenting the kernel API functions, please use the kernel-doc format.<br/>
+See the files Documentation/kernel-doc-nano-HOWTO.txt and scripts/kernel-doc<br/>
+for details.<br/>
+<br/>
+Linux style for comments is the C89 "/* ... */" style.<br/>
+Don't use C99-style "// ..." comments.<br/>
+<br/>
+The preferred style for long (multi-line) comments is:<br/>
+<br/>
+&#09;/*<br/>
+&#09; * This is the preferred style for multi-line<br/>
+&#09; * comments in the Linux kernel source code.<br/>
+&#09; * Please use it consistently.<br/>
+&#09; *<br/>
+&#09; * Description: &nbsp;A column of asterisks on the left side,<br/>
+&#09; * with beginning and ending almost-blank lines.<br/>
+&#09; */<br/>
+<br/>
+It's also important to comment data, whether they are basic types or derived<br/>
+types. &nbsp;To this end, use just one data declaration per line (no commas for<br/>
+multiple data declarations). &nbsp;This leaves you room for a small comment on each<br/>
+item, explaining its use.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 9: You've made a mess of it<br/>
+<br/>
+That's OK, we all do. &nbsp;You've probably been told by your long-time Unix<br/>
+user helper that "GNU emacs" automatically formats the C sources for<br/>
+you, and you've noticed that yes, it does do that, but the defaults it<br/>
+uses are less than desirable (in fact, they are worse than random<br/>
+typing - an infinite number of monkeys typing into GNU emacs would never<br/>
+make a good program).<br/>
+<br/>
+So, you can either get rid of GNU emacs, or change it to use saner<br/>
+values. &nbsp;To do the latter, you can stick the following in your .emacs file:<br/>
+<br/>
+(defun c-lineup-arglist-tabs-only (ignored)<br/>
+&nbsp; "Line up argument lists by tabs, not spaces"<br/>
+&nbsp; (let* ((anchor (c-langelem-pos c-syntactic-element))<br/>
+&#09; (column (c-langelem-2nd-pos c-syntactic-element))<br/>
+&#09; (offset (- (1+ column) anchor))<br/>
+&#09; (steps (floor offset c-basic-offset)))<br/>
+&nbsp; &nbsp; (* (max steps 1)<br/>
+&nbsp; &nbsp; &nbsp; &nbsp;c-basic-offset)))<br/>
+<br/>
+(add-hook 'c-mode-common-hook<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (lambda ()<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ;; Add kernel style<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (c-add-style<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"linux-tabs-only"<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'("linux" (c-offsets-alist<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (arglist-cont-nonempty<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;c-lineup-gcc-asm-reg<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;c-lineup-arglist-tabs-only))))))<br/>
+<br/>
+(add-hook 'c-mode-hook<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (lambda ()<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (let ((filename (buffer-file-name)))<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ;; Enable kernel mode for the appropriate files<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (when (and filename<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(string-match (expand-file-name "~/src/linux-trees")<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;filename))<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (setq indent-tabs-mode t)<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (c-set-style "linux-tabs-only")))))<br/>
+<br/>
+This will make emacs go better with the kernel coding style for C<br/>
+files below ~/src/linux-trees.<br/>
+<br/>
+But even if you fail in getting emacs to do sane formatting, not<br/>
+everything is lost: use "indent".<br/>
+<br/>
+Now, again, GNU indent has the same brain-dead settings that GNU emacs<br/>
+has, which is why you need to give it a few command line options.<br/>
+However, that's not too bad, because even the makers of GNU indent<br/>
+recognize the authority of K&amp;R (the GNU people aren't evil, they are<br/>
+just severely misguided in this matter), so you just give indent the<br/>
+options "-kr -i8" (stands for "K&amp;R, 8 character indents"), or use<br/>
+"scripts/Lindent", which indents in the latest style.<br/>
+<br/>
+"indent" has a lot of options, and especially when it comes to comment<br/>
+re-formatting you may want to take a look at the man page. &nbsp;But<br/>
+remember: "indent" is not a fix for bad programming.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 10: Kconfig configuration files<br/>
+<br/>
+For all of the Kconfig* configuration files throughout the source tree,<br/>
+the indentation is somewhat different. &nbsp;Lines under a "config" definition<br/>
+are indented with one tab, while help text is indented an additional two<br/>
+spaces. &nbsp;Example:<br/>
+<br/>
+config AUDIT<br/>
+&#09;bool "Auditing support"<br/>
+&#09;depends on NET<br/>
+&#09;help<br/>
+&#09; &nbsp;Enable auditing infrastructure that can be used with another<br/>
+&#09; &nbsp;kernel subsystem, such as SELinux (which requires this for<br/>
+&#09; &nbsp;logging of avc messages output). &nbsp;Does not do system-call<br/>
+&#09; &nbsp;auditing without CONFIG_AUDITSYSCALL.<br/>
+<br/>
+Features that might still be considered unstable should be defined as<br/>
+dependent on "EXPERIMENTAL":<br/>
+<br/>
+config SLUB<br/>
+&#09;depends on EXPERIMENTAL &amp;&amp; !ARCH_USES_SLAB_PAGE_STRUCT<br/>
+&#09;bool "SLUB (Unqueued Allocator)"<br/>
+&#09;...<br/>
+<br/>
+while seriously dangerous features (such as write support for certain<br/>
+filesystems) should advertise this prominently in their prompt string:<br/>
+<br/>
+config ADFS_FS_RW<br/>
+&#09;bool "ADFS write support (DANGEROUS)"<br/>
+&#09;depends on ADFS_FS<br/>
+&#09;...<br/>
+<br/>
+For full documentation on the configuration files, see the file<br/>
+Documentation/kbuild/kconfig-language.txt.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 11: Data structures<br/>
+<br/>
+Data structures that have visibility outside the single-threaded<br/>
+environment they are created and destroyed in should always have<br/>
+reference counts. &nbsp;In the kernel, garbage collection doesn't exist (and<br/>
+outside the kernel garbage collection is slow and inefficient), which<br/>
+means that you absolutely _have_ to reference count all your uses.<br/>
+<br/>
+Reference counting means that you can avoid locking, and allows multiple<br/>
+users to have access to the data structure in parallel - and not having<br/>
+to worry about the structure suddenly going away from under them just<br/>
+because they slept or did something else for a while.<br/>
+<br/>
+Note that locking is _not_ a replacement for reference counting.<br/>
+Locking is used to keep data structures coherent, while reference<br/>
+counting is a memory management technique. &nbsp;Usually both are needed, and<br/>
+they are not to be confused with each other.<br/>
+<br/>
+Many data structures can indeed have two levels of reference counting,<br/>
+when there are users of different "classes". &nbsp;The subclass count counts<br/>
+the number of subclass users, and decrements the global count just once<br/>
+when the subclass count goes to zero.<br/>
+<br/>
+Examples of this kind of "multi-level-reference-counting" can be found in<br/>
+memory management ("struct mm_struct": mm_users and mm_count), and in<br/>
+filesystem code ("struct super_block": s_count and s_active).<br/>
+<br/>
+Remember: if another thread can find your data structure, and you don't<br/>
+have a reference count on it, you almost certainly have a bug.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 12: Macros, Enums and RTL<br/>
+<br/>
+Names of macros defining constants and labels in enums are capitalized.<br/>
+<br/>
+#define CONSTANT 0x12345<br/>
+<br/>
+Enums are preferred when defining several related constants.<br/>
+<br/>
+CAPITALIZED macro names are appreciated but macros resembling functions<br/>
+may be named in lower case.<br/>
+<br/>
+Generally, inline functions are preferable to macros resembling functions.<br/>
+<br/>
+Macros with multiple statements should be enclosed in a do - while block:<br/>
+<br/>
+#define macrofun(a, b, c) &#09;&#09;&#09;\<br/>
+&#09;do {&#09;&#09;&#09;&#09;&#09;\<br/>
+&#09;&#09;if (a == 5)&#09;&#09;&#09;\<br/>
+&#09;&#09;&#09;do_this(b, c);&#09;&#09;\<br/>
+&#09;} while (0)<br/>
+<br/>
+Things to avoid when using macros:<br/>
+<br/>
+1) macros that affect control flow:<br/>
+<br/>
+#define FOO(x)&#09;&#09;&#09;&#09;&#09;\<br/>
+&#09;do {&#09;&#09;&#09;&#09;&#09;\<br/>
+&#09;&#09;if (blah(x) &lt; 0)&#09;&#09;\<br/>
+&#09;&#09;&#09;return -EBUGGERED;&#09;\<br/>
+&#09;} while(0)<br/>
+<br/>
+is a _very_ bad idea. &nbsp;It looks like a function call but exits the "calling"<br/>
+function; don't break the internal parsers of those who will read the code.<br/>
+<br/>
+2) macros that depend on having a local variable with a magic name:<br/>
+<br/>
+#define FOO(val) bar(index, val)<br/>
+<br/>
+might look like a good thing, but it's confusing as hell when one reads the<br/>
+code and it's prone to breakage from seemingly innocent changes.<br/>
+<br/>
+3) macros with arguments that are used as l-values: FOO(x) = y; will<br/>
+bite you if somebody e.g. turns FOO into an inline function.<br/>
+<br/>
+4) forgetting about precedence: macros defining constants using expressions<br/>
+must enclose the expression in parentheses. Beware of similar issues with<br/>
+macros using parameters.<br/>
+<br/>
+#define CONSTANT 0x4000<br/>
+#define CONSTEXP (CONSTANT | 3)<br/>
+<br/>
+The cpp manual deals with macros exhaustively. The gcc internals manual also<br/>
+covers RTL which is used frequently with assembly language in the kernel.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 13: Printing kernel messages<br/>
+<br/>
+Kernel developers like to be seen as literate. Do mind the spelling<br/>
+of kernel messages to make a good impression. Do not use crippled<br/>
+words like "dont"; use "do not" or "don't" instead. &nbsp;Make the messages<br/>
+concise, clear, and unambiguous.<br/>
+<br/>
+Kernel messages do not have to be terminated with a period.<br/>
+<br/>
+Printing numbers in parentheses (%d) adds no value and should be avoided.<br/>
+<br/>
+There are a number of driver model diagnostic macros in &lt;linux/device.h&gt;<br/>
+which you should use to make sure messages are matched to the right device<br/>
+and driver, and are tagged with the right level: &nbsp;dev_err(), dev_warn(),<br/>
+dev_info(), and so forth. &nbsp;For messages that aren't associated with a<br/>
+particular device, &lt;linux/kernel.h&gt; defines pr_debug() and pr_info().<br/>
+<br/>
+Coming up with good debugging messages can be quite a challenge; and once<br/>
+you have them, they can be a huge help for remote troubleshooting. &nbsp;Such<br/>
+messages should be compiled out when the DEBUG symbol is not defined (that<br/>
+is, by default they are not included). &nbsp;When you use dev_dbg() or pr_debug(),<br/>
+that's automatic. &nbsp;Many subsystems have Kconfig options to turn on -DDEBUG.<br/>
+A related convention uses VERBOSE_DEBUG to add dev_vdbg() messages to the<br/>
+ones already enabled by DEBUG.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 14: Allocating memory<br/>
+<br/>
+The kernel provides the following general purpose memory allocators:<br/>
+kmalloc(), kzalloc(), kcalloc(), and vmalloc(). &nbsp;Please refer to the API<br/>
+documentation for further information about them.<br/>
+<br/>
+The preferred form for passing a size of a struct is the following:<br/>
+<br/>
+&#09;p = kmalloc(sizeof(*p), ...);<br/>
+<br/>
+The alternative form where struct name is spelled out hurts readability and<br/>
+introduces an opportunity for a bug when the pointer variable type is changed<br/>
+but the corresponding sizeof that is passed to a memory allocator is not.<br/>
+<br/>
+Casting the return value which is a void pointer is redundant. The conversion<br/>
+from void pointer to any other pointer type is guaranteed by the C programming<br/>
+language.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 15: The inline disease<br/>
+<br/>
+There appears to be a common misperception that gcc has a magic "make me<br/>
+faster" speedup option called "inline". While the use of inlines can be<br/>
+appropriate (for example as a means of replacing macros, see Chapter 12), it<br/>
+very often is not. Abundant use of the inline keyword leads to a much bigger<br/>
+kernel, which in turn slows the system as a whole down, due to a bigger<br/>
+icache footprint for the CPU and simply because there is less memory<br/>
+available for the pagecache. Just think about it; a pagecache miss causes a<br/>
+disk seek, which easily takes 5 milliseconds. There are a LOT of cpu cycles<br/>
+that can go into these 5 milliseconds.<br/>
+<br/>
+A reasonable rule of thumb is to not put inline at functions that have more<br/>
+than 3 lines of code in them. An exception to this rule are the cases where<br/>
+a parameter is known to be a compiletime constant, and as a result of this<br/>
+constantness you *know* the compiler will be able to optimize most of your<br/>
+function away at compile time. For a good example of this later case, see<br/>
+the kmalloc() inline function.<br/>
+<br/>
+Often people argue that adding inline to functions that are static and used<br/>
+only once is always a win since there is no space tradeoff. While this is<br/>
+technically correct, gcc is capable of inlining these automatically without<br/>
+help, and the maintenance issue of removing the inline when a second user<br/>
+appears outweighs the potential value of the hint that tells gcc to do<br/>
+something it would have done anyway.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 16: Function return values and names<br/>
+<br/>
+Functions can return values of many different kinds, and one of the<br/>
+most common is a value indicating whether the function succeeded or<br/>
+failed. &nbsp;Such a value can be represented as an error-code integer<br/>
+(-Exxx = failure, 0 = success) or a "succeeded" boolean (0 = failure,<br/>
+non-zero = success).<br/>
+<br/>
+Mixing up these two sorts of representations is a fertile source of<br/>
+difficult-to-find bugs. &nbsp;If the C language included a strong distinction<br/>
+between integers and booleans then the compiler would find these mistakes<br/>
+for us... but it doesn't. &nbsp;To help prevent such bugs, always follow this<br/>
+convention:<br/>
+<br/>
+&#09;If the name of a function is an action or an imperative command,<br/>
+&#09;the function should return an error-code integer. &nbsp;If the name<br/>
+&#09;is a predicate, the function should return a "succeeded" boolean.<br/>
+<br/>
+For example, "add work" is a command, and the add_work() function returns 0<br/>
+for success or -EBUSY for failure. &nbsp;In the same way, "PCI device present" is<br/>
+a predicate, and the pci_dev_present() function returns 1 if it succeeds in<br/>
+finding a matching device or 0 if it doesn't.<br/>
+<br/>
+All EXPORTed functions must respect this convention, and so should all<br/>
+public functions. &nbsp;Private (static) functions need not, but it is<br/>
+recommended that they do.<br/>
+<br/>
+Functions whose return value is the actual result of a computation, rather<br/>
+than an indication of whether the computation succeeded, are not subject to<br/>
+this rule. &nbsp;Generally they indicate failure by returning some out-of-range<br/>
+result. &nbsp;Typical examples would be functions that return pointers; they use<br/>
+NULL or the ERR_PTR mechanism to report failure.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 17: &nbsp;Don't re-invent the kernel macros<br/>
+<br/>
+The header file include/linux/kernel.h contains a number of macros that<br/>
+you should use, rather than explicitly coding some variant of them yourself.<br/>
+For example, if you need to calculate the length of an array, take advantage<br/>
+of the macro<br/>
+<br/>
+&nbsp; #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))<br/>
+<br/>
+Similarly, if you need to calculate the size of some structure member, use<br/>
+<br/>
+&nbsp; #define FIELD_SIZEOF(t, f) (sizeof(((t*)0)-&gt;f))<br/>
+<br/>
+There are also min() and max() macros that do strict type checking if you<br/>
+need them. &nbsp;Feel free to peruse that header file to see what else is already<br/>
+defined that you shouldn't reproduce in your code.<br/>
+<br/>
+<br/>
+&#09;&#09;Chapter 18: &nbsp;Editor modelines and other cruft<br/>
+<br/>
+Some editors can interpret configuration information embedded in source files,<br/>
+indicated with special markers. &nbsp;For example, emacs interprets lines marked<br/>
+like this:<br/>
+<br/>
+-*- mode: c -*-<br/>
+<br/>
+Or like this:<br/>
+<br/>
+/*<br/>
+Local Variables:<br/>
+compile-command: "gcc -DMAGIC_DEBUG_FLAG foo.c"<br/>
+End:<br/>
+*/<br/>
+<br/>
+Vim interprets markers that look like this:<br/>
+<br/>
+/* vim:set sw=8 noet */<br/>
+<br/>
+Do not include any of these in source files. &nbsp;People have their own personal<br/>
+editor configurations, and your source files should not override them. &nbsp;This<br/>
+includes markers for indentation and mode configuration. &nbsp;People may use their<br/>
+own custom mode, or may have some other magic method for making indentation<br/>
+work correctly.<br/>
+<br/>
+<br/>
+<br/>
+&#09;&#09;Appendix I: References<br/>
+<br/>
+The C Programming Language, Second Edition<br/>
+by Brian W. Kernighan and Dennis M. Ritchie.<br/>
+Prentice Hall, Inc., 1988.<br/>
+ISBN 0-13-110362-8 (paperback), 0-13-110370-9 (hardback).<br/>
+URL: http://cm.bell-labs.com/cm/cs/cbook/<br/>
+<br/>
+The Practice of Programming<br/>
+by Brian W. Kernighan and Rob Pike.<br/>
+Addison-Wesley, Inc., 1999.<br/>
+ISBN 0-201-61586-X.<br/>
+URL: http://cm.bell-labs.com/cm/cs/tpop/<br/>
+<br/>
+GNU manuals - where in compliance with K&amp;R and this text - for cpp, gcc,<br/>
+gcc internals and indent, all available from http://www.gnu.org/manual/<br/>
+<br/>
+WG14 is the international standardization working group for the programming<br/>
+language C, URL: http://www.open-std.org/JTC1/SC22/WG14/<br/>
+<br/>
+Kernel CodingStyle, by greg@kroah.com at OLS 2002:<br/>
+http://www.kroah.com/linux/talks/ols_2002_kernel_codingstyle_talk/html/<br/>
+<br/>
+--<br/>
+Last updated on 2007-July-13.<br/>
+<br/>
+</span></body></html>

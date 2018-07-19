@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>RoadMap</title>
-</head><body><div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
+</head><body><div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
 Cloud çalışması için gerekli &nbsp;paketler ve akış:<br/>
 </span></span></div><ul><li><b><span style="font-size: 12pt">air-cloud-agent</span></b></li>
 <li style="list-style-type: none"><ul><li>get_topology (ana method- full topology)</li>
@@ -42,6 +42,7 @@ Cloud çalışması için gerekli &nbsp;paketler ve akış:<br/>
 <ul><li><b><span style="font-size: 12pt">stats-collector (automesh topology)</span></b></li>
 <li style="list-style-type: none"><ul><li>cloud-agent'ın yaptığı get_topology çağrısını mesh-ng vs. gibi componentlere sorup döndürüyor. Cloud-agent içerisinde de yapılabilir bu döndürme işlemi.</li>
 <li>automesh için gerekli işlemleri burad yapıp json formatında cloud-agent'a gönderiyor olucaz</li>
+<li>sky platformu eklendl</li>
 </ul>
 </li>
 </ul>
@@ -56,6 +57,14 @@ Cloud çalışması için gerekli &nbsp;paketler ve akış:<br/>
 <li>cloud-agent'a dair configler ise küçük bir CDF file'i içerisinde tutucaz. Bu cloud-agent'ın smooth bir şekilde başlamasını kolaylaştıracak.</li>
 </ul>
 </li>
+</ul>
+<ul><li><span style="font-size: 13pt"><b>AIR_WALL</b></span></li>
+<li style="list-style-type: none"><ul><li><span style="font-size: 10pt"><b>Mngr cli sorguları gerektikçe buradan yapılacak sky platformu eklendi</b></span></li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none"></li>
+</ul>
+</li>
+<li style="list-style-type: none">Air-wall, stats collector, manager arasında baglantılar oldugu için derlenme sıraları önemli. Buna göre ayarlamalar yapılmalı. Hatta airlibs'in de aynı şekilde.</li>
 </ul>
 <br/>
 Açılan diğer paketler:<ul><li>air-bus (CDF, stats-collector, cloud-agent arası haberleşme için. Cloud-agent ile manager haberleşmesi içinde belki bunu kullanabiliriz.)</li>
@@ -87,4 +96,53 @@ to be integrated:<br/>
 <br/>
 - libcdfclient'ın manager'a linklenmesi<br/>
 - aci-cli ya da cli'ın libaca'ya linklenmesi<br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span></span></div></body></html>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
+</span><b><span style="font-size: 16pt">TODO</span></b><span style="font-size: 11pt"><br/>
+</span><span style="font-size: 11pt"><ul><li>serinosu yerine br0'nun mac adresini kullanalım. Cihazların serinosu sonradan yazılıyor. Cloud agent içerisinde değişiklik yapılmalı bunun için.</li>
+</ul>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</span></span></div></body></html>

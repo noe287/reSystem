@@ -4,14 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Integration</title>
 </head><body><br/>
-<span style="font-family: Calibri"><div style="text-align: left"><b><span style="font-size: 24pt">Cloud Integration Steps:</span></b><span style="font-size: 11pt"><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 24pt"><b>Cloud Integration Steps:</b></span><span style="font-size: 11pt"><br/>
 </span><span style="font-size: 11pt">------------------------------------------------------------------------<ul><li style="list-style-type: none"><b>release folder'ında:</b></li>
 <li>release/makefile içerisinde &nbsp;revision.c comment out edilmeli yoksa imaj build edilemiyor.</li>
 </ul>
   <br/>
 <br/>
-</span></div></span><div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"><b>air-cloud-agent paketi içerisinde</b></span></span><br/>
-<span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <br/>
+</span></span><span style="font-family: Calibri"><span style="font-size: 11pt"><b>air-cloud-agent paketi içerisinde</b></span></span><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <br/>
 Ana Makefile'a sky platformu eklenmeli<br/>
 licensing) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
 LIBACA_CFLAGS += -DPRIMARY_INTERFACE_NAME=\"${CONFIG_air-rm_DEFAULT_BRIDGE_NAME}\"<br/>
@@ -41,10 +41,10 @@ json, libstrophe'ye patchler dağıtılıp patchlenmeli<br/>
 </ul>
 --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <ul><li><b>libxml2 </b>library enabled to use aircdf-libxml2. Formerly used<b>&nbsp;aircdf-master.</b></li>
 </ul>
-</span></span></div><span style="font-family: Calibri"><div style="text-align: left"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></div><ul><li><span style="font-size: 12pt"><b>openssl</b>&nbsp;(sertifikalar var, cloud-agent onları /usr/ altında arıyor...)</span></li>
+</span></span></div><span style="font-family: Calibri"><div style="text-align: left"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></div><ul><li><b><span style="font-size: 12pt">openssl</span></b><span style="font-size: 12pt">&nbsp;(sertifikalar var, cloud-agent onları /usr/ altında arıyor...)</span></li>
 <span style="font-size: 12pt"><li>Bu dogru degil. Onlari AirTies platform'unda <b>/etc/cloud/certs ve /etc/cloud/client_certs</b>&nbsp;altinda ariyor.</li>
 </span></ul>
-<span style="font-size: 11pt"><div style="text-align: left">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <ul><li><b>asp_xmls/bskyb-viper</b>'a data.xml i koydum. ./airties_user/etc/data.xml klasörüne giriyor.</li>
+<div style="text-align: left"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <ul><li><b>asp_xmls/bskyb-viper</b>'a data.xml i koydum. ./airties_user/etc/data.xml klasörüne giriyor.</li>
 <li>Bu <b>data.xml </b>daha sonra değiştirilebilir bir yere alınmalı</li>
 <li><b>xmmpp password</b>&nbsp;ve domain değerleri register olunduktan sonra korunmalı fakat daha sonra yapılan değişiklikler difflerde saklanacak ve defaults ile uçmalı bunlar.</li>
 </ul>
@@ -107,16 +107,16 @@ json, libstrophe'ye patchler dağıtılıp patchlenmeli<br/>
 </ul>
 --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   <br/>
 <b>Trick needed to cdf-daemon to start. </b><br/>
-</div></span></span><span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">Symbolic link is given through makeDevs file under SPK/bcmxxx/targets</div></span></span>. But cannot commit this to SPK to be on the safe side.<br/>
+</span></div></span><span style="font-family: Calibri"><div style="text-align: left"><span style="font-size: 11pt">Symbolic link is given through makeDevs file under SPK/bcmxxx/targets</span></div></span>. But cannot commit this to SPK to be on the safe side.<br/>
 "<ul><li>ln -s /var/airbus-command $ROOTFS/dev/airbus-command"</li>
 </ul>
-<ul><span style="font-size: 11pt"><div style="text-align: left"><span style="font-family: Calibri"><li># ls -al /dev/airbus-command </li>
+<ul><span style="font-family: Calibri"><div style="text-align: left"><span style="font-size: 11pt"><li># ls -al /dev/airbus-command </li>
 <li>lrwxrwxrwx &nbsp; &nbsp;1 admin &nbsp; &nbsp;root &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;19 Jul &nbsp;6 &nbsp;2018 /dev/airbus-command -&gt; /var/airbus-command</li>
 <li># ls -al /var/airbus-command </li>
 <li>crw-r--r-- &nbsp; &nbsp;1 admin &nbsp; &nbsp;root &nbsp; &nbsp; &nbsp;254, &nbsp; 0 Jan &nbsp;1 00:00 /var/airbus-command</li>
-</span></div></span><li><span style="font-size: 11pt"><div style="text-align: left"><span style="font-family: Calibri">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></div></span></li>
+</span></div></span><li><span style="font-family: Calibri"><div style="text-align: left"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></div></span></li>
 </ul>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></span></div><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri"><div style="text-align: left">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </div></span></span><br/>
 <b>request.c request.h 'ı dahil etmeli manager için</b><ul><li>INCDIR-y += ${BSPROOT}/manager/${CONFIG_manager_PATH}/src/lib/ui_mngr/include &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</li>
 <li></li>
 </ul>
@@ -143,13 +143,13 @@ echo "WPS_PIN_0=04362906 <ul><li>WPS_PIN_1=04362906</li>
 <li></li>
 <li></li>
 </ul>
-<span style="font-size: 11pt"><span style="font-family: Calibri"><div style="text-align: left">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </div></span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></span></div><br/>
 <br/>
 "<br/>
 <br/>
 AT17415120000239 - 4920 -Bison serinosu<br/>
 <br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- </span></span></div><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri"><div style="text-align: left">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- </div></span></span><br/>
 <br/>
 <b>Ip address:</b>&nbsp;AirTies-Stack viper's don't have dhcp client you need to assign an ip address manually. Get a valid Ip address on an other device and then configure your device in a similar way indicated below <br/>
 <br/>
@@ -161,43 +161,42 @@ date -s '2018-07-11 10:34:56'<br/>
 <br/>
 <b>Date:</b>&nbsp;Cloud Server is expecting to receive certificates less than 25 years old. This is most taken from the Viper's current date. As we don't use an NTP sync feature on SKY devices you will need to set date to a valid date manually. Use the below command for that: date -s '2018-07-11 10:34:56'   Don't forget to kill dhcpd daemon in viper devices as it will distribute ip address inside the network it operates. &nbsp; &nbsp; &nbsp;<br/>
 <br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri"><b>CERTIFICATES </b></span></span><br/>
-<span style="font-size: 11pt"><span style="font-family: Calibri">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- </span></span><br/>
-</div><b><span style="font-size: 12pt">System zamanı eski olursa (&gt;25 sene) sertifikalar geçersiz olacağı için prereg domain sertifkayı verify etmiyor.<br/>
+<div style="text-align: left"><b><span style="font-family: Calibri"><span style="font-size: 11pt">CERTIFICATES </span></span></b><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- </span></span><br/>
+</div><span style="font-size: 12pt"><b>System zamanı eski olursa (&gt;25 sene) sertifikalar geçersiz olacağı için prereg domain sertifkayı verify etmiyor.<br/>
 STBler video geçerse güncelleniyor. Viper ?<br/>
-</span></b><b><span style="font-size: 12pt">date komutuyla sistem zamanı güncellenmeli ya da ntp sync ile cihaz otomatik bunu yapmalı.</span></b><br/>
+</b></span><span style="font-size: 12pt"><b>date komutuyla sistem zamanı güncellenmeli ya da ntp sync ile cihaz otomatik bunu yapmalı.</b></span><br/>
 date -s '2018-07-11 10:34:56'<br/>
 <br/>
-<div style="text-align: left"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$"><span style="font-size: 11pt"><span style="font-family: Calibri">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</span></span></a><span style="font-size: 11pt"><span style="font-family: Calibri">&nbsp;seek.sh certs </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</a>&nbsp;seek.sh certs </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./image-brcm-ap-arm-linux--release-2.48.1.0-Air4920/brcm-ap-arm-linux--Air4920-2.48.1.0-filesystem/airties/certs </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./image-brcm-ap-arm-linux--release-2.48.1.0-Air4920/brcm-ap-arm-linux--Air4920-2.48.1.0-filesystem/airties/certs </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs.tmp/airties/certs </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./rootfs.tmp/airties/certs </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs.tmp/etc/cloud/certs </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./rootfs.tmp/etc/cloud/certs </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs.tmp/etc/ssl/certs </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./rootfs.tmp/etc/ssl/certs </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs-brcm-ap-arm-linux--Air4920/airties/certs </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./rootfs-brcm-ap-arm-linux--Air4920/airties/certs </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs-brcm-ap-arm-linux--Air4920/etc/cloud/certs </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./rootfs-brcm-ap-arm-linux--Air4920/etc/cloud/certs </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">./rootfs-brcm-ap-arm-linux--Air4920/etc/ssl/certs </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./rootfs-brcm-ap-arm-linux--Air4920/etc/ssl/certs </span></span><br/>
 </div><br/>
-<div style="text-align: left"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$"><span style="font-size: 11pt"><span style="font-family: Calibri">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</span></span></a><span style="font-size: 11pt"><span style="font-family: Calibri">&nbsp;ls ./rootfs.tmp/airties/certs </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</a>&nbsp;ls ./rootfs.tmp/airties/certs </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">AirTiesRootCA.pem </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">AirTiesRootCA.pem </span></span><br/>
 </div><br/>
-<div style="text-align: left"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$"><span style="font-size: 11pt"><span style="font-family: Calibri">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</span></span></a><span style="font-size: 11pt"><span style="font-family: Calibri">&nbsp;ls ./rootfs.tmp/etc/cloud/certs </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</a>&nbsp;ls ./rootfs.tmp/etc/cloud/certs </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">12d55845.0  2e5ac55d.0  8f52f8ab.0  91921417.0  AirTiesRootCA.pem  DST-Root-CA-X3.pem </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">12d55845.0  2e5ac55d.0  8f52f8ab.0  91921417.0  AirTiesRootCA.pem  DST-Root-CA-X3.pem </span></span><br/>
 </div><br/>
-<div style="text-align: left"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$"><span style="font-size: 11pt"><span style="font-family: Calibri">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</span></span></a><span style="font-size: 11pt"><span style="font-family: Calibri">&nbsp;ls ./rootfs.tmp/etc/ssl/certs </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"><a href="mailto:nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$">nejat@millenium-falcon:~/DataDrive/DEVEL/PROFILES/04_05_18-16.30.35_Air4920-lm/release$</a>&nbsp;ls ./rootfs.tmp/etc/ssl/certs </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">test.pem </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">test.pem </span></span><br/>
 <br/>
 1970-01-01 00:49:48-[00002989]-AIRTIES: DEBUG error:14090086:lib(20):func(144):reason(134)<br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></span><br/>
-</div><br/>
-</body></html>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------- --------------------------------------------------- --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------   </span></span><br/>
+</div></body></html>
