@@ -1,4 +1,5 @@
-DIFF_NAME="$1.patch"
+DIFF_NAME=$1_`date +%h-%d-%H_%M_%S_%a`.p
+#DIFF_NAME="$1.p"
 
 git diff > $DIFF_NAME
 

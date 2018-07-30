@@ -5,7 +5,7 @@
 <title>RoadMap</title>
 </head><body><div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
 Cloud çalışması için gerekli &nbsp;paketler ve akış:<br/>
-</span></span></div><ul><li><b><span style="font-size: 12pt">air-cloud-agent</span></b></li>
+</span></span></div><ul><li><span style="font-size: 12pt"><b>air-cloud-agent</b></span></li>
 <li style="list-style-type: none"><ul><li>get_topology (ana method- full topology)</li>
 <li style="list-style-type: none"><ul><li>sub methods</li>
 <li style="list-style-type: none"><ul><li>routes(), topology(), friendlyinfo(), steer(), default() &nbsp; -----&gt;&gt; Bunlar jason formatında output üretecek.</li>
@@ -29,7 +29,7 @@ Cloud çalışması için gerekli &nbsp;paketler ve akış:<br/>
 </ul>
 </li>
 </ul>
-<ul><li><span style="font-size: 12pt"><b>Cloud-Agent Manager Module</b></span></li>
+<ul><li><b><span style="font-size: 12pt">Cloud-Agent Manager Module</span></b></li>
 <li style="list-style-type: none"><ul><li>Starts cloud-agent daemon. </li>
 <li>Reads cloud-agent config over CDF daemon. Linking libclientcdf.so to be linked here.</li>
 <li style="list-style-type: none"><ul><li>Bu sayede manager module CDF dosyasında gerekli değeri okuyabilecek. Aslında burada okunması gereken bir tek değer var. Eğer agent enabled değeri TRUE ise manager module'ü agent-daemon'ı başlatacak. O kadar. Geri kalan uygulama config datasını CDF daemon kendisi okuyarak uygulamayı configure edecek ve sistem çalışmaya başlayacak.</li>
@@ -39,27 +39,27 @@ Cloud çalışması için gerekli &nbsp;paketler ve akış:<br/>
 </ul>
 </li>
 </ul>
-<ul><li><b><span style="font-size: 12pt">stats-collector (automesh topology)</span></b></li>
+<ul><li><span style="font-size: 12pt"><b>stats-collector (automesh topology)</b></span></li>
 <li style="list-style-type: none"><ul><li>cloud-agent'ın yaptığı get_topology çağrısını mesh-ng vs. gibi componentlere sorup döndürüyor. Cloud-agent içerisinde de yapılabilir bu döndürme işlemi.</li>
 <li>automesh için gerekli işlemleri burad yapıp json formatında cloud-agent'a gönderiyor olucaz</li>
 <li>sky platformu eklendl</li>
 </ul>
 </li>
 </ul>
-<ul><li><b><span style="font-size: 12pt">dhcpcap (friendly info için)</span></b></li>
+<ul><li><span style="font-size: 12pt"><b>dhcpcap (friendly info için)</b></span></li>
 <li style="list-style-type: none"><ul><li>manager paketinde bulunuyor. /proc/air_dhcp_clients/ altında her client için dosyalar oluşturuyor. (ip, mac, friendly name) şeklinde.</li>
 </ul>
 </li>
 </ul>
-<ul><li><b><span style="font-size: 12pt">CDF</span></b></li>
+<ul><li><span style="font-size: 12pt"><b>CDF</b></span></li>
 <li style="list-style-type: none"><ul><li>cdf daemon (uygulama configleri için, kolaylaştırıcı ve ileriye dönük integrasyon için)</li>
 <li>Cihaz configleri config.xml'de olacak eskisi gibi</li>
 <li>cloud-agent'a dair configler ise küçük bir CDF file'i içerisinde tutucaz. Bu cloud-agent'ın smooth bir şekilde başlamasını kolaylaştıracak.</li>
 </ul>
 </li>
 </ul>
-<ul><li><span style="font-size: 13pt"><b>AIR_WALL</b></span></li>
-<li style="list-style-type: none"><ul><li><span style="font-size: 10pt"><b>Mngr cli sorguları gerektikçe buradan yapılacak sky platformu eklendi</b></span></li>
+<ul><li><b><span style="font-size: 13pt">AIR_WALL</span></b></li>
+<li style="list-style-type: none"><ul><li><b><span style="font-size: 10pt">Mngr cli sorguları gerektikçe buradan yapılacak sky platformu eklendi</span></b></li>
 <li style="list-style-type: none"></li>
 <li style="list-style-type: none"></li>
 </ul>
@@ -86,9 +86,9 @@ channel, ssid vs...<br/>
 <br/>
 <div style="text-align: left"><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">packets integrated: </span></span><br/>
-</div><div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span></span></div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">{air-rm, air-bus, expat, openssl, libstrophe, statistics-collector, cloud-agent} </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">packets integrated: </span></span><br/>
+</div><div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span></span></div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">{air-rm, air-bus, expat, openssl, libstrophe, statistics-collector, cloud-agent} </span></span><br/>
 </div><br/>
 <br/>
 to be integrated:<br/>
@@ -96,10 +96,11 @@ to be integrated:<br/>
 <br/>
 - libcdfclient'ın manager'a linklenmesi<br/>
 - aci-cli ya da cli'ın libaca'ya linklenmesi<br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
-</span><b><span style="font-size: 16pt">TODO</span></b><span style="font-size: 11pt"><br/>
-</span><span style="font-size: 11pt"><ul><li>serinosu yerine br0'nun mac adresini kullanalım. Cihazların serinosu sonradan yazılıyor. Cloud agent içerisinde değişiklik yapılmalı bunun için.</li>
+<span style="font-size: 11pt"><span style="font-family: Calibri"><div style="text-align: left">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
+</div></span></span><span style="font-family: Calibri"><div style="text-align: left"><span style="font-size: 16pt"><b>TODO</b></span><span style="font-size: 11pt"></span></div><ul><div style="text-align: left"><span style="font-size: 11pt"><li>serinosu yerine br0'nun mac adresini kullanalım. Cihazların serinosu sonradan yazılıyor. Cloud agent içerisinde değişiklik yapılmalı bunun için.</li>
+</span></div><li><div style="text-align: left"><span style="font-size: 11pt">CA'ye commit yaparken dikkat! </span></div><span style="font-size: 12pt">&nbsp;[licensing::sky] or [sky] or better [libaca::sky].<div style="text-align: left">release folder'ında:</div></span></li>
 </ul>
+<div style="text-align: left"><span style="font-size: 11pt"><br/>
 <br/>
 <br/>
 <br/>
@@ -144,5 +145,4 @@ to be integrated:<br/>
 <br/>
 <br/>
 <br/>
-<br/>
-</span></span></div></body></html>
+</span></div></span></body></html>

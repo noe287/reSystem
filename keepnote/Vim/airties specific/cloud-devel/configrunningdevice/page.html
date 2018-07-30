@@ -3,10 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ConfigRunningDevice</title>
-</head><body>ifconfig br0 172.16.9.155<br/>
+</head><body>ifconfig br0 172.16.10.111<br/>
 route add default gw 172.16.0.1<br/>
 echo "nameserver 172.16.6.200" &gt; /etc/resolv.conf<br/>
 killall dhcpd<br/>
-date -s '2018-07-25 10:34:56'<br/>
-<br/>
+date -s '2018-07-30 10:34:56'<br/>
+ping 172.16.0.1<br/>
 </body></html>

@@ -1,3 +1,9 @@
+if [ ! $1 ]
+then
+	echo "usage: githupload c[b] conf.file[bookmarks.file]"
+	exit
+fi
+
 if [ $1 == 'c' ]
 then
 	cp $2 $HOME/DataDrive/reSystem/Configuration/
