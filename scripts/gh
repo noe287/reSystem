@@ -1,7 +1,7 @@
-/usr/bin/expect
+#!/usr/bin/expect
 
 
-gh.sh
+spawn /home/noe/DataDrive/reSystem/scripts/gh.sh
 
 expect -exact "Username for 'https://github.com':"
 send -- "noe287\r"
