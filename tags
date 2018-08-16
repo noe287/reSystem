@@ -1,0 +1,223 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AUTOMESH_ROUTE_TYPE_DEFAULT	playground.c/ctl2.c	22;"	d	file:
+AUTOMESH_ROUTE_TYPE_LEARNED	playground.c/ctl2.c	24;"	d	file:
+AUTOMESH_ROUTE_TYPE_LOCAL	playground.c/ctl2.c	23;"	d	file:
+BAIL_ON_ERROR	playground.c/ctl2.c	67;"	d	file:
+ETHER_ADDR	playground.c/ctl2.c	43;"	d	file:
+ETHER_ADDR_STR_LEN	playground.c/ctl2.c	26;"	d	file:
+ETHER_STR	playground.c/ctl2.c	39;"	d	file:
+IFNAMSIZ	playground.c/ctl2.c	89;"	d	file:
+IP_ADDR	playground.c/ctl2.c	56;"	d	file:
+IP_STR	playground.c/ctl2.c	52;"	d	file:
+LINE_MAX	playground.c/ctl2.c	88;"	d	file:
+MAC2STR	playground.c/ctl2.c	81;"	d	file:
+MACSTR	playground.c/ctl2.c	82;"	d	file:
+MAX_INST_SIZE	playground.c/ctl2.c	7;"	d	file:
+NVRAM_FILE	playground.c/read.c	4;"	d	file:
+OTHER_MODIFIER	playground.c/ctl2.c	85;"	d	file:
+RETRY_COUNT	playground.c/ctl2.c	87;"	d	file:
+RETRY_SLEEP_SECS	playground.c/ctl2.c	86;"	d	file:
+RETURN_ON_ERROR	playground.c/ctl2.c	59;"	d	file:
+SCAN_STATUS_INSCAN	playground.c/ctl2.c	19;"	d	file:
+SCAN_STATUS_NOSCAN	playground.c/ctl2.c	18;"	d	file:
+SCAN_STATUS_UNKNOWN	playground.c/ctl2.c	20;"	d	file:
+TAILQ_FOREACH_SAFE	playground.c/ctl2.c	76;"	d	file:
+UI_FX_TIMEOUT	playground.c/ctl2.c	8;"	d	file:
+VNDR_IE_MAX_LEN	playground.c/ctl2.c	16;"	d	file:
+WPS_ID_APP_LIST	playground.c/ctl2.c	14;"	d	file:
+WPS_OUI_FIXED_HEADER_OFF	playground.c/ctl2.c	10;"	d	file:
+WPS_OUI_HEADER_LEN	playground.c/ctl2.c	11;"	d	file:
+WPS_OUI_HEADER_SIZE	playground.c/ctl2.c	12;"	d	file:
+WPS_OUI_LEN	playground.c/ctl2.c	13;"	d	file:
+_BLUE	playground.c/ctl2.c	30;"	d	file:
+_DGREEN	playground.c/ctl2.c	35;"	d	file:
+_GREEN	playground.c/ctl2.c	32;"	d	file:
+_NORM	playground.c/ctl2.c	36;"	d	file:
+_RED	playground.c/ctl2.c	31;"	d	file:
+_WHITE	playground.c/ctl2.c	29;"	d	file:
+_YELLOW	playground.c/ctl2.c	33;"	d	file:
+__check_settings	scripts/fwlist	/^        __check_settings() {$/;"	f
+__cscope	scripts/cvim.sh	/^function __cscope() {$/;"	f
+__do_compare	scripts/fwlist	/^__do_compare()$/;"	f
+age	playground.c/ctl2.c	/^        unsigned int age;$/;"	m	struct:route_elem	file:
+airmodproj	scripts/release.py	/^airmodproj ='AirTies_Air'+modproj$/;"	v
+airmodprojver	scripts/release.py	/^airmodprojver = airmodproj+'_FW_'+rver$/;"	v
+ascii_to_hex	playground.c/ctl2.c	/^static void ascii_to_hex(const char *in_ascii, unsigned char *out_hex, unsigned int hex_len)$/;"	f	file:
+check_duplicates	scripts/create_wps_pin_configuuid.sh	/^check_duplicates(){$/;"	f
+check_env	scripts/fwlist	/^check_env()$/;"	f
+check_env	scripts/mkmus	/^check_env()$/;"	f
+check_env	scripts/mkmus.arc	/^check_env()$/;"	f
+check_git_dir	scripts/commit_metadata.sh	/^function check_git_dir(){$/;"	f
+check_git_dir	scripts/commit_metadata.sh~	/^function check_git_dir(){$/;"	f
+check_settings	scripts/fwlist	/^check_settings()$/;"	f
+choose_config	scripts/sky.sh	/^function choose_config() {$/;"	f
+clean_folders	scripts/foss_content.sh	/^function clean_folders(){$/;"	f
+clear_dirt	scripts/mkmus	/^clear_dirt()$/;"	f
+clear_dirt	scripts/mkmus.arc	/^clear_dirt()$/;"	f
+clear_proxy	scripts/sky_release.sh	/^clear_proxy()$/;"	f
+clear_proxy	scripts/skyrelget.sh	/^clear_proxy()$/;"	f
+clear_proxy	scripts/wget_files-yedek.sh	/^clear_proxy()$/;"	f
+clone_spk	scripts/sky_scripts/checkout_spk.sh	/^function clone_spk()$/;"	f
+collect_foss_info	scripts/foss_content.sh	/^function collect_foss_info(){$/;"	f
+compare_profiles	scripts/fwlist	/^compare_profiles()$/;"	f
+count	playground.c/ctl2.c	/^        unsigned int count;$/;"	m	struct:route_list	file:
+debug_	scripts/mkmus	/^debug_() { echo -e "${_clHead}${argv0} DEBUG: ${_clDebug}$@${_clNoColor}" > ${STDERR}; }$/;"	f
+debug_	scripts/mkmus.arc	/^debug_() { echo -e "${_clHead}${argv0} DEBUG: ${_clDebug}$@${_clNoColor}" > ${STDERR}; }$/;"	f
+dec2hex	scripts/mus_create.sh	/^function dec2hex {$/;"	f
+define_br_repo_dev	scripts/commit_metadata.sh	/^function define_br_repo_dev() {$/;"	f
+define_br_repo_dev	scripts/commit_metadata.sh~	/^function define_br_repo_dev() {$/;"	f
+define_br_repo_dev	scripts/download_code_base_pkgs.sh	/^function define_br_repo_dev() {$/;"	f
+define_file_name	scripts/commit_metadata.sh	/^function define_file_name(){$/;"	f
+define_file_name	scripts/commit_metadata.sh~	/^function define_file_name(){$/;"	f
+del_git_metadata	scripts/commit_metadata.sh	/^function del_git_metadata(){$/;"	f
+del_git_metadata	scripts/commit_metadata.sh~	/^function del_git_metadata(){$/;"	f
+del_svn_metadata	scripts/commit_metadata.sh	/^function del_svn_metadata(){$/;"	f
+del_svn_metadata	scripts/commit_metadata.sh~	/^function del_svn_metadata(){$/;"	f
+destination	playground.c/ctl2.c	/^        unsigned char destination[6];$/;"	m	struct:route_elem	file:
+device	playground.c/ctl2.c	/^        char device[IFNAMSIZ];$/;"	m	struct:route_elem	file:
+die	scripts/mkmus	/^die()$/;"	f
+die	scripts/mkmus.arc	/^die()$/;"	f
+do_rand	scripts/create_wps_pin_configuuid.sh	/^do_rand() {$/;"	f
+do_rand	scripts/rand.sh	/^do_rand() {$/;"	f
+docname	scripts/release.py	/^docname  = templates[releaseType]          # template name$/;"	v
+dvt_release	scripts/release.py	/^def dvt_release():$/;"	f
+echo_	scripts/mkmus	/^echo_() { echo -e "${_clHead}${argv0} ${_clInfo}$@${_clNoColor}"; }$/;"	f
+echo_	scripts/mkmus.arc	/^echo_() { echo -e "${_clHead}${argv0} ${_clInfo}$@${_clNoColor}"; }$/;"	f
+error_	scripts/mkmus	/^error_() { echo -e "${_clHead}${argv0} ${_clError}Error! $@${_clNoColor}"; }$/;"	f
+error_	scripts/mkmus.arc	/^error_() { echo -e "${_clHead}${argv0} ${_clError}Error! $@${_clNoColor}"; }$/;"	f
+extract_csv_data	scripts/commit_metadata.sh	/^function extract_csv_data(){$/;"	f
+extract_csv_data	scripts/commit_metadata.sh~	/^function extract_csv_data(){$/;"	f
+extract_csv_data	scripts/download_code_base_pkgs.sh	/^function extract_csv_data(){$/;"	f
+fatal_err	scripts/mkmus	/^fatal_err() { error_ "$@"; __is_fatal=true; }$/;"	f
+fatal_err	scripts/mkmus.arc	/^fatal_err() { error_ "$@"; __is_fatal=true; }$/;"	f
+format_cell	scripts/release.py	/^def format_cell(cell, i, _size):$/;"	f
+format_line	scripts/release.py	/^def format_line(doc,_size):                                                                                                                                                                                                                                                    $/;"	f
+format_table_entry	scripts/release.py	/^def format_table_entry(indx, _size, row, col, tables):$/;"	f
+foss_target	scripts/release.py	/^foss_target=remotedir+rver+'\/foss.tar.gz'$/;"	v
+fw_image_init_from_file	scripts/fwrecover.sh	/^/;"	f
+fw_image_init_from_file	scripts/fwrecover2.sh	/^/;"	f
+generic_fw	scripts/fw_genmus.sh	/^function generic_fw() $/;"	f
+handle_GPL_LGPL	scripts/foss_content.sh	/^function handle_GPL_LGPL(){$/;"	f
+hex2dec	scripts/mus_create.sh	/^function hex2dec {$/;"	f
+hex_to_ascii	playground.c/ctl2.c	/^static inline void hex_to_ascii(const unsigned char *in_hex, char *out_ascii, unsigned int hex_len)                                                                                                         $/;"	f	file:
+hideDiv	keepnote/2018-06-22/tree.html	/^    function hideDiv(div)$/;"	f
+hideDiv	keepnote/2018-06-22_notebook/tree.html	/^    function hideDiv(div)$/;"	f
+idle	playground.c/ctl2.c	/^        unsigned int idle;$/;"	m	struct:route_elem	file:
+key	scripts/key.py	/^        key = binascii.hexlify(os.urandom(16))$/;"	v
+key	scripts/key.py	/^        key = sys.argv[1]$/;"	v
+list	scripts/fwlist	/^list()$/;"	f
+list_buildbot	scripts/fwlist	/^list_buildbot()$/;"	f
+list_packages	scripts/bsys_dep.sh	/^list_packages(){$/;"	f
+list_packages	scripts/bsys_dep.sh~	/^list_packages(){$/;"	f
+list_svn	scripts/bsys_dep.sh	/^list_svn() {$/;"	f
+list_svn	scripts/bsys_dep.sh~	/^list_svn() {$/;"	f
+main	playground.c/countlines.c	/^int main(int argc, char *argv[])$/;"	f
+main	playground.c/ctl2.c	/^int main(int argc, char *argv[])$/;"	f
+main	playground.c/fscanf.c	/^int main ()$/;"	f
+main	playground.c/ifname.c	/^int main()$/;"	f
+main	playground.c/read.c	/^int main()$/;"	f
+main	playground.c/rud.c	/^int main(){$/;"	f
+main	playground.c/strstr.c	/^int main ()$/;"	f
+main	scripts/commit_metadata.sh	/^function main() {$/;"	f
+main	scripts/commit_metadata.sh~	/^function main() {$/;"	f
+main	scripts/create_wps_pin_configuuid.sh	/^main(){$/;"	f
+main	scripts/download_code_base_pkgs.sh	/^function main() {$/;"	f
+main	scripts/fwlist	/^main()$/;"	f
+main	scripts/parseUp.sh	/^function main(){$/;"	f
+main	scripts/parseUp.sh~	/^function main(){$/;"	f
+main	scripts/parse_buildys.sh	/^function main(){$/;"	f
+main	scripts/parse_buildys.sh~	/^function main(){$/;"	f
+main	scripts/parse_foss.sh	/^function main(){$/;"	f
+make_foss	scripts/parse_foss.sh	/^function make_foss(){$/;"	f
+md5Sum	scripts/release.py	/^def md5Sum():$/;"	f
+md5sumTargets	scripts/release.py	/^md5sumTargets = [$/;"	v
+metric	playground.c/ctl2.c	/^        unsigned int metric;$/;"	m	struct:route_elem	file:
+mirver	scripts/release.py	/^mirver = ver[0]+'.'+ver[1]+'.'+ver[2]+'U.'+ver[3]+'.'+ver[4]$/;"	v
+mk_checkout	scripts/bsys_dep.sh	/^mk_checkout() {$/;"	f
+mk_checkout	scripts/bsys_dep.sh~	/^mk_checkout() {$/;"	f
+mk_profile	scripts/bsys_dep.sh	/^mk_profile() {$/;"	f
+mk_profile	scripts/bsys_dep.sh~	/^mk_profile() {$/;"	f
+modproj	scripts/release.py	/^modproj = productID$/;"	v
+munmap_chunk	scripts/fwrecover.sh	/^/;"	f
+mus_fw	scripts/fw_genmus.sh	/^function mus_fw()$/;"	f
+mystring	scripts/key.py	/^        mystring = "\\t\\t{'%s', '%s', '\\\\0'}," % (key[i], key[i+1])$/;"	v
+openRoutesFile	playground.c/ctl2.c	/^static FILE *openRoutesFile(){$/;"	f	file:
+parse_dir_metadata	scripts/parse_foss.sh	/^function parse_dir_metadata(){$/;"	f
+path	scripts/release.py	/^path = remotedir+rver$/;"	v
+prep_env	scripts/commit_metadata.sh	/^function prep_env(){$/;"	f
+prep_env	scripts/commit_metadata.sh~	/^function prep_env(){$/;"	f
+prep_env	scripts/download_code_base_pkgs.sh	/^function prep_env(){$/;"	f
+prep_env	scripts/fwlist	/^prep_env()$/;"	f
+prep_env	scripts/mkmus	/^prep_env()$/;"	f
+prep_env	scripts/mkmus.arc	/^prep_env()$/;"	f
+prep_files	scripts/check_dup_cp.sh	/^prep_files(){$/;"	f
+prep_files	scripts/check_timeline.sh	/^prep_files(){$/;"	f
+prepare_foss_content_document	scripts/foss_content.sh	/^function prepare_foss_content_document(){$/;"	f
+process_metadata	scripts/foss_content.sh	/^function process_metadata(){$/;"	f
+produce_foss_info	scripts/foss_content.sh	/^function produce_foss_info(){$/;"	f
+productID	scripts/release.py	/^productID = sys.argv[2]                    # 4920FR-OR$/;"	v
+prune_it	scripts/check_dup_cp.sh	/^prune_it(){$/;"	f
+prune_it	scripts/check_timeline.sh	/^prune_it(){$/;"	f
+qa_release	scripts/release.py	/^def qa_release():$/;"	f
+queued	playground.c/ctl2.c	/^        unsigned int short queued;$/;"	m	struct:route_elem	file:
+realloc	scripts/fwrecover2.sh	/^/;"	f
+releaseType	scripts/release.py	/^releaseType = sys.argv[1]                  # dvt, qa, prmt$/;"	v
+remotedir	scripts/release.py	/^remotedir = sys.argv[4]+'\/'                # http:\/\/intranet.corp.airties.com\/rnd\/Shared%20Documents\/Forms\/AllItems.aspx?RootFolder=%2Frnd%2FShared%20Documents%2F%5FPROJECTS%2FAir%204920%2FOrange%204920%2F13%2E%20Firmwares\/$/;"	v
+result_check	scripts/mus_create.sh	/^function result_check {$/;"	f
+route_elem	playground.c/ctl2.c	/^typedef struct route_elem {$/;"	s	file:
+route_elem_t	playground.c/ctl2.c	/^} route_elem_t;$/;"	t	typeref:struct:route_elem	file:
+route_list	playground.c/ctl2.c	/^typedef struct route_list {$/;"	s	file:
+route_list_t	playground.c/ctl2.c	/^} route_list_t;$/;"	t	typeref:struct:route_list	file:
+routes	playground.c/ctl2.c	/^        route_elem_t routes[0];$/;"	m	struct:route_list	file:
+rver	scripts/release.py	/^rver = sys.argv[3]                         # 1.25.4.2.259$/;"	v
+select_branch_upload	scripts/commit_metadata.sh	/^function select_branch_upload() {$/;"	f
+select_branch_upload	scripts/commit_metadata.sh~	/^function select_branch_upload() {$/;"	f
+settings	scripts/fwlist	/^settings()$/;"	f
+showDiv	keepnote/2018-06-22/tree.html	/^    function showDiv(div)$/;"	f
+showDiv	keepnote/2018-06-22_notebook/tree.html	/^    function showDiv(div)$/;"	f
+sizeof	scripts/mus_create.sh	/^function sizeof {$/;"	f
+stack	scripts/fwlist	/^stack()$/;"	f
+svn_co	scripts/fwlist	/^svn_co()$/;"	f
+tar_source_code	scripts/foss_content.sh	/^function tar_source_code(){$/;"	f
+targets	scripts/release.py	/^targets = [$/;"	v
+templates	scripts/release.py	/^templates={"dvt":"dvt_release_temp.xlsx","prmt":"prmt_release_temp.docx","qa":"qa_release_temp.docx"}$/;"	v
+templatesDir	scripts/release.py	/^templatesDir = "\/home\/nejat\/ContainSys\/WorkDir\/RELEASE\/templates\/"$/;"	v
+test_stack	scripts/fwlist	/^test_stack()$/;"	f
+toggleDiv	keepnote/2018-06-22/tree.html	/^    function toggleDiv(div, defaultState)$/;"	f
+toggleDiv	keepnote/2018-06-22_notebook/tree.html	/^    function toggleDiv(div, defaultState)$/;"	f
+toggleDivName	keepnote/2018-06-22/tree.html	/^    function toggleDivName(divname, defaultState)$/;"	f
+toggleDivName	keepnote/2018-06-22_notebook/tree.html	/^    function toggleDivName(divname, defaultState)$/;"	f
+type	playground.c/ctl2.c	/^        unsigned int short type;$/;"	m	struct:route_elem	file:
+upload_git_metadata	scripts/commit_metadata.sh	/^function upload_git_metadata(){$/;"	f
+upload_git_metadata	scripts/commit_metadata.sh~	/^function upload_git_metadata(){$/;"	f
+upload_metadata	scripts/commit_metadata.sh	/^function upload_metadata() {$/;"	f
+upload_metadata	scripts/commit_metadata.sh~	/^function upload_metadata() {$/;"	f
+upload_metadata	scripts/parseUp.sh	/^function upload_metadata () {$/;"	f
+upload_metadata	scripts/parseUp.sh~	/^function upload_metadata () {$/;"	f
+upload_metadata	scripts/parse_buildys.sh	/^function upload_metadata () {$/;"	f
+upload_metadata	scripts/parse_buildys.sh~	/^function upload_metadata () {$/;"	f
+upload_svn_metadata	scripts/commit_metadata.sh	/^function upload_svn_metadata(){$/;"	f
+upload_svn_metadata	scripts/commit_metadata.sh~	/^function upload_svn_metadata(){$/;"	f
+usage	scripts/differ.sh	/^function usage() {$/;"	f
+usage	scripts/mkmus	/^usage()$/;"	f
+usage	scripts/mkmus.arc	/^usage()$/;"	f
+usage	scripts/svn_co.sh	/^usage() {$/;"	f
+usage	scripts/svn_co.sh~	/^usage() {$/;"	f
+usage	scripts/svn_log.sh	/^usage () {$/;"	f
+ver	scripts/release.py	/^ver=rver.split('.')$/;"	v
+warning_	scripts/mkmus	/^warning_() { echo -e "${_clHead}${argv0} ${_clWarning}Warning! $@${_clNoColor}"; }$/;"	f
+warning_	scripts/mkmus.arc	/^warning_() { echo -e "${_clHead}${argv0} ${_clWarning}Warning! $@${_clNoColor}"; }$/;"	f
+what	scripts/fwrecover.sh	/^/;"	f
+write_file	scripts/commit_metadata.sh	/^function write_file(){$/;"	f
+write_file	scripts/commit_metadata.sh~	/^function write_file(){$/;"	f
+write_file	scripts/parseUp.sh	/^function write_file(){$/;"	f
+write_file	scripts/parseUp.sh~	/^function write_file(){$/;"	f
+write_file	scripts/parse_buildys.sh	/^function write_file(){$/;"	f
+write_file	scripts/parse_buildys.sh~	/^function write_file(){$/;"	f
+write_metadata	scripts/commit_metadata.sh	/^function write_metadata(){$/;"	f
+write_metadata	scripts/commit_metadata.sh~	/^function write_metadata(){$/;"	f

@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <error.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 
 // Private Constant Definitions
 #define MAX_INST_SIZE           64

@@ -1,0 +1,36 @@
+#!/bin/sh
+
+launch_upnpd() {
+	IP=$(ifconfig br0 | grep -o "inet addr:[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+" | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+")
+	MAC=$(cat /sys/class/net/br0/address)
+	/usr/bin/miniupnpd -i patates -a "$IP" -s 1234567890 -u "$MAC" -d -p 5555 &
+}
+
+ip_watcher() {
+	ip monitor address | while read line; do
+	echo "$line" | grep -v Deleted | grep "global br0" >/dev/null
+	if [ $? -eq 0 ]; then
+		sleep 5
+		killall miniupnpd >/dev/null 2>/dev/null
+		sleep 20
+		launch_upnpd
+	fi
+done
+}
+
+
+platform=$(cat /airties_user/platform)
+
+if [ "$platform" = "bskyb-viper" ]; then
+	exit 0
+elif [ "$platform" = "" ]; then
+	echo "rc.upnpd: Can't read platform!"
+	exit 0
+fi
+
+if [ -x /usr/bin/miniupnpd ]; then
+	(sleep 40 && launch_upnpd ) &
+	(sleep 40 && ip_watcher ) &
+fi
+
+exit 0

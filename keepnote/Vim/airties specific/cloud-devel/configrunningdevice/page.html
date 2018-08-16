@@ -3,10 +3,92 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ConfigRunningDevice</title>
-</head><body>ifconfig br0 172.16.10.111<br/>
+</head><body><br/>
+cd /data<br/>
+date -s '2018-07-30 12:00:00'<br/>
+ifconfig br0 172.16.11.111<br/>
 route add default gw 172.16.0.1<br/>
 echo "nameserver 172.16.6.200" &gt; /etc/resolv.conf<br/>
 killall dhcpd<br/>
-date -s '2018-07-30 10:34:56'<br/>
+<br/>
+<br/>
+date -s '2018-07-30 12:00:00'<br/>
+ifconfig br0 172.16.11.190<br/>
+route add default gw 172.16.0.1<br/>
+echo "nameserver 172.16.6.200" &gt; /etc/resolv.conf<br/>
+<br/>
+<br/>
+set_config cloud_agent-0 enabled 1<br/>
+aci-cli aci_wifi_set_access_points_available 1<br/>
+<br/>
+./udhcpc -i br0<br/>
 ping 172.16.0.1<br/>
+<br/>
+<br/>
+<br/>
+viper<br/>
+c03e0f06a844<br/>
+booster<br/>
+c03e0fd7c149<br/>
+<br/>
+<br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_wps_role 1 ACI_WL_WPS_ROLE_REGISTRAR</span></span></div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 1</span></span></div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_get_wps_role 1</span></span></div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_soft_command_pbc</span></span><br/>
+</div><br/>
+---------------------------------------------------------------------------------------------------<br/>
+get_gwy_mac_address-570: Gateway MAC address was (null).<br/>
+--------------------------------------------------------------------------------------------------<br/>
+<br/>
+airbus-client -s com.airties.wireless-event -e 0 2&gt;/dev/null &amp; &nbsp;  &nbsp; &nbsp;airbus-client -s com.airties.cdf -e 0 2&gt;/dev/null &amp; <br/>
+<br/>
+<br/>
+wpa_event triggered out of memory codition (oom killer not called): gfp_mask=0x201da, order=0, oom_adj=0<br/>
+tunneld triggered out of memory codition (oom killer not called): gfp_mask=0x201da, order=0, oom_adj=0<br/>
+<br/>
+rm-client --command get-rt-configs<br/>
+<br/>
+rm-client --command dump-post-resps-queue<br/>
+rm-client --command dump-post-errs-queue<br/>
+rm-client --command dump-packer-errs-queue<br/>
+<br/>
+rm-client --command dump-event-queue<br/>
+rm-client --command dump-topology-queue<br/>
+rm-client --command dump-friendly-queue<br/>
+rm-client --command dump-cmds-queue<br/>
+rm-client --command dump-diags<br/>
+<br/>
+rm-client --command free-event-queue<br/>
+rm-client --command free-diags-queue<br/>
+rm-client --command free-topology-queue<br/>
+rm-client --command free-friendly-queue<br/>
+rm-client --command free-cmds-queue<br/>
+<br/>
+rm-client --command push-topogen-data --payload '{ "data": "ownaddr=...,type=..", "uptime": "4213"}'<br/>
+rm-client --command push-topogen-data --payload '{ "channel2g": "5", "cca2g": "0.89"}'<br/>
+<br/>
+rm-client --command push-event --payload '{ "data": "[sec.ms] type subtype optional_evt_data"}'<br/>
+<br/>
+rm-client --command push-diagnostics --payload '{ "data": "[sec.ms] 1f40612321adcsdq..", "type": "radar"}'<br/>
+<br/>
+rm-client --command post-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command post-config --payload '{ "period_in_ms": "600000" }'<br/>
+rm-client --command post-config --payload '{ "remote_url": "http://192.168.1.150/post.php" }'<br/>
+rm-client --command post-config --payload '{ "agent": "agent_str" }'<br/>
+<br/>
+rm-client --command packing-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command packing-config --payload '{ "period_in_ms": "600000" }'<br/>
+<br/>
+rm-client --command topogen-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command topogen-config --payload '{ "topogen_period": "1000" }'<br/>
+/usr/sbin/rm-client --command topogen-config --payload '{ "topogen_queueing_period": "3000" }'<br/>
+<br/>
+rm-client --command vital-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command vital-config --payload '{ "period_in_ms": "600000" }'<br/>
+<br/>
+rm-client --command cmds-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command cmds-config --payload '{ "period_in_ms": "600000" }'<br/>
+<br/>
+<br/>
 </body></html>
