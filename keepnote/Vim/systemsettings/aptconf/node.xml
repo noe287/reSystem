@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>aptconf</string>
+  <key>nodeid</key><string>8fd21b21-d800-431a-afb9-993a97e7db18</string>
+  <key>modified_time</key><integer>1534403780</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1534403772</integer>
+  <key>order</key><integer>1</integer>
+</dict>
+</node>

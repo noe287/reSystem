@@ -1,0 +1,16 @@
+/usr/bin/expect
+
+
+gh.sh
+
+expect -exact "Username for 'https://github.com':"
+send -- "noe287\r"
+expect -exact "Password for 'https://noe287@github.com':"
+send -- "noe287287\r"
+
+expect -exact "Username for 'https://github.com':"
+send -- "noe287\r"
+expect -exact "Password for 'https://noe287@github.com':"
+send -- "noe287287\r"
+
+expect -exact "eof" 
