@@ -1,0 +1,17 @@
+#!/usr/bin/expect
+
+set ARG1 [lindex $argv 0]
+
+send_user "$ARG1"
+
+spawn /home/noe/DataDrive/reSystem/scripts/sky.sh $ARG1
+
+expect -exact "Password for 'nejatonay.erkose':"
+send -- "Mavisirin287\r"
+expect -exact "Store password unencrypted (yes/no)?"
+send -- "yes"
+
+expect -exact "eof"
+
+
+

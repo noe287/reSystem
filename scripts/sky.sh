@@ -3,11 +3,7 @@ release=0
 CMD="tools/bake"
 CMD2="USE_LOCAL_TOOLCHAINS=y tools/bake"
 
-targets=(gemini-419.config booster2.config gemini-419-release.config booster2-release.config 
-		mrbox-412.config copperhead.config mrbox-412-release.config 
-		copperhead-release.config viper.config falcon-d1.config viper-release.config 
-		falcon-d1-release.config xwing-412.config falcon-d1-uhd.config xwing-412-release.config
-		falcon-d1-uhd-release.config)
+targets=(gemini-419.config booster2.config gemini-419-release.config booster2-release.config mrbox-412.config copperhead.config mrbox-412-release.config copperhead-release.config viper.config falcon-d1.config viper-release.config falcon-d1-release.config xwing-412.config falcon-d1-uhd.config xwing-412-release.config falcon-d1-uhd-release.config)
 
 config=(mrbox-412.config booster2.config falcon-d1.config xwing-412.config viper.config)
 
@@ -53,7 +49,7 @@ function choose_config() {
 
 if [ $1 ] 
 then
-	DATE=$1_`date +%h-%d-%H_%M_%S_%a`
+	DATE=$1_`date +%h-%d_%a-%H_%M_%S__%y`
 
 	choose_config $1
 	BUILD_DIR=${DATE}

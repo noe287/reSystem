@@ -3,4 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>aptconf</title>
-</head><body>sudo -H gedit /etc/apt/apt.conf</body></html>
+</head><body>sudo -H gedit /etc/apt/apt.conf<br/>
+<br/>
+<br/>
+#!/usr/bin/expect -f set mypassword [lindex $argv 0] spawn ssh user@192.168.2.3 expect "password: " send "$mypassword\r" interact</body></html>
