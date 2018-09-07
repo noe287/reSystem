@@ -1,0 +1,8 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>clewn</title>
+</head><body>http://clewn.sourceforge.net/install.html#clewn<br/>
+<br/>
+When cross-compiling, add the --host and --build argument on the command line of configure. Then run make. For example, with an arm target: ./configure CC=/path_to_gcc/arm-gcc --build=i686-pc-linux-gnu --host=arm-linux The readline and curses libraries must be available on the target. The following commands are run: host: gvim -c "run clewn.vim" -nb:target_ip_address target: clewn -x pathnames_map -nb:target_ip_address </body></html>
