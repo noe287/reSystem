@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Koray'sNote on İntegration</title>
+</head><body><span style="font-size: 15pt">Dependencies of new features on Mesh architecture: <ul><li>&nbsp;Bilal: Need to port the latest manager and air-cdf. </li>
+</ul>
+<br/>
+Burak: DPP is not fully compatible with Mesh1.0 but it can be worked out with additional effort. <br/>
+<br/>
+Can: DPP requires few wireless driver API - need to be checked. Devices scan for gateway action frame. Afterwards mesh2.0 handle the mesh formation. mesh1.0 needs to react to this action frame and do wps to form the mesh. Bilal: DPP depends on wireless-controller states (enrollee or registrar). <br/>
+<br/>
+Can: Mesh islands will not work with the automesh. Any feature depending on the mesh islands will not be compatible. Any app using mesh-ng transport layer need to be ported. Automesh supporting its own messaging system can be an alternative.  <br/>
+<br/>
+Burak: meshng transport layer working on sky automesh is doable - not the routing part just the messaging part. <br/>
+Cloud based channel selection:  <ul><li>&nbsp;Zero wait dfs is being developed for 4930 - we are using wireless controller to do that. It is Mesh 2.0 dependent. </li>
+</ul>
+Channel interference - depends on scan scheduler.  <ul><li>&nbsp;Bilal: We may need to port to version 7 of the drivers for scan scheduler - Broadcom API given with version 6 is not that comprehensive. Version 7 is much more comprehensive - with v6 the measurement will not be precise. It is to do with how Broadcom do the measurement in the driver. It was provided as a separate patch on v7.   </li>
+</ul>
+Guest network depends on the mesh ng. Burak: It is not doable without mesh-ng. <br/>
+TODO: Using service activation for feature control: Add it to the agenda of the governance meeting. This is a feature request - need to be discussed separately. (Burak - There is a parallel task targeting this using CDF). <br/>
+Client SSID prioritisation have dependency on driver version. It uses v7. <br/>
+Public WiFi over mesh (VLAN support) - It needs to be developed for Mesh 1.0. <br/>
+Real time event support - Steering sends two real time events. Currently seems to be not related with Mesh 2.0 but Can says it depends on possible future requests which depends on Mesh 2.0. <br/>
+Memory optimisation - Korhan did run valgrind on 4920s. <br/>
+</span></body></html>
