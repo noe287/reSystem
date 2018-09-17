@@ -27,7 +27,7 @@ fi
 if [ "$1" == "release" ]
 then
 	config=(booster2-release.config mrbox-412-release.config viper-cloud-release.config viper-release.config
-	falcon-d1-release.config xwing-412-release.config xwing-hip-release.config gemini-419-release.config 
+	falcon-d1-release.config xwing-412-release.config xwing-hip-release.config gemini-419-release.config
 	falcon-d1-uhd-release.config)
 else
 	config=(mrbox-412.config booster2.config falcon-d1.config xwing-412.config viper.config)
@@ -47,7 +47,7 @@ function choose_config() {
 	done
 }
 
-if [ $1 ] 
+if [ $1 ]
 then
 	DATE=$1_`date +%h-%d_%a-%H_%M_%S__%y`
 
@@ -67,7 +67,7 @@ then
 
 	git clone ssh://nejatonay.erkose@git.corp.airties.com:29418/bskyb-shr-builder ${BUILD_DIR}
 	cd ${BUILD_DIR}
-	
+
 	echo "----->>>> BUILDING ${Profile}"
 	# echo ${Profile} | grep cloud
 	# if [ $? -eq 0 ]
@@ -88,9 +88,9 @@ then
 	then
 	 	CMD=$CMD2
 	fi
-	
+
 	eval "$CMD ${Profile}"
-	BUILD_TYPE=debug 
+	BUILD_TYPE=debug
 	export BUILD_TYPE
 
 	if [ "$type" == "config" ]
@@ -106,5 +106,5 @@ then
 	else
 		eval "$CMD all"
 	fi
-fi 
+fi
 
