@@ -2,6 +2,7 @@
 <node>
 <version>6</version>
 <dict>
+  <key>expanded</key><true/>
   <key>title</key><string>Mesh2.0_Integration</string>
   <key>nodeid</key><string>f3716c82-c19a-4870-8e44-e6f07e1fb19a</string>
   <key>modified_time</key><integer>1536848734</integer>
