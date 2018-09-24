@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tips</title>
+</head><body><ul><li><b>*</b>&nbsp;: Matches any string</li>
+<li><b>*a*</b>&nbsp;: Matches any string containing an ‘a’</li>
+<li><b>*9*</b>&nbsp;: Matches any string containing a digit ‘9’</li>
+<li><b>*.[xy]</b>&nbsp;: Matches any string ending with .x or .y</li>
+<li><b>*[ab]*</b>&nbsp;: Matches any string containing a character ‘a’ or ‘b’</li>
+<li><b>*[42]*</b>&nbsp;: Matches any string containing a digit ‘4’ or ‘2’</li>
+<li><b>?</b>&nbsp;: Matches any single character</li>
+</ul>
+<br/>
+https://www.cyberciti.biz/faq/how-to-delete-files-containing-character-numberdigit/<br/>
+<br/>
+<br/>
+To list all .txt file run:<br/>
+&nbsp;$ <b>ls *.txt</b><br/>
+&nbsp;1.txt c.txt file2.txt file4.txt file40.txt<br/>
+&nbsp;To see txt files with 1 char names (eg z.txt, 3.txt)<br/>
+&nbsp;$ <b>ls ?.txt</b><br/>
+&nbsp;1.txt c.txt<br/>
+&nbsp;List txt files that start with a capital letter:<br/>
+&nbsp;$ <b>ls [A-Z]*.txt</b><br/>
+&nbsp;A.txt<br/>
+&nbsp;Can you guess what the following command does?<br/>
+&nbsp;$ <b>ls [A-Za-z]*.txt</b><br/>
+&nbsp;A.txt c.txt file2.txt file4.txt file40.txt<br/>
+&nbsp;You can use a wildcard with any Linux/Unix command such as rm command,<a href="https://www.cyberciti.biz/faq/cp-copy-command-in-unix-examples/">cp command</a>,<a href="https://www.cyberciti.biz/faq/unix-mv-command-examples/">mv command</a>,tar command and so on. To delete files containing a number ‘4’ or ‘2’ in their filename:<br/>
+&nbsp;$ ls *[42]*<br/>
+&nbsp;$ rm -v *[42]*<br/>
+&nbsp;To limit to .jpg extension:<br/>
+&nbsp;$ ls *[42]*.jpg<br/>
+&nbsp;$ rm -v *[42]*.jpg<br/>
+Another example where file name start with a capital ‘X’ and ends with .JPG extension and files containing a number ‘4’ or ‘2’ in their filename:<br/>
+&nbsp;$ ls X*[42]*.jpg<br/>
+&nbsp;$ rm -v X*[42]*.jpg</body></html>
