@@ -7,11 +7,11 @@ CSCOPE_FILES="$PWD/cscope/cscope.files"
 relevantDirs=(manager air-cdf awf-ng air-bus air-cloud-agent air-wall wireless wireless_tools wireless-controller hostapd wpa_supplicant metrics automesh air_eoe airwpa airlibs statistics-collector air-rm filesystem_platform mesh-wal metrics-ng air-mal)
 
 function __process_cscope() {
-# The -b flag tells Cscope to just build the database, and not launch the Cscope GUI. 
+# The -b flag tells Cscope to just build the database, and not launch the Cscope GUI.
 # The -q causes an additional, 'inverted index' file to be created, which makes searches run much faster for large databases.
 # Finally, -k sets Cscope's 'kernel' mode--it will not look in /usr/include for any header files that are #included in your
 # source files (this is mainly useful when you are using Cscope with operating system and/or C library source code, as we are here).
-	cd $DIR/cscope/	
+	cd $DIR/cscope/
 	if [ ! -e "$DIR/csope/cscope.out" ]
 	then
 		cscope -b -q > /dev/null
@@ -26,7 +26,7 @@ function __process_cscope() {
 }
 
 function __cscope() {
-	
+
 	local skip_dir=0
 
 	# Prepare "find" file to select "dirs" in "relevantdirs"
@@ -45,16 +45,16 @@ function __cscope() {
 			if [ "$file" == "$rfile" ]
 			then
 				skip_dir=1
-				break	
+				break
 			fi
 		done
-		
+
 		if [ "$skip_dir" == "0" ]
 		then
 			echo "-path \"$PWD/$file/*\" -prune -o \\" >> $FILTER
 		fi
 	done
-	
+
 	echo "-name \"*.[chxsS]\" -print" >> $FILTER
 
 	#create "find" file
@@ -71,7 +71,7 @@ function init() {
 	if [ "$1" == "del" ]
 	then
 		rm -rf $PWD/cscope/*
-		rm -rf $PWD/cscope 
+		rm -rf $PWD/cscope
 		rm -rf $PWD/filter.sh
 	fi
 
@@ -80,13 +80,13 @@ function init() {
 		mkdir $PWD/cscope
 	fi
 
-	if [ "$FOLDERCNT" -ge 250 ]  # Number of folders in buildsys is 256 
+	if [ "$FOLDERCNT" -ge 250 ]  # Number of folders in buildsys is 256
 	then
 		__cscope             # Huge cscope db to be created for buildsys folder
-	else 
+	else
 		__cscope "0"         # Create a db only for the current folder; presumably not buildsys.
-	fi  
+	fi
 }
 
-init $1   
+init $1
 vim
