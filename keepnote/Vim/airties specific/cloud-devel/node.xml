@@ -2,7 +2,7 @@
 <node>
 <version>6</version>
 <dict>
-  <key>expanded</key><true/>
+  <key>expanded</key><false/>
   <key>title</key><string>Cloud-devel</string>
   <key>nodeid</key><string>3287b938-ce86-4fa1-874d-f1d0bcacebe3</string>
   <key>modified_time</key><integer>1528376362</integer>
