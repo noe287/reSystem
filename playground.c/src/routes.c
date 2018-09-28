@@ -22,11 +22,11 @@
 #define SCAN_STATUS_INSCAN      1
 #define SCAN_STATUS_UNKNOWN     (-1)
 
-#define AUTOMESH_ROUTE_TYPE_DEFAULT       0                                                                                                             
+#define AUTOMESH_ROUTE_TYPE_DEFAULT       0
 #define AUTOMESH_ROUTE_TYPE_LOCAL         1
 #define AUTOMESH_ROUTE_TYPE_LEARNED       2                                                                                                             // Private Macro Definitions
 
-#define ETHER_ADDR_STR_LEN                18 
+#define ETHER_ADDR_STR_LEN                18
 
 
 #define _WHITE   "\033[37;1m"
@@ -107,15 +107,15 @@ typedef struct route_list {
         route_elem_t routes[0];
 } route_list_t;
 
-static inline void hex_to_ascii(const unsigned char *in_hex, char *out_ascii, unsigned int hex_len)                                                                                                         
-{                                                                                                                                                                                                 
-        unsigned int i = 0;                                                                                                                                                                       
-        unsigned int j = 0;                                                                                                                                                                       
-                                                                                                                                                                                                  
-        for (i = 0; i < hex_len; i++) {                                                                                                                                                           
-                j += sprintf(&out_ascii[j], "%02X", in_hex[i]);                                                                                                                                   
-        }                                                                                                                                                                                         
-}                                       
+static inline void hex_to_ascii(const unsigned char *in_hex, char *out_ascii, unsigned int hex_len)
+{
+        unsigned int i = 0;
+        unsigned int j = 0;
+
+        for (i = 0; i < hex_len; i++) {
+                j += sprintf(&out_ascii[j], "%02X", in_hex[i]);
+        }
+}
 
 static void ascii_to_hex(const char *in_ascii, unsigned char *out_hex, unsigned int hex_len)
 {
@@ -153,14 +153,14 @@ static void ascii_to_hex(const char *in_ascii, unsigned char *out_hex, unsigned 
 static FILE *openRoutesFile(){
 
           FILE *fp = NULL;
-          int ret = 0; 
+          int ret = 0;
 
-  	  //proc -> (Viper) 
+  	  //proc -> (Viper)
           fp = fopen("a.txt","r");
-          if (fp == NULL) 
-                  //dev -> (STB) 
+          if (fp == NULL)
+                  //dev -> (STB)
                   fp = fopen("a.txt","r");
-	  
+
 	  return fp;
 }
 
@@ -168,17 +168,17 @@ static FILE *openRoutesFile(){
 int main(int argc, char *argv[])
 {
 	FILE *fp = NULL;
-	int ret = 0; 
-	unsigned int len = 0, i = 0, k = 0, lineoffset = 0, num_col = 0, line_count = 0, found_line = 0; 
+	int ret = 0;
+	unsigned int len = 0, i = 0, k = 0, lineoffset = 0, num_col = 0, line_count = 0, found_line = 0;
 	char *pline = NULL;
-	char line[LINE_MAX]= {0}; 
-	char dev[IFNAMSIZ] = {0}; 
-	char destMacStr[ETHER_ADDR_STR_LEN] = {0}; 
-	int metric = 0; 
-	float age = 0, idle = 0; 
+	char line[LINE_MAX]= {0};
+	char dev[IFNAMSIZ] = {0};
+	char destMacStr[ETHER_ADDR_STR_LEN] = {0};
+	int metric = 0;
+	float age = 0, idle = 0;
 	unsigned int type;
 	route_list_t *route_list = NULL;
-	char keys[]="[";                                                                                                                                                                                                                     
+	char keys[]="[";
 	char str[LINE_MAX] = {0};
 
 
@@ -193,13 +193,13 @@ int main(int argc, char *argv[])
 		if (found_line == 0) {
 			if (strstr(pline, "hwaddr") != NULL)
 				found_line = 1;
-		} 
+		}
 		else {
 			if (line[strlen(line) - 1] == '\n')
 			line_count++;
 		}
 
-	} 
+	}
 
 	/* route_list = (struct route_list*) calloc(1, sizeof(route_list_t)); */
 	route_list = (struct route_list*) malloc(sizeof(struct route_list) + line_count * sizeof(route_elem_t));
@@ -216,13 +216,13 @@ int main(int argc, char *argv[])
 	}
 
 	while ((pline = fgets(line, sizeof(line), fp)) != NULL) {
-		if (lineoffset == 0) { 
+		if (lineoffset == 0) {
 			if (strstr(pline, "hwaddr") != NULL){
 				lineoffset = 1;
 			}
 			continue;
 		}
-	
+
 	/* dev         id     hwaddr          metric    seq      age     idle [ seq0 / metric0 /devid0][ seq1 / metric1 /devid1][ seq2 / metric2 /devid2] flags */
 	/* eth1         6  00:50:56:a7:eb:a0       0    247      0.7      0.7 [   247/        0/     6][   247/        0/     6][   247/        0/     6] 0 0 0 */
 	/* eth1         6  ac:e2:d3:a1:53:33       0    247    235.7    235.7 [   247/        0/     6][   247/        0/     6][   247/        0/     6] 0 0 0 */
@@ -231,7 +231,7 @@ int main(int argc, char *argv[])
 
 		num_col = sscanf(pline,"%s %*i %s %u %*i %f %f ", dev, destMacStr, &metric, &age, &idle);
 		/* printf("cols:%d line:%s\n",num_col, pline); */
-		if(num_col == 5) { 
+		if(num_col == 5) {
 			if(strstr(pline, "local") != NULL)
 				route_list->routes[i].type = AUTOMESH_ROUTE_TYPE_LOCAL;
 			else if(strstr(pline, "discover") != NULL)
@@ -241,12 +241,12 @@ int main(int argc, char *argv[])
 			else
 				route_list->routes[i].type = AUTOMESH_ROUTE_TYPE_LEARNED;
 
-			sscanf(destMacStr, "%2hhx:%2hhx:%2hhx:%2hhx:%2hhx:%2hhx", 
-					&route_list->routes[i].destination[0], 
+			sscanf(destMacStr, "%2hhx:%2hhx:%2hhx:%2hhx:%2hhx:%2hhx",
+					&route_list->routes[i].destination[0],
 					&route_list->routes[i].destination[1],
-					&route_list->routes[i].destination[2], 
+					&route_list->routes[i].destination[2],
 					&route_list->routes[i].destination[3],
-					&route_list->routes[i].destination[4], 
+					&route_list->routes[i].destination[4],
 					&route_list->routes[i].destination[5]);
 
 			/* sscanf(mac_str, "%2hhx:%2hhx:%2hhx:%2hhx:%2hhx:%2hhx", */
@@ -254,7 +254,7 @@ int main(int argc, char *argv[])
 /* route_list->routes[i].destination[0] */
 
 			strncpy(route_list->routes[i].device, dev, sizeof(dev));
-			route_list->routes[i].metric = metric; 
+			route_list->routes[i].metric = metric;
 			route_list->routes[i].age = age;
 			route_list->routes[i].idle = idle;
 
