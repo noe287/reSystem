@@ -27,64 +27,8 @@
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ping 192.168.2.101 </span></span><br/>
 </div><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">  </div></span></span><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">setmetrics -s plc0.1=2500 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">setmetrics -s wds1.1=700 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cd `cat /tmp/diag`; cat MESSAGES.LOG </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------- </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">echo "debug 0x0" &gt; /proc/air_mesh_rt </span></span><br/>
-</div><br/>
-<br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">echo "debug 0x0" &gt; /proc/air_mesh_rt </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">./tools/bake shell (then build modules) </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Below enables one to build the fimware and creating a tarball </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">[all: all_start build all_end print_build_times                                                                                                                                                               ] </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------------- </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">bake booster2-release.config (release config) </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make airties-rebuild </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make airties-release </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make foss-disable </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------------- </span></span><br/>
-</div><br/>
-<br/>
-<div style="text-align: left"><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">service tftpd-hpa start </span></span><br/>
 </div><br/>
