@@ -27,23 +27,17 @@
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ping 192.168.2.101 </span></span><br/>
 </div><br/>
-<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">  </div></span></span><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">--------------------------------------------------------------------------------------- </div></span></span><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">service tftpd-hpa start </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">MRBOX image: </span></span><br/>
-</div><br/>
-<div style="text-align: left"><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Falcon ve MRBox'ta iptables kurallarini silme </span></span><br/>
-</div><br/>
+</div><div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">------------------------------------------------------------------------------------------------------------------ </span></span></div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">iptables --flush </span></span><br/>
@@ -53,83 +47,15 @@
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">WIRESHARK </span></span><br/>
-</div><br/>
+</div><div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">------------------------------------------------------------------------------------------------------------------ </span></span></div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wlan.addr==MAC ADRESS </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">TFTPBOOT  NVRAM DÜZENLEME </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">bilgisayarın tftpboot kısmında dosyayı oluştur </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo touch nvram.txt </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sonra içini düzenle </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo nano nvram.txt </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo chmod 777 nvram.txt </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cihazda cd tmp yap, aşağıdaki komutu çalıştır </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp -g 192.168.2.100 -r nvram.txt </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cp nvram.txt /data/ </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cp AirTies_WiFi_Cert.zip /bin/ </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#------------------------------------------------------# </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tar -cvf airties.log.tar.gz /airties/log </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tar -cvf var.log.tar.gz /var/log </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">/etc/rc.d/rc.mesh stop </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">/etc/rc.d/rc.mesh start </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">/etc/rc.d/rc.mesh restart </span></span><br/>
-</div><br/>
+</div><div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ </span></span></div><br/>
 <br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Running slave ARM core(s): </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">======================================= </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">eth interface değiştirmek için :  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">------------------------------------------------------------------------------------------------------------------ </span></span></div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo gedit /etc/network/interfaces </span></span><br/>
 </div><br/>
