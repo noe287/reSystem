@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>aci-cli</title>
+</head><body><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">MULTISSID VIPER </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-1 ap1_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-1 ap2_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-1 ap3_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-0 ap1_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-0 ap2_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-0 ap3_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">HIDDEN SSID </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">#5 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_ap_hiddenssid 1 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">#2.4 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_ap_hiddenssid 0 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">MAC FILTER </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">#5 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_add 1 A0:88:B4:84:59:80 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_add 1 80:1F:02:DD:B8:98 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_mode 1 ACI_WL_ACL_MODE_BLOCK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_mode 1 ACI_WL_ACL_MODE_ALLOW </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">#2,4 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_add 0 A0:88:B4:84:59:80 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_add 0 80:1F:02:DD:B8:98 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_mode 0 ACI_WL_ACL_MODE_BLOCK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_mode 0 ACI_WL_ACL_MODE_ALLOW </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri"><div style="text-align: left">  </div></span></span></body></html>
