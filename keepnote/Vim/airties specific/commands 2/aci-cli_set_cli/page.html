@@ -432,7 +432,32 @@ cli query devmgr-0:inst_list wireless  (how many instance for this mngr runs) 
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">    <br/>
+<br/>
+set_config wireless-0 wps_role enrollee      :wps rolü enrol yapma <br/>
+<br/>
+set_config wireless-1 wps_role enrollee  :wps rolü enrol yapma <br/>
+<br/>
+  <br/>
+<br/>
+  <br/>
+<br/>
+<br/>
+<br/>
+  <br/>
+<br/>
+cli query wireless-0:wps_role    <br/>
+<br/>
+cli query wireless-1:wps_role <br/>
+<br/>
+  <br/>
+<br/>
+set_config wireless-0 wps_role registrar <br/>
+<br/>
+set_config wireless-1 wps_role registrar <br/>
+<br/>
+<br/>
+</span></span><span style="font-family: Calibri"><span style="font-size: 11pt">cli query wireless-1:wps_status  : wps durumunu verir </span></span><br/>
 </div><br/>
 <br/>
 <br/>
