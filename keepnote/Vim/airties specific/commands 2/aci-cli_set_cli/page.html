@@ -5,7 +5,7 @@
 <title>aci-cli_set_cli</title>
 </head><body><br/>
 <br/>
-<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">aci-cli aci_wifi_set_wps_role 1 ACI_WL_WPS_ROLE_REGISTRAR <br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_wps_role 1 ACI_WL_WPS_ROLE_REGISTRAR <br/>
 <br/>
 aci-cli aci_wifi_command_apply 1 <br/>
 <br/>
@@ -22,43 +22,136 @@ cli query devmgr-0:inst_list wireless  (how many instance for this mngr runs) 
  <br/>
 <br/>
 <br/>
-</div></span></span><div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">MULTISSID VIPER </span></span><br/>
+</span></span><span style="font-size: 11pt"><span style="font-family: Calibri">MULTISSID VIPER </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-1 ap1_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-1 ap2_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-1 ap3_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-0 ap1_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-0 ap2_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-0 ap3_enabled 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">HIDDEN SSID </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">#5 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_ap_hiddenssid 1 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">#2.4 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_ap_hiddenssid 0 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">MAC FILTER </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">#5 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_add 1 A0:88:B4:84:59:80 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_add 1 80:1F:02:DD:B8:98 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_mode 1 ACI_WL_ACL_MODE_BLOCK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_mode 1 ACI_WL_ACL_MODE_ALLOW </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">#2,4 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_add 0 A0:88:B4:84:59:80 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_add 0 80:1F:02:DD:B8:98 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_mode 0 ACI_WL_ACL_MODE_BLOCK </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_acl_mode 0 ACI_WL_ACL_MODE_ALLOW </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri">cli command wireless-0:debug 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">cli command wireless-0:debug 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">----------------------------------------------------------------------------------------------------------------- </span></span><br/>
+<br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_get_access_points_available </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_access_points_available </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 ap1_enabled 1 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 sta_ssid Aristotales </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 ap2_enabled 1 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 ap3_enabled 1 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 sta_ssid Demoklithos </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 ap1_enabled 1 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 ap2_enabled 1 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 ap3_enabled 1 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">HIDDEN SSID </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli query wireless-0:sta_state </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#5 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">WPA2 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_ap_hiddenssid 1 0 1 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_ssid 1 Samet </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_security_mode 0 ACI_WL_STA_SEC_WPA2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_wpa_password 0 123412345 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#2.4 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_ssid 0 Aristotales </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_ap_hiddenssid 0 0 1 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_security_mode 0 ACI_WL_STA_SEC_WPA2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_wpa_password 0 rabbithole </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
 </div><br/>
@@ -66,174 +159,163 @@ cli query devmgr-0:inst_list wireless  (how many instance for this mngr runs) 
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">MAC FILTER </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_access_points_available 0 1 </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#5 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_add 1 A0:88:B4:84:59:80 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_add 1 80:1F:02:DD:B8:98 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_mode 1 ACI_WL_ACL_MODE_BLOCK </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_mode 1 ACI_WL_ACL_MODE_ALLOW </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_soft_command_pbc     </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#2,4 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Setting STA_CONNECT value on config.xml to:0  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_add 0 A0:88:B4:84:59:80 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_access_points_available 0 1 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_add 0 80:1F:02:DD:B8:98 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_get_access_points_available 0  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_ssid 0 Aristotales </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_mode 0 ACI_WL_ACL_MODE_BLOCK </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_security_mode 0 ACI_WL_STA_SEC_WPA2 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_acl_mode 0 ACI_WL_ACL_MODE_ALLOW </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_wpa_password 0 rabbithole </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-<span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">get_config wireless-0 sta_connect </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli query wireless-0:sta_state </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">while true; do get_config wireless-0 sta_connect; sleep 1;done &amp; </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 &amp;&amp; aci-cli aci_wifi_set_access_points_available </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 0 </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">----------------------------------------------------------------------------------------------------------------- </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-1:debug 3 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------- </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#wireless 5 disable </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_enabled 1 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#PLC Enable </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_plc_set_enabled 0 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_plc_command_apply 0 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_wps_role 1 ACI_WL_WPS_ROLE_REGISTRAR </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_soft_command_pbc </span></span><br/>
+</div><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">------------------------------------------------------------------------------------- <br/>
 <br/>
-<span style="font-size: 11pt"><span style="font-family: Calibri">cli command wireless-0:debug 2 </span></span><br/>
+<br/>
+</div></span></span><div style="text-align: left"><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_get_access_points_available </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config meshest-0 enabled 1 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_access_points_available </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 enabled 0 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 enabled 0 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-0 sta_ssid Aristotales </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config meshest-0 enabled 1 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set_config wireless-0 sta_ssid Demoklithos </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-0 enabled 1 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config wireless-1 enabled 1 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-1:debug 2 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">cli query wireless-0:sta_state </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set_config meshest-0 enabled 1 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">WPA2 </span></span><br/>
+<br/>
+<br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">WPA2 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_ssid 1 Samet </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_ssid 0 Aristotales </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_security_mode 0 ACI_WL_STA_SEC_WPA2 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_security_mode 0 ACI_WL_STA_SEC_WPA2 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_wpa_password 0 123412345 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_wpa_password 0 rabbithole  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_set_sta_mac 0 00:1C:A9:F7:EF:00 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_ssid 0 Aristotales </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_security_mode 0 ACI_WL_STA_SEC_WPA2 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_wpa_password 0 rabbithole </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 0 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_wifi_command_apply 1 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 0 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_soft_command_pbc     </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cli command wireless-0:debug 2 </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_access_points_available 0 1 </span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">--------------------------------------------------------- </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">aci-cli aci_wifi_set_wps_role 1 ACI_WL_WPS_ROLE_REGISTRAR</div></span></span><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">aci-cli aci_wifi_command_apply 1</div></span></span><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">aci-cli aci_wifi_get_wps_role 1</div></span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_soft_command_pbc</span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 0 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 1 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_soft_command_pbc     </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">Setting STA_CONNECT value on config.xml to:0  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_access_points_available 0 1 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_get_access_points_available 0  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_ssid 0 Aristotales </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_security_mode 0 ACI_WL_STA_SEC_WPA2 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_wpa_password 0 rabbithole </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_sta_connect 0 1 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 0 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">get_config wireless-0 sta_connect </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">cli query wireless-0:sta_state </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">while true; do get_config wireless-0 sta_connect; sleep 1;done &amp; </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">cli command wireless-0:debug 2 &amp;&amp; aci-cli aci_wifi_set_access_points_available </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">cli command wireless-0:debug 0 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">cli command wireless-0:debug 2 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">cli command wireless-0:debug 3 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">cli command wireless-1:debug 3 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">cli command wireless-0:debug 2 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">------------------------------------------------------------------------------------- </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">#wireless 5 disable </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_enabled 1 0 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 1 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">#PLC Enable </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_plc_set_enabled 0 1 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_plc_command_apply 0 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_wps_role 1 ACI_WL_WPS_ROLE_REGISTRAR </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 1 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_soft_command_pbc </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">------------------------------------------------------------------------------------- </span></span></div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span></div></body></html>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri"><div style="text-align: left">  </div></span></span></body></html>
