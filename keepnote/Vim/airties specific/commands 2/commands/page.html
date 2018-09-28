@@ -348,12 +348,6 @@ aci-cli aci_wifi_command_apply 1 <br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cd /tmp </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp -g -r iperf-mrbox 192.168.2.100 &amp;&amp; chmod 777 iperf-mrbox; ./iperf-mrbox </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Falcon ve MRBox'ta iptables kurallarini silme </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
@@ -435,12 +429,6 @@ aci-cli aci_wifi_command_apply 1 <br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">make install </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">``` </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl0 phycal_tempdelta 50 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 phycal_tempdelta 60 </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
@@ -559,24 +547,7 @@ aci-cli aci_wifi_command_apply 1 <br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 txpwr 100 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">2*2 set etme </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 rxchain 2 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">wl -i wl1 txchain 2 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+<br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
 </div><br/>
@@ -598,18 +569,7 @@ aci-cli aci_wifi_command_apply 1 <br/>
 <span style="font-family: Calibri"><span style="font-size: 11pt">iperf -s -u -B 224.0.22.2 -i 1 </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp server folder : /tftpboot </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cp bcmBSKYB_VIPER_fs_kernel /tftpboot </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">cp zImage /tftpboot </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">dhcp açma kapama </span></span><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt">dhcp açma kapama </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">sudo /etc/init.d/isc-dhcp-server restart </span></span><br/>
 </div><br/>
