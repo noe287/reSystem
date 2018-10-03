@@ -8,6 +8,10 @@ int main(void)
     /* char str[] = "1,22,333,4444,55555"; */
     char *rest = NULL;
     char *token;
+    FILE *fds = NULL;
+
+    fds = fopen(PEERS, "r");
+
 
     for (token = strtok_r(str, ",", &rest); token != NULL; token = strtok_r(NULL, ",", &rest)) {
         printf("token:%s\n", token);
