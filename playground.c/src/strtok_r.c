@@ -20,11 +20,11 @@ int main(void)
     	return -1;
     }
 
-    while()
+    while((line = fgets(buf, sizeof(buf), fds)) != NULL)
 
-    for (token = strtok_r(str, ",", &rest); token != NULL; token = strtok_r(NULL, ",", &rest)) {
-        printf("token:%s\n", token);
-    }
+    /* for (token = strtok_r(str, ",", &rest); token != NULL; token = strtok_r(NULL, ",", &rest)) { */
+    /*     printf("token:%s\n", token); */
+    /* } */
 
     return 0;
 }
