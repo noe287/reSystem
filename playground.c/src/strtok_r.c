@@ -9,12 +9,18 @@ int main(void)
     char *rest = NULL;
     char *token;
     FILE *fds = NULL;
+    int i = 0;
+    char *line = NULL;
+    char buf[128] = {0};
+    const unsigned char zero_mac[17] = {0};
 
     fds = fopen(PEERS, "r");
     if(fds == NULL) {
     	printf("Cannot find the file...\n");
     	return -1;
     }
+
+    while()
 
     for (token = strtok_r(str, ",", &rest); token != NULL; token = strtok_r(NULL, ",", &rest)) {
         printf("token:%s\n", token);
