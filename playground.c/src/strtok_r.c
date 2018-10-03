@@ -8,11 +8,13 @@ int main(void)
     /* char str[] = "1,22,333,4444,55555"; */
     char *rest = NULL;
     char *token;
+    char *saveptr;
     FILE *fds = NULL;
     int i = 0;
     char *line = NULL;
     char buf[128] = {0};
     const unsigned char zero_mac[17] = {0};
+    struct ether_addr mac;
 
     fds = fopen(PEERS, "r");
     if(fds == NULL) {
@@ -21,7 +23,13 @@ int main(void)
     }
 
     while((line = fgets(buf, sizeof(buf), fds)) != NULL)
+    {
 
+
+    
+    
+    
+    }
     /* for (token = strtok_r(str, ",", &rest); token != NULL; token = strtok_r(NULL, ",", &rest)) { */
     /*     printf("token:%s\n", token); */
     /* } */
