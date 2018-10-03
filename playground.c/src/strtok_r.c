@@ -11,7 +11,10 @@ int main(void)
     FILE *fds = NULL;
 
     fds = fopen(PEERS, "r");
-
+    if(fds == NULL) {
+    	printf("Cannot find the file...\n");
+    	return -1;
+    }
 
     for (token = strtok_r(str, ",", &rest); token != NULL; token = strtok_r(NULL, ",", &rest)) {
         printf("token:%s\n", token);
