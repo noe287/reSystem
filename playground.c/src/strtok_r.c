@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#define PEERS
+
 int main(void)
 {
     char str[] = "1,22,333,4444,55555";
