@@ -27,7 +27,11 @@ int main(void)
 
     while((line = fgets(buf, sizeof(buf), fds)) != NULL)
     {
+	if(strstr(line,"Name"))
+		continue;
 
+	if(strstr(line,"===="))
+		continue;
 
     
     
