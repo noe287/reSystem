@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
-#define PEERS
+#define PEERS "../txt/air_mesh_peers.txt"
 
 int main(void)
 {
-    char str[] = "1,22,333,4444,55555";
+    /* char str[] = "1,22,333,4444,55555"; */
     char *rest = NULL;
     char *token;
 
