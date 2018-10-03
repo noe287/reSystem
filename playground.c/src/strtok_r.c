@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include <net/ethernet>
 #include <net/if.h>
 #include <netinet/ether.h>
+#include <netinet/in.h>
 
 #define PEERS "../txt/air_mesh_peers.txt"
 
