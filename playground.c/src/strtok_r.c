@@ -33,9 +33,10 @@ int main(void)
 	if(strstr(line,"===="))
 		continue;
 
-    
-    
-    
+    	for (token = strtok_r(str, " ", &rest); token != NULL; token = strtok_r(NULL, " ", &rest)) {
+
+	    }
+
     }
     /* for (token = strtok_r(str, ",", &rest); token != NULL; token = strtok_r(NULL, ",", &rest)) { */
     /*     printf("token:%s\n", token); */
