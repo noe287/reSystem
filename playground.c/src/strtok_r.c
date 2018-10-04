@@ -33,9 +33,9 @@ int main(void)
 	if(strstr(line,"===="))
 		continue;
 
-    	for (token = strtok_r(str, " ", &rest); token != NULL; token = strtok_r(NULL, " ", &rest)) {
-
-	    }
+    	for (token = strtok_r(line, " ", &saveptr); token != NULL; token = strtok_r(NULL, " ", &saveptr)) {
+		
+	}
 
     }
     /* for (token = strtok_r(str, ",", &rest); token != NULL; token = strtok_r(NULL, ",", &rest)) { */
