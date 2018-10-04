@@ -13,7 +13,7 @@ int main(void)
     char *token;
     char *saveptr;
     FILE *fds = NULL;
-    int i = 0;
+    int i = 0, get_bridge_mac = 0;
     char *line = NULL;
     char buf[128] = {0};
     const unsigned char zero_mac[ETH_ALEN] = {0};
