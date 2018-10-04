@@ -34,7 +34,7 @@ int main(void)
 		continue;
 
     	for (token = strtok_r(line, " ", &saveptr); token != NULL; token = strtok_r(NULL, " ", &saveptr)) {
-		if(strstr(token,":") && !strstr(token, "."))
+		if(strstr(token,":") && !strstr(token, ".") && strstr(token,"00"))
 			if(ether_aton_r(token, &mac))
 				if(memcmp(mac.ether_addr_octet, zero_mac, ETH_ALEN))
 					printf("token:%s\n", token);
