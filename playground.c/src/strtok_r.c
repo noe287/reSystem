@@ -5,6 +5,11 @@
 #include <netinet/in.h>
 
 #define PEERS "../txt/air_mesh_peers.txt"
+#ifndef MAC2STR
+#define MAC2STR(a) (a)[0], (a)[1], (a)[2], (a)[3], (a)[4], (a)[5]
+#define MACSTR "%02x:%02x:%02x:%02x:%02x:%02x"
+#endif
+
 
 int main(void)
 {
@@ -40,9 +45,10 @@ int main(void)
 				continue;
 			}
 			get_bridge_mac = 0;
-			/* if(ether_aton_r(token, &mac)) */
+			if(ether_aton_r(token, &mac)){
 				/* if(memcmp(mac.ether_addr_octet, zero_mac, ETH_ALEN)) */
 					printf("token:%s\n", token);
+			}
 		}
 	}
 
