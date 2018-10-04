@@ -34,7 +34,7 @@ int main(void)
 		continue;
 
     	for (token = strtok_r(line, " ", &saveptr); token != NULL; token = strtok_r(NULL, " ", &saveptr)) {
-		if(strstr(token,":"))
+		if(strstr(token,":") && !strstr(token, "."))
 			printf("token:%s\n", token);
 	}
 
