@@ -40,7 +40,7 @@ int main(void)
 				continue;
 			}
 			get_bridge_mac = 0;
-			/* if(ether_aton_r(token, &mac)) */
+			if(ether_aton_r(token, &mac))
 				/* if(memcmp(mac.ether_addr_octet, zero_mac, ETH_ALEN)) */
 					printf("token:%s\n", token);
 		}
