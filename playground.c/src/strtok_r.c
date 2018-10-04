@@ -41,9 +41,6 @@ int main(void)
 	}
 
     }
-    /* for (token = strtok_r(str, ",", &rest); token != NULL; token = strtok_r(NULL, ",", &rest)) { */
-    /*     printf("token:%s\n", token); */
-    /* } */
 
     return 0;
 }
