@@ -22,8 +22,8 @@ int main(void)
     char *line = NULL;
     char buf[128] = {0};
     const unsigned char zero_mac[ETH_ALEN] = {0};
-    const unsigned char mac;
-
+    /* const unsigned char mac; */
+    struct ether_addr mac;
     fds = fopen(PEERS, "r");
     if(fds == NULL) {
     	printf("Cannot find the file...\n");
