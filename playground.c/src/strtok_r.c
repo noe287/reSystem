@@ -16,7 +16,7 @@ int main(void)
     int i = 0;
     char *line = NULL;
     char buf[128] = {0};
-    const unsigned char zero_mac[17] = {0};
+    const unsigned char zero_mac[ETH_ALEN] = {0};
     struct ether_addr mac;
 
     fds = fopen(PEERS, "r");
@@ -35,7 +35,9 @@ int main(void)
 
     	for (token = strtok_r(line, " ", &saveptr); token != NULL; token = strtok_r(NULL, " ", &saveptr)) {
 		if(strstr(token,":") && !strstr(token, "."))
-			printf("token:%s\n", token);
+			if(ether_aton_r(token, &mac))
+				if(memcmp(mac.ether_addr_octet, zero_mac, ETH_ALEN))
+					printf("token:%s\n", token);
 	}
 
     }
