@@ -47,7 +47,7 @@ int main(void)
 			get_bridge_mac = 0;
 			if(ether_aton_r(token, &mac)){
 				/* if(memcmp(mac.ether_addr_octet, zero_mac, ETH_ALEN)) */
-					printf("token:%s\n", token);
+					printf("token:%s: MAC:"MACSTR"\n", token, MAC2STR(mac.ether_addr_octet));
 			}
 		}
 	}
