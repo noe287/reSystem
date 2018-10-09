@@ -7,15 +7,23 @@ interface="eth1"
 #device_family=${device:0:7}
 #echo "${device_family}"
 
-# if [ "$1" == "qtn" ]
-# then
-#     fwrecover_ver="fwrecover-2.0"
-# else
-#     fwrecover_ver="fwrecover-2.1"
-# fi
+
+if [ -x "./fwrecover/fwrecover-latest/fwrecover" ]
+then
+	fwrecover_ver="./fwrecover/fwrecover-latest/fwrecover"
+	echo "exists"
+	exit
+else
+	# if [ "$1" == "qtn" ]
+	# then
+	    # fwrecover_ver="fwrecover-2.0"
+	# else
+	    fwrecover_ver="fwrecover-2.1"
+	# fi
+fi
 
 
-fwrecover_ver="./fwrecover/fwrecover-latest/fwrecover"
+
 
 echo "${fwrecover_ver}"
 
