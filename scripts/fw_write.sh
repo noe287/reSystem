@@ -12,7 +12,6 @@ if [ -x "./fwrecover/fwrecover-latest/fwrecover" ]
 then
 	fwrecover_ver="./fwrecover/fwrecover-latest/fwrecover"
 	echo "exists"
-	exit
 else
 	# if [ "$1" == "qtn" ]
 	# then
