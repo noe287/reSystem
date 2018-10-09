@@ -1,5 +1,5 @@
 #!/bin/bash
-release="$3"
+release="$2"
 interface="eth1"
 
 #device=${0##*_}
@@ -21,14 +21,11 @@ else
 	# fi
 fi
 
-
-
-
 echo "${fwrecover_ver}"
 
-if [ $2 ]
+if [ $1 ]
 then
-    interface="$2"
+    interface="$1"
 fi
 
 $fwrecover_ver -d $interface -f $release
