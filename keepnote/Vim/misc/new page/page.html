@@ -258,4 +258,63 @@ Without Steering:<br/>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;total &nbsp; &nbsp; &nbsp; used &nbsp; &nbsp; &nbsp; free &nbsp; &nbsp; shared &nbsp; &nbsp;buffers &nbsp; &nbsp; cached<br/>
 Mem: &nbsp; &nbsp; &nbsp; &nbsp;253828 &nbsp; &nbsp; &nbsp;86492 &nbsp; &nbsp; 167336 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp;43524<br/>
 -/+ buffers/cache: &nbsp; &nbsp; &nbsp;42968 &nbsp; &nbsp; 210860<br/>
-Swap: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0</body></html>
+Swap: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0<br/>
+<br/>
+-----------------------------------------------------------------------------------------------------------------------------------------------------<br/>
+# cat /proc/meminfo <br/>
+MemTotal: &nbsp; &nbsp; &nbsp; &nbsp; 253828 kB<br/>
+MemFree: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;167336 kB<br/>
+Buffers: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 kB<br/>
+Cached: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;43524 kB<br/>
+SwapCached: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 kB<br/>
+Active: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;20464 kB<br/>
+Inactive: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;40288 kB<br/>
+Active(anon): &nbsp; &nbsp; &nbsp;17228 kB<br/>
+Inactive(anon): &nbsp; &nbsp; &nbsp; &nbsp;0 kB<br/>
+Active(file): &nbsp; &nbsp; &nbsp; 3236 kB<br/>
+Inactive(file): &nbsp; &nbsp;40288 kB<br/>
+Unevictable: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 kB<br/>
+Mlocked: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 kB<br/>
+SwapTotal: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 kB<br/>
+SwapFree: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 kB<br/>
+Dirty: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 kB<br/>
+Writeback: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 kB<br/>
+AnonPages: &nbsp; &nbsp; &nbsp; &nbsp; 17248 kB<br/>
+Mapped: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 7644 kB<br/>
+Shmem: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 kB<br/>
+Slab: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;14836 kB<br/>
+SReclaimable: &nbsp; &nbsp; &nbsp; 2416 kB<br/>
+SUnreclaim: &nbsp; &nbsp; &nbsp; &nbsp;12420 kB<br/>
+KernelStack: &nbsp; &nbsp; &nbsp; &nbsp; 920 kB<br/>
+PageTables: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;744 kB<br/>
+NFS_Unstable: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 kB<br/>
+Bounce: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 kB<br/>
+WritebackTmp: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 kB<br/>
+CommitLimit: &nbsp; &nbsp; &nbsp;126912 kB<br/>
+Committed_AS: &nbsp; &nbsp; 277776 kB<br/>
+VmallocTotal: &nbsp; &nbsp; 516096 kB<br/>
+VmallocUsed: &nbsp; &nbsp; &nbsp; 18144 kB<br/>
+VmallocChunk: &nbsp; &nbsp; 491516 kB<br/>
+<br/>
+-----------------------------------------------------------------------------------------------------------------------------------------------------<br/>
+<br/>
+&nbsp; PID &nbsp;PPID USER &nbsp; &nbsp; STAT &nbsp; VSZ %VSZ %CPU COMMAND<br/>
+&nbsp;2917 &nbsp;1844 root &nbsp; &nbsp; R &nbsp; &nbsp; 1188 &nbsp;0.4 &nbsp;9.0 top<br/>
+&nbsp;1014 &nbsp; 994 root &nbsp; &nbsp; S &nbsp; &nbsp; &nbsp;672 &nbsp;0.2 &nbsp;9.0 wpa_event -i wl1<br/>
+&nbsp;2108 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp;81292 32.0 &nbsp;0.0 air-cloud-agent<br/>
+&nbsp;2109 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp;36020 14.1 &nbsp;0.0 app_enrollee<br/>
+&nbsp;2110 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp;36012 14.1 &nbsp;0.0 app_configurator<br/>
+&nbsp; 690 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp;34852 13.7 &nbsp;0.0 mngr<br/>
+&nbsp; 673 &nbsp; &nbsp; 1 root &nbsp; &nbsp; S &nbsp; &nbsp;26564 10.4 &nbsp;0.0 awf-engine -Dbcm5g -p5680<br/>
+&nbsp; 933 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp;21088 &nbsp;8.3 &nbsp;0.0 rm-daemon --debug-file /var/remote-da<br/>
+&nbsp; 672 &nbsp; &nbsp; 1 root &nbsp; &nbsp; S &nbsp; &nbsp;18224 &nbsp;7.1 &nbsp;0.0 awf-engine -Dbcm -p5678<br/>
+&nbsp; 670 &nbsp; &nbsp; 1 root &nbsp; &nbsp; S &nbsp; &nbsp;17868 &nbsp;7.0 &nbsp;0.0 /bin/air_tempsense<br/>
+&nbsp;2159 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp;13684 &nbsp;5.3 &nbsp;0.0 parental-control<br/>
+&nbsp;2068 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp; 9492 &nbsp;3.7 &nbsp;0.0 l2fxd -v4<br/>
+&nbsp; 813 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp; 3624 &nbsp;1.4 &nbsp;0.0 aircdf-daemon --parser.path_ro /etc/c<br/>
+&nbsp;2158 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp; 2236 &nbsp;0.8 &nbsp;0.0 wireless-controller --plugin ap-pseud<br/>
+&nbsp;2089 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp; 1936 &nbsp;0.7 &nbsp;0.0 avahi-daemon --no-drop-root --no-proc<br/>
+&nbsp;2160 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp; 1836 &nbsp;0.7 &nbsp;0.0 statistics-collector<br/>
+&nbsp; 994 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp; 1640 &nbsp;0.6 &nbsp;0.0 event-dispatcher<br/>
+&nbsp;2065 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp; 1512 &nbsp;0.6 &nbsp;0.0 /bin/dbus-daemon --system --nofork --<br/>
+&nbsp; 992 &nbsp; 684 root &nbsp; &nbsp; S &nbsp; &nbsp; 1312 &nbsp;0.5 &nbsp;0.0 mesh-ng-helper --module /lib/modules/</body></html>
