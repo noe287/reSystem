@@ -2,7 +2,7 @@
 
 
 
-GIT_SERVER=git.corp.airties.com                                                                                                                            
+GIT_SERVER=git.corp.airties.com
 REFERENCES_PATH=$(git config --global references.path)
 DOMAIN_USER_NAME=$(git config --global --get user.email | sed 's/\(.*\)@.*/\1/')
 
@@ -55,9 +55,9 @@ source environment
 if [ ! $3 ]
 then
     echo "Profiles package used..."
-    bake $1 USE_PROFILES_PACKAGE=y        
+    bake $1 USE_PROFILES_PACKAGE=y
 else
-    bake $1        
+    bake $1
     echo "No profiles package used..."
 fi
 
@@ -73,11 +73,11 @@ fi
 
 
 
-# else 
+# else
 # 	echo "MODE co"
 #     cd $DESTINATION_PATH
 # 	source environment
 # 	bake menuconfig
-# 	bake $1 USE_PROFILES_PACKAGE=y        
+# 	bake $1 USE_PROFILES_PACKAGE=y
 #     bake co -j3
 # fi
