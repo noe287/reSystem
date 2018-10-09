@@ -22,7 +22,7 @@ then
 fi
 
 $fwrecover_ver -d $interface -f $release
-# $fwrecover_ver -d $interface -s f_image_num 0 && \
-# $fwrecover_ver -d $interface -s boot_flag 'success' && \
-# $fwrecover_ver -d $interface -e
-# $fwrecover_ver -d $interface -b
+$fwrecover_ver -d $interface -s f_image_num 0 && \
+$fwrecover_ver -d $interface -s boot_flag 'success' && \
+$fwrecover_ver -d $interface -e
+$fwrecover_ver -d $interface -b
