@@ -74,7 +74,7 @@ then
 	# if [ $? -eq 0 ]
 	# then
 	# 	# git checkout bskyb-shr-builder-cloud
-	# 	git checkout bskyb-shr-builder-merge
+		git checkout bskyb-shr-builder-merge
 	# fi
 
 	echo ${Profile} | grep viper
