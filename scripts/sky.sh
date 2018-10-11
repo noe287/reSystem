@@ -71,54 +71,48 @@ then
 		git checkout bskyb-shr-builder-merge
 	fi
 
-	if [ ! $3 ]
+	if [ "$3" == "conf" ] #configure the profile
 	then
-		type = build
+		echo "Will configure the profile only"
+		type="config"
+	elif [ "$3" == "co" ] # checkout only
+	then
+		echo "Will Checkout but won't build"
+		type="checkout"
 	else
+		type="build"  #build the profile
+	fi
 
-		if [ "$3" == "conf" ] #configure the profile
-		then
-			echo "Will configure the profile only"
-			type="config"
-		elif [ "$3" == "co" ] # checkout only
-		then
-			echo "Will Checkout but won't build"
-			type="checkout"
-		else
-			type="build"  #build the profile
-		fi
+	echo ${Profile} | grep viper
 
-		echo ${Profile} | grep viper
+	if [ $? -eq 0 ]
+	then
+		CMD=$CMD2
+	fi
+	echo ${Profile} | grep booster
 
-		if [ $? -eq 0 ]
-		then
-			CMD=$CMD2
-		fi
-		echo ${Profile} | grep booster
+	if [ $? -eq 0 ]
+	then
+		CMD=$CMD2
+	fi
 
-		if [ $? -eq 0 ]
-		then
-			CMD=$CMD2
-		fi
+	eval "$CMD ${Profile}"
+	BUILD_TYPE=debug
+	export BUILD_TYPE
+	echo "----->>>> BUILDING ${Profile}"
 
+	if [ "$type" == "config" ]
+	then
+		#already uses the config just exit
+		vim ./configs/atlantis/"bskyb-"${Profile}
 		eval "$CMD ${Profile}"
-		BUILD_TYPE=debug
-		export BUILD_TYPE
-		echo "----->>>> BUILDING ${Profile}"
-
-		if [ "$type" == "config" ]
-		then
-			#already uses the config just exit
-			vim ./configs/atlantis/"bskyb-"${Profile}
-			eval "$CMD ${Profile}"
-			exit
-		elif [ "$type" == "checkout" ]
-		then
-			#Checkout the code and configure
-			eval "$CMD checkout configure"
-		else
-			eval "$CMD all"
-		fi
+		exit
+	elif [ "$type" == "checkout" ]
+	then
+		#Checkout the code and configure
+		eval "$CMD checkout configure"
+	else
+		eval "$CMD all"
 	fi
 else
 	echo "Lacking profile name to build! Exiting"
