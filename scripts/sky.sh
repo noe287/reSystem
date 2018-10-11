@@ -58,7 +58,7 @@ if [ $2 ]
 then
 	arg2=$2
 	choose_config $arg2
-	DATE=$arg2_`date +%h-%d_%a-%H_%M_%S__%y`
+	DATE=${arg2}"_"`date +%h-%d_%a-%H_%M_%S__%y`
 
 	BUILD_DIR=${DATE}
 
