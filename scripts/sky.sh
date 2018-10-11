@@ -2,7 +2,7 @@ if [ $1 ]
 then
 	arg1=$1
 else
-	arg1="HEAD"
+	exit
 fi
 
 CMD="tools/bake"
@@ -35,7 +35,7 @@ then
 	falcon-d1-release.config xwing-412-release.config xwing-hip-release.config gemini-419-release.config
 	falcon-d1-uhd-release.config)
 else
-	#HEAD
+	arg1="HEAD"
 	config=(mrbox-412.config booster2.config falcon-d1.config xwing-412.config viper.config)
 fi
 
