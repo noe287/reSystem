@@ -54,8 +54,14 @@ function choose_config() {
 if [ $arg1 ]
 then
 	DATE=$1_`date +%h-%d_%a-%H_%M_%S__%y`
-
-	choose_config $1
+	
+	if [ $2 ]
+	then
+		choose_config $1
+	else
+		echo "Lacking profile name to build! Exiting"
+		exit
+	fi
 	BUILD_DIR=${DATE}
 	if [ "$2" == "conf" ] #configure the profile
 	then
