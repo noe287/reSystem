@@ -24,7 +24,9 @@ then
 	exit
 fi
 
-if [ "$1" == "release" ]
+
+
+if [ "$2" == "release" ]
 then
 	config=(booster2-release.config mrbox-412-release.config viper-cloud-release.config viper-release.config
 	falcon-d1-release.config xwing-412-release.config xwing-hip-release.config gemini-419-release.config
@@ -47,7 +49,7 @@ function choose_config() {
 	done
 }
 
-if [ $2 ]
+if [ $1 ]
 then
 	DATE=$1_`date +%h-%d_%a-%H_%M_%S__%y`
 
@@ -75,7 +77,7 @@ then
 	# then
 	# git checkout bskyb-shr-builder-cloud
 
-	if [ "$1" == "cloud" ]
+	if [ "$2" == "cloud" ]
 	then
 		git checkout bskyb-shr-builder-merge
 	fi
