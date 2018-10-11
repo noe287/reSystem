@@ -57,14 +57,9 @@ function choose_config()
 	done
 }
 
-if [ $arg1 ]
+if [ $arg2 ]
 then
-	if [ $arg2 ]
-	then
-		choose_config $arg2
-	else
-		echo "Lacking profile name to build! Exiting"
-	fi
+	choose_config $arg2
 	DATE=$arg1_`date +%h-%d_%a-%H_%M_%S__%y`
 
 	BUILD_DIR=${DATE}
@@ -125,5 +120,8 @@ then
 	else
 		eval "$CMD all"
 	fi
+else
+	echo "Lacking profile name to build! Exiting"
 fi
+
 
