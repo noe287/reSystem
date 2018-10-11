@@ -4,13 +4,9 @@ release=0
 if [ $1 ]
 then
 	arg1=$1
+else
+	arg1="regular"
 fi
-
-if [ $2 ]
-then
-	arg2=$2
-fi
-
 
 CMD="tools/bake"
 CMD2="USE_LOCAL_TOOLCHAINS=y tools/bake"
@@ -43,7 +39,6 @@ then
 	falcon-d1-release.config xwing-412-release.config xwing-hip-release.config gemini-419-release.config
 	falcon-d1-uhd-release.config)
 else
-	arg1="regular"
 	config=(mrbox-412.config booster2.config falcon-d1.config xwing-412.config viper.config)
 fi
 
