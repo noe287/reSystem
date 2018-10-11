@@ -60,17 +60,6 @@ then
 	DATE=$arg2_`date +%h-%d_%a-%H_%M_%S__%y`
 
 	BUILD_DIR=${DATE}
-	if [ "$2" == "conf" ] #configure the profile
-	then
-		echo "Will configure the profile only"
-		type="config"
-	elif [ "$2" == "co" ] # checkout only
-	then
-		echo "Will Checkout but won't build"
-		type="checkout"
-	else
-		type="build"  #build the profile
-	fi
 
 	git clone ssh://nejatonay.erkose@git.corp.airties.com:29418/bskyb-shr-builder ${BUILD_DIR}
 	cd ${BUILD_DIR}
@@ -85,6 +74,18 @@ then
 	if [ "$2" == "cloud" ]
 	then
 		git checkout bskyb-shr-builder-merge
+	fi
+
+	if [ "$2" == "conf" ] #configure the profile
+	then
+		echo "Will configure the profile only"
+		type="config"
+	elif [ "$2" == "co" ] # checkout only
+	then
+		echo "Will Checkout but won't build"
+		type="checkout"
+	else
+		type="build"  #build the profile
 	fi
 
 	echo ${Profile} | grep viper
