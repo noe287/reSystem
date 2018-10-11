@@ -26,7 +26,7 @@ fi
 
 
 
-if [ "$2" == "release" ]
+if [ "$1" == "release" ]
 then
 	config=(booster2-release.config mrbox-412-release.config viper-cloud-release.config viper-release.config
 	falcon-d1-release.config xwing-412-release.config xwing-hip-release.config gemini-419-release.config
