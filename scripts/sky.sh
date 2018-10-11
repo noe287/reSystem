@@ -73,7 +73,8 @@ then
 	# echo ${Profile} | grep cloud
 	# if [ $? -eq 0 ]
 	# then
-	# 	# git checkout bskyb-shr-builder-cloud
+	# git checkout bskyb-shr-builder-cloud
+
 	if [ "$1" == "cloud" ]
 	then
 		git checkout bskyb-shr-builder-merge
