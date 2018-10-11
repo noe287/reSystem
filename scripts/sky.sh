@@ -54,8 +54,9 @@ function choose_config()
 	done
 }
 
-if [ $arg2 ]
+if [ $2 ]
 then
+	arg2=$2
 	choose_config $arg2
 	DATE=$arg2_`date +%h-%d_%a-%H_%M_%S__%y`
 
@@ -115,6 +116,7 @@ then
 	fi
 else
 	echo "Lacking profile name to build! Exiting"
+	exit
 fi
 
 
