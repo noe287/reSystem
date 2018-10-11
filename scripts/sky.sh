@@ -1,6 +1,16 @@
 release=0
 
-arg1=$1
+
+if [ $1 ]
+then
+	arg1=$1
+fi
+
+if [ $2 ]
+then
+	arg2=$2
+fi
+
 
 CMD="tools/bake"
 CMD2="USE_LOCAL_TOOLCHAINS=y tools/bake"
@@ -53,13 +63,11 @@ function choose_config() {
 
 if [ $arg1 ]
 then
-	
-	if [ $2 ]
+	if [ $arg2 ]
 	then
-		choose_config $1
+		choose_config $arg2
 	else
 		echo "Lacking profile name to build! Exiting"
-		exit
 	fi
 	DATE=$arg1_`date +%h-%d_%a-%H_%M_%S__%y`
 
