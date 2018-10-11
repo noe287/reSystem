@@ -5,7 +5,7 @@ if [ $1 ]
 then
 	arg1=$1
 else
-	arg1="regular"
+	arg1="HEAD"
 fi
 
 CMD="tools/bake"
@@ -32,17 +32,18 @@ then
 fi
 
 
-
 if [ "$arg1" == "release" ]
 then
 	config=(booster2-release.config mrbox-412-release.config viper-cloud-release.config viper-release.config
 	falcon-d1-release.config xwing-412-release.config xwing-hip-release.config gemini-419-release.config
 	falcon-d1-uhd-release.config)
 else
+	#HEAD
 	config=(mrbox-412.config booster2.config falcon-d1.config xwing-412.config viper.config)
 fi
 
-function choose_config() {
+function choose_config()
+{
 	echo "choose config"
 	for i in ${config[*]}
 	do
