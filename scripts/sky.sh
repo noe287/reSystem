@@ -71,8 +71,11 @@ then
 		git checkout bskyb-shr-builder-merge
 	fi
 
-	if [ $3 ]
+	if [ ! $3 ]
 	then
+		type = build
+	else
+
 		if [ "$3" == "conf" ] #configure the profile
 		then
 			echo "Will configure the profile only"
@@ -116,9 +119,6 @@ then
 		else
 			eval "$CMD all"
 		fi
-	else
-		echo "Lacking profile name to build! Exiting"
-		exit
 	fi
 else
 	echo "Lacking profile name to build! Exiting"
