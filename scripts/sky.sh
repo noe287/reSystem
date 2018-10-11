@@ -33,6 +33,7 @@ then
 	falcon-d1-release.config xwing-412-release.config xwing-hip-release.config gemini-419-release.config
 	falcon-d1-uhd-release.config)
 else
+	arg1="regular"
 	config=(mrbox-412.config booster2.config falcon-d1.config xwing-412.config viper.config)
 fi
 
@@ -50,7 +51,7 @@ function choose_config() {
 	done
 }
 
-if [ $1 ]
+if [ $arg1 ]
 then
 	DATE=$1_`date +%h-%d_%a-%H_%M_%S__%y`
 
