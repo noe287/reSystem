@@ -14,7 +14,7 @@ config=(mrbox-412.config booster2.config falcon-d1.config xwing-412.config viper
 if [ "$arg1" == "list" ]
 then
 	echo ""
-	echo "Usage: sky.sh release/head cloud/regular profile_name"
+	echo "Usage: sky.sh release/head profile_ name cloud/regular [bl:conf:checkout]"
 	echo ""
 	echo "List of target profiles:"
 	for i in ${targets[*]}
