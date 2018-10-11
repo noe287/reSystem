@@ -14,7 +14,7 @@ config=(mrbox-412.config booster2.config falcon-d1.config xwing-412.config viper
 if [ "$arg1" == "list" ]
 then
 	echo ""
-	echo "Usage: sky.sh profile_name or sky.sh release release_profile_name"
+	echo "Usage: sky.sh release/head cloud/regular profile_name"
 	echo ""
 	echo "List of target profiles:"
 	for i in ${targets[*]}
@@ -66,16 +66,16 @@ then
 	cd ${BUILD_DIR}
 
 
-	if [ "arg2" == "cloud" ]
+	if [ "$3" == "cloud" ]
 	then
 		git checkout bskyb-shr-builder-merge
 	fi
 
-	if [ "$3" == "conf" ] #configure the profile
+	if [ "$4" == "conf" ] #configure the profile
 	then
 		echo "Will configure the profile only"
 		type="config"
-	elif [ "$3" == "co" ] # checkout only
+	elif [ "$4" == "co" ] # checkout only
 	then
 		echo "Will Checkout but won't build"
 		type="checkout"
