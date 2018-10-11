@@ -64,14 +64,8 @@ then
 	git clone ssh://nejatonay.erkose@git.corp.airties.com:29418/bskyb-shr-builder ${BUILD_DIR}
 	cd ${BUILD_DIR}
 
-	echo "----->>>> BUILDING ${Profile}"
 
-	# echo ${Profile} | grep cloud
-	# if [ $? -eq 0 ]
-	# then
-	# git checkout bskyb-shr-builder-cloud
-
-	if [ "$2" == "cloud" ]
+	if [ "arg2" == "cloud" ]
 	then
 		git checkout bskyb-shr-builder-merge
 	fi
@@ -104,6 +98,7 @@ then
 	eval "$CMD ${Profile}"
 	BUILD_TYPE=debug
 	export BUILD_TYPE
+	echo "----->>>> BUILDING ${Profile}"
 
 	if [ "$type" == "config" ]
 	then
