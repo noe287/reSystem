@@ -1,6 +1,3 @@
-release=0
-
-
 if [ $1 ]
 then
 	arg1=$1
@@ -17,7 +14,7 @@ config=(mrbox-412.config booster2.config falcon-d1.config xwing-412.config viper
 if [ "$arg1" == "list" ]
 then
 	echo ""
-	echo "usage: sky.sh profile_name or sky.sh release release_profile_name"
+	echo "Usage: sky.sh profile_name or sky.sh release release_profile_name"
 	echo ""
 	echo "List of target profiles:"
 	for i in ${targets[*]}
