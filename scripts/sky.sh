@@ -47,7 +47,7 @@ function choose_config() {
 	done
 }
 
-if [ $1 ]
+if [ $2 ]
 then
 	DATE=$1_`date +%h-%d_%a-%H_%M_%S__%y`
 
