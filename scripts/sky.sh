@@ -57,7 +57,7 @@ function choose_config()
 if [ $arg2 ]
 then
 	choose_config $arg2
-	DATE=$arg1_`date +%h-%d_%a-%H_%M_%S__%y`
+	DATE=$arg2_`date +%h-%d_%a-%H_%M_%S__%y`
 
 	BUILD_DIR=${DATE}
 	if [ "$2" == "conf" ] #configure the profile
