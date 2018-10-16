@@ -68,7 +68,8 @@ then
 
 	if [ "$3" == "cloud" ]
 	then
-		git checkout bskyb-shr-builder-merge
+		# git checkout bskyb-shr-builder-merge
+		git checkout bskyb-shr-builder-Mesh-1.1
 	fi
 
 	if [ "$4" == "conf" ] #configure the profile
