@@ -22,7 +22,7 @@ then
 		echo $i
 	done
 	exit
-elif [ "$arg1" == "skybuilder" ]
+elif [ "$arg1" == "shrb" ] #skybuilder
 then
 	if [ $2 ]
 	then
