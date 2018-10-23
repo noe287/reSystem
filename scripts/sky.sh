@@ -30,7 +30,7 @@ then
 	else
 		arg2="gProfile" #generic profile
 	fi
-	FOLDER_NAME=${arg2}"_"`date +%h-%d_%a-%H_%M_%S__%y`
+	FOLDER_NAME=${arg2}"_generic_"`date +%h-%d_%a-%H_%M_%S__%y`
 	git clone ssh://nejatonay.erkose@git.corp.airties.com:29418/bskyb-shr-builder ${FOLDER_NAME}
 	exit
 fi
