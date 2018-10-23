@@ -24,7 +24,12 @@ then
 	exit
 elif [ "$arg1" == "skybuilder" ]
 then
-	git clone ssh://nejatonay.erkose@git.corp.airties.com:29418/bskyb-shr-builder ${DATE}_${1}_${2}
+	if [ $2 ]
+	then
+		arg2=$2
+	fi
+	FOLDER_NAME=${arg2}"_"`date +%h-%d_%a-%H_%M_%S__%y`
+	git clone ssh://nejatonay.erkose@git.corp.airties.com:29418/bskyb-shr-builder ${FOLDER_NAME}
 	exit
 fi
 
