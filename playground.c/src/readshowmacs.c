@@ -6,14 +6,17 @@
 #define STP "../txt/showstp.txt"
 
 char *trim(char *totrim);
-char *WlCommonCheckDefGwiIface();
+char *WlCommonCheckDefGwiIface(char *defGwMac);
 
 
 int main()
 {
 	char iface[10] = {0};
-	char *WlCommonCheckDefGIface();
+	char gwMac[18] = "18:28:61:5b:f6:21";
+	iface = WlCommonCheckDefGIface(char *defGwMac);
+	printf("%s\n", iface);
 
+	return 0;
 }
         int error = 0 , ret = 0;
         char *line;
