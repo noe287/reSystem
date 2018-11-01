@@ -31,8 +31,10 @@ int main()
 			if (line[len] == '\n')
 		                line[len] = '\0';
 			printf("%s\n", line);
-			for (token = strtok_r(line, " ", &saveptr); token != NULL; token = strtok_r(NULL, " ", &saveptr)) {
-				printf("%s\n", token);
+
+			token = strtok_r(line, " ", &saveptr);
+			printf("%s\n", token);
+
         		}
                 }
         }
