@@ -41,9 +41,9 @@ int main()
 			portID = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 			printf("%s\n", portID);
 			sprintf(portIDstr,"(%s)", portID);
-			printf("%s\n", portIDstr);
+			/* printf("%s\n", portIDstr); */
 
-			fds2 = fopen(STP, "r");
+			/* fds2 = fopen(STP, "r"); */
 		        /* while ((line = fgets(buf, sizeof(buf), fds)) != NULL) { */
                 	/* 	if (strstr(line, portIDstr) == NULL) { */
 			/* 		continue; */
@@ -62,9 +62,11 @@ out:
         if (line) {
                 free(line);
         }
+
         if (fds != NULL) {
                 fclose(fds);
         }
+
         if (fds2 != NULL) {
                 fclose(fds);
         }
