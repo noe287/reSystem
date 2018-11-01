@@ -55,7 +55,7 @@ int WlCommonCheckDefGwIface(char *defGwMac, char *gwIface)
 		{
 			line = trim(line);
 			printf("%s\n", line);
-			for (portID = strtok_r(line, " ", &saveptr); portID != NULL; portID = strtok_r(NULL, " ", &saveptr)) {
+			for (portID = strtok_r(line, "\t", &saveptr); portID != NULL; portID = strtok_r(NULL, "\t", &saveptr)) {
 			
 				printf("%s\n", portID);
 
