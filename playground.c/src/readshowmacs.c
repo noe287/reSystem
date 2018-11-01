@@ -30,7 +30,7 @@ char *WlCommonCheckDefGwIface(char *defGwMac)
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	int len = 0;
 	char *portID;
-	char *iface;
+	char *iface = NULL;
         char portIDstr[10];
 	char *saveptr;
 
