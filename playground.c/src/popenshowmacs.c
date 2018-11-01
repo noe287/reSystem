@@ -5,7 +5,11 @@
 #define MACS "brctl showmacs br0"
 #define STP "brctl showstp br0"
 
-char *trim(char *totrim);
+char *trim(char *s);
+char *trimr(char *s);
+char *triml(char *s);
+
+
 int WlCommonCheckDefGwIface(char *defGwMac, char *gwIface);
 
 int main()
