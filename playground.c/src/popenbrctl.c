@@ -6,7 +6,6 @@ int get_gw_ip(FILE *fptr, char *ifname, char *gw_ip);
 
 int main()
 {
-
 	FILE *fptr = NULL;
 	char gw_ip[16] = {"0.0.0.0"};
 	char *ifname ="enp5s0";
