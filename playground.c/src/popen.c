@@ -2,7 +2,7 @@
 
 
 
-int awf_get_bridge_name_from_ifname(char *ifname, char *br_ifname)
+int main(int argc, char *argv[])
 {
         char cmd[1024];
         int read;
