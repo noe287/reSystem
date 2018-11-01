@@ -14,7 +14,7 @@ int main()
 	char iface[10] = {0};
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	/* strcpy(iface, WlCommonCheckDefGwIface(gwMac)); */
-	if ((iface = WlCommonCheckDefGwIface(gwMac)) != NULL)
+	if (WlCommonCheckDefGwIface(gwMac) != NULL)
 		printf("RETURN:%s\n", WlCommonCheckDefGwIface(gwMac));
 	/* printf("HELLO world %s\n", iface); */
 
