@@ -13,9 +13,14 @@ int main()
 {
 	char iface[10] = {0};
 	char gwMac[18] = "18:28:61:5b:f6:21";
+	int len = 0;
+	
 	/* strcpy(iface, WlCommonCheckDefGwIface(gwMac)); */
 	WlCommonCheckDefGwIface(gwMac, iface);
-	iface = trim(iface);
+	/* iface = trim(iface); */
+	len = strlen (iface) - 1;
+	if (iface[len] == '\n')
+		iface[len] = '\0';
 	/* if(strcmp(iface, "eth0") && strcmp(iface, "wl0") == 0) */
 		printf("RETURN:%s\n", iface);
 	/* else */
