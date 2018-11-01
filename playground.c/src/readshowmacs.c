@@ -21,10 +21,14 @@ int main()
 	len = strlen (iface) - 1;
 	if (iface[len] == '\n')
 		iface[len] = '\0';
-	/* if(strcmp(iface, "eth0") && strcmp(iface, "wl0") == 0) */
-		printf("RETURN:%s\n", iface);
-	/* else */
-		/* printf("NULL***\n"); */
+	
+	printf("RETURN:%s\n", iface);
+
+
+	if(strcmp(iface, "eth0") || strcmp(iface, "wl0") == 0)
+		printf("RETURN2:%s\n", iface);
+	else
+		printf("NULL***\n");
 
 	return 0;
 }
