@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
                 }
 
                 /* trim and get the ifname */
-                awf_trim(line);
+                /* awf_trim(line); */
 
                 if (strcmp(line, ifname) == 0) {
                         found = 1;
