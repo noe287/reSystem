@@ -41,14 +41,20 @@ int main()
 			sprintf(portIDstr,"(%s)", portID);
 			printf("%s\n", portIDstr);
 
-			/* fds2 = fopen(STP, "r"); */
-		        /* while ((line = fgets(buf, sizeof(buf), fds)) != NULL) { */
-                	/* 	if (strstr(line, gwMac) == NULL) { */
-			/* 	 */
-			/* 	 */
-			/* 	} */
-			/* } */
+			fds2 = fopen(STP, "r");
+		        while ((line = fgets(buf, sizeof(buf), fds)) != NULL) {
+                		if (strstr(line, portIDstr) == NULL) {
+					continue;
 
+				}
+				else
+				{
+					len = strlen (line) - 1;
+					if (line[len] == '\n')
+						line[len] = '\0';
+					printf("%s\n", line);
+				}
+			}
 		}
 	}
 out:
