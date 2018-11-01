@@ -9,7 +9,7 @@ int main()
         char *line;
         char buf[128];
         FILE *fds = NULL;
-	char serial_number[128] = {0};
+	char gwMac[18] = "18:28:61:5b:f6:21";
 	int len = 0;
 
         fds = fopen(BR0, "r");
@@ -22,15 +22,15 @@ int main()
 
         while ((line = fgets(buf, sizeof(buf), fds)) != NULL) {
                 /* if (strstr(line, "SERIAL_NUMBER") == NULL) { */
-                if (strstr(line, "MAC_BR_0") == NULL) {
+                if (strstr(line, gwMac) == NULL) {
                         continue;
                 } else {
 			len = strlen (line) - 1;
 			if (line[len] == '\n')
 		                line[len] = '\0';
-                        printf(" %s : %lu :%lu \n", line, sizeof(buf), strlen(line));
-                        strncpy(serial_number, line + strlen("MAC_BR_0") + 1, 18);
-                        printf("%s\n", serial_number);
+                        /* printf(" %s : %lu :%lu \n", line, sizeof(buf), strlen(line)); */
+                        /* strncpy(serial_number, line + strlen("MAC_BR_0") + 1, 18); */
+                        /* printf("%s\n", serial_number); */
                         break;
                 }
         }
