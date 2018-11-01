@@ -59,17 +59,11 @@ int main()
 				}
 				else
 				{
-					/* len = strlen (line) - 1; */
-					/* if (line[len] == '\n') */
-					/* 	line[len] = '\0'; */
 					line = trim(line);
-
 					printf("%s\n", line);
 					iface = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
+					iface = trim(iface);
 					printf("%s\n", iface);
-					len = strlen (iface) - 1;
-					if (iface[len] == '\n')
-						line[len] = '\0';
 				}
 			}
 		}
