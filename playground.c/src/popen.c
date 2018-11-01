@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+#includ <stdlib.h>
 
 int main(int argc, char *argv[])
 {
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 
                 if (strcmp(line, ifname) == 0) {
                         found = 1;
-                        PRINT(LEVEL_DEBUG, "Bridge name found at line %s\n", line);
+                        printf("Bridge name found at line %s\n", line);
                         strcpy(br_ifname, brname);
                         break;
                 }
