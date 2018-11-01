@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#includ <stdlib.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[])
 {
@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
         char *line = NULL;
 
         char brname[16];
+        char br_ifname[16];
         int found = 0;
         char *ctx;
         FILE *fd;
