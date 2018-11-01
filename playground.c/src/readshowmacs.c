@@ -11,7 +11,7 @@ int WlCommonCheckDefGwIface(char *defGwMac, char *gwIface);
 
 int main()
 {
-	char iface[10] = NULL;
+	char iface[10] = {0};
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	/* strcpy(iface, WlCommonCheckDefGwIface(gwMac)); */
 	WlCommonCheckDefGwIface(gwMac, iface);
@@ -78,6 +78,7 @@ int WlCommonCheckDefGwIface(char *defGwMac,char *gwIface)
 					iface = trim(iface);
 					printf("%s\n", iface);
 					gwIface = iface;
+					strncpy(gwIface, iface, strlen(iface));
 				}
 			}
 		}
