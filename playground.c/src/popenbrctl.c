@@ -14,20 +14,20 @@ int main()
 
 	sprintf(cmd, "brctl show");
 	fptr = popen(cmd, "r");
-	ret = get_gw_ip(fptr);
+	ret = dumpinfo(fptr);
 
 	if(gw_ip != NULL)
 		printf("GWIP:%s\n",gw_ip);
 	return 0;
 }
 
-int get_gw_ip(FILE *fptr, char *ifname, char *gw_ip)
+int dumpinfo(FILE *fptr)
 {
   char line[1024] = {0};
   char *read = NULL;
 
   while ((read = fgets(line, sizeof(line), fptr)) != NULL) {
-	printf("%s\n", line);
+	printf("%s", line);
   }
 
   return 0;
