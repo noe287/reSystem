@@ -22,7 +22,7 @@ int main()
 
         while ((line = fgets(buf, sizeof(buf), fds)) != NULL) {
                 /* if (strstr(line, "SERIAL_NUMBER") == NULL) { */
-                if (strstr(line, gwMac) == NULL) {
+                if (strstr(line, gwMac)) {
 			printf("GWMAC line:%s\n", line);
                 } else {
 			len = strlen (line) - 1;
