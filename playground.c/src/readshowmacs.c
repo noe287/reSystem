@@ -14,7 +14,7 @@ int main()
 	char iface[10] = {0};
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	strcpy(iface, WlCommonCheckDefGwIface(gwMac));
-	printf("%s\n", iface);
+	printf("HELLO world %s\n", iface);
 
 	return 0;
 }
@@ -93,6 +93,8 @@ out:
         if (fds2 != NULL) {
                 fclose(fds2);
         }
+
+	return iface;
 }
 
 char *trim(char *totrim)
