@@ -28,7 +28,7 @@ int main()
 			len = strlen (line) - 1;
 			if (line[len] == '\n')
 		                line[len] = '\0';
-                        printf("%s : %lu :%d\n", line, sizeof(buf), strlen(line));
+                        printf(" %s : %lu :%lu \n", line, sizeof(buf), strlen(line));
                         strncpy(serial_number, line + strlen("MAC_BR_0") + 1, 18);
                         printf("%s\n", serial_number);
                         break;
