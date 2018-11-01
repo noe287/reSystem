@@ -1,0 +1,53 @@
+brctl showstp br0
+br0
+ bridge id              8000.783e53ff7262
+ designated root        8000.783e53fd7c22
+ root port                 5                    path cost                 83
+ max age                  20.00                 bridge max age            20.00
+ hello time                1.00                 bridge hello time          1.00
+ forward delay             2.00                 bridge forward delay       2.00
+ ageing time             300.00
+ hello timer               0.00                 tcn timer                  0.00
+ topology change timer     0.00                 gc timer                   2.52
+ flags
+
+
+eth0 (4)
+ port id                8004                    state                forwarding
+ designated root        8000.783e53fd7c22       path cost                 19
+ designated bridge      8000.783e53ff7262       message age timer          0.00
+ designated port        8004                    forward delay timer        0.00
+ designated cost          83                    hold timer                 0.51
+ flags
+
+eth0.1 (5)
+ port id                8005                    state                forwarding
+ designated root        8000.783e53fd7c22       path cost                 83
+ designated bridge      8000.783e53fd7c22       message age timer         19.55
+ designated port        8003                    forward delay timer        0.00
+ designated cost           0                    hold timer                 0.00
+ flags
+
+wds1.1 (3)
+ port id                8003                    state                  blocking
+ designated root        8000.783e53fd7c22       path cost               2500
+ designated bridge      8000.783e53fd7c22       message age timer         19.54
+ designated port        8002                    forward delay timer        0.00
+ designated cost           0                    hold timer                 0.00
+ flags
+
+wl0 (1)
+ port id                8001                    state                forwarding
+ designated root        8000.783e53fd7c22       path cost                100
+ designated bridge      8000.783e53ff7262       message age timer          0.00
+ designated port        8001                    forward delay timer        0.00
+ designated cost          83                    hold timer                 0.50
+ flags
+
+wl1 (2)
+ port id                8002                    state                forwarding
+ designated root        8000.783e53fd7c22       path cost                100
+ designated bridge      8000.783e53ff7262       message age timer          0.00
+ designated port        8002                    forward delay timer        0.00
+ designated cost          83                    hold timer                 0.50
+ flags
