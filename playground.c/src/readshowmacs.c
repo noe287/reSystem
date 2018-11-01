@@ -32,18 +32,7 @@ int main()
 		                line[len] = '\0';
 			printf("%s\n", line);
 			for (token = strtok_r(line, " ", &saveptr); token != NULL; token = strtok_r(NULL, " ", &saveptr)) {
-		                if(strstr(token,":") && !strstr(token, ".") && !strstr(token,"00:")){
-                		        if(get_bridge_mac == 0) {
-                                		get_bridge_mac = 1;
-		                                continue;
-                		        }
-	        	                get_bridge_mac = 0;
-        	        	        if(ether_aton_r(token, &mac)){
-                               		/* if(memcmp(mac.ether_addr_octet, zero_mac, ETH_ALEN)) */
-	                                        printf("token:%s: MAC:"MACSTR"\n", token, MAC2STR(mac.ether_addr_octet));
-        	                                /* printf("token:%s: MAC:%02x\n", token, mac.ether_addr_octet[0]); */
-                        		}
-                		}
+				
         		}
 
 
