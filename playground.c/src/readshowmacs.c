@@ -84,3 +84,15 @@ out:
                 fclose(fds2);
         }
 }
+
+char *trim(char *totrim)
+{
+	int len;
+
+	len = strlen (line) - 1;
+	if (line[len] == '\n')
+		line[len] = '\0';
+
+	return totrim;
+}
+	
