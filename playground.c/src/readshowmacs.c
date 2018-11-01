@@ -6,7 +6,7 @@
 #define STP "../txt/showstp.txt"
 
 char *trim(char *totrim);
-char *WlCommonCheckDefGwIface(char *defGwMac);
+int WlCommonCheckDefGwIface(char *defGwMac, gwIface);
 
 
 int main()
@@ -14,14 +14,14 @@ int main()
 	char *iface = NULL;
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	/* strcpy(iface, WlCommonCheckDefGwIface(gwMac)); */
-	if ((iface = WlCommonCheckDefGwIface(gwMac)) != NULL)
+	if ((iface = WlCommonCheckDefGwIface(gwMac, iface)) != NULL)
 		printf("RETURN:%s\n", iface);
 	/* printf("HELLO world %s\n", iface); */
 
 	return 0;
 }
 
-char *WlCommonCheckDefGwIface(char *defGwMac)
+int WlCommonCheckDefGwIface(char *defGwMac,char *gwIface)
 {
         int error = 0 , ret = 0;
         char *line = NULL;
