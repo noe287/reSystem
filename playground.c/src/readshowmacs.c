@@ -10,6 +10,8 @@ int main()
         int error = 0 , ret = 0;
         char *line;
         char buf[128];
+        char iface[10];
+
         FILE *fds, *fds2 = NULL;
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	int len = 0;
