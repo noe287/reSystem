@@ -41,9 +41,14 @@ int main()
 			portID = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 			printf("%s\n", portID);
 			sprintf(portIDstr,"(%s)", portID);
-			/* printf("%s\n", portIDstr); */
+			printf("%s\n", portIDstr);
 
-			/* fds2 = fopen(STP, "r"); */
+			fds2 = fopen(STP, "r");
+        		if (fds2 == NULL) {
+		                printf("Cannot open %s file error: %s", MACS, strerror(error));
+		                ret = -1;
+		                goto out;
+		        }
 		        /* while ((line = fgets(buf, sizeof(buf), fds)) != NULL) { */
                 	/* 	if (strstr(line, portIDstr) == NULL) { */
 			/* 		continue; */
