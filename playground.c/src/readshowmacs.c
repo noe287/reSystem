@@ -16,6 +16,7 @@ int main()
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	int len = 0;
 	char *portID;
+        char portIDstr[10];
 	char *saveptr;
 
         fds = fopen(MACS, "r");
@@ -37,10 +38,14 @@ int main()
 
 			portID = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 			printf("%s\n", portID);
-	
+			sprintf(portIDstr,"("%s")", portID);
+
 			fds2 = fopen(STP, "r");
 		        while ((line = fgets(buf, sizeof(buf), fds)) != NULL) {
-                		if (strstr(line, gwMac) == NULL) {}
+                		if (strstr(line, gwMac) == NULL) {
+				
+				
+				}
 			}
 			
 		}
