@@ -50,7 +50,7 @@ int main()
 		                goto out;
 		        }
 
-		        while ((line = fgets(buf, sizeof(buf), fds)) != NULL) {
+		        while ((line = fgets(buf, sizeof(buf), fds2)) != NULL) {
                 		if (strstr(line, portIDstr) == NULL) {
 					continue;
 				}
@@ -59,7 +59,7 @@ int main()
 					len = strlen (line) - 1;
 					if (line[len] == '\n')
 						line[len] = '\0';
-					printf("%s\n", line);
+					printf(" %s\n", line);
 				}
 			}
 		}
