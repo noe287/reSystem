@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#define BR0 "../txt/showmacs.txt"
+#define MACS "../txt/showmacs.txt"
+#define MACS "../txt/showmacs.txt"
 
 int main()
 {
@@ -14,7 +15,7 @@ int main()
 	char *token;
 	char *saveptr;
 
-        fds = fopen(BR0, "r");
+        fds = fopen(MACS, "r");
 
         if (fds == NULL) {
                 printf("Cannot open %s file error: %s", BR0, strerror(error));
