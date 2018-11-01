@@ -57,9 +57,10 @@ int main()
 				}
 				else
 				{
-					len = strlen (line) - 1;
-					if (line[len] == '\n')
-						line[len] = '\0';
+					/* len = strlen (line) - 1; */
+					/* if (line[len] == '\n') */
+					/* 	line[len] = '\0'; */
+					line = totrim(line);
 
 					printf("%s\n", line);
 					iface = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
@@ -89,10 +90,10 @@ char *trim(char *totrim)
 {
 	int len;
 
-	len = strlen (line) - 1;
-	if (line[len] == '\n')
-		line[len] = '\0';
+	len = strlen (totrim) - 1;
+	if (totrim[len] == '\n')
+		totrim[len] = '\0';
 
 	return totrim;
 }
-	
+
