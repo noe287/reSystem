@@ -10,12 +10,13 @@ int main()
         int error = 0 , ret = 0;
         char *line;
         char buf[128];
-        char iface[10];
+        /* char iface[10]; */
 
         FILE *fds, *fds2 = NULL;
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	int len = 0;
 	char *portID;
+	char *iface;
         char portIDstr[10];
 	char *saveptr;
 
@@ -59,7 +60,8 @@ int main()
 					len = strlen (line) - 1;
 					if (line[len] == '\n')
 						line[len] = '\0';
-					printf(" %s\n", line);
+					printf("%s\n", line);
+					iface = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 				}
 			}
 		}
