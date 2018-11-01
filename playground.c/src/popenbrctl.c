@@ -14,7 +14,7 @@ int main()
 
 	sprintf(cmd, "brctl show");
 	fptr = popen(cmd, "r");
-	ret = get_gw_ip(fptr, ifname, gw_ip);
+	ret = get_gw_ip(fptr);
 
 	if(gw_ip != NULL)
 		printf("GWIP:%s\n",gw_ip);
@@ -27,12 +27,7 @@ int get_gw_ip(FILE *fptr, char *ifname, char *gw_ip)
   char *read = NULL;
 
   while ((read = fgets(line, sizeof(line), fptr)) != NULL) {
-	  if (strstr(read, "UG") != NULL) {
-			if (strstr(read, ifname) != NULL) {
-			  sscanf(read,"%*s %s", gw_ip);
-			  break;
-			}
-	  }
+	printf("%s\n", line);
   }
 
   return 0;
