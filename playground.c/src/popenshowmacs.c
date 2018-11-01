@@ -106,14 +106,55 @@ out:
 	return 0;
 }
 
-char *trim(char *totrim)
+/* char *trim(char *totrim) */
+/* { */
+/* 	int len; */
+/*  */
+/* 	len = strlen (totrim) - 1; */
+/* 	if (totrim[len] == '\n') */
+/* 		totrim[len] = '\0'; */
+/*  */
+/* 	return totrim; */
+/* } */
+
+char *trimr(char *s)
 {
-	int len;
+        int i=0;
+        while(s[i] != '\0') {
+                i++;
+        }
+        i--;
 
-	len = strlen (totrim) - 1;
-	if (totrim[len] == '\n')
-		totrim[len] = '\0';
+        while(i>-1 && (s[i] == '\n' || s[i] == '\r' || s[i] == ' ' || s[i] == '\t')) {
+                s[i--]='\0';
+        }
 
-	return totrim;
+        return s;
+}
+
+
+char *triml(char *s)
+{
+        int i=0, j=0;
+
+        while((s[i] == ' ' || s[i] == '\t') && s[i] != '\0') {
+                i++;
+        }
+
+        if (i==0) {
+                return s;
+        }
+
+        do {
+                s[j++]=s[i];
+        } while(s[i++]!='\0');
+
+        return s;
+}
+
+
+char *trim(char *s)
+{
+        return trimr(triml(s));
 }
 
