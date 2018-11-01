@@ -1,21 +1,21 @@
 #include <stdio.h>
 #include <string.h>
 
-#define FILE "../txt/showmacs.txt"
+#define BR0 "../txt/showmacs.txt"
 
 int main()
 {
         int error = 0 , ret = 0;
-        char* line;
+        char *line;
         char buf[128];
-        FILE* fds = NULL;
+        FILE *fds = NULL;
 	char serial_number[128] = {0};
 	int len = 0;
 
-        fds = fopen(FILE, "r");
+        fds = fopen(BR0, "r");
 
         if (fds == NULL) {
-                printf("Cannot open %s file error: %s",FILE, strerror(error));
+                printf("Cannot open %s file error: %s", BR0, strerror(error));
                 ret = -1;
                 goto out;
         }
