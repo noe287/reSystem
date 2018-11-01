@@ -13,7 +13,7 @@ int main()
         FILE *fds, *fds2 = NULL;
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	int len = 0;
-	char *token;
+	char *portID;
 	char *saveptr;
 
         fds = fopen(MACS, "r");
@@ -26,7 +26,6 @@ int main()
         }
 
         while ((line = fgets(buf, sizeof(buf), fds)) != NULL) {
-                /* if (strstr(line, "SERIAL_NUMBER") == NULL) { */
                 if (strstr(line, gwMac) == NULL) {
 			continue;
                 } else {
@@ -35,9 +34,8 @@ int main()
 		                line[len] = '\0';
 			printf("%s\n", line);
 
-			token = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
-			printf("%s\n", token);
-			
+			portID = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
+			printf("%s\n", portID);
 
 		}
 	}
