@@ -50,19 +50,18 @@ int main()
 		                goto out;
 		        }
 
-
-		        /* while ((line = fgets(buf, sizeof(buf), fds)) != NULL) { */
-                	/* 	if (strstr(line, portIDstr) == NULL) { */
-			/* 		continue; */
-			/* 	} */
-			/* 	else */
-			/* 	{ */
-			/* 		len = strlen (line) - 1; */
-			/* 		if (line[len] == '\n') */
-			/* 			line[len] = '\0'; */
-			/* 		printf("%s\n", line); */
-			/* 	} */
-			/* } */
+		        while ((line = fgets(buf, sizeof(buf), fds)) != NULL) {
+                		if (strstr(line, portIDstr) == NULL) {
+					continue;
+				}
+				else
+				{
+					len = strlen (line) - 1;
+					if (line[len] == '\n')
+						line[len] = '\0';
+					printf("%s\n", line);
+				}
+			}
 		}
 	}
 out:
@@ -75,6 +74,6 @@ out:
         }
 
         if (fds2 != NULL) {
-                fclose(fds);
+                fclose(fds2);
         }
 }
