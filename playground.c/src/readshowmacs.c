@@ -62,6 +62,7 @@ int main()
 						line[len] = '\0';
 					printf("%s\n", line);
 					iface = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
+					printf("%s\n", iface);
 				}
 			}
 		}
