@@ -14,8 +14,10 @@ int main(){
 	char gw_ip[16] = {"0.0.0.0"};
 	char *ifname ="enp5s0";
 	int ret = 0;
+	char cmd[1024];
 
-	fptr = popen("route -n", "r");
+	sprintf(cmd, "brctl show");
+	fptr = popen(cmd, "r");
 	ret = get_gw_ip(fptr, ifname, gw_ip);
 
 	if(gw_ip != NULL)
