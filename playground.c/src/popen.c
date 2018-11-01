@@ -5,6 +5,7 @@
 int main(int argc, char *argv[])
 {
         char cmd[1024];
+	char ifname[32] = "veth249ed30";
         int read;
         size_t len;
         char *line = NULL;
@@ -30,7 +31,7 @@ int main(int argc, char *argv[])
                 if (strncmp(line, "\t", 1) != 0) {
                         char *pch = strtok_r(line," \t\n", &ctx);
                         if (pch == NULL) {
-                                PRINT(LEVEL_ERR, "Could not find bridge name. Fetched line = %s\n", line);
+                                printf("Could not find bridge name. Fetched line = %s\n", line);
                                 pclose(fd);
                                 return 0;
                         }
@@ -46,14 +47,14 @@ int main(int argc, char *argv[])
 
                         pch = strtok_r(NULL," \t\n", &ctx);
                         if (pch == NULL) {
-                                PRINT(LEVEL_ERR, "Could not get any interface name. Fetched line = %s\n", line);
+                                printf("Could not get any interface name. Fetched line = %s\n", line);
                                 pclose(fd);
                                 return 0;
                         }
 
                         if (strcmp(pch, ifname) == 0) {
                                 found = 1;
-                                PRINT(LEVEL_DEBUG, "Bridge name found at line %s\n", line);
+                                printf("Bridge name found at line %s\n", line);
                                 strcpy(br_ifname, brname);
                                 break;
                         }
