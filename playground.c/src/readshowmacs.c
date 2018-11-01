@@ -11,10 +11,10 @@ char *WlCommonCheckDefGwIface(char *defGwMac);
 
 int main()
 {
-	char iface[10] = {0};
+	char *iface = NULL;
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	/* strcpy(iface, WlCommonCheckDefGwIface(gwMac)); */
-	if (WlCommonCheckDefGwIface(gwMac) != NULL)
+	if ((iface = WlCommonCheckDefGwIface(gwMac)) != NULL)
 		printf("RETURN:%s\n", WlCommonCheckDefGwIface(gwMac));
 	/* printf("HELLO world %s\n", iface); */
 
