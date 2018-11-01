@@ -17,7 +17,6 @@ int main()
 	char *saveptr;
 
         fds = fopen(MACS, "r");
-        fds2 = fopen(MACS, "r");
 
         if (fds == NULL) {
                 printf("Cannot open %s file error: %s", MACS, strerror(error));
@@ -36,7 +35,12 @@ int main()
 
 			portID = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 			printf("%s\n", portID);
-
+	
+			fds2 = fopen(STP, "r");
+		        while ((line = fgets(buf, sizeof(buf), fds)) != NULL) {
+                		if (strstr(line, gwMac) == NULL) {}
+			}
+			
 		}
 	}
 out:
@@ -44,6 +48,9 @@ out:
                 free(line);
         }
         if (fds != NULL) {
+                fclose(fds);
+        }
+        if (fds2 != NULL) {
                 fclose(fds);
         }
 }
