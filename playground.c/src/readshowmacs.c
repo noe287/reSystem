@@ -15,7 +15,11 @@ int main()
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	/* strcpy(iface, WlCommonCheckDefGwIface(gwMac)); */
 	WlCommonCheckDefGwIface(gwMac, iface);
-	printf("RETURN:%s\n", iface);
+	if(strcmp(iface, "eth0") || strcmp(iface, "wl0") == 0)
+		printf("RETURN:%s\n", iface);
+	else
+		printf("NULL***\n");
+
 	return 0;
 }
 
