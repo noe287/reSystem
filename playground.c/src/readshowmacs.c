@@ -34,6 +34,8 @@ int main()
 
 			token = strtok_r(line, " ", &saveptr);
 			printf("%s\n", token);
+			
+
 		}
 	}
 out:
