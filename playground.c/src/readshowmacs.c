@@ -36,13 +36,12 @@ int main()
                 }
 		else
 		{
-			len = strlen (line) - 1;
-			if (line[len] == '\n')
-		                line[len] = '\0';
+			line = trim(line);
 			printf("%s\n", line);
 
 			portID = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
-			printf("%s\n", portID);
+			portID = trim(portID);
+			
 			sprintf(portIDstr,"(%s)", portID);
 			printf("%s\n", portIDstr);
 
@@ -61,8 +60,10 @@ int main()
 				{
 					line = trim(line);
 					printf("%s\n", line);
+
 					iface = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 					iface = trim(iface);
+					
 					printf("%s\n", iface);
 				}
 			}
