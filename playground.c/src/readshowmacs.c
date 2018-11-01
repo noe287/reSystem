@@ -26,7 +26,6 @@ char *WlCommonCheckDefGwIface(char *defGwMac)
         int error = 0 , ret = 0;
         char *line = NULL;
         char buf[128];
-        /* char iface[10]; */
 
         FILE *fds, *fds2 = NULL;
 	char gwMac[18] = "18:28:61:5b:f6:21";
