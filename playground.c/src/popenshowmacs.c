@@ -2,6 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define MACS "brctl showmacs br0"
+#define STP "brctl showstp br0"
+
 char *trim(char *totrim);
 int WlCommonCheckDefGwIface(char *defGwMac, char *gwIface);
 
