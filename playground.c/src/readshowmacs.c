@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MACS "../txt/showmacs.txt"
 #define STP "../txt/showstp.txt"
@@ -9,13 +10,14 @@ int main()
         int error = 0 , ret = 0;
         char *line;
         char buf[128];
-        FILE *fds = NULL;
+        FILE *fds, *fds2 = NULL;
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	int len = 0;
 	char *token;
 	char *saveptr;
 
         fds = fopen(MACS, "r");
+        fds2 = fopen(MACS, "r");
 
         if (fds == NULL) {
                 printf("Cannot open %s file error: %s", MACS, strerror(error));
@@ -33,13 +35,16 @@ int main()
 		                line[len] = '\0';
 			printf("%s\n", line);
 
-			token = strtok_r(line, " ", &saveptr);
+			token = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 			printf("%s\n", token);
 			
 
 		}
 	}
 out:
+        if (line) {
+                free(line);
+        }
         if (fds != NULL) {
                 fclose(fds);
         }
