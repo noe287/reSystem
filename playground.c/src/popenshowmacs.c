@@ -11,7 +11,7 @@ int WlCommonCheckDefGwIface(char *defGwMac, char *gwIface);
 int main()
 {
 	char iface[10] = {0};
-	char gwMac[18] = "18:28:61:5b:f6:21";
+	char gwMac[18] = "bc:ee:7b:8c:d9:33";
 	int len = 0;
 
 	WlCommonCheckDefGwIface(gwMac, iface);
