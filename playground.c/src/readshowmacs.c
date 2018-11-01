@@ -32,13 +32,8 @@ int main()
 		                line[len] = '\0';
 			printf("%s\n", line);
 			for (token = strtok_r(line, " ", &saveptr); token != NULL; token = strtok_r(NULL, " ", &saveptr)) {
-				
+				printf("%s\n", token);
         		}
-
-
-                        /* printf(" %s : %lu :%lu \n", line, sizeof(buf), strlen(line)); */
-                        /* strncpy(serial_number, line + strlen("MAC_BR_0") + 1, 18); */
-                        /* printf("%s\n", serial_number); */
                 }
         }
 
