@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <string.h>
 
 
 int main(int argc, char *argv[])
@@ -8,7 +8,8 @@ int main(int argc, char *argv[])
         int read;
         size_t len;
         char *line = NULL;
-        char brname[IFNAMSIZ];
+
+        char brname[16];
         int found = 0;
         char *ctx;
         FILE *fd;
