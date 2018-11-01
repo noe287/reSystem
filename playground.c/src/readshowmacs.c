@@ -45,10 +45,12 @@ int main()
 
 			fds2 = fopen(STP, "r");
         		if (fds2 == NULL) {
-		                printf("Cannot open %s file error: %s", MACS, strerror(error));
+		                printf("Cannot open %s file error: %s", STP, strerror(error));
 		                ret = -1;
 		                goto out;
 		        }
+
+
 		        /* while ((line = fgets(buf, sizeof(buf), fds)) != NULL) { */
                 	/* 	if (strstr(line, portIDstr) == NULL) { */
 			/* 		continue; */
