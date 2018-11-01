@@ -2,7 +2,7 @@
 #include <string.h>
 
 
-int get_gw_ip(FILE *fptr, char *ifname, char *gw_ip);
+int dumpinfo(FILE *fptr);
 
 int main()
 {
