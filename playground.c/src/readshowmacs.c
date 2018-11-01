@@ -13,11 +13,14 @@ int main()
 {
 	char iface[10] = {0};
 	char gwMac[18] = "18:28:61:5b:f6:21";
-	iface = WlCommonCheckDefGwIface(gwMac);
+	strcpy(iface, WlCommonCheckDefGwIface(gwMac));
 	printf("%s\n", iface);
 
 	return 0;
 }
+
+char *WlCommonCheckDefGwIface(char *defGwMac)
+{
         int error = 0 , ret = 0;
         char *line;
         char buf[128];
