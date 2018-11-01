@@ -1,0 +1,5 @@
+cat /proc/air_dhcpcap
+timestamp: 8455462
+interface: wds1.1
+ip: 0.0.0.0
+mac: 18:28:61:5b:f6:21
