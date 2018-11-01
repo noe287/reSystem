@@ -23,7 +23,7 @@ int main()
         while ((line = fgets(buf, sizeof(buf), fds)) != NULL) {
                 /* if (strstr(line, "SERIAL_NUMBER") == NULL) { */
                 if (strstr(line, gwMac) == NULL) {
-                        continue;
+			printf("GWMAC line:%s\n", line);
                 } else {
 			len = strlen (line) - 1;
 			if (line[len] == '\n')
@@ -31,7 +31,6 @@ int main()
                         /* printf(" %s : %lu :%lu \n", line, sizeof(buf), strlen(line)); */
                         /* strncpy(serial_number, line + strlen("MAC_BR_0") + 1, 18); */
                         /* printf("%s\n", serial_number); */
-                        break;
                 }
         }
 
