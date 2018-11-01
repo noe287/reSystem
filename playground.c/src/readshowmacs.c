@@ -16,8 +16,6 @@ int main()
 	/* strcpy(iface, WlCommonCheckDefGwIface(gwMac)); */
 	WlCommonCheckDefGwIface(gwMac, iface);
 	printf("RETURN:%s\n", iface);
-	/* printf("HELLO world %s\n", iface); */
-
 	return 0;
 }
 
@@ -76,9 +74,7 @@ int WlCommonCheckDefGwIface(char *defGwMac,char *gwIface)
 
 					iface = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 					iface = trim(iface);
-					printf("IFACE:%s\n", iface);
 					strncpy(gwIface, iface, strlen(iface));
-					printf("IFACE2:%s\n", gwIface);
 				}
 			}
 		}
