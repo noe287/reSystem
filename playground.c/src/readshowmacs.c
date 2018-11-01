@@ -1,17 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
-#define FILED "wl_wps_configuuid_1"
-
-
-
+#define FILE "../txt/showmacx.txt"
 
 int main(){
 	FILE *fptr = NULL;
 	char line[1024] = {0};
 	char *red = NULL;
 
-	fptr = fopen(FILED, "r");
+	fptr = fopen(FILE, "r");
 	red = fgets(line, sizeof(line), fptr);
 	line[strlen(line)-1] = '\0';
 	printf("%s\n", red);
