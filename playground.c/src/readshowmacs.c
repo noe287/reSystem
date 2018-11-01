@@ -34,11 +34,8 @@ int main()
 
 			token = strtok_r(line, " ", &saveptr);
 			printf("%s\n", token);
-
-        		}
-                }
-        }
-
+		}
+	}
 out:
         if (fds != NULL) {
                 fclose(fds);
