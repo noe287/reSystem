@@ -6,7 +6,7 @@
 #define STP "../txt/showstp.txt"
 
 char *trim(char *totrim);
-int WlCommonCheckDefGwIface(char *defGwMac, gwIface);
+int WlCommonCheckDefGwIface(char *defGwMac, char *gwIface);
 
 
 int main()
@@ -77,6 +77,7 @@ int WlCommonCheckDefGwIface(char *defGwMac,char *gwIface)
 					iface = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 					iface = trim(iface);
 					printf("%s\n", iface);
+					gwIface = iface;
 				}
 			}
 		}
