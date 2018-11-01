@@ -2,7 +2,7 @@
 #include <string.h>
 
 #define MACS "../txt/showmacs.txt"
-#define MACS "../txt/showmacs.txt"
+#define STP "../txt/showstp.txt"
 
 int main()
 {
@@ -18,7 +18,7 @@ int main()
         fds = fopen(MACS, "r");
 
         if (fds == NULL) {
-                printf("Cannot open %s file error: %s", BR0, strerror(error));
+                printf("Cannot open %s file error: %s", MACS, strerror(error));
                 ret = -1;
                 goto out;
         }
