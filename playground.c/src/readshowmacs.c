@@ -19,7 +19,7 @@ int main()
 	return 0;
 }
 
-int WlCommonCheckDefGwIface(char *defGwMac,char *gwIface)
+int WlCommonCheckDefGwIface(char *defGwMac, char *gwIface)
 {
         int error = 0 , ret = 0;
         char *line = NULL;
