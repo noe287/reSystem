@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define NVRAM_FILE "nvram.txt"
+#define FILE "../txt/showmacs.txt"
 
 int main()
 {
@@ -9,14 +9,13 @@ int main()
         char* line;
         char buf[128];
         FILE* fds = NULL;
-	char serial_number[128] = {0};	
+	char serial_number[128] = {0};
 	int len = 0;
 
-        fds = fopen(NVRAM_FILE, "r");
-
+        fds = fopen(FILE, "r");
 
         if (fds == NULL) {
-                printf("Cannot open nvram.txt file error: %s", strerror(error));
+                printf("Cannot open %s file error: %s",FILE, strerror(error));
                 ret = -1;
                 goto out;
         }
