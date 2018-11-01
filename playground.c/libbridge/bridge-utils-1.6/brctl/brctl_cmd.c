@@ -28,7 +28,7 @@
 static int strtotimeval(struct timeval *tv, const char *time)
 {
 	double secs;
-	if (sscanf(time, "%lf", &secs) != 1) 
+	if (sscanf(time, "%lf", &secs) != 1)
 		return -1;
 	tv->tv_sec = secs;
 	tv->tv_usec = 1000000 * (secs - tv->tv_sec);
@@ -163,7 +163,7 @@ static int br_cmd_setageing(int argc, char *const* argv)
 {
 	int err;
 	struct timeval tv;
-	
+
 	if (strtotimeval(&tv, argv[2])) {
 		fprintf(stderr, "bad ageing time value\n");
 		return 1;
@@ -284,10 +284,10 @@ static int br_cmd_stp(int argc, char *const* argv)
 {
 	int stp, err;
 
-	if (!strcmp(argv[2], "on") || !strcmp(argv[2], "yes") 
+	if (!strcmp(argv[2], "on") || !strcmp(argv[2], "yes")
 	    || !strcmp(argv[2], "1"))
 		stp = 1;
-	else if (!strcmp(argv[2], "off") || !strcmp(argv[2], "no") 
+	else if (!strcmp(argv[2], "off") || !strcmp(argv[2], "no")
 		 || !strcmp(argv[2], "0"))
 		stp = 0;
 	else {
@@ -297,7 +297,7 @@ static int br_cmd_stp(int argc, char *const* argv)
 
 	err = br_set_stp_state(argv[1], stp);
 	if (err)
-		fprintf(stderr, "set stp status failed: %s\n", 
+		fprintf(stderr, "set stp status failed: %s\n",
 			strerror(errno));
 	return err != 0;
 }
@@ -382,7 +382,7 @@ static int br_cmd_showmacs(int argc, char *const* argv)
 			fprintf(stderr, "Out of memory\n");
 			return 1;
 		}
-			
+
 		n = br_read_fdb(brname, fdb+offset, offset, CHUNK);
 		if (n == 0)
 			break;
@@ -451,7 +451,7 @@ static int br_cmd_hairpin(int argc, char *const* argv)
 static const struct command commands[] = {
 	{ 1, "addbr", br_cmd_addbr, "<bridge>\t\tadd bridge" },
 	{ 1, "delbr", br_cmd_delbr, "<bridge>\t\tdelete bridge" },
-	{ 2, "addif", br_cmd_addif, 
+	{ 2, "addif", br_cmd_addif,
 	  "<bridge> <device>\tadd interface to bridge" },
 	{ 2, "delif", br_cmd_delif,
 	  "<bridge> <device>\tdelete interface from bridge" },
@@ -467,15 +467,15 @@ static const struct command commands[] = {
 	  "<bridge> <time>\t\tset hello time" },
 	{ 2, "setmaxage", br_cmd_setmaxage,
 	  "<bridge> <time>\t\tset max message age" },
-	{ 3, "setpathcost", br_cmd_setpathcost, 
+	{ 3, "setpathcost", br_cmd_setpathcost,
 	  "<bridge> <port> <cost>\tset path cost" },
 	{ 3, "setportprio", br_cmd_setportprio,
 	  "<bridge> <port> <prio>\tset port priority" },
 	{ 0, "show", br_cmd_show,
 	  "[ <bridge> ]\t\tshow a list of bridges" },
-	{ 1, "showmacs", br_cmd_showmacs, 
+	{ 1, "showmacs", br_cmd_showmacs,
 	  "<bridge>\t\tshow a list of mac addrs"},
-	{ 1, "showstp", br_cmd_showstp, 
+	{ 1, "showstp", br_cmd_showstp,
 	  "<bridge>\t\tshow bridge stp info"},
 	{ 2, "stp", br_cmd_stp,
 	  "<bridge> {on|off}\tturn stp on/off" },
