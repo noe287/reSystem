@@ -6,9 +6,15 @@
 #define STP "../txt/showstp.txt"
 
 char *trim(char *totrim);
+char *WlCommonCheckDefGwiIface();
+
 
 int main()
 {
+	char iface[10] = {0};
+	char *WlCommonCheckDefGIface();
+
+}
         int error = 0 , ret = 0;
         char *line;
         char buf[128];
