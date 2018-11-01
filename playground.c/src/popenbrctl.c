@@ -11,7 +11,7 @@ int main()
 	int ret = 0;
 	char cmd[1024];
 
-	sprintf(cmd, "brctl show");
+	sprintf(cmd, "brctl showmacs br0");
 	fptr = popen(cmd, "r");
 	ret = dumpinfo(fptr);
 
