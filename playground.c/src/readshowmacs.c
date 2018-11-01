@@ -5,6 +5,8 @@
 #define MACS "../txt/showmacs.txt"
 #define STP "../txt/showstp.txt"
 
+char *trim(char *totrim);
+
 int main()
 {
         int error = 0 , ret = 0;
@@ -60,7 +62,7 @@ int main()
 					/* len = strlen (line) - 1; */
 					/* if (line[len] == '\n') */
 					/* 	line[len] = '\0'; */
-					line = totrim(line);
+					line = trim(line);
 
 					printf("%s\n", line);
 					iface = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
