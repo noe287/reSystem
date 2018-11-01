@@ -57,6 +57,7 @@ int WlCommonCheckDefGwIface(char *defGwMac, char *gwIface)
 			/* printf("%s\n", line); */
 
 			portID = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
+			portID = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 			portID = trim(portID);
 
 			sprintf(portIDstr,"(%s)", portID);
