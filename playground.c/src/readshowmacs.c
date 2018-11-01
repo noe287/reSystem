@@ -13,8 +13,9 @@ int main()
 {
 	char iface[10] = {0};
 	char gwMac[18] = "18:28:61:5b:f6:21";
-	strcpy(iface, WlCommonCheckDefGwIface(gwMac));
-	printf("HELLO world %s\n", iface);
+	/* strcpy(iface, WlCommonCheckDefGwIface(gwMac)); */
+	printf("%s\n", WlCommonCheckDefGwIface(gwMac));
+	/* printf("HELLO world %s\n", iface); */
 
 	return 0;
 }
@@ -22,17 +23,17 @@ int main()
 char *WlCommonCheckDefGwIface(char *defGwMac)
 {
         int error = 0 , ret = 0;
-        char *line;
+        char *line = NULL;
         char buf[128];
         /* char iface[10]; */
 
         FILE *fds, *fds2 = NULL;
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	int len = 0;
-	char *portID;
+	char *portID = NULL;
 	char *iface = NULL;
         char portIDstr[10];
-	char *saveptr;
+	char *saveptr = NULL;
 
         fds = fopen(MACS, "r");
 
