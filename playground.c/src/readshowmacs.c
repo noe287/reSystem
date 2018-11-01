@@ -41,7 +41,7 @@ int main()
 
 			portID = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 			portID = trim(portID);
-			
+
 			sprintf(portIDstr,"(%s)", portID);
 			printf("%s\n", portIDstr);
 
@@ -63,7 +63,7 @@ int main()
 
 					iface = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 					iface = trim(iface);
-					
+
 					printf("%s\n", iface);
 				}
 			}
