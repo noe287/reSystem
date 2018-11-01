@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
         fd = popen(cmd, "r");
 
         while (fd && (!feof(fd)) && ((read = getline(&line, &len, fd)) != -1)) {
-                /* printf("got line %s", line); */
+                printf("got line %s", line);
 
                 /* get rid of first line */
                 if (strncmp(line, "bridge", 6) == 0) {
@@ -38,13 +38,13 @@ int main(int argc, char *argv[])
                         }
 
                         strcpy(brname, pch);
-                        /* printf("bridge name=%s\n", brname); */
+                        printf("bridge name=%s\n", brname);
 
                         /* skip bridge id and stp enabled fields */
                         pch = strtok_r(NULL," \t\n", &ctx);
-                        /* printf("skip %s\n", pch); */
+                        printf("skip %s\n", pch);
                         pch = strtok_r(NULL," \t\n", &ctx);
-                        /* printf("skip %s\n", pch); */
+                        printf("skip %s\n", pch);
 
                         pch = strtok_r(NULL," \t\n", &ctx);
                         if (pch == NULL) {
