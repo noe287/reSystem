@@ -14,8 +14,8 @@ int main()
 	char *iface = NULL;
 	char gwMac[18] = "18:28:61:5b:f6:21";
 	/* strcpy(iface, WlCommonCheckDefGwIface(gwMac)); */
-	if ((iface = WlCommonCheckDefGwIface(gwMac, iface)) != NULL)
-		printf("RETURN:%s\n", iface);
+	WlCommonCheckDefGwIface(gwMac, iface);
+	printf("RETURN:%s\n", iface);
 	/* printf("HELLO world %s\n", iface); */
 
 	return 0;
@@ -28,7 +28,7 @@ int WlCommonCheckDefGwIface(char *defGwMac,char *gwIface)
         char buf[128];
 
         FILE *fds, *fds2 = NULL;
-	char gwMac[18] = "18:28:61:5b:f6:21";
+	/* char gwMac[18] = "18:28:61:5b:f6:21"; */
 	int len = 0;
 	char *portID = NULL;
 	char *iface = NULL;
@@ -44,7 +44,7 @@ int WlCommonCheckDefGwIface(char *defGwMac,char *gwIface)
         }
 
         while ((line = fgets(buf, sizeof(buf), fds)) != NULL) {
-                if (strstr(line, gwMac) == NULL) {
+                if (strstr(line, defGwMac) == NULL) {
 			continue;
                 }
 		else
@@ -76,9 +76,7 @@ int WlCommonCheckDefGwIface(char *defGwMac,char *gwIface)
 
 					iface = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 					iface = trim(iface);
-
 					printf("%s\n", iface);
-					return iface;
 				}
 			}
 		}
@@ -96,7 +94,7 @@ out:
                 fclose(fds2);
         }
 
-	return iface;
+	return 0;
 }
 
 char *trim(char *totrim)
