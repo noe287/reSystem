@@ -36,7 +36,6 @@ int WlCommonCheckDefGwIface(char *defGwMac, char *gwIface)
         char buf[128];
 
         FILE *fds, *fds2 = NULL;
-	/* char gwMac[18] = "18:28:61:5b:f6:21"; */
 	int len = 0;
 	char *portID = NULL;
 	char *iface = NULL;
