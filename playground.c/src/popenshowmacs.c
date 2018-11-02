@@ -21,7 +21,7 @@ int main()
 	WlCommonCheckDefGwIface(gwMac, iface);
 	printf("RETURN:%s\n", iface);
 
-	if(strcmp(iface, "eth0") == 0 || strcmp(iface, "wl0") == 0)
+	if(strcmp(iface, "enp6s0") == 0 || strcmp(iface, "wl0") == 0)
 		printf("RETURN2:%s\n", iface);
 	else
 		printf("NULL***\n");
@@ -90,6 +90,7 @@ int WlCommonCheckDefGwIface(char *defGwMac, char *gwIface)
 					iface = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
 					iface = trim(iface);
 					strncpy(gwIface, iface, strlen(iface));
+					printf("%s\n", gwIface);
 				}
 			}
 		}
