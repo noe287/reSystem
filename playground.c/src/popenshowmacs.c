@@ -80,7 +80,7 @@ int WlCommonCheckDefGwIface(char *defGwMac, char *gwIface)
 					line = trim(line);
 					printf("%s\n", line);
 
-					iface = strtok_r(line, " ", &saveptr);// a single token will do it for the portID
+					iface = strtok_r(line," ", &saveptr);// a single token will do it for the portID
 					iface = trim(iface);
 					strncpy(gwIface, iface, strlen(iface));
 					printf("%s\n", gwIface);
