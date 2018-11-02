@@ -58,12 +58,6 @@ int WlCommonCheckDefGwIface(char *defGwMac, char *gwIface)
 		else
 		{
 			line = trim(line);
-			/* printf("%s\n", line); */
-			/* for (portID = strtok_r(line, "\t", &saveptr); portID != NULL; portID = strtok_r(NULL, "\t", &saveptr)) { */
-			/*  */
-				/* printf("%s\n", portID); */
-                        /*  */
-			/* } */
 			portID = strtok_r(line, "\t", &saveptr);// a single token will do it for the portID
 			portID = trim(portID);
 
