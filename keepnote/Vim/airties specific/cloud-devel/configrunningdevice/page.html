@@ -5,8 +5,8 @@
 <title>ConfigRunningDevice</title>
 </head><body><br/>
 cd /data<br/>
-date -s '2018-07-30 12:00:00'<br/>
-ifconfig br0 172.16.11.111<br/>
+date -s '2018-11-05 16:10:00'<br/>
+ifconfig br0 172.16.6.200<br/>
 route add default gw 172.16.0.1<br/>
 echo "nameserver 172.16.6.200" &gt; /etc/resolv.conf<br/>
 killall dhcpd<br/>
@@ -32,10 +32,10 @@ booster<br/>
 c03e0fd7c149<br/>
 <br/>
 <br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_set_wps_role 1 ACI_WL_WPS_ROLE_REGISTRAR</span></span></div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_command_apply 1</span></span></div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_wifi_get_wps_role 1</span></span></div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">aci-cli aci_soft_command_pbc</span></span><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">aci-cli aci_wifi_set_wps_role 1 ACI_WL_WPS_ROLE_REGISTRAR</div></span></span><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">aci-cli aci_wifi_command_apply 1</div></span></span><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">aci-cli aci_wifi_get_wps_role 1</div></span></span><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">aci-cli aci_soft_command_pbc</span></span><br/>
 </div><br/>
 ---------------------------------------------------------------------------------------------------<br/>
 get_gwy_mac_address-570: Gateway MAC address was (null).<br/>
