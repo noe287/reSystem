@@ -6,7 +6,7 @@
 </head><body><br/>
 cd /data<br/>
 date -s '2018-11-05 16:10:00'<br/>
-ifconfig br0 172.16.6.200<br/>
+ifconfig br0 172.16.11.76<br/>
 route add default gw 172.16.0.1<br/>
 echo "nameserver 172.16.6.200" &gt; /etc/resolv.conf<br/>
 killall dhcpd<br/>
