@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>air-rm_cli</title>
+</head><body><br/>
+rm-client --command get-rt-configs<br/>
+<br/>
+rm-client --command dump-post-resps-queue<br/>
+rm-client --command dump-post-errs-queue<br/>
+rm-client --command dump-packer-errs-queue<br/>
+<br/>
+rm-client --command dump-event-queue<br/>
+rm-client --command dump-topology-queue<br/>
+rm-client --command dump-friendly-queue<br/>
+rm-client --command dump-cmds-queue<br/>
+rm-client --command dump-diags<br/>
+<br/>
+rm-client --command free-event-queue<br/>
+rm-client --command free-diags-queue<br/>
+rm-client --command free-topology-queue<br/>
+rm-client --command free-friendly-queue<br/>
+rm-client --command free-cmds-queue<br/>
+<br/>
+rm-client --command push-topogen-data --payload '{ "data": "ownaddr=...,type=..", "uptime": "4213"}'<br/>
+rm-client --command push-topogen-data --payload '{ "channel2g": "5", "cca2g": "0.89"}'<br/>
+<br/>
+rm-client --command push-event --payload '{ "data": "[sec.ms] type subtype optional_evt_data"}'<br/>
+<br/>
+rm-client --command push-diagnostics --payload '{ "data": "[sec.ms] 1f40612321adcsdq..", "type": "radar"}'<br/>
+<br/>
+rm-client --command post-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command post-config --payload '{ "period_in_ms": "600000" }'<br/>
+rm-client --command post-config --payload '{ "remote_url": "http://192.168.1.150/post.php" }'<br/>
+rm-client --command post-config --payload '{ "agent": "agent_str" }'<br/>
+<br/>
+rm-client --command packing-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command packing-config --payload '{ "period_in_ms": "600000" }'<br/>
+<br/>
+rm-client --command topogen-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command topogen-config --payload '{ "topogen_period": "1000" }'<br/>
+/usr/sbin/rm-client --command topogen-config --payload '{ "topogen_queueing_period": "3000" }'<br/>
+<br/>
+rm-client --command vital-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command vital-config --payload '{ "period_in_ms": "600000" }'<br/>
+<br/>
+rm-client --command cmds-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command cmds-config --payload '{ "period_in_ms": "600000" }'</body></html>

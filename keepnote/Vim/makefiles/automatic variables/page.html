@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Automatic Variables</title>
+</head><body><b><span style="font-size: 13pt">10.5.3 Automatic Variables &nbsp; &nbsp;<br/>
+</span></b><span style="font-size: 13pt"><br/>
+Suppose you are writing a pattern rule to compile a ‘.c’ file into a ‘.o’ file: how do you write the ‘cc’ command so that it operates on the right source file name? You cannot write the name in the recipe, because the name is different each time the implicit rule is applied. <br/>
+&nbsp;<br/>
+What you do is use a special feature of make, the <i>automatic variables</i>. These variables have values computed afresh for each rule that is executed, based on the target and prerequisites of the rule. In this example, you would use ‘$@’ for the object file name and ‘$&lt;’ for the source file name. <br/>
+&nbsp; &nbsp;<br/>
+It’s very important that you recognize the limited scope in which automatic variable values are available: they only have values within the recipe. In particular, you cannot use them anywhere within the target list of a rule; they have no value there and will expand to the empty string. Also, they cannot be accessed directly within the prerequisite list of a rule. A common mistake is attempting to use $@ within the prerequisites list; this will not work. However, there is a special feature of GNU make, secondary expansion (see <a href="https://www.gnu.org/software/make/manual/html_node/Secondary-Expansion.html#Secondary-Expansion">Secondary Expansion</a>), which will allow automatic variable values to be used in prerequisite lists. <br/>
+&nbsp;<br/>
+<b><i>Here is a table of automatic variables: <br/>
+&nbsp; &nbsp; &nbsp;$@ <br/>
+The file name of the target of the rule. If the target is an archive member, then ‘$@’ is the name of the archive file. In a pattern rule that has multiple targets (see <a href="https://www.gnu.org/software/make/manual/html_node/Pattern-Intro.html#Pattern-Intro">Introduction to Pattern Rules</a>), ‘$@’ is the name of whichever target caused the rule’s recipe to be run. <br/>
+&nbsp; &nbsp; $% <br/>
+The target member name, when the target is an archive member. See <a href="https://www.gnu.org/software/make/manual/html_node/Archives.html#Archives">Archives</a>. For example, if the target is foo.a(bar.o) then ‘$%’ is bar.o and ‘$@’ is foo.a. ‘$%’ is empty when the target is not an archive member. <br/>
+&nbsp; &nbsp; $&lt; <br/>
+The name of the first prerequisite. If the target got its recipe from an implicit rule, this will be the first prerequisite added by the implicit rule (see <a href="https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html#Implicit-Rules">Implicit Rules</a>). <br/>
+&nbsp; &nbsp; $? <br/>
+The names of all the prerequisites that are newer than the target, with spaces between them. For prerequisites which are archive members, only the named member is used (see <a href="https://www.gnu.org/software/make/manual/html_node/Archives.html#Archives">Archives</a>). &nbsp; <br/>
+&nbsp; &nbsp; $^ <br/>
+The names of all the prerequisites, with spaces between them. For prerequisites which are archive members, only the named member is used (see <a href="https://www.gnu.org/software/make/manual/html_node/Archives.html#Archives">Archives</a>). A target has only one prerequisite on each other file it depends on, no matter how many times each file is listed as a prerequisite. So if you list a prerequisite more than once for a target, the value of $^ contains just one copy of the name. This list does not contain any of the order-only prerequisites; for those see the ‘$|’ variable, below. &nbsp; <br/>
+&nbsp; &nbsp; $+ <br/>
+This is like ‘$^’, but prerequisites listed more than once are duplicated in the order they were listed in the makefile. This is primarily useful for use in linking commands where it is meaningful to repeat library file names in a particular order. <br/>
+&nbsp; &nbsp; $| <br/>
+The names of all the order-only prerequisites, with spaces between them. <br/>
+</i></b><b><i>&nbsp; &nbsp; $* </i></b><br/>
+The stem with which an implicit rule matches (see <a href="https://www.gnu.org/software/make/manual/html_node/Pattern-Match.html#Pattern-Match">How Patterns Match</a>). If the target is dir/a.foo.b and the target pattern is a.%.b then the stem is dir/foo. The stem is useful for constructing names of related files. &nbsp;<br/>
+&nbsp;<br/>
+In a static pattern rule, the stem is part of the file name that matched the ‘%’ in the target pattern. <br/>
+&nbsp;<br/>
+In an explicit rule, there is no stem; so ‘$*’ cannot be determined in that way. Instead, if the target name ends with a recognized suffix (see <a href="https://www.gnu.org/software/make/manual/html_node/Suffix-Rules.html#Suffix-Rules">Old-Fashioned Suffix Rules</a>), ‘$*’ is set to the target name minus the suffix. For example, if the target name is ‘foo.c’, then ‘$*’ is set to ‘foo’, since ‘.c’ is a suffix. GNU make does this bizarre thing only for compatibility with other implementations of make. You should generally avoid using ‘$*’ except in implicit rules or static pattern rules. <br/>
+&nbsp;<br/>
+If the target name in an explicit rule does not end with a recognized suffix, ‘$*’ is set to the empty string for that rule. <br/>
+&nbsp; <br/>
+‘$?’ is useful even in explicit rules when you wish to operate on only the prerequisites that have changed. For example, suppose that an archive named lib is supposed to contain copies of several object files. This rule copies just the changed object files into the archive: <br/>
+&nbsp; lib: foo.o bar.o lose.o win.o ar r lib $? &nbsp;<br/>
+Of the variables listed above, four have values that are single file names, and three have values that are lists of file names. These seven have variants that get just the file’s directory name or just the file name within the directory. The variant variables’ names are formed by appending ‘D’ or ‘F’, respectively. These variants are semi-obsolete in GNU make since the functions dir and notdir can be used to get a similar effect (see <a href="https://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html#File-Name-Functions">Functions for File Names</a>). Note, however, that the ‘D’ variants all omit the trailing slash which always appears in the output of the dir function. Here is a table of the variants: <br/>
+<b><i>&nbsp; &nbsp; &nbsp;‘$(@D)’ <br/>
+The directory part of the file name of the target, with the trailing slash removed. If the value of ‘$@’ is dir/foo.o then ‘$(@D)’ is dir. This value is . if ‘$@’ does not contain a slash. <br/>
+&nbsp; &nbsp; ‘$(@F)’ <br/>
+The file-within-directory part of the file name of the target. If the value of ‘$@’ is dir/foo.o then ‘$(@F)’ is foo.o. ‘$(@F)’ is equivalent to ‘$(notdir $@)’. <br/>
+&nbsp; &nbsp; ‘$(*D)’ &nbsp; &nbsp;‘$(*F)’ <br/>
+The directory part and the file-within-directory part of the stem; dir and foo in this example. <br/>
+&nbsp; &nbsp; ‘$(%D)’ &nbsp; &nbsp;‘$(%F)’ <br/>
+The directory part and the file-within-directory part of the target archive member name. This makes sense only for archive member targets of the form archive(member) and is useful only when member may contain a directory name. (See <a href="https://www.gnu.org/software/make/manual/html_node/Archive-Members.html#Archive-Members">Archive Members as Targets</a>.) <br/>
+&nbsp; &nbsp; ‘$(&lt;D)’ &nbsp; &nbsp;‘$(&lt;F)’ <br/>
+The directory part and the file-within-directory part of the first prerequisite. <br/>
+&nbsp; &nbsp; ‘$(^D)’ &nbsp; &nbsp;‘$(^F)’ <br/>
+Lists of the directory parts and the file-within-directory parts of all prerequisites. <br/>
+&nbsp; &nbsp; ‘$(+D)’ &nbsp; &nbsp;‘$(+F)’ <br/>
+Lists of the directory parts and the file-within-directory parts of all prerequisites, including multiple instances of duplicated prerequisites. <br/>
+</i></b><b><i>&nbsp; &nbsp; ‘$(?D)’ &nbsp; &nbsp;‘$(?F)’ </i></b><br/>
+Lists of the directory parts and the file-within-directory parts of all prerequisites that are newer than the target. <br/>
+&nbsp; <br/>
+Note that we use a special stylistic convention when we talk about these automatic variables; we write “the value of ‘$&lt;’”, rather than “the variable &lt;” as we would write for ordinary variables such as objects and CFLAGS. We think this convention looks more natural in this special case. Please do not assume it has a deep significance; ‘$&lt;’ refers to the variable named &lt; just as ‘$(CFLAGS)’ refers to the variable named CFLAGS. You could just as well use ‘$(&lt;)’ in place of ‘$&lt;’. <br/>
+</span></body></html>

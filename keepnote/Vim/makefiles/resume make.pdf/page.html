@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Resume make.pdf</title>
+</head><body><ul><span style="font-size: 14pt"><li>Targets that do not refer to files but are just actions are called phony targets.</li>
+<li>In practice, we might want to write the rule in a somewhat more complicated manner</li>
+<li style="list-style-type: none"><ul><li style="list-style-type: none">to handle unanticipated situations. We would do this:&#09;</li>
+<li style="list-style-type: none">.PHONY : clean</li>
+<li style="list-style-type: none">clean :</li>
+<li style="list-style-type: none"><ul><li style="list-style-type: none">-rm edit $(objects)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li style="list-style-type: none">This prevents make from getting confused by an actual file called clean and causes it to</li>
+<li style="list-style-type: none">continue in spite of errors from rm. (See Section 4.5 [Phony Targets], page 29, and Section 5.5</li>
+<li style="list-style-type: none">[Errors in Recipes], page 49.)</li>
+<li style="list-style-type: none">A rule such as this should not be placed at the beginning of the makefile, because we do</li>
+<li style="list-style-type: none">not want it to run by default!</li>
+<li>Makefiles contain five kinds of things:<b>&nbsp;explicit rules, implicit rules, variable definitions,</b></li>
+<li style="list-style-type: none"><b>directives, and comments</b>. Rules, variables, and directives are described at length in later</li>
+<li style="list-style-type: none">chapters</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li><b>3.7 How make Reads a Makefile</b></li>
+<li style="list-style-type: none">GNU make does its work in two distinct phases. During the first phase it reads all the make-</li>
+<li style="list-style-type: none">files, included makefiles, etc. and internalizes all the variables and their values, implicit and</li>
+<li style="list-style-type: none">explicit rules, and constructs a dependency graph of all the targets and their prerequisites.</li>
+<li style="list-style-type: none">During the second phase, make uses these internal structures to determine what targets will</li>
+<li style="list-style-type: none">need to be rebuilt and to invoke the rules necessary to do so.</li>
+<li style="list-style-type: none">It’s important to understand this two-phase approach because it has a direct impact</li>
+<li style="list-style-type: none">on how variable and function expansion happens; this is often a source of some confusion</li>
+<li style="list-style-type: none">when writing makefiles. Here we will present a summary of the phases in which expansion</li>
+<li style="list-style-type: none">happens for different constructs within the makefile. We say that expansion is immediate if</li>
+<li style="list-style-type: none">it happens during the first phase: in this case make will expand any variables or functions</li>
+<li style="list-style-type: none">in that section of a construct as the makefile is parsed. We say that expansion is deferred if</li>
+<li style="list-style-type: none">expansion is not performed immediately. Expansion of a deferred construct is not performed</li>
+<li style="list-style-type: none">until either the construct appears later in an immediate context, or until the second phase.</li>
+<li style="list-style-type: none">You may not be familiar with some of these constructs yet. You can reference this section</li>
+<li style="list-style-type: none">as you become familiar with them, in later chapters.</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">Variable Assignment</li>
+<li style="list-style-type: none">Variable definitions are parsed as follows:</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">immediate= deferred</li>
+<li style="list-style-type: none">immediate?= deferred</li>
+<li style="list-style-type: none">immediate:= immediate</li>
+<li style="list-style-type: none">immediate::= immediate</li>
+<li style="list-style-type: none">immediate += deferred or immediate</li>
+<li style="list-style-type: none">immediate != immediate</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">define immediate</li>
+<li style="list-style-type: none">deferred</li>
+<li style="list-style-type: none">endef</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">define immediate =</li>
+<li style="list-style-type: none">deferred</li>
+<li style="list-style-type: none">endef</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">define immediate ?=</li>
+<li style="list-style-type: none">deferred</li>
+<li style="list-style-type: none">endef</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">define immediate :=</li>
+<li style="list-style-type: none">immediate</li>
+<li style="list-style-type: none">endef</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">define immediate ::=</li>
+<li style="list-style-type: none">immediate</li>
+<li style="list-style-type: none">endef</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">define immediate +=</li>
+<li style="list-style-type: none">deferred or immediate</li>
+<li style="list-style-type: none">endef</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">define immediate !=</li>
+<li style="list-style-type: none">immediate</li>
+<li style="list-style-type: none">endef</li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">For the append operator, ‘+=’, the right-hand side is considered immediate if the variable</li>
+<li style="list-style-type: none">was previously set as a simple variable (‘:=’ or ‘::=’), and deferred otherwise.</li>
+<li style="list-style-type: none">For the shell assignment operator, ‘!=’, the right-hand side is evaluated immediately and</li>
+<li style="list-style-type: none">handed to the shell. The result is stored in the variable named on the left, and t</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li>.SECONDEXPANSION:</li>
+<li style="list-style-type: none">AVAR = top</li>
+<li style="list-style-type: none">onefile: $(AVAR)</li>
+<li style="list-style-type: none">twofile: $$(AVAR)</li>
+<li style="list-style-type: none">AVAR = bottom</li>
+<li style="list-style-type: none"></li>
+<li>.SECONDEXPANSION:</li>
+<li>main_OBJS := main.o try.o test.o</li>
+<li>lib_OBJS := lib.o api.o</li>
+<li>main lib: $$($$@_OBJS)</li>
+<li>Here, after the initial expansion the prerequisites of both the main and lib targets will</li>
+<li>be $($@_OBJS). During the secondary expansion, the $@ variable is set to the name of the</li>
+<li>target and so the expansion for the main target will yield $(main_OBJS), or main.o try.o</li>
+<li>test.o, while the secondary expansion for the lib target will yield $(lib_OBJS), or lib.o</li>
+<li>api.o.</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</span></ul>
+<span style="font-size: 14pt"><ul><li>During the secondary expansion of explicit rules, $$@ and $$% evaluate, respectively, to the file name of the target and, when the target is an archive member, the target member name. </li>
+</ul>
+<ul><li>The $$&lt; variable evaluates to the first prerequisite in the first rule for this target. $$^ and $$+ evaluate to the list of all prerequisites of rules <i>that have already appeared</i>&nbsp;for the same target ($$+ with repetitions and $$^ without).</li>
+</ul>
+<ul><li>.SECONDEXPANSION: </li>
+</ul>
+<ul><li>foo: foo.1 bar.1 $$&lt; $$^ $$+ # line #1 foo: foo.2 bar.2 $$&lt; $$^ $$+ # line #2 foo: foo.3 bar.3 $$&lt; $$^ $$+ # line #3 </li>
+</ul>
+<ul><li>In the first prerequisite list, all three variables ($$&lt;, $$^, and $$+) expand to the empty string. In the second, they will have values foo.1, foo.1 bar.1, and foo.1 bar.1 respectively. In the third they will have values foo.1, foo.1 bar.1 foo.2 bar.2, and foo.1 bar.1 foo.2 bar.2 foo.1 foo.1 bar.1 foo.1 bar.1 respectively. </li>
+</ul>
+<ul><li>Rules undergo secondary expansion in makefile order, except that the rule with the recipe is always evaluated last. </li>
+</ul>
+<ul><li>The variables $$? and $$* are not available and expand to the empty string. </li>
+</ul>
+<ul><li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</ul>
+<br/>
+For example, <br/>
+&nbsp; vpath %.h ../headers &nbsp;<br/>
+tells make to look for any prerequisite whose name ends in .h in the directory ../headers if the file is not found in the current directory. <br/>
+&nbsp;<br/>
+If several vpath patterns match the prerequisite file’s name, then make processes each matching vpath directive one by one, searching all the directories mentioned in each directive. make handles multiple vpath directives in the order in which they appear in the makefile; multiple directives with the same pattern are independent of each other. <br/>
+&nbsp;<br/>
+Thus, <br/>
+&nbsp; vpath %.c foo vpath % blish vpath %.c bar &nbsp;<br/>
+will look for a file ending in ‘.c’ in foo, then blish, then bar, while <br/>
+&nbsp; vpath %.c foo:bar vpath % blish &nbsp;<br/>
+will look for a file ending in ‘.c’ in foo, then bar, then blish. </span><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</span></ul>
+</body></html>
