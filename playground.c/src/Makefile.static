@@ -1,0 +1,10 @@
+# objects = countlines.o fread.o getGwIPNl.o getGwIPRouteT.o
+files = getGwIPNl.elc fread.o countlines.o
+
+# all: $(objects)
+
+# $(objects): %.o: %.c
+	# $(CC) -c $(CFLAGS) $< -o $@
+
+$(filter %.o,$(files)): %.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@

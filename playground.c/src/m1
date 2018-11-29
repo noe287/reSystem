@@ -1,0 +1,3 @@
+#; will lead not to compile the target
+#ifname: ifname.c;
+ifname: ifname.c

@@ -2,13 +2,13 @@
 <node>
 <version>6</version>
 <dict>
-  <key>expanded</key><true/>
-  <key>title</key><string>Cloud-devel</string>
-  <key>nodeid</key><string>3287b938-ce86-4fa1-874d-f1d0bcacebe3</string>
-  <key>modified_time</key><integer>1528376362</integer>
+  <key>expanded</key><false/>
+  <key>title</key><string>Debugging</string>
+  <key>nodeid</key><string>19c2986b-c7d6-4a86-b535-960c5791f9ad</string>
+  <key>modified_time</key><integer>1528376269</integer>
   <key>version</key><integer>6</integer>
   <key>content_type</key><string>application/x-notebook-dir</string>
-  <key>created_time</key><integer>1528376362</integer>
+  <key>created_time</key><integer>1528376269</integer>
   <key>info_sort_dir</key><integer>1</integer>
   <key>order</key><integer>4</integer>
   <key>info_sort</key><string>order</string>

@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Node info from Server</title>
+</head><body><span style="font-size: 17pt"><span style="font-family: wf_segoe-ui_normal">&nbsp; <br/>
+<b>Bu mailin üzerine Mehmet bu dosyalar içinden awk ile birlikte sorgulanabilecek dataların enum değerlerini içeren bir mail daha attı:</b><br/>
+<br/>
+     1 id <br/>
+&nbsp;     2 srv_pid      3 srv_ip      4 srv_mac      5 srv_bootid      6 srv_datetime      7 srv_uptime      8 srv_realtime      9 type     10 uptime     11 ownaddr     12 ownaddr2g     13 ipaddr     14 gw     15 fwversion     16 cca     17 cca2g     18 channel     19 channel2g     20 dev     21 mac     22 qual     23 rssi     24 rxpr     25 txpr     26 mrxpr     27 mtxpr     28 rxbytes     29 txbytes     30 rxmcast     31 band     32 lastseen     33 nss     34 srv_serial <br/>
+<br/>
+<br/>
+Çok detay veren bir tablo değil, ama 11,12 ve 21'i çok kullanırsınız dedi. 11 cihazın 5G MAC adresi, 12 2.4G MAC adresi ve 21 de mesh peer'ların MAC adresi. Buradan yola çıkarak cihazın Mesh peer'larının MAC adresleri için gereken sorgu için 21(mac) sorgulamamız gerekiyor:<br/>
+<br/>
+<b>cat topology-c03e0f553b31-3d.csv | grep mesh | awk -F'\t' '{print $8,$21}'</b><br/>
+&nbsp; &nbsp;</span></span></body></html>

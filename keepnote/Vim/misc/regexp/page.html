@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Regexp</title>
+</head><body><span style="font-size: 24pt">1) /(fizz|)(buzz|)/g<br/>
+matches: fizz, buzz and fizzbuzz<br/>
+<br/>
+2) flags:<ul><li style="list-style-type: none"><ul><li style="list-style-type: none">i: case sensitive</li>
+<li style="list-style-type: none">gs - s flag leads to matching line breaks '\n'</li>
+</ul>
+</li>
+</ul>
+<br/>
+3)<br/>
+Matching atleast 2a's.<br/>
+/a{2,}noea{2,}noe/g<br/>
+aaaanoeaaanoe<br/>
+{n} = n times<br/>
+{m,n} = at least m times but no more than n times<br/>
+{m,} = at least m times<br/>
+<br/>
+a+: from once to infinity<br/>
+a?: matches the a if it exists but only the empty string if it does not.<br/>
+a*: 0 to initinity empty string is also matched<br/>
+a{0,}: matches 0 to infinity also the empty string<br/>
+<br/>
+* = {0, }<br/>
++ = {1,}<br/>
+?= {0,1} may be nothing is matched<br/>
+<br/>
+/regexp?/g<br/>
+matches both regex and regexp as p is optional<br/>
+<br/>
+4) /&lt;.+?&gt;/g<br/>
+&lt;p&gt;foo&lt;/p&gt;<br/>
+matches only the &lt;p&gt; but if "?" removed it will match the whole string as it tries to match as much as it can in a string.<br/>
+<br/>
+5) /[abc]+/<br/>
+matches any number of these characters<br/>
+</span><br/>
+<span style="font-size: 24pt">6) /[a-z]+/<br/>
+matches all the letters. Does not match numbers or symbols.<br/>
+</span><br/>
+<span style="font-size: 24pt">7) /[a-z0-9_]+/<br/>
+matches all the letters&amp;numbers and underscore.<br/>
+<br/>
+8) \w means : letters, numbers and underscore both upper and lower cases. Not unicode aware, i.e not greek letters (no whitespace).<br/>
+<br/>
+\w = [a-zA-Z0-9_]<br/>
+\w- = word char class + hyphen<br/>
+\d = [0-9] &nbsp;any interger no decimals<br/>
+\s ~ [\t\r\n ] &nbsp; &nbsp;any kind of whitespace and unicode aware. Any weird whitespace that unicode contains.<br/>
+\w+ = any \w multiple chars.<br/>
+<br/>
+\W = [^\w] matches negation of letters, numbers or underscore.<br/>
+&nbsp; &nbsp; &nbsp; Negation<br/>
+\D = [^\d] matches negation of any integer<br/>
+&nbsp; &nbsp; &nbsp; Negation<br/>
+\S = [^\s] matches everything but whitespace.<br/>
+<br/>
+Ex: /^#([a-f\d]{3}){1,2}$/g<br/>
+matches :<br/>
+"#cdfFFa6" any 3 or 6 digit hex number.<br/>
+<br/>
+9) Paranthesis is grouping queries and | is for or'ing.<br/>
+Paranthesis is also capturing not only grouping<br/>
+<br/>
+Ex: /c(ab|ba)/g --&gt;&gt; either ab or ba is matched.afads<br/>
+Say we have a string: cab . The above rule will match and store both<br/>
+cab an ab.<br/>
+<br/>
+Ex: /(JAVA|ECMA)Script/g<br/>
+"JAVASCRIPT"<br/>
+<br/>
+((\d){1,3}\.){3}\d{1,3} - &nbsp;matches an ip address.<br/>
+194.168.2.147<br/>
+<br/>
+<br/>
+</span><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>
