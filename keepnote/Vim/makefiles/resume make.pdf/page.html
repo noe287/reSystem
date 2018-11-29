@@ -98,12 +98,10 @@
 <li>test.o, while the secondary expansion for the lib target will yield $(lib_OBJS), or lib.o</li>
 <li>api.o.</li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li>During the secondary expansion of explicit rules, $$@ and $$% evaluate, respectively, to the file name of the target and, when the target is an archive member, the target member name. </li>
+<li>The $$&lt; variable evaluates to the first prerequisite in the first rule for this target. $$^ and $$+ evaluate to the list of all prerequisites of rules <i>that have already appeared</i>&nbsp;for the same target ($$+ with repetitions and $$^ without).</li>
 </span></ul>
-<span style="font-size: 14pt"><ul><li>During the secondary expansion of explicit rules, $$@ and $$% evaluate, respectively, to the file name of the target and, when the target is an archive member, the target member name. </li>
-</ul>
-<ul><li>The $$&lt; variable evaluates to the first prerequisite in the first rule for this target. $$^ and $$+ evaluate to the list of all prerequisites of rules <i>that have already appeared</i>&nbsp;for the same target ($$+ with repetitions and $$^ without).</li>
-</ul>
-<ul><li>.SECONDEXPANSION: </li>
+<span style="font-size: 14pt"><ul><li>.SECONDEXPANSION: </li>
 </ul>
 <ul><li>foo: foo.1 bar.1 $$&lt; $$^ $$+ # line #1 foo: foo.2 bar.2 $$&lt; $$^ $$+ # line #2 foo: foo.3 bar.3 $$&lt; $$^ $$+ # line #3 </li>
 </ul>
@@ -126,20 +124,307 @@ Thus, <br/>
 &nbsp; vpath %.c foo vpath % blish vpath %.c bar &nbsp;<br/>
 will look for a file ending in ‘.c’ in foo, then blish, then bar, while <br/>
 &nbsp; vpath %.c foo:bar vpath % blish &nbsp;<br/>
-will look for a file ending in ‘.c’ in foo, then bar, then blish. </span><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
+</span><span style="font-size: 14pt">will look for a file ending in ‘.c’ in foo, then bar, then blish. </span><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</span></ul>
+<span style="font-size: 15pt"><b>6.3.1 Substitution References &nbsp; &nbsp; &nbsp; </b><br/>
+A <i>substitution reference</i>&nbsp;substitutes the value of a variable with alterations that you specify. It has the form ‘$(var:a=b)’ (or ‘${var:a=b}’) and its meaning is to take the value of the variable var, replace every a at the end of a word with b in that value, and substitute the resulting string. <br/>
+&nbsp;<br/>
+When we say “at the end of a word”, we mean that a must appear either followed by whitespace or at the end of the value in order to be replaced; other occurrences of a in the value are unaltered. For example: <br/>
+foo := a.o b.o c.o <br/>
+bar := $(foo:.o=.c) &nbsp;<br/>
+</span><span style="font-size: 15pt">sets ‘bar’ to ‘a.c b.c c.c’.</span><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
+</span></ul>
+<span style="font-size: 15pt"><br/>
+Another type of substitution reference lets you use the full power of the patsubst function. It has the same form ‘$(var:a=b)’ described above, except that now a must contain a single ‘%’ character. This case is equivalent to<b>&nbsp;‘$(patsubst a,b,$(var))’</b>. See <a href="https://www.gnu.org/software/make/manual/html_node/Text-Functions.html#Text-Functions">Functions for String Substitution and Analysis</a>, for a description of the patsubst function. <br/>
+&nbsp; For example: &nbsp;<br/>
+foo := a.o b.o c.o <br/>
+bar := $(foo:%.o=%.c) &nbsp;<br/>
+</span><span style="font-size: 15pt">sets ‘bar’ to ‘a.c b.c c.c’. </span><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</span></ul>
+<span style="font-size: 18pt"><b>6.6 Appending More Text to Variables &nbsp; &nbsp;</b><br/>
+<br/>
+Often it is useful to add more text to the value of a variable already defined. You do this with a line containing ‘+=’, like this: <br/>
+&nbsp; objects += another.o &nbsp;<br/>
+<br/>
+This takes the value of the variable objects, and adds the text ‘another.o’ to it (preceded by a single space). Thus: <br/>
+objects = main.o foo.o bar.o utils.o <br/>
+objects += another.o &nbsp;<br/>
+<br/>
+sets objects to ‘main.o foo.o bar.o utils.o another.o’. <br/>
+&nbsp;<br/>
+Using ‘+=’ is similar to: <br/>
+&nbsp; objects = main.o foo.o bar.o utils.o <br/>
+&nbsp; objects := $(objects) another.o &nbsp;<br/>
+but differs in ways that become important when you use more complex values. <br/>
+&nbsp;<br/>
+When the variable in question has not been defined before, ‘+=’ acts just like normal ‘=’: it defines a recursively-expanded variable. However, when there <i>is</i>&nbsp;a previous definition, exactly what ‘+=’ does depends on what flavor of variable you defined originally. See <a href="https://www.gnu.org/software/make/manual/html_node/Flavors.html#Flavors">The Two Flavors of Variables</a>, for an explanation of the two flavors of variables. <br/>
+&nbsp;<br/>
+When you add to a variable’s value with ‘+=’, make acts essentially as if you had included the extra text in the initial definition of the variable. If you defined it first with ‘:=’ or ‘::=’, making it a simply-expanded variable, ‘+=’ adds to that simply-expanded definition, and expands the new text before appending it to the old value just as ‘:=’ does (see <a href="https://www.gnu.org/software/make/manual/html_node/Setting.html#Setting">Setting Variables</a>, for a full explanation of ‘:=’ or ‘::=’). In fact, <br/>
+&nbsp; variable := value <br/>
+&nbsp; variable += more &nbsp;<br/>
+<br/>
+is exactly equivalent to: <br/>
+<br/>
+&nbsp; variable := value <br/>
+&nbsp; variable := $(variable) more &nbsp;<br/>
+<br/>
+On the other hand, when you use ‘+=’ with a variable that you defined first to be recursively-expanded using plain ‘=’, make does something a bit different. Recall that when you define a recursively-expanded variable, make does not expand the value you set for variable and function references immediately. Instead it stores the text verbatim, and saves these variable and function references to be expanded later, when you refer to the new variable (see <a href="https://www.gnu.org/software/make/manual/html_node/Flavors.html#Flavors">The Two Flavors of Variables</a>). When you use ‘+=’ on a recursively-expanded variable, it is this unexpanded text to which make appends the new text you specify. <br/>
+<br/>
+&nbsp; variable = value <br/>
+&nbsp; variable += more &nbsp;<br/>
+is roughly equivalent to: <br/>
+&nbsp; temp = value <br/>
+&nbsp; variable = $(temp) more &nbsp;<br/>
+<br/>
+except that of course it never defines a variable called temp. The importance of this comes when the variable’s old value contains variable references. Take this common example: <br/>
+<br/>
+&nbsp; CFLAGS = $(includes) -O … <br/>
+&nbsp; CFLAGS += -pg # enable profiling &nbsp;<br/>
+<br/>
+The first line defines the CFLAGS variable with a reference to another variable, includes. (CFLAGS is used by the rules for C compilation; see <a href="https://www.gnu.org/software/make/manual/html_node/Catalogue-of-Rules.html#Catalogue-of-Rules">Catalogue of Built-In Rules</a>.) Using ‘=’ for the definition makes CFLAGS a recursively-expanded variable, meaning ‘$(includes) -O’ is <i>not</i>&nbsp;expanded when make processes the definition of CFLAGS. Thus, includes need not be defined yet for its value to take effect. It only has to be defined before any reference to CFLAGS. If we tried to append to the value of CFLAGS without using ‘+=’, we might do it like this: <br/>
+&nbsp; <br/>
+CFLAGS := $(CFLAGS) -pg # enable profiling &nbsp;<br/>
+<br/>
+</span><span style="font-size: 18pt">This is pretty close, but not quite what we want. Using ‘:=’ redefines CFLAGS as a simply-expanded variable; this means make expands the text ‘$(CFLAGS) -pg’ before setting the variable. If includes is not yet defined, we get ‘ -O -pg’, and a later definition of includes will have no effect. Conversely, by using ‘+=’ we set CFLAGS to the <i>unexpanded</i>&nbsp;value ‘$(includes) -O -pg’. Thus we preserve the reference to includes, so if that variable gets defined at any later point, a reference like ‘$(CFLAGS)’ still uses its value. </span><br/>
+<ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none"></li>
+</span></ul>
+<br/>
+<span style="font-size: 15pt">There is one more special feature of target-specific variables: when you define a target-specific variable that variable value is also in effect for all prerequisites of this target, and all their prerequisites, etc. (unless those prerequisites override that variable with their own target-specific variable value). So, for example, a statement like this: <br/>
+&nbsp; prog : CFLAGS = -g <br/>
+&nbsp; prog : prog.o foo.o bar.o &nbsp;<br/>
+</span><span style="font-size: 15pt">will set CFLAGS to ‘-g’ in the recipe for prog, but it will also set CFLAGS to ‘-g’ in the recipes that create prog.o, foo.o, and bar.o, and any recipes which create their prerequisites. </span><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</span></ul>
+<span style="font-size: 16pt">ifeq ($(strip $(foo)),) <br/>
+text-if-empty <br/>
+endif<br/>
+</span><ul><span style="font-size: 14pt"><li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</span></ul>
+<span style="font-size: 16pt"><br/>
+For example, you might have a list of object files: <br/>
+&nbsp; objects = foo.o bar.o baz.o &nbsp;<br/>
+<br/>
+To get the list of corresponding source files, you could simply write: <br/>
+&nbsp; $(objects:.o=.c) &nbsp;<br/>
+<br/>
+instead of using the general form: <br/>
+</span><span style="font-size: 16pt">&nbsp; $(patsubst %.o,%.c,$(objects)) </span><ul><span style="font-size: 14pt"><li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</span></ul>
+<br/>
+<span style="font-size: 15pt">The filter function can be used to separate out different types of strings (such as file names) in a variable. For example: <br/>
+&nbsp;sources := foo.c bar.c baz.s ugh.h <br/>
+foo: $(sources) <br/>
+cc $(filter %.c %.s,$(sources)) -o foo &nbsp;<br/>
+<br/>
+</span><span style="font-size: 15pt">says that foo depends of foo.c, bar.c, baz.s and ugh.h but only foo.c, bar.c and baz.s should be specified in the command to the compiler. </span><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</span></ul>
+<br/>
+<span style="font-size: 15pt">&nbsp;Thus, the two examples, <br/>
+&nbsp; $(findstring a,a b c) <br/>
+$(findstring a,b c) &nbsp;<br/>
+<br/>
+</span><span style="font-size: 15pt">produce the values ‘a’ and ‘’ (the empty string), respectively. See <a href="https://www.gnu.org/software/make/manual/html_node/Testing-Flags.html#Testing-Flags">Testing Flags</a>, for a practical application of findstring. </span><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none"></li>
+</span></ul>
+<span style="font-size: 16pt">$(filter-out pattern…,text) &nbsp; &nbsp;<br/>
+Returns all whitespace-separated words in text that <i>do not</i>&nbsp;match any of the pattern words, removing the words that <i>do</i>&nbsp;match one or more. This is the exact opposite of the filter function. <br/>
+&nbsp;<br/>
+For example, given: <br/>
+&nbsp; objects=main1.o foo.o main2.o bar.o <br/>
+mains=main1.o main2.o &nbsp;<br/>
+<br/>
+the following generates a list which contains all the object files not in ‘mains’: <br/>
+</span><span style="font-size: 16pt">&nbsp; $(filter-out $(mains),$(objects)) </span><ul><span style="font-size: 14pt"><li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</span></ul>
+<br/>
+<span style="font-size: 18pt">The value of VPATH is a list of directories separated by colons, such as ‘src:../headers’. First, the subst function is used to change the colons to spaces: <br/>
+&nbsp; $(subst :, ,$(VPATH)) &nbsp;<br/>
+<br/>
+This produces ‘src ../headers’. Then patsubst is used to turn each directory name into a ‘-I’ flag. These can be added to the value of the variable CFLAGS, which is passed automatically to the C compiler, like this: <br/>
+&nbsp; override CFLAGS += $(patsubst %,-I%,$(subst :, ,$(VPATH)))<br/>
+&nbsp; <br/>
+</span><span style="font-size: 18pt">The effect is to append the text ‘-Isrc -I../headers’ to the previously given value of CFLAGS. The override directive is used so that the new value is assigned even if the previous value of CFLAGS was specified with a command argument (see <a href="https://www.gnu.org/software/make/manual/html_node/Override-Directive.html#Override-Directive">The override Directive</a>). </span><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</span></ul>
+<span style="font-size: 20pt">&nbsp;$(dir src/foo.c hacks) &nbsp;<br/>
+produces the result ‘src/ ./’. <br/>
+<br/>
+&nbsp; $(notdir src/foo.c hacks) &nbsp;<br/>
+produces the result ‘foo.c hacks’. <br/>
+<br/>
+&nbsp;$(suffix src/foo.c src-1.0/bar.c hacks) &nbsp;<br/>
+produces the result ‘.c .c’. <br/>
+<br/>
+&nbsp;$(basename src/foo.c src-1.0/bar hacks) &nbsp;<br/>
+produces the result ‘src/foo src-1.0/bar hacks’. <br/>
+<br/>
+&nbsp;$(addsuffix .c,foo bar) &nbsp;<br/>
+produces the result ‘foo.c bar.c’. <br/>
+<br/>
+&nbsp;$(addprefix src/,foo bar) &nbsp;<br/>
+produces the result ‘src/foo src/bar’. <br/>
+<br/>
+For example, ‘$(join a b,.c .o)’ produces ‘a.c b.o’. <br/>
+<br/>
+Whitespace between the words in the lists is not preserved; it is replaced with a single space. <br/>
+<br/>
+&nbsp;If you use the value of objects in a recipe, the shell may perform wildcard expansion when the recipe runs. To set objects to the expansion, instead use: <br/>
+&nbsp; objects := $(wildcard *.o) <br/>
+<br/>
+$(patsubst %.c,%.o,$(wildcard *.c))<br/>
+<br/>
+objects := $(patsubst %.c,%.o,$(wildcard *.c)) foo : $(objects) cc -o foo $(objects)<ul><li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</ul>
+<b>8.5 The foreach Function &nbsp; </b><br/>
+The foreach function is very different from other functions. It causes one piece of text to be used repeatedly, each time with a different substitution performed on it. It resembles the for command in the shell sh and the foreach command in the C-shell csh. <br/>
+&nbsp;<br/>
+The syntax of the foreach function is: <br/>
+&nbsp; $(foreach var,list,text) &nbsp;<br/>
+<br/>
+The first two arguments, var and list, are expanded before anything else is done; note that the last argument, text, is <b>not</b>&nbsp;expanded at the same time. Then for each word of the expanded value of list, the variable named by the expanded value of var is set to that word, and text is expanded. Presumably text contains references to that variable, so its expansion will be different each time. <br/>
+&nbsp;<br/>
+The result is that text is expanded as many times as there are whitespace-separated words in list. The multiple expansions of text are concatenated, with spaces between them, to make the result of foreach. <br/>
+&nbsp;<br/>
+This simple example sets the variable ‘files’ to the list of all files in the directories in the list ‘dirs’: <br/>
+&nbsp; dirs := a b c d <br/>
+&nbsp; files := $(foreach dir,$(dirs),$(wildcard $(dir)/*)) &nbsp;<br/>
+<br/>
+Here text is ‘$(wildcard $(dir)/*)’. The first repetition finds the value ‘a’ for dir, so it produces the same result as ‘$(wildcard a/*)’; the second repetition produces the result of ‘$(wildcard b/*)’; and the third, that of ‘$(wildcard c/*)’. <br/>
+&nbsp;<br/>
+This example has the same result (except for setting ‘dirs’) as the following example: <br/>
+<br/>
+&nbsp; files := $(wildcard a/* b/* c/* d/*) &nbsp;<br/>
+<br/>
+When text is complicated, you can improve readability by giving it a name, with an additional variable: <br/>
+<br/>
+&nbsp; find_files = $(wildcard $(dir)/*) <br/>
+&nbsp; dirs := a b c d <br/>
+&nbsp; files := $(foreach dir,$(dirs),$(find_files)) &nbsp;<br/>
+<br/>
+Here we use the variable find_files this way. We use plain ‘=’ to define a recursively-expanding variable, so that its value contains an actual function call to be re-expanded under the control of foreach; a simply-expanded variable would not do, since wildcard would be called only once at the time of defining find_files. <ul><li style="list-style-type: none"></li>
+</ul>
+<br/>
+This macro simply reverses its arguments: <br/>
+<br/>
+&nbsp;reverse = $(2) $(1) <br/>
+foo = $(call reverse,a,b) &nbsp;<br/>
+<br/>
+Here foo will contain ‘b a’. <br/>
+<br/>
+This one is slightly more interesting: it defines a macro to search for the first instance of a program in PATH: <br/>
+<br/>
+pathsearch = $(firstword $(wildcard $(addsuffix /$(1),$(subst :, ,$(PATH))))) <br/>
+LS := $(call pathsearch,ls) &nbsp;<br/>
+<br/>
+Now the variable LS contains /bin/ls or similar. </span><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
-<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
-<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
-<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
-<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
-<li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none"></li>
+</span></ul>
+&nbsp; &nbsp;<br/>
+&nbsp;Previous: <a href="https://www.gnu.org/software/make/manual/html_node/Testing.html#Testing">Testing</a>, Up: <a href="https://www.gnu.org/software/make/manual/html_node/Running.html#Running">Running</a>&nbsp;  [<a href="https://www.gnu.org/software/make/manual/html_node/index.html#SEC_Contents">Contents</a>][<a href="https://www.gnu.org/software/make/manual/html_node/Concept-Index.html#Concept-Index">Index</a>]<br/>
+&nbsp; <hr/><b>&nbsp;<span style="font-size: 16pt">&nbsp;9.7 Summary of Options &nbsp; &nbsp;</span></b><span style="font-size: 16pt"><br/>
+</span><span style="font-size: 16pt">Here is a table of all the options make understands: <br/>
+&nbsp; ‘-b’ &nbsp; ‘-m’ &nbsp;<br/>
+These options are ignored for compatibility with other versions of make. <br/>
+&nbsp; ‘-B’ &nbsp; ‘--always-make’ &nbsp;<br/>
+Consider all targets out-of-date. GNU make proceeds to consider targets and their prerequisites using the normal algorithms; however, all targets so considered are always remade regardless of the status of their prerequisites. To avoid infinite recursion, if MAKE_RESTARTS (see <a href="https://www.gnu.org/software/make/manual/html_node/Special-Variables.html#Special-Variables">Other Special Variables</a>) is set to a number greater than 0 this option is disabled when considering whether to remake makefiles (see <a href="https://www.gnu.org/software/make/manual/html_node/Remaking-Makefiles.html#Remaking-Makefiles">How Makefiles Are Remade</a>). <br/>
+&nbsp; ‘-C dir’ &nbsp; ‘--directory=dir’ &nbsp;<br/>
+Change to directory dir before reading the makefiles. If multiple ‘-C’ options are specified, each is interpreted relative to the previous one: ‘-C / -C etc’ is equivalent to ‘-C /etc’. This is typically used with recursive invocations of make (see <a href="https://www.gnu.org/software/make/manual/html_node/Recursion.html#Recursion">Recursive Use of make</a>). <br/>
+&nbsp; ‘-d’ &nbsp;<br/>
+Print debugging information in addition to normal processing. The debugging information says which files are being considered for remaking, which file-times are being compared and with what results, which files actually need to be remade, which implicit rules are considered and which are applied—everything interesting about how make decides what to do. The -d option is equivalent to ‘--debug=a’ (see below). <br/>
+&nbsp; ‘--debug[=options]’ &nbsp;<br/>
+Print debugging information in addition to normal processing. Various levels and types of output can be chosen. With no arguments, print the “basic” level of debugging. Possible arguments are below; only the first character is considered, and values must be comma- or space-separated. <br/>
+&nbsp; a (<i>all</i>) <br/>
+All types of debugging output are enabled. This is equivalent to using ‘-d’. <br/>
+&nbsp; b (<i>basic</i>) <br/>
+Basic debugging prints each target that was found to be out-of-date, and whether the build was successful or not. <br/>
+&nbsp; v (<i>verbose</i>) <br/>
+A level above ‘basic’; includes messages about which makefiles were parsed, prerequisites that did not need to be rebuilt, etc. This option also enables ‘basic’ messages. <br/>
+&nbsp; i (<i>implicit</i>) <br/>
+Prints messages describing the implicit rule searches for each target. This option also enables ‘basic’ messages. <br/>
+&nbsp; j (<i>jobs</i>) <br/>
+Prints messages giving details on the invocation of specific sub-commands. <br/>
+&nbsp; m (<i>makefile</i>) <br/>
+By default, the above messages are not enabled while trying to remake the makefiles. This option enables messages while rebuilding makefiles, too. Note that the ‘all’ option does enable this option. This option also enables ‘basic’ messages. <br/>
+&nbsp; n (<i>none</i>) <br/>
+Disable all debugging currently enabled. If additional debugging flags are encountered after this they will still take effect. <br/>
+&nbsp; &nbsp;‘-e’ &nbsp; ‘--environment-overrides’ &nbsp;<br/>
+Give variables taken from the environment precedence over variables from makefiles. See <a href="https://www.gnu.org/software/make/manual/html_node/Environment.html#Environment">Variables from the Environment</a>. <br/>
+&nbsp; ‘--eval=string’ &nbsp;<br/>
+Evaluate string as makefile syntax. This is a command-line version of the eval function (see <a href="https://www.gnu.org/software/make/manual/html_node/Eval-Function.html#Eval-Function">Eval Function</a>). The evaluation is performed after the default rules and variables have been defined, but before any makefiles are read. <br/>
+&nbsp; ‘-f file’ &nbsp; ‘--file=file’ &nbsp; ‘--makefile=file’ &nbsp;<br/>
+Read the file named file as a makefile. See <a href="https://www.gnu.org/software/make/manual/html_node/Makefiles.html#Makefiles">Writing Makefiles</a>. <br/>
+&nbsp; ‘-h’ &nbsp; ‘--help’ &nbsp;<br/>
+Remind you of the options that make understands and then exit. <br/>
+&nbsp; ‘-i’ &nbsp; ‘--ignore-errors’ &nbsp;<br/>
+Ignore all errors in recipes executed to remake files. See <a href="https://www.gnu.org/software/make/manual/html_node/Errors.html#Errors">Errors in Recipes</a>. <br/>
+&nbsp; ‘-I dir’ &nbsp; ‘--include-dir=dir’ &nbsp;<br/>
+Specifies a directory dir to search for included makefiles. See <a href="https://www.gnu.org/software/make/manual/html_node/Include.html#Include">Including Other Makefiles</a>. If several ‘-I’ options are used to specify several directories, the directories are searched in the order specified. <br/>
+&nbsp; ‘-j [jobs]’ &nbsp; ‘--jobs[=jobs]’ &nbsp;<br/>
+Specifies the number of recipes (jobs) to run simultaneously. With no argument, make runs as many recipes simultaneously as possible. If there is more than one ‘-j’ option, the last one is effective. See <a href="https://www.gnu.org/software/make/manual/html_node/Parallel.html#Parallel">Parallel Execution</a>, for more information on how recipes are run. Note that this option is ignored on MS-DOS. <br/>
+&nbsp; ‘-k’ &nbsp; ‘--keep-going’ &nbsp;<br/>
+Continue as much as possible after an error. While the target that failed, and those that depend on it, cannot be remade, the other prerequisites of these targets can be processed all the same. See <a href="https://www.gnu.org/software/make/manual/html_node/Testing.html#Testing">Testing the Compilation of a Program</a>. <br/>
+&nbsp; ‘-l [load]’ &nbsp; ‘--load-average[=load]’ &nbsp; ‘--max-load[=load]’ &nbsp;<br/>
+Specifies that no new recipes should be started if there are other recipes running and the load average is at least load (a floating-point number). With no argument, removes a previous load limit. See <a href="https://www.gnu.org/software/make/manual/html_node/Parallel.html#Parallel">Parallel Execution</a>. <br/>
+&nbsp; ‘-L’ &nbsp; ‘--check-symlink-times’ &nbsp;<br/>
+On systems that support symbolic links, this option causes make to consider the timestamps on any symbolic links in addition to the timestamp on the file referenced by those links. When this option is provided, the most recent timestamp among the file and the symbolic links is taken as the modification time for this target file. <br/>
+&nbsp; ‘-n’ &nbsp; ‘--just-print’ &nbsp; ‘--dry-run’ &nbsp; ‘--recon’ &nbsp;<br/>
+Print the recipe that would be executed, but do not execute it (except in certain circumstances). See <a href="https://www.gnu.org/software/make/manual/html_node/Instead-of-Execution.html#Instead-of-Execution">Instead of Executing Recipes</a>. <br/>
+&nbsp; ‘-o file’ &nbsp; ‘--old-file=file’ &nbsp; ‘--assume-old=file’ &nbsp;<br/>
+Do not remake the file file even if it is older than its prerequisites, and do not remake anything on account of changes in file. Essentially the file is treated as very old and its rules are ignored. See <a href="https://www.gnu.org/software/make/manual/html_node/Avoiding-Compilation.html#Avoiding-Compilation">Avoiding Recompilation of Some Files</a>. <br/>
+&nbsp; ‘-O[type]’ &nbsp; ‘--output-sync[=type]’ &nbsp; &nbsp;<br/>
+Ensure that the complete output from each recipe is printed in one uninterrupted sequence. This option is only useful when using the --jobs option to run multiple recipes simultaneously (see <a href="https://www.gnu.org/software/make/manual/html_node/Parallel.html#Parallel">Parallel Execution</a>) Without this option output will be displayed as it is generated by the recipes. <br/>
+&nbsp;<br/>
+With no type or the type ‘target’, output from the entire recipe of each target is grouped together. With the type ‘line’, output from each line in the recipe is grouped together. With the type ‘recurse’, the output from an entire recursive make is grouped together. With the type ‘none’, no output synchronization is performed. See <a href="https://www.gnu.org/software/make/manual/html_node/Parallel-Output.html#Parallel-Output">Output During Parallel Execution</a>. <br/>
+&nbsp; ‘-p’ &nbsp; ‘--print-data-base’ &nbsp; &nbsp;<br/>
+Print the data base (rules and variable values) that results from reading the makefiles; then execute as usual or as otherwise specified. This also prints the version information given by the ‘-v’ switch (see below). To print the data base without trying to remake any files, use ‘make -qp’. To print the data base of predefined rules and variables, use ‘make -p -f /dev/null’. The data base output contains file name and line number information for recipe and variable definitions, so it can be a useful debugging tool in complex environments. <br/>
+&nbsp; ‘-q’ &nbsp; ‘--question’ &nbsp;<br/>
+“Question mode”. Do not run any recipes, or print anything; just return an exit status that is zero if the specified targets are already up to date, one if any remaking is required, or two if an error is encountered. See <a href="https://www.gnu.org/software/make/manual/html_node/Instead-of-Execution.html#Instead-of-Execution">Instead of Executing Recipes</a>. <br/>
+&nbsp; ‘-r’ &nbsp; ‘--no-builtin-rules’ &nbsp;<br/>
+Eliminate use of the built-in implicit rules (see <a href="https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html#Implicit-Rules">Using Implicit Rules</a>). You can still define your own by writing pattern rules (see <a href="https://www.gnu.org/software/make/manual/html_node/Pattern-Rules.html#Pattern-Rules">Defining and Redefining Pattern Rules</a>). The ‘-r’ option also clears out the default list of suffixes for suffix rules (see <a href="https://www.gnu.org/software/make/manual/html_node/Suffix-Rules.html#Suffix-Rules">Old-Fashioned Suffix Rules</a>). But you can still define your own suffixes with a rule for .SUFFIXES, and then define your own suffix rules. Note that only <i>rules</i>&nbsp;are affected by the -r option; default variables remain in effect (see <a href="https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables">Variables Used by Implicit Rules</a>); see the ‘-R’ option below. <br/>
+&nbsp; ‘-R’ &nbsp; ‘--no-builtin-variables’ &nbsp;<br/>
+Eliminate use of the built-in rule-specific variables (see <a href="https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables">Variables Used by Implicit Rules</a>). You can still define your own, of course. The ‘-R’ option also automatically enables the ‘-r’ option (see above), since it doesn’t make sense to have implicit rules without any definitions for the variables that they use. <br/>
+&nbsp; ‘-s’ &nbsp; ‘--silent’ &nbsp; ‘--quiet’ &nbsp;<br/>
+Silent operation; do not print the recipes as they are executed. See <a href="https://www.gnu.org/software/make/manual/html_node/Echoing.html#Echoing">Recipe Echoing</a>. <br/>
+&nbsp; ‘-S’ &nbsp; ‘--no-keep-going’ &nbsp; ‘--stop’ &nbsp;<br/>
+Cancel the effect of the ‘-k’ option. This is never necessary except in a recursive make where ‘-k’ might be inherited from the top-level make via MAKEFLAGS (see <a href="https://www.gnu.org/software/make/manual/html_node/Recursion.html#Recursion">Recursive Use of make</a>) or if you set ‘-k’ in MAKEFLAGS in your environment. <br/>
+&nbsp; ‘-t’ &nbsp; ‘--touch’ &nbsp;<br/>
+Touch files (mark them up to date without really changing them) instead of running their recipes. This is used to pretend that the recipes were done, in order to fool future invocations of make. See <a href="https://www.gnu.org/software/make/manual/html_node/Instead-of-Execution.html#Instead-of-Execution">Instead of Executing Recipes</a>. <br/>
+&nbsp; ‘--trace’ &nbsp;<br/>
+Show tracing information for make execution. Prints the entire recipe to be executed, even for recipes that are normally silent (due to .SILENT or ‘@’). Also prints the makefile name and line number where the recipe was defined, and information on why the target is being rebuilt. <br/>
+&nbsp; ‘-v’ &nbsp; ‘--version’ &nbsp;<br/>
+Print the version of the make program plus a copyright, a list of authors, and a notice that there is no warranty; then exit. <br/>
+&nbsp; ‘-w’ &nbsp; ‘--print-directory’ &nbsp;<br/>
+Print a message containing the working directory both before and after executing the makefile. This may be useful for tracking down errors from complicated nests of recursive make commands. See <a href="https://www.gnu.org/software/make/manual/html_node/Recursion.html#Recursion">Recursive Use of make</a>. (In practice, you rarely need to specify this option since ‘make’ does it for you; see <a href="https://www.gnu.org/software/make/manual/html_node/_002dw-Option.html#g_t_002dw-Option">The ‘--print-directory’ Option</a>.) <br/>
+&nbsp; ‘--no-print-directory’ &nbsp;<br/>
+Disable printing of the working directory under -w. This option is useful when -w is turned on automatically, but you do not want to see the extra messages. See <a href="https://www.gnu.org/software/make/manual/html_node/_002dw-Option.html#g_t_002dw-Option">The ‘--print-directory’ Option</a>. <br/>
+&nbsp; ‘-W file’ &nbsp; ‘--what-if=file’ &nbsp; ‘--new-file=file’ &nbsp; ‘--assume-new=file’ &nbsp;<br/>
+Pretend that the target file has just been modified. When used with the ‘-n’ flag, this shows you what would happen if you were to modify that file. Without ‘-n’, it is almost the same as running a touch command on the given file before running make, except that the modification time is changed only in the imagination of make. See <a href="https://www.gnu.org/software/make/manual/html_node/Instead-of-Execution.html#Instead-of-Execution">Instead of Executing Recipes</a>. <br/>
+&nbsp; ‘--warn-undefined-variables’ &nbsp; &nbsp;<br/>
+</span><span style="font-size: 16pt">Issue a warning message whenever make sees a reference to an undefined variable. This can be helpful when you are trying to debug makefiles which use variables in complex ways. </span><ul><span style="font-size: 14pt"><li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+</span></ul>
+<span style="font-size: 16pt"><b>Compiling C programs &nbsp; &nbsp; &nbsp;</b><br/>
+n.o is made automatically from n.c with a recipe of the form ‘$(CC) $(CPPFLAGS) $(CFLAGS) -c’. <br/>
+&nbsp; Compiling C++ programs &nbsp; &nbsp; &nbsp;<br/>
+n.o is made automatically from n.cc, n.cpp, or n.C with a recipe of the form ‘$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c’. We encourage you to use the suffix ‘.cc’ for C++ source files instead of ‘.C’. <ul><li style="list-style-type: none">&nbsp;</li>
+</ul>
+<b>Linking a single object file &nbsp; &nbsp;</b><br/>
+n is made automatically from n.o by running the linker (usually called ld) via the C compiler. The precise recipe used is ‘$(CC) $(LDFLAGS) n.o $(LOADLIBES) $(LDLIBS)’. <br/>
+&nbsp;<br/>
+This rule does the right thing for a simple program with only one source file. It will also do the right thing if there are multiple object files (presumably coming from various other source files), one of which has a name matching that of the executable file. Thus, <br/>
+&nbsp; x: y.o z.o &nbsp;<br/>
+when x.c, y.c and z.c all exist will execute: <br/>
+&nbsp; cc -c x.c -o x.o cc -c y.c -o y.o cc -c z.c -o z.o cc x.o y.o z.o -o x rm -f x.o rm -f y.o rm -f z.o &nbsp;<br/>
+In more complicated cases, such as when there is no object file whose name derives from the executable file name, you must write an explicit recipe for linking. <br/>
+&nbsp;<br/>
+</span><span style="font-size: 16pt">Each kind of file automatically made into ‘.o’ object files will be automatically linked by using the compiler (‘$(CC)’, ‘$(FC)’ or ‘$(PC)’; the C compiler ‘$(CC)’ is used to assemble ‘.s’ files) without the ‘-c’ option. This could be done by using the ‘.o’ object files as intermediates, but it is faster to do the compiling and linking in one step, so that’s how it’s done. </span><ul><li style="list-style-type: none">&nbsp;<span style="font-size: 14pt"></span></li>
+<span style="font-size: 14pt"><li style="list-style-type: none"></li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
