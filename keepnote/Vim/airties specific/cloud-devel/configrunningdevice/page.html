@@ -11,11 +11,10 @@ echo "nameserver 172.16.6.200" &gt; /etc/resolv.conf<br/>
 killall dhcpd<br/>
 ifconfig br0 172.16.11.76<br/>
 <br/>
-date -s '2018-07-30 12:00:00'<br/>
-ifconfig br0 172.16.11.190<br/>
+date -s '2018-12-10 12:00:00'<br/>
 route add default gw 172.16.0.1<br/>
 echo "nameserver 172.16.6.200" &gt; /etc/resolv.conf<br/>
-<br/>
+ifconfig br0 172.16.11.190<br/>
 <br/>
 set_config cloud_agent-0 enabled 1<br/>
 aci-cli aci_wifi_set_access_points_available 1<br/>
