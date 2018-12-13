@@ -4,19 +4,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>air-rm</title>
 </head><body><span style="font-size: 12pt"><br/>
+#See available commands<br/>
+/usr/sbin/rm-client -h<br/>
+<br/>
+<br/>
+#Querries<br/>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
+#Get current config values<br/>
+/usr/sbin/rm-client --command get-rt-configs<br/>
+<br/>
+/usr/sbin/rm-client --command dump-post-resps-queue<br/>
+/usr/sbin/rm-client --command dump-post-errs-queue<br/>
+/usr/sbin/rm-client --command dump-packer-errs-queue<br/>
+<br/>
+<br/>
+#Commands<br/>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
+<br/>
 #Set remote URL<br/>
 <br/>
 /usr/sbin/rm-client --command post-config --payload '{ "remote_url": " http://dc04.airtiescloud.com/dc/v3pre/" }'<br/>
 <br/>
-#See available commands<br/>
-/usr/sbin/rm-client -h<br/>
-<br/>
-#Get current config values<br/>
-/usr/sbin/rm-client --command get-rt-configs<br/>
 <br/>
 <br/>
-<br/>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
 /usr/sbin/rm-client --command post-config --payload '{ "period_in_ms": "10000" }'<br/>
 /usr/sbin/rm-client --command packing-config --payload '{ "period_in_ms": "10000" }'<br/>
 /usr/sbin/rm-client --command topogen-config --payload '{ "topogen_queueing_period": "1000" }'<br/>
