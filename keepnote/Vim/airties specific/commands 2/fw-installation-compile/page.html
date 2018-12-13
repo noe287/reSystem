@@ -4,116 +4,91 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>FW-Installation-Compile</title>
 </head><body><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">SKY-FW Install </span></span><br/>
------------------------------------------------------------------------------------------------------------------------------------------------------------------<span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">SKY-FW Install </span></span><br/>
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------<span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">- Stop the device during bootup with ctrl-c </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">- Stop the device during bootup with ctrl-c </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">- Assuming that the firmware cited below are in the "tftpboot" folder on your computer. </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">- Assuming that the firmware cited below are in the "tftpboot" folder on your computer. </span></span><br/>
 </div><br/>
-<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">  cat /airties_user/etc/data.xml<br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  cat /airties_user/etc/data.xml<br/>
 <br/>
+</span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">BOOSTER </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">f 192.168.2.77:bcmEXTENDER_fs_kernel </span></span><br/>
+</div><br/>
+<div style="text-align: left">-----------------------------------------------------------------------------------------------------------------------------------------------------------------<span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">VIPER </span></span><br/>
+</div><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri"><div style="text-align: left">f 192.168.2.77:bcmBSKYB_VIPER_fs_kernel <br/>
 </div></span></span><div style="text-align: left"><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">BOOSTER </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">f 192.168.2.77:bcmEXTENDER_fs_kernel </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">f 192.168.2.77:bcmEXTENDER_fs_kernel_local_build </span></span><br/>
-</div><br/>
-<div style="text-align: left">-----------------------------------------------------------------------------------------------------------------------------------------------------------------<span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">VIPER </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">f 192.168.2.77:bcmBSKYB_VIPER_fs_kernel <br/>
-</span></span><span style="font-family: Calibri"><span style="font-size: 11pt">f 192.168.2.77:bcmBSKYB_VIPER_fs_kernel_non </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">f 192.168.2.77:bcmBSKYB_VIPER_fs_kernel_18AP </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">bcmBSKYB_VIPER_fs_kernel_smart </span></span><br/>
 </div><br/>
 <div style="text-align: left">-----------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
-<span style="font-family: Calibri"><span style="font-size: 11pt"><br/>
-</span></span><span style="font-family: Calibri"><span style="font-size: 11pt">MRBOX  </span></span><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri"><br/>
+</span></span><span style="font-size: 11pt"><span style="font-family: Calibri">MRBOX  </span></span><br/>
 </div><br/>
-<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">"tftp 40000000 192.168.2.77:uImage;mmc write 40000000 0 14000; reset <br/>
-tftp 40000000 192.168.2.77:uImage_non;mmc write 40000000 0 14000; reset <br/>
-</div></span></span><div style="text-align: left"><br/>
+<span style="font-family: Calibri"><span style="font-size: 11pt"><div style="text-align: left">tftp 40000000 192.168.2.77:uImage;mmc write 40000000 0 14000; reset <br/>
+</div></span></span><br/>
+<div style="text-align: left">-----------------------------------------------------------------------------------------------------------------------------------------------------------------<span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp 40000000 192.168.2.77:uImageN_eng_release;mmc write 40000000 0 14000; reset </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">XWING </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp 40000000 192.168.2.77:uImageNmr;mmc write 40000000 0 14000; reset </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp 40000000 192.168.2.77:uImageN_eng_release;mmc write 40000000 0 14000; reset </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp 40000000 192.168.2.77:1077mr;mmc write 40000000 0 14000; reset </span></span><br/>
-</div><br/>
-<div style="text-align: left">-----------------------------------------------------------------------------------------------------------------------------------------------------------------<span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">XWING </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp 40000000 192.168.2.77:uImage; mmc write 40000000 0 14000; reset </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp 40000000 192.168.2.77:uImageNXwing; mmc write 40000000 0 14000; reset </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp 40000000 192.168.2.77:uImageNX_eng_release; mmc write 40000000 0 14000; reset </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp 40000000 192.168.2.77:uImageX; mmc write 40000000 0 14000; reset </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">tftp 40000000 192.168.2.77:uImage; mmc write 40000000 0 14000; reset </span></span><br/>
 </div><br/>
 <div style="text-align: left">-----------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">FALCON  </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">FALCON  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ifconfig eth0 -addr=192.168.2.7 -mask=255.255.255.0 -gw=192.168.2.77 -dns=192.168.2.77;flash 192.168.2.77:zImage emmcflash0.kernel;reboot; </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">ifconfig eth0 -addr=192.168.2.7 -mask=255.255.255.0 -gw=192.168.2.77 -dns=192.168.2.77;flash 192.168.2.77:zImage emmcflash0.kernel;reboot; </span></span><br/>
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------<span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ifconfig eth0 -addr=192.168.2.7 -mask=255.255.255.0 -gw=192.168.2.77 -dns=192.168.2.77;flash 192.168.2.77:zImageOrg emmcflash0.kernel;reboot; </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">GEMINI </span></span><br/>
 </div><br/>
-<div style="text-align: left">-----------------------------------------------------------------------------------------------------------------------------------------------------------------<span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">setenv ipaddr 192.168.2.50; tftp 42008000 192.168.2.77:zImage; mmc write 42008000 52000 19000; reset </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">GEMINI </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">setenv ipaddr 192.168.2.50; tftp 42008000 192.168.2.77:zImage; mmc write 42008000 52000 19000; reset </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span></div><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri"><div style="text-align: left">  </div></span></span><br/>
 <div style="text-align: left">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-<span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">#set device IP Address </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">#set device IP Address </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set ipaddr &lt;your DUT ip address&gt; </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set ipaddr &lt;your DUT ip address&gt; </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">set serverip &lt;your PC ip address&gt; </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">set serverip &lt;your PC ip address&gt; </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">saveenv </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">tftp 40000000 uImage </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">mmc write 40000000 0 14000 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">reset </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span></div><br/>
-<br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">Write Falcon Image: </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">ifconfig eth0 -addr=192.168.2.6 -mask=255.255.255.0 -gw=192.168.2.1 -dns=192.168.2.1 </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">flash 192.168.2.77:zImage emmcflash0.kernel </span></span><br/>
-</div><br/>
-<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">setenv -p STARTUP "boot emmcflash0.kernel:zImage 'console=ttyS0,115200 ip=udhcp vmalloc=300M brcm_cma_kern_rsv=450M'" </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">saveenv </span></span><br/>
 </div><br/>
 <div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
 </div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">tftp 40000000 uImage </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">mmc write 40000000 0 14000 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">reset </span></span><br/>
+</div><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri"><div style="text-align: left">  </div></span></span><br/>
+<br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">Write Falcon Image: </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">ifconfig eth0 -addr=192.168.2.6 -mask=255.255.255.0 -gw=192.168.2.1 -dns=192.168.2.1 </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">flash 192.168.2.77:zImage emmcflash0.kernel </span></span><br/>
+</div><br/>
+<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">setenv -p STARTUP "boot emmcflash0.kernel:zImage 'console=ttyS0,115200 ip=udhcp vmalloc=300M brcm_cma_kern_rsv=450M'" </span></span><br/>
+</div><br/>
 <div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt">  </span></span><br/>
-<span style="font-family: Calibri"><span style="font-size: 11pt">------------------------------------------------------------------------------------------------------------------ <br/>
+</div><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri">  </span></span><br/>
+<span style="font-size: 11pt"><span style="font-family: Calibri">------------------------------------------------------------------------------------------------------------------ <br/>
 Below enables one to build the fimware and creating a tarball <br/>
 <br/>
 [all: all_start build all_end print_build_times                                                                                                                                                               ] <br/>
@@ -126,7 +101,7 @@ make airties-rebuild <br/>
 <br/>
 make airties-release <br/>
 <br/>
-</span></span><span style="font-family: Calibri"><span style="font-size: 11pt">make foss-disable </span></span><br/>
+</span></span><span style="font-size: 11pt"><span style="font-family: Calibri">make foss-disable </span></span><br/>
 </div><br/>
-<div style="text-align: left"><span style="font-family: Calibri"><span style="font-size: 11pt"> </span></span><br/>
+<div style="text-align: left"><span style="font-size: 11pt"><span style="font-family: Calibri"> </span></span><br/>
 </div></body></html>
