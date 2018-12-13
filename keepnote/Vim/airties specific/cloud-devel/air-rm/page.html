@@ -17,11 +17,11 @@
 <br/>
 <br/>
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
-/usr/sbin/rm-client --command post-config --payload '{ "period_in_ms": "100000" }'<br/>
-/usr/sbin/rm-client --command packing-config --payload '{ "period_in_ms": "100000" }'<br/>
-/usr/sbin/rm-client --command topogen-config --payload '{ "topogen_queueing_period": "10000" }'<br/>
-/usr/sbin/rm-client --command vital-config --payload '{ "period_in_ms": "100000" }'<br/>
-/usr/sbin/rm-client --command cmds-config --payload '{ "period_in_ms": "100000" }'<br/>
+/usr/sbin/rm-client --command post-config --payload '{ "period_in_ms": "600000" }'<br/>
+/usr/sbin/rm-client --command packing-config --payload '{ "period_in_ms": "600000" }'<br/>
+/usr/sbin/rm-client --command topogen-config --payload '{ "topogen_queueing_period": "60000" }'<br/>
+/usr/sbin/rm-client --command vital-config --payload '{ "period_in_ms": "600000" }'<br/>
+/usr/sbin/rm-client --command cmds-config --payload '{ "period_in_ms": "600000" }'<br/>
 <br/>
 /usr/sbin/rm-client --command dump-event-queue<br/>
 <br/>
