@@ -3,8 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>air-rm</title>
-</head><body>/usr/sbin/rm-client --command post-config --payload '{ "remote_url": " <a href="http://dc04.airtiescloud.com/dc/v3pre/">http://dc04.airtiescloud.com/dc/v3pre/</a>" }'<br/>
+</head><body><br/>
+#Set remote URL<br/>
+/usr/sbin/rm-client --command post-config --payload '{ "remote_url": " <a href="http://dc04.airtiescloud.com/dc/v3pre/">http://dc04.airtiescloud.com/dc/v3pre/</a>" }'<br/>
 <br/>
-# /usr/sbin/rm-client --command get-rt-configs<br/>
+#See available commands<br/>
+/usr/sbin/rm-client -h<br/>
+<br/>
+#Get current config values<br/>
+/usr/sbin/rm-client --command get-rt-configs<br/>
 <br/>
 </body></html>
