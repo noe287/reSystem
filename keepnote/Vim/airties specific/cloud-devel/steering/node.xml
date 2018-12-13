@@ -4,10 +4,12 @@
 <dict>
   <key>title</key><string>Steering</string>
   <key>nodeid</key><string>0959e512-dc8b-4900-a451-ae6f31e52e31</string>
-  <key>modified_time</key><integer>1544624443</integer>
+  <key>modified_time</key><integer>1544683095</integer>
   <key>version</key><integer>6</integer>
   <key>content_type</key><string>text/xhtml+xml</string>
   <key>created_time</key><integer>1544624357</integer>
-  <key>order</key><integer>1</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>2</integer>
+  <key>info_sort</key><string>order</string>
 </dict>
 </node>
