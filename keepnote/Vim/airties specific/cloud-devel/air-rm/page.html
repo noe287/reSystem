@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>air-rm</title>
-</head><body><br/>
+</head><body><span style="font-size: 14pt"><br/>
 #Set remote URL<br/>
 /usr/sbin/rm-client --command post-config --payload '{ "remote_url": " <a href="http://dc04.airtiescloud.com/dc/v3pre/">http://dc04.airtiescloud.com/dc/v3pre/</a>" }'<br/>
 <br/>
@@ -14,4 +14,54 @@
 /usr/sbin/rm-client --command get-rt-configs<br/>
 <br/>
 /usr/sbin/rm-client --command debug-config --payload '{"level":2}'<br/>
-/usr/sbin/rm-client --command debug-config --payload '{"level":0}'</body></html>
+/usr/sbin/rm-client --command debug-config --payload '{"level":0}'<br/>
+<br/>
+<br/>
+# /usr/sbin/rm-client -h<br/>
+/usr/sbin/rm-client Version: 20181212-175505<br/>
+/usr/sbin/rm-client Options: <br/>
+hostname &nbsp; &nbsp; &nbsp; &nbsp;port &nbsp; &nbsp;timeout command payload<br/>
+rm-client --command get-rt-configs<br/>
+<br/>
+rm-client --command dump-post-resps-queue<br/>
+rm-client --command dump-post-errs-queue<br/>
+rm-client --command dump-packer-errs-queue<br/>
+<br/>
+rm-client --command dump-event-queue<br/>
+rm-client --command dump-topology-queue<br/>
+rm-client --command dump-friendly-queue<br/>
+rm-client --command dump-cmds-queue<br/>
+rm-client --command dump-diags<br/>
+<br/>
+rm-client --command free-event-queue<br/>
+rm-client --command free-diags-queue<br/>
+rm-client --command free-topology-queue<br/>
+rm-client --command free-friendly-queue<br/>
+rm-client --command free-cmds-queue<br/>
+<br/>
+rm-client --command push-topogen-data --payload '{ "data": "ownaddr=...,type=..", "uptime": "4213"}'<br/>
+rm-client --command push-topogen-data --payload '{ "channel2g": "5", "cca2g": "0.89"}'<br/>
+<br/>
+rm-client --command push-event --payload '{ "data": "[sec.ms] type subtype optional_evt_data"}'<br/>
+<br/>
+rm-client --command push-diagnostics --payload '{ "data": "[sec.ms] 1f40612321adcsdq..", "type": "radar"}'<br/>
+<br/>
+rm-client --command post-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command post-config --payload '{ "period_in_ms": "600000" }'<br/>
+rm-client --command post-config --payload '{ "remote_url": "http://192.168.1.150/post.php" }'<br/>
+rm-client --command post-config --payload '{ "agent": "agent_str" }'<br/>
+<br/>
+rm-client --command packing-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command packing-config --payload '{ "period_in_ms": "600000" }'<br/>
+<br/>
+rm-client --command topogen-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command topogen-config --payload '{ "topogen_period": "1000" }'<br/>
+rm-client --command topogen-config --payload '{ "topogen_queueing_period": "60000" }'<br/>
+<br/>
+rm-client --command vital-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command vital-config --payload '{ "period_in_ms": "600000" }'<br/>
+<br/>
+rm-client --command cmds-config --payload '{ "enabled": "yes" }'<br/>
+rm-client --command cmds-config --payload '{ "period_in_ms": "600000" }'<br/>
+<br/>
+rm-client --command debug-config --payload '{ "level": 4 }'</span></body></html>
