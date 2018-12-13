@@ -13,10 +13,21 @@
 #Get current config values<br/>
 /usr/sbin/rm-client --command get-rt-configs<br/>
 <br/>
+<br/>
+<br/>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
+/usr/sbin/rm-client --command post-config --payload '{ "period_in_ms": "100000" }'<br/>
+/usr/sbin/rm-client --command packing-config --payload '{ "period_in_ms": "100000" }'<br/>
+/usr/sbin/rm-client --command topogen-config --payload '{ "topogen_queueing_period": "10000" }'<br/>
+/usr/sbin/rm-client --command vital-config --payload '{ "period_in_ms": "100000" }'<br/>
+/usr/sbin/rm-client --command cmds-config --payload '{ "period_in_ms": "100000" }'<br/>
+<br/>
+/usr/sbin/rm-client --command dump-event-queue<br/>
+<br/>
 /usr/sbin/rm-client --command debug-config --payload '{"level":2}'<br/>
 /usr/sbin/rm-client --command debug-config --payload '{"level":0}'<br/>
 <br/>
-<br/>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
 # /usr/sbin/rm-client -h<br/>
 /usr/sbin/rm-client Version: 20181212-175505<br/>
 /usr/sbin/rm-client Options: <br/>
@@ -67,12 +78,5 @@ rm-client --command cmds-config --payload '{ "period_in_ms": "600000" }'<br/>
 rm-client --command debug-config --payload '{ "level": 4 }'<br/>
 <br/>
 <br/>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
-/usr/sbin/rm-client --command post-config --payload '{ "period_in_ms": "100000" }'<br/>
-/usr/sbin/rm-client --command packing-config --payload '{ "period_in_ms": "100000" }'<br/>
-/usr/sbin/rm-client --command topogen-config --payload '{ "topogen_queueing_period": "10000" }'<br/>
-/usr/sbin/rm-client --command vital-config --payload '{ "period_in_ms": "100000" }'<br/>
-/usr/sbin/rm-client --command cmds-config --payload '{ "period_in_ms": "100000" }'<br/>
 <br/>
-/usr/sbin/rm-client --command dump-event-queue<br/>
 </span></body></html>
