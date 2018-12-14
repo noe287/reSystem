@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>air-bus</string>
+  <key>nodeid</key><string>6efb6ed7-ca3b-45e5-9d51-2fddf893d830</string>
+  <key>modified_time</key><integer>1544794201</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1544794177</integer>
+  <key>order</key><integer>1</integer>
+</dict>
+</node>
