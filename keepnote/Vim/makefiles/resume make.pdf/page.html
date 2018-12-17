@@ -100,10 +100,9 @@
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
 <li>During the secondary expansion of explicit rules, $$@ and $$% evaluate, respectively, to the file name of the target and, when the target is an archive member, the target member name. </li>
 <li>The $$&lt; variable evaluates to the first prerequisite in the first rule for this target. $$^ and $$+ evaluate to the list of all prerequisites of rules <i>that have already appeared</i>&nbsp;for the same target ($$+ with repetitions and $$^ without).</li>
+<li>.SECONDEXPANSION: </li>
 </span></ul>
-<span style="font-size: 14pt"><ul><li>.SECONDEXPANSION: </li>
-</ul>
-<ul><li>foo: foo.1 bar.1 $$&lt; $$^ $$+ # line #1 foo: foo.2 bar.2 $$&lt; $$^ $$+ # line #2 foo: foo.3 bar.3 $$&lt; $$^ $$+ # line #3 </li>
+<span style="font-size: 14pt"><ul><li>foo: foo.1 bar.1 $$&lt; $$^ $$+ # line #1 foo: foo.2 bar.2 $$&lt; $$^ $$+ # line #2 foo: foo.3 bar.3 $$&lt; $$^ $$+ # line #3 </li>
 </ul>
 <ul><li>In the first prerequisite list, all three variables ($$&lt;, $$^, and $$+) expand to the empty string. In the second, they will have values foo.1, foo.1 bar.1, and foo.1 bar.1 respectively. In the third they will have values foo.1, foo.1 bar.1 foo.2 bar.2, and foo.1 bar.1 foo.2 bar.2 foo.1 foo.1 bar.1 foo.1 bar.1 respectively. </li>
 </ul>
@@ -322,7 +321,7 @@ This one is slightly more interesting: it defines a macro to search for the firs
 pathsearch = $(firstword $(wildcard $(addsuffix /$(1),$(subst :, ,$(PATH))))) <br/>
 LS := $(call pathsearch,ls) &nbsp;<br/>
 <br/>
-Now the variable LS contains /bin/ls or similar. </span><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
+</span><span style="font-size: 20pt">Now the variable LS contains /bin/ls or similar. </span><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
 <li style="list-style-type: none"></li>
 </span></ul>
@@ -423,9 +422,15 @@ when x.c, y.c and z.c all exist will execute: <br/>
 &nbsp; cc -c x.c -o x.o cc -c y.c -o y.o cc -c z.c -o z.o cc x.o y.o z.o -o x rm -f x.o rm -f y.o rm -f z.o &nbsp;<br/>
 In more complicated cases, such as when there is no object file whose name derives from the executable file name, you must write an explicit recipe for linking. <br/>
 &nbsp;<br/>
-</span><span style="font-size: 16pt">Each kind of file automatically made into ‘.o’ object files will be automatically linked by using the compiler (‘$(CC)’, ‘$(FC)’ or ‘$(PC)’; the C compiler ‘$(CC)’ is used to assemble ‘.s’ files) without the ‘-c’ option. This could be done by using the ‘.o’ object files as intermediates, but it is faster to do the compiling and linking in one step, so that’s how it’s done. </span><ul><li style="list-style-type: none">&nbsp;<span style="font-size: 14pt"></span></li>
+</span><span style="font-size: 16pt">Each kind of file automatically made into ‘.o’ object files will be automatically linked by using the compiler (‘$(CC)’, ‘$(FC)’ or ‘$(PC)’; the C compiler ‘$(CC)’ is used to assemble ‘.s’ files) without the ‘-c’ option. This could be done by using the ‘.o’ object files as intermediates, but it is faster to do the compiling and linking in one step, so that’s how it’s done. </span><ul><li style="list-style-type: none">&nbsp;</li>
 <span style="font-size: 14pt"><li style="list-style-type: none"></li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+<li style="list-style-type: none"></li>
+</span></ul>
+<br/>
+<div style="text-align: left"><span style="font-size: 16pt"><span style="font-family: Times New Roman">Here are some examples of pattern rules actually predefined in make. First, the rule that compiles ‘.c’ files into ‘.o’ files:<br/>
+</span></span></div><div style="text-align: left"><span style="font-size: 16pt"><span style="font-family: Times New Roman">%.o : %.c $(CC) -c $(CFLAGS) $(CPPFLAGS) $&lt; -o $@ </span></span></div><br/>
+<div style="text-align: left"><span style="font-size: 16pt"><span style="font-family: Times New Roman">defines a rule that can make any file x.o from x.c. The recipe uses the automatic variables ‘$@’ and ‘$&lt;’ to substitute the names of the target file and the source file in each case where the rule applies (see <a href="https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables">Automatic Variables</a>).</span></span></div><ul><span style="font-size: 14pt"><li style="list-style-type: none"></li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
 <li style="list-style-type: none">-------------------------------------------------------------------------------------------------------------------------------------------------------</li>
