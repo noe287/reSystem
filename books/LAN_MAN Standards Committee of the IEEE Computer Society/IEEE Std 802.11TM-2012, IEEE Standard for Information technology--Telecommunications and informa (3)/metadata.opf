@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">3</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">b55accfa-9960-4645-bd50-25af6891b815</dc:identifier>
+        <dc:title>IEEE Std 802.11™-2012, IEEE Standard for Information technology—Telecommunications and information exchange between systems—Local and metropolitan area networks—Specific requirements—Part 11: WLAN MAC and PHY specifications</dc:title>
+        <dc:creator opf:file-as="LAN/MAN Standards Committee of the IEEE Computer Society" opf:role="aut">LAN/MAN Standards Committee of the IEEE Computer Society</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (2.55.0) [http://calibre-ebook.com]</dc:contributor>
+        <dc:date>2012-03-26T16:55:20+00:00</dc:date>
+        <dc:description>This revision specifies technical corrections and clarifications to IEEE Std 802.11 for wireless local area networks (WLANS) as well as enhancements to the existing medium access control (MAC) and physical layer (PHY) functions. It also incorporates Amendments 1 to 10 published in 2008 to 2011.</dc:description>
+        <dc:language>en</dc:language>
+        <dc:subject>2.4 GHz</dc:subject>
+        <dc:subject>3650 MHz</dc:subject>
+        <dc:subject>4.9 GHz</dc:subject>
+        <dc:subject>5 GHz</dc:subject>
+        <dc:subject>5.9 GHz</dc:subject>
+        <dc:subject>advanced encryption standard</dc:subject>
+        <dc:subject>AES</dc:subject>
+        <dc:subject>carrier sense multiple access/collision avoidance</dc:subject>
+        <dc:subject>CCMP</dc:subject>
+        <dc:subject>channel switching</dc:subject>
+        <dc:subject>Counter mode with</dc:subject>
+        <dc:subject>Cipher-block chaining Message authentication code Protocol</dc:subject>
+        <dc:subject>confidentiality</dc:subject>
+        <dc:subject>CSMA/CA</dc:subject>
+        <dc:subject>DFS</dc:subject>
+        <dc:subject>direct link</dc:subject>
+        <dc:subject>dynamic frequency selection</dc:subject>
+        <dc:subject>E911</dc:subject>
+        <dc:subject>emergency alert system</dc:subject>
+        <dc:subject>emergency services</dc:subject>
+        <dc:subject>forwarding</dc:subject>
+        <dc:subject>generic advertisement service</dc:subject>
+        <dc:subject>high throughput</dc:subject>
+        <dc:subject>IEEE 802.11</dc:subject>
+        <dc:subject>interface</dc:subject>
+        <dc:subject>international roaming</dc:subject>
+        <dc:subject>interworking</dc:subject>
+        <dc:subject>interworking with external networks</dc:subject>
+        <dc:subject>LAN</dc:subject>
+        <dc:subject>local area network</dc:subject>
+        <dc:subject>MAC</dc:subject>
+        <dc:subject>measurement</dc:subject>
+        <dc:subject>medium access control</dc:subject>
+        <dc:subject>media-independent handover</dc:subject>
+        <dc:subject>medium access controller</dc:subject>
+        <dc:subject>mesh</dc:subject>
+        <dc:subject>MIH</dc:subject>
+        <dc:subject>MIMO</dc:subject>
+        <dc:subject>MIMO-OFDM</dc:subject>
+        <dc:subject>multi-hop</dc:subject>
+        <dc:subject>multiple input multiple output</dc:subject>
+        <dc:subject>network advertisement</dc:subject>
+        <dc:subject>network discovery</dc:subject>
+        <dc:subject>network management</dc:subject>
+        <dc:subject>network selection</dc:subject>
+        <dc:subject>off-channel direct link</dc:subject>
+        <dc:subject>path-selection</dc:subject>
+        <dc:subject>PHY</dc:subject>
+        <dc:subject>physical layer</dc:subject>
+        <dc:subject>power saving</dc:subject>
+        <dc:subject>QoS</dc:subject>
+        <dc:subject>quality of service</dc:subject>
+        <dc:subject>QoS mapping</dc:subject>
+        <dc:subject>radio</dc:subject>
+        <dc:subject>radio frequency</dc:subject>
+        <dc:subject>RF</dc:subject>
+        <dc:subject>radio resource</dc:subject>
+        <dc:subject>radio management</dc:subject>
+        <dc:subject>SSP</dc:subject>
+        <dc:subject>SSPN</dc:subject>
+        <dc:subject>subscriber service provider</dc:subject>
+        <dc:subject>temporal key integrity protocol</dc:subject>
+        <dc:subject>TKIP</dc:subject>
+        <dc:subject>TPC</dc:subject>
+        <dc:subject>transmit power control</dc:subject>
+        <dc:subject>tunneled direct link setup</dc:subject>
+        <dc:subject>wireless access in vehicular environments</dc:subject>
+        <dc:subject>wireless LAN</dc:subject>
+        <dc:subject>wireless local area network</dc:subject>
+        <dc:subject>WLAN</dc:subject>
+        <dc:subject>wireless network management</dc:subject>
+        <dc:subject>zero-knowledge proof</dc:subject>
+        <meta content="{&quot;LAN/MAN Standards Committee of the IEEE Computer Society&quot;: &quot;&quot;}" name="calibre:author_link_map"/>
+        <meta content="2018-12-24T12:44:37.738864+00:00" name="calibre:timestamp"/>
+        <meta content="IEEE Std 802.11™-2012, IEEE Standard for Information technology—Telecommunications and information exchange between systems—Local and metropolitan area networks—Specific requirements—Part 11: WLAN MAC and PHY specifications" name="calibre:title_sort"/>
+    </metadata>
+    <guide>
+        <reference href="cover.jpg" title="Cover" type="cover"/>
+    </guide>
+</package>
